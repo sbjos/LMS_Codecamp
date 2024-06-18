@@ -1,0 +1,14 @@
+{
+  "Servers": {
+    "1": {
+      "Name": "codecamp_01",
+      "Group": "Dev",
+      "Port": 5432,
+      "Username": "docker",
+      "Password": "docker",
+      "Host": "pg_server_01",
+      "SSLMode": "prefer",
+      "MaintenanceDB": "postgres"
+    }
+  }
+}

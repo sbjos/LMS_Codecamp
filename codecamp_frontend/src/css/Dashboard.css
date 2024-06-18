@@ -1,0 +1,98 @@
+.dashboard-header {
+  color: #313233;
+  margin-bottom: 30px;
+}
+
+.dashboard-navbar {
+  height: 47px;
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+}
+
+.dashboard-navbar .button {
+  display: flex;
+  justify-content: center;
+  width: auto;
+  align-items: center;
+
+  button {
+    border: none;
+    background-color: 0;
+    background: none;
+    box-shadow: none;
+  }
+}
+
+.showall {
+  font-size: 1.2em;
+  position: inherit;
+}
+
+.label-container {
+  display: flex;
+  justify-content: flex-start;
+  margin-left: 45px;
+  position: relative;
+  top: 18px;
+}
+
+.assignments-container label {
+  font-size: 1.35em;
+  color: #615f5f;
+  padding: 0 10px 0 10px;
+  margin: 0 15px;
+  background-color: rgb(252, 252, 252);
+  background: linear-gradient(to top, white 0%, rgb(275, 275, 275) 85%);
+}
+
+.assignments-container ul {
+  border: 2px solid #dad9d9;
+  display: flex;
+  flex-direction: row;
+  border-radius: 20px;
+  margin: auto;
+  margin-bottom: 25px;
+  padding: 30px;
+  gap: 30px;
+  max-width: 1184px;
+  height: 252px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1), 1px 0 10px 0 rgba(0, 0, 0, 0.1);
+}
+
+.cards {
+  font-size: 1.02em;
+  font-weight: 400;
+  list-style: none;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1), 0 8px 16px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  margin: 0;
+  padding: 15px 10px;
+  width: 200px;
+  background-color: #f7f6f6;
+}
+.cards a:hover {
+  text-decoration: underline;
+}
+
+.cards .button:hover {
+  text-decoration: none;
+}
+
+#card-button {
+  margin-top: 28px;
+  height: 47px;
+  display: flex;
+  justify-content: center;
+}
+
+#card-button a {
+  display: flex;
+  justify-content: center;
+  width: 160px;
+  align-items: center;
+}
+
+.card-container-submit {
+  margin: 0;
+}

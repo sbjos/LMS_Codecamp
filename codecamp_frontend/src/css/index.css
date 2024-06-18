@@ -1,0 +1,119 @@
+* {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+:root {
+  font-family: apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Noto Sans,
+    Ubuntu, Droid Sans, Helvetica Neue, sans-serif;
+  line-height: 2;
+  font-weight: 400;
+  font-size: 1rem;
+  text-shadow: 2px 2px rgba(131, 130, 130, 0.1);
+
+  color-scheme: light dark;
+  color: #35373a;
+
+  background-color: white;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  padding: 2rem;
+  text-align: center;
+}
+
+.burger {
+  width: 477px;
+}
+
+h1 {
+  font-size: 3em;
+  line-height: 1.1;
+  font-weight: 600;
+}
+
+h2 {
+  font-size: 1.7em;
+  font-weight: 500;
+  margin-bottom: 55px;
+}
+
+a {
+  color: #6e6e6e;
+  text-decoration: none;
+  margin: 0;
+  padding: 0;
+}
+
+label {
+  font-size: 1.05em;
+  font-weight: 500;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  flex-wrap: nowrap;
+}
+
+input {
+  min-width: 100px;
+  min-width: 400px;
+  margin-bottom: 15px;
+  border: 1px solid rgb(216, 216, 216);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), 0 8px 16px rgba(0, 0, 0, 0.1);
+  background-color: #ffff;
+  display: flex;
+  font-size: 1em;
+  height: 25px;
+  font-weight: 500;
+  font-family: inherit;
+  border-radius: 8px;
+  color: #35373a;
+  padding: 0.6em 1.2em;
+}
+
+button,
+.button {
+  color: #ffffff;
+  border-radius: 8px;
+  border: 1px solid #0876b1;
+  padding: 12px;
+  font-size: 1rem;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #0876b1;
+  cursor: pointer;
+  transition: border-color 0.25s;
+  text-decoration: none;
+  text-wrap: nowrap;
+  margin: 0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), 0 8px 16px rgba(0, 0, 0, 0.1);
+
+  &:hover {
+    background-color: #0a7ebd;
+    -webkit-transition: background-color 0.2s ease-out;
+    -moz-transition: background-color 0.2s ease-out;
+    -o-transition: background-color 0.2s ease-out;
+    transition: background-color 0.2s ease-out;
+  }
+
+  &:disabled {
+    border: 1px solid #928c8c;
+    background-color: #888484;
+    color: #423e35;
+  }
+}
+
+#error {
+  color: rgb(223, 26, 26);
+  margin-top: 15px;
+  margin-bottom: 5px;
+  height: 28px;
+}
+
+.separationline {
+  border: 1.5px solid #e6e4e4;
+  margin-top: 43px;
+}

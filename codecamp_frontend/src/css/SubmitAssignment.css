@@ -1,0 +1,15 @@
+.create-header {
+  margin-bottom: 30px;
+}
+
+.create-header h1 {
+  padding: 25px 0;
+}
+
+.form-create-button {
+  margin-top: 25px;
+  display: flex;
+  justify-content: center;
+  gap: 45px;
+  width: auto;
+}
