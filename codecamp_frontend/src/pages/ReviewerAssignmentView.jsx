@@ -7,8 +7,7 @@ import RedirectButton from "../components/RedirectButton";
 function ReviewerAssignmentView() {
   const dashboard = RedirectButton("reviewer", "Dashboard");
   const navigate = useNavigate();
-  // const [status, setStatus] = useState(null);
-  const [assignment, setAssignment] = useState(null);
+  const [assignments, setAssignments] = useState(null);
   const [reviewVideoUrl, setReviewVideoUrl] = useState("");
   const { id } = useParams(null);
   const token = localStorage.getItem("lmsusertoken");
@@ -18,7 +17,9 @@ function ReviewerAssignmentView() {
     ? cleanUserAuthority.split(", ")
     : "";
 
-  // Validate a user's access to a webpage
+  /**
+   * Validates a user's access to a webpage
+   */
   Validate(token, cleanUserAuthority);
 
   // automatically fetches and loads the assignment by ID
@@ -29,7 +30,8 @@ function ReviewerAssignmentView() {
           "http://localhost:8080/api/assignments/" + id,
           { headers: { Authorization: "Bearer " + token } }
         );
-        setAssignment(response.data);
+        setAssignments(response.data.map((item) => item.assignment));
+        console.log(assignments); // TODO: remove
       } catch (err) {
         if (!err) {
           console.error("No server response");
@@ -42,11 +44,11 @@ function ReviewerAssignmentView() {
   }, []);
 
   // Handles loading of data fetching
-  if (!assignment) {
+  if (!assignments) {
     return <div>Loading...</div>;
   }
 
-  const user = assignment.assignment.user;
+  const user = assignments.assignment.user;
 
   // Submit the updated assignment by updating the status and the video url
   const handleClick = async (e, status) => {
@@ -55,7 +57,7 @@ function ReviewerAssignmentView() {
     if (!reviewVideoUrl) {
       alert("Please add a review video.");
     } else {
-      if (reviewVideoUrl == assignment.assignment.reviewVideoUrl) {
+      if (reviewVideoUrl == assignments.assignment.reviewVideoUrl) {
         alert("No changes detected");
       } else {
         try {
@@ -84,7 +86,7 @@ function ReviewerAssignmentView() {
   const reopenAssignment = async (e) => {
     e.preventDefault();
 
-    setReviewVideoUrl(assignment.assignment.reviewVideoUrl);
+    setReviewVideoUrl(assignments.assignment.reviewVideoUrl);
     try {
       const status = "Needs work";
       const assignment = { reviewVideoUrl, status, user };
@@ -103,16 +105,20 @@ function ReviewerAssignmentView() {
     } catch (err) {
       if (!err) {
         console.error("No server response");
+      }
+      if (err.response.status === 403) {
+        alert("This learner has to many open assignments at this time.");
+        console.error(err);
       } else {
         console.error(err);
-        alert("This learner has to many open assignments at the moment.");
+        alert("Failed to claim the assignment !");
       }
     }
   };
 
   // Allows to view or reopen a completed assignment.
   function formOrNot() {
-    if (assignment.assignment.status === "Completed") {
+    if (assignments.assignment.status === "Completed") {
       return (
         <div>
           <div className="form-edit-review">
@@ -120,7 +126,7 @@ function ReviewerAssignmentView() {
             <input
               id="reviewvideo"
               type="text"
-              placeholder={assignment.assignment.reviewVideoUrl}
+              placeholder={assignments.assignment.reviewVideoUrl}
               onChange={(e) => {
                 setReviewVideoUrl(e.target.value);
               }}
@@ -144,7 +150,7 @@ function ReviewerAssignmentView() {
                 defaultValue={
                   reviewVideoUrl
                     ? reviewVideoUrl
-                    : assignment.assignment.reviewVideoUrl
+                    : assignments.assignment.reviewVideoUrl
                 }
                 onChange={(e) => {
                   setReviewVideoUrl(e.target.value);
@@ -178,15 +184,15 @@ function ReviewerAssignmentView() {
   return (
     <>
       <div className="edit-header">
-        <h1>Assignment {assignment.assignment.number}</h1>
-        <h2>{assignment.assignment.status}</h2>
+        <h1>Assignment {assignments.assignment.number}</h1>
+        <h2>{assignments.assignment.status}</h2>
       </div>
       <div className="burger">
         <div className="form-edit-github">
           <label htmlFor="githuburl">Github</label>
           <input
             id="githuburl"
-            placeholder={assignment.assignment.githubUrl}
+            placeholder={assignments.assignment.githubUrl}
             disabled
           />
         </div>
@@ -194,7 +200,7 @@ function ReviewerAssignmentView() {
           <label htmlFor="branch">Branch</label>
           <input
             id="branch"
-            placeholder={assignment.assignment.branch}
+            placeholder={assignments.assignment.branch}
             disabled
           />
         </div>

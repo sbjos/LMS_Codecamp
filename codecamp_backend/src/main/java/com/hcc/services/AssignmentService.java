@@ -15,7 +15,6 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 import static com.hcc.enums.AssignmentStatusEnum.*;
-import static com.hcc.enums.AssignmentStatusEnum.COMPLETED;
 import static com.hcc.enums.AuthorityEnum.LEARNER;
 import static com.hcc.enums.AuthorityEnum.REVIEWER;
 
@@ -94,7 +93,7 @@ public class AssignmentService {
             Optional.ofNullable(update.getGithubUrl()).ifPresent(url -> userAssignment.get().setGithubUrl(url));
             Optional.ofNullable(update.getBranch()).ifPresent(branch -> userAssignment.get().setBranch(branch));
             userAssignment.get().setStatus(SUBMITTED.getStatus());
-            userAssignment.get().setCodeReviewer(null);
+            userAssignment.get().setCodeReviewer(update.getCodeReviewer());
 
         }
 

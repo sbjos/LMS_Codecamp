@@ -12,7 +12,7 @@ function RedirectButton(value, button, data) {
       case "learner":
         navigate("/api/dashboard");
         break;
-      case "learner-view":
+      case "learner-assignment-view":
         navigate("/api/assignment/" + data);
         break;
       case "new-assignment":
@@ -25,8 +25,8 @@ function RedirectButton(value, button, data) {
       case "reviewer":
         navigate("/api/reviewer/dashboard");
         break;
-      case "reviewer-view":
-        navigate("/api/auth/login");
+      case "reviewer-assignment-view":
+        navigate("/api/reviewer/assignment/:id");
         break;
     }
   };

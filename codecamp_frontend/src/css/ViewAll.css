@@ -1,0 +1,39 @@
+.assignment-tables {
+  margin-top: 30px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px; /* Adjust the gap as needed */
+  justify-content: space-evenly;
+}
+
+.assignment-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  padding: 10px 20px; /* Adjust the padding values as needed */
+  /* text-align: left; */
+  border-bottom: 1px solid #ddd;
+}
+
+th {
+  background-color: #f4f4f4;
+}
+
+.button-colunm {
+}
+
+.viewall-claim-button {
+  padding: 5px 10px;
+  background-color: #1971cf;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.viewall-claim-button:hover {
+  background-color: #0056b3;
+}

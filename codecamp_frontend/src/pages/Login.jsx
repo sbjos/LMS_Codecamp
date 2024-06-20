@@ -19,7 +19,7 @@ function Login() {
         navigate("/api/dashboard");
       }
       if (authority === "[REVIEWER]") {
-        navigate("/api/dashboard/reviewer");
+        navigate("/api/reviewer/dashboard");
       }
       if (authority === "[ADMIN]") {
         navigate("/api/admin");

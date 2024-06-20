@@ -1,11 +1,9 @@
 import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import LearnerMapping from "../components/LearnerMapping";
 import Validate from "../components/Validate";
 import RedirectButton from "../components/RedirectButton";
 import "../css/Dashboard.css";
-import "../css/ScrollButton.css";
 
 function LearnerDashboard() {
   const [assignments, setAssignments] = useState([]);

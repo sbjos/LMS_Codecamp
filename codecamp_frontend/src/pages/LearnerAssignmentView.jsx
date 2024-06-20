@@ -6,7 +6,7 @@ import RedirectButton from "../components/RedirectButton";
 import "../css/AssignmentViews.css";
 
 function LearnerAssignmentView() {
-  const redirect = RedirectButton("learner", "Dashboard");
+  const dashboard = RedirectButton("learner", "Dashboard");
   const [assignment, setAssignment] = useState(null);
   const [githubUrl, setGithubUrl] = useState(null);
   const [branch, setBranch] = useState(null);
@@ -53,6 +53,7 @@ function LearnerAssignmentView() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    const codeReviewer = assignment.assignment.codeReviewer;
     if (
       (!githubUrl && !branch) ||
       githubUrl == assignment.assignment.githubUrl ||
@@ -61,7 +62,7 @@ function LearnerAssignmentView() {
       alert("No changes detected");
     } else {
       try {
-        const assignment = { githubUrl, branch, status };
+        const assignment = { githubUrl, branch, status, codeReviewer };
         const response = await axios.put(
           "http://localhost:8080/api/assignments/" + id,
           assignment,
@@ -143,7 +144,7 @@ function LearnerAssignmentView() {
           {reviewVideo(assignment)}
           <div className="form-edit-button">
             <button>Submit</button>
-            {redirect}
+            {dashboard}
           </div>
         </form>
       </div>

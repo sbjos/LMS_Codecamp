@@ -8,7 +8,7 @@
       "type": "chrome",
       "request": "launch",
       "name": "Launch Chrome against localhost",
-      "url": "http://localhost:3000/api/reviewer/assignment/23",
+      "url": "http://localhost:3000/api/",
       "webRoot": "${workspaceFolder}"
     }
   ]

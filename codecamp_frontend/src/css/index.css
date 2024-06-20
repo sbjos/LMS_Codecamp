@@ -78,12 +78,12 @@ button,
 .button {
   color: #ffffff;
   border-radius: 8px;
-  border: 1px solid #0876b1;
+  border: none;
   padding: 12px;
   font-size: 1rem;
   font-weight: 500;
   font-family: inherit;
-  background-color: #0876b1;
+  background-color: #1971cf;
   cursor: pointer;
   transition: border-color 0.25s;
   text-decoration: none;

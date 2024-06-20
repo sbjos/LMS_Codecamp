@@ -4,9 +4,10 @@ import Login from "./pages/Login";
 import LearnerDashboard from "./pages/LearnerDashboard";
 import LearnerAssignmentView from "./pages/LearnerAssignmentView";
 import ReviewerDashboard from "./pages/ReviewerDashboard";
-import AllSubmitted from "./pages/AllSubmitted";
+import ReviewerViewAllSubmitted from "./pages/ReviewerViewAllSubmitted";
+import ReviewerViewAllCompleted from "./pages/ReviewerViewAllCompleted";
 import ReviewerAssignmentView from "./pages/ReviewerAssignmentView";
-import SubmitAssignment from "./pages/SubmitAssignment";
+import LearnerSubmitAssignment from "./pages/LearnerSubmitAssignment";
 
 function App() {
   return (
@@ -19,13 +20,20 @@ function App() {
         <Route path="/api/reviewer/dashboard" element={<ReviewerDashboard />} />
         <Route
           path="/api/reviewer/dashboard/allsubmitted"
-          element={<AllSubmitted />}
+          element={<ReviewerViewAllSubmitted />}
+        />
+        <Route
+          path="/api/reviewer/dashboard/allcompleted"
+          element={<ReviewerViewAllCompleted />}
         />
         <Route
           path="/api/reviewer/assignment/:id"
           element={<ReviewerAssignmentView />}
         />
-        <Route path="/api/submitassignment" element={<SubmitAssignment />} />
+        <Route
+          path="/api/submitassignment"
+          element={<LearnerSubmitAssignment />}
+        />
         <Route
           path="*"
           element={

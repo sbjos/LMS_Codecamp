@@ -2,9 +2,8 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import ReviewerMapping from "../components/ReviewerMapping";
 import Validate from "../components/Validate";
-import "../css/Dashboard.css";
-import "../css/ScrollButton.css";
 import RedirectButton from "../components/RedirectButton";
+import "../css/Dashboard.css";
 
 function ReviewerDashboard() {
   const logout = RedirectButton("logout", "Logout");
@@ -17,10 +16,14 @@ function ReviewerDashboard() {
     : "";
   const user = authorityArray[0];
 
-  // Validate a user's access to a webpage
+  /**
+   * Validate a user's access to a webpage.
+   */
   Validate(token, cleanUserAuthority);
 
-  // automatically fetches and loads all assignments
+  /**
+   * automatically fetches and loads all assignments.
+   */
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -29,7 +32,8 @@ function ReviewerDashboard() {
           "http://localhost:8080/api/assignments",
           { headers: { Authorization: "Bearer " + token } }
         );
-        setAssignments(response.data);
+        console.log(response.data); // TODO: Remove
+        setAssignments(response.data.map((item) => item.assignment));
       } catch (err) {
         if (!err) {
           console.error("No server response");
@@ -40,20 +44,6 @@ function ReviewerDashboard() {
     };
     fetchData();
   }, []);
-
-  // Assignments by status
-  const submitted = assignments.filter(
-    (item) => item.assignment.status === "Submitted"
-  );
-  const inReview = assignments.filter(
-    (item) => item.assignment.status === "In review"
-  );
-  const needsWork = assignments.filter(
-    (item) => item.assignment.status === "Needs work"
-  );
-  const completed = assignments.filter(
-    (item) => item.assignment.status === "Completed"
-  );
 
   return (
     <>
@@ -71,11 +61,14 @@ function ReviewerDashboard() {
           <label htmlFor="Submitted">Submitted</label>
         </div>
         <ul className="card-container-submit">
-          {ReviewerMapping(submitted.slice(-4), token)}
+          {ReviewerMapping(
+            assignments.filter((item) => item.status === "Submitted").slice(-4),
+            token
+          )}
         </ul>
         <div>
           <a className="showall" href="/api/reviewer/dashboard/allsubmitted">
-            show all
+            show all submitted assignments
           </a>
         </div>
 
@@ -88,8 +81,8 @@ function ReviewerDashboard() {
           {ReviewerMapping(
             assignments.filter(
               (item) =>
-                item.assignment.status === "In review" &&
-                item.assignment.codeReviewer.username == user
+                item.status === "In review" &&
+                item.codeReviewer.username == user
             ),
             token
           )}
@@ -102,14 +95,21 @@ function ReviewerDashboard() {
         </div>
         <ul className="card-container">
           {ReviewerMapping(
-            assignments.filter(
-              (item) =>
-                item.assignment.status === "Completed" &&
-                item.assignment.codeReviewer.username == user
-            ),
+            assignments
+              .filter(
+                (item) =>
+                  item.status === "Completed" &&
+                  item.codeReviewer.username == user
+              )
+              .slice(-4),
             token
           )}
         </ul>
+        <div>
+          <a className="showall" href="/api/reviewer/dashboard/allcompleted">
+            show all completed
+          </a>
+        </div>
       </div>
     </>
   );

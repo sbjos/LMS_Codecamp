@@ -4,15 +4,13 @@ import com.hcc.entities.Assignment;
 import com.hcc.enums.AssignmentEnum;
 import com.hcc.enums.AssignmentStatusEnum;
 
-import java.util.Objects;
-
 public class AssignmentResponseDto {
 
     private Assignment assignment;
 
     private final AssignmentEnum[] AssignmentEnum = com.hcc.enums.AssignmentEnum.values();
 
-    private final AssignmentStatusEnum[] assignmentStatusEnums = AssignmentStatusEnum.values();
+    private final AssignmentStatusEnum[] assignmentStatusEnum = AssignmentStatusEnum.values();
 
     public AssignmentResponseDto() {}
 
@@ -32,7 +30,7 @@ public class AssignmentResponseDto {
         return AssignmentEnum;
     }
 
-    public AssignmentStatusEnum[] getAssignmentStatusEnums() {
-        return assignmentStatusEnums;
+    public AssignmentStatusEnum[] getAssignmentStatusEnum() {
+        return assignmentStatusEnum;
     }
 }
