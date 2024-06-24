@@ -47,7 +47,7 @@ function LearnerAssignmentView() {
   }
 
   const status = assignment.assignment.status;
-  console.log("response", status); // TODO: Remove;
+  console.log("response", status); // CONSOLE
 
   // Updates an assignment
   const handleSubmit = async (e) => {

@@ -15,8 +15,7 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 import static com.hcc.enums.AssignmentStatusEnum.*;
-import static com.hcc.enums.AuthorityEnum.LEARNER;
-import static com.hcc.enums.AuthorityEnum.REVIEWER;
+import static com.hcc.enums.AuthorityEnum.*;
 
 @Service
 public class AssignmentService {
@@ -212,14 +211,17 @@ public class AssignmentService {
                     assignedToReviewer.size() >= 4)
                 return true;
 
-            if (learnerAssignments.containsKey(IN_REVIEW.getStatus()))
-                return updateStatus.equals(IN_REVIEW.getStatus()) &&
-                        learnerAssignments.get(IN_REVIEW.getStatus()) >= 4;
+            if (learnerAssignments.containsKey(IN_REVIEW.getStatus())) {
+                if (updateStatus.equals(IN_REVIEW.getStatus()) &&
+                        learnerAssignments.get(IN_REVIEW.getStatus()) >= 4) {
+                    return true;
+                }
+            }
 
-
-            if (learnerAssignments.containsKey(NEEDS_WORK.getStatus()))
+            if (learnerAssignments.containsKey(NEEDS_WORK.getStatus())) {
                 return updateStatus.equals(NEEDS_WORK.getStatus()) &&
                         learnerAssignments.get(NEEDS_WORK.getStatus()) >= 4;
+            }
         }
 
         return false;

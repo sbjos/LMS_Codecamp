@@ -7,7 +7,9 @@ import "../css/Dashboard.css";
 
 function LearnerDashboard() {
   const [assignments, setAssignments] = useState([]);
-  const logout = RedirectButton("logout", "Logout");
+  const logoutButton = (
+    <RedirectButton reference="logout" buttonName="Logout" />
+  );
   const token = localStorage.getItem("lmsusertoken");
   const userAuthority = localStorage.getItem("lmsuserauthorities");
   const cleanUserAuthority = userAuthority ? userAuthority.trim() : "";
@@ -29,7 +31,7 @@ function LearnerDashboard() {
         );
         setAssignments(response.data);
 
-        console.log("response", response.data); // TODO: Remove;
+        console.log("response", response.data); // CONSOLE
       } catch (err) {
         if (!err) {
           console.error("No server response");
@@ -56,10 +58,12 @@ function LearnerDashboard() {
   );
 
   // Passing data to the RedirectButton component and data to prevent more than 4 submitted assignments
-  const newAssignment = RedirectButton(
-    "new-assignment",
-    "New assignment",
-    submitted
+  const newAssignment = (
+    <RedirectButton
+      reference="new-assignment"
+      buttonName="New assignment"
+      data="submitted"
+    />
   );
 
   return (
@@ -73,7 +77,7 @@ function LearnerDashboard() {
         <div className="dashboard-navbar">
           {/* <button onClick={handleClick}>new assignment</button> */}
           {newAssignment}
-          {logout}
+          {logoutButton}
         </div>
         <hr className="separationline" />
         {/* Assignment containers */}

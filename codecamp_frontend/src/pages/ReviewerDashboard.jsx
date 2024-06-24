@@ -6,7 +6,9 @@ import RedirectButton from "../components/RedirectButton";
 import "../css/Dashboard.css";
 
 function ReviewerDashboard() {
-  const logout = RedirectButton("logout", "Logout");
+  const logoutButton = (
+    <RedirectButton reference="logout" buttonName="Logout" />
+  );
   const [assignments, setAssignments] = useState([]);
   const token = localStorage.getItem("lmsusertoken");
   const userAuthority = localStorage.getItem("lmsuserauthorities");
@@ -14,11 +16,13 @@ function ReviewerDashboard() {
   const authorityArray = cleanUserAuthority
     ? cleanUserAuthority.split(", ")
     : "";
-  const user = authorityArray[0];
 
-  /**
-   * Validate a user's access to a webpage.
-   */
+  // CONSOLE
+  console.log("userAuthority", userAuthority);
+  console.log("cleanUserAuthority", cleanUserAuthority);
+  console.log("authorityArray", authorityArray);
+
+  // Validate a user's access to a webpage.
   Validate(token, cleanUserAuthority);
 
   /**
@@ -27,31 +31,32 @@ function ReviewerDashboard() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const token = localStorage.getItem("lmsusertoken");
         const response = await axios.get(
           "http://localhost:8080/api/assignments",
           { headers: { Authorization: "Bearer " + token } }
         );
-        console.log(response.data); // TODO: Remove
+        console.log(response.data); // CONSOLE
         setAssignments(response.data.map((item) => item.assignment));
       } catch (err) {
         if (!err) {
           console.error("No server response");
         } else {
           console.error(err);
+          alert("Failed to retirve assignments!");
         }
       }
     };
     fetchData();
   }, []);
 
+  // Passes the data to the ReviewerMapping.jsx component to handle the cards.
   return (
     <>
       <div className="dashboard-header">
-        <h1>{user}'s Dashboard</h1>
+        <h1>{authorityArray[1]}'s Dashboard</h1>
       </div>
       <div className="dashboard-navbar">
-        <p>{logout}</p>
+        <p>{logoutButton}</p>
       </div>
 
       <hr className="separationline" />
@@ -63,7 +68,8 @@ function ReviewerDashboard() {
         <ul className="card-container-submit">
           {ReviewerMapping(
             assignments.filter((item) => item.status === "Submitted").slice(-4),
-            token
+            token,
+            authorityArray[0]
           )}
         </ul>
         <div>
@@ -82,7 +88,7 @@ function ReviewerDashboard() {
             assignments.filter(
               (item) =>
                 item.status === "In review" &&
-                item.codeReviewer.username == user
+                item.codeReviewer.id == authorityArray[0]
             ),
             token
           )}
@@ -99,7 +105,7 @@ function ReviewerDashboard() {
               .filter(
                 (item) =>
                   item.status === "Completed" &&
-                  item.codeReviewer.username == user
+                  item.codeReviewer.id == authorityArray[0]
               )
               .slice(-4),
             token

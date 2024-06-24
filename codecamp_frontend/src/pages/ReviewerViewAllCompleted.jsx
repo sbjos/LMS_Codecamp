@@ -43,7 +43,7 @@ function ReviewerViewAllCompleted() {
     (item) => item.assignment.status === "Completed"
   );
 
-  console.log(submittedAssignments); // TODO
+  console.log(submittedAssignments); // CONSOLE
 
   const handleSubmit = async (e) => {
     e.preventDefault();

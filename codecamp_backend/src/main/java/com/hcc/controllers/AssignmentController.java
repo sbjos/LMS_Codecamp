@@ -42,6 +42,7 @@ public class AssignmentController {
         try {
             assignmentDto = assignmentService.updateAssignmentById(assignmentId, update, user);
 
+
         } catch (IllegalArgumentException e) {
             log.warn(e, new IllegalArgumentException());
             return new ResponseEntity<>(HttpStatus.FORBIDDEN);

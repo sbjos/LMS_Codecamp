@@ -91,7 +91,7 @@ public class JwtUserAuthenticationFilter extends UsernamePasswordAuthenticationF
         User user = userRepository.findByUsername(authResult.getName()).orElse(null);
         String token = jwtUtils.generateToken(user);
 
-        response.addHeader("Authority", List.of(user.getUsername(), user.getAuthorities()).toString());
+        response.addHeader("Authority", List.of(user.getId(), user.getUsername(), user.getAuthorities()).toString());
         response.addHeader("Authorization", "Bearer " + token);
     }
 }

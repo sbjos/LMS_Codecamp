@@ -1,65 +1,78 @@
 import axios from "axios";
 import RedirectButton from "./RedirectButton";
-import { useState } from "react";
 
-function ReviewerMapping(assignments, token) {
+function ReviewerMapping(assignments, token, data) {
   /**
-   *  Form submition for claiming an assignment.
+   * Form submition for claiming an assignment.
    * @param {*} e
+   * @param {*} assignmentItem
    */
-  const handleSubmit = async (e, assignmentItem) => {
+  const handleClick = async (e, assignmentItem) => {
     e.preventDefault();
 
-    const id = assignmentItem.id;
-    const user = assignmentItem.user;
-    const codeReviewer = assignmentItem.codeReviewer;
-
     try {
-      const status = "In review";
-      const assignment = { codeReviewer, status, user };
+      const assignment = {
+        codeReviewer: assignmentItem.codeReviewer,
+        status: "In review",
+        user: assignmentItem.user,
+      };
       const response = await axios.put(
-        "http://localhost:8080/api/assignments/" + id,
+        "http://localhost:8080/api/assignments/" + assignmentItem.id,
         assignment,
         { headers: { Authorization: "Bearer " + token } }
       );
+
       alert("Assignment claimed successfully !");
       window.location.reload();
     } catch (err) {
       if (!err) {
         console.error("No server response");
+      }
+      if (err.response.status === 403) {
+        alert("To many assignments in 'in review' status");
       } else {
         console.error(err);
-        alert("Failed to claim the assignment !");
+        alert("Failed to claim the assignment!");
       }
     }
   };
 
-  const view = RedirectButton(
-    "reviewer-assignment-view",
-    "View",
-    assignments.id
-  );
-
   /**
    * Sets the button based on the assignment status.
    * @param {*} assignmentItem
-   * @returns Claim, Reclaim or View button
+   * @returns the apropriate button for the card.
    */
-  const button = (assignmentItem) => {
-    const codeReviewer = assignmentItem.codeReviewer;
-    const assignmentStatus = assignmentItem.status;
+  const renderButton = (assignmentItem) => {
+    // console.log(
+    //   "vrify",
+    //   assignments.map((item) => item.status === "In review").length >= 4
+    // ); // CONSOLE
+
+    // FIXME: stops a reviewer from claiming more than 4 assignments
+    // if (assignments.map((item) => item.status === "In review").length >= 4) {
+    //   alert("You have to many assignments in 'in review' status");
+    //   return null;
+    // }
 
     // Button config based in assignment status.
-    if (assignmentStatus === "Submitted") {
-      return codeReviewer ? (
-        <button onClick={(e) => handleSubmit(e, assignmentItem)}>
-          Reclaim
-        </button>
+    const codeReviewerIdMatch = assignments.some(
+      (item) => String(item.codeReviewer?.id) === String(data)
+    );
+
+    if (assignmentItem.status === "Submitted") {
+      return codeReviewerIdMatch ? (
+        <button onClick={(e) => handleClick(e, assignmentItem)}>Reclaim</button>
       ) : (
-        <button onClick={(e) => handleSubmit(e, assignmentItem)}>Claim</button>
+        <button onClick={(e) => handleClick(e, assignmentItem)}>Claim</button>
       );
     } else {
-      return view;
+      return (
+        <RedirectButton
+          reference="reviewer-assignment-view"
+          buttonName="View"
+          data={assignmentItem.id}
+        />
+      );
     }
   };
 
@@ -74,7 +87,13 @@ function ReviewerMapping(assignments, token) {
           </div>
           <div>Branch: {assignmentItem.branch}</div>
           <div>Learner: {assignmentItem.user.username}</div>
-          <div id="card-button">{button(assignmentItem)}</div>
+          <div>
+            Reviewer:{" "}
+            {assignmentItem.codeReviewer
+              ? assignmentItem.codeReviewer.username
+              : "Unassigned"}
+          </div>
+          <div id="card-button">{renderButton(assignmentItem)}</div>
         </li>
       ))}
     </>

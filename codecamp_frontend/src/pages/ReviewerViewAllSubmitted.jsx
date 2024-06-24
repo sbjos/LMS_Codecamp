@@ -5,14 +5,15 @@ import RedirectButton from "../components/RedirectButton";
 import "../css/ViewAll.css";
 
 function ReviewerViewAllSubmitted() {
-  const dashboard = RedirectButton("reviewer", "Dashboard");
+  const dashboardButton = (
+    <RedirectButton reference="reviewer" buttonName="Dashboard" />
+  );
   const [assignments, setAssignments] = useState([]);
-  const [assignmentStatusEnum, setAssignmentStatusEnum] = useState([]);
   const token = localStorage.getItem("lmsusertoken");
   const userAuthority = localStorage.getItem("lmsuserauthorities");
   const cleanUserAuthority = userAuthority ? userAuthority.trim() : "";
   const authorityArray = cleanUserAuthority;
-  const user = authorityArray[0];
+  const user = authorityArray[1];
 
   // Validate a user's access to a webpage
   Validate(token, cleanUserAuthority);
@@ -26,8 +27,7 @@ function ReviewerViewAllSubmitted() {
           "http://localhost:8080/api/assignments",
           { headers: { Authorization: "Bearer " + token } }
         );
-        setAssignments(response.data.assignment);
-        setAssignmentStatusEnum(response.data.assignmentStatusEnums);
+        setAssignments(response.data);
       } catch (err) {
         if (!err) {
           console.error("No server response");
@@ -43,10 +43,10 @@ function ReviewerViewAllSubmitted() {
     (item) => item.assignment.status === "Submitted"
   );
 
-  // const submitted = assignments.assignmentStatusEnums.status === "submitted";
-
-  console.log("Assignments", submittedAssignments); // TODO
-  console.log("Status", assignmentStatusEnum); // TODO
+  console.log(
+    "submittedAssignments",
+    submittedAssignments.map((item) => item.assignment)
+  ); // CONSOLE
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -77,7 +77,7 @@ function ReviewerViewAllSubmitted() {
   return (
     <>
       <div className="assignment-table">
-        {dashboard}
+        {dashboardButton}
 
         <hr className="separationline" />
 
@@ -101,12 +101,21 @@ function ReviewerViewAllSubmitted() {
                 <td>{assignmentItem.assignment.branch}</td>
                 <td>{assignmentItem.assignment.user.username}</td>
                 <td className="button-colunm">
-                  <button
-                    className="viewall-claim-button"
-                    onClick={handleSubmit}
-                  >
-                    Claim
-                  </button>
+                  {assignmentItem.codeReviewer ? (
+                    <button
+                      className="viewall-claim-button"
+                      onClick={(e) => handleSubmit(e, assignmentItem)}
+                    >
+                      Reclaim
+                    </button>
+                  ) : (
+                    <button
+                      className="viewall-claim-button"
+                      onClick={(e) => handleSubmit(e, assignmentItem)}
+                    >
+                      Claim
+                    </button>
+                  )}
                 </td>
               </tr>
             ))}

@@ -38,17 +38,17 @@ function Login() {
       );
 
       const userAuthority = response.headers.authority.slice(1, -1);
-      const headerStorage = localStorage.setItem(
+
+      localStorage.setItem(
         "lmsusertoken",
         response.headers.authorization.split(" ")[1]
       );
-      const tokenStorage = localStorage.setItem(
-        "lmsuserauthorities",
-        userAuthority
-      );
+
+      localStorage.setItem("lmsuserauthorities", userAuthority);
 
       // redirect to apropriate dashboard based on authority after successfull login
-      const authority = userAuthority.split(", ")[1];
+      const authority = userAuthority.split(", ")[2];
+
       if (authority === "[LEARNER]") {
         navigate("/api/dashboard");
       }

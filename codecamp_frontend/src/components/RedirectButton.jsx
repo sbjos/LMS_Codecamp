@@ -1,10 +1,10 @@
 import { useNavigate } from "react-router-dom";
 
-function RedirectButton(value, button, data) {
+function RedirectButton({ reference, buttonName, data }) {
   const navigate = useNavigate();
 
   const handleRedirect = () => {
-    switch (value) {
+    switch (reference) {
       case "logout":
         localStorage.clear();
         navigate("/api/auth/login");
@@ -16,7 +16,7 @@ function RedirectButton(value, button, data) {
         navigate("/api/assignment/" + data);
         break;
       case "new-assignment":
-        if (data.length < 4) {
+        if (data.length >= 4) {
           navigate("/api/submitassignment");
         } else {
           alert("You can only have 4 unassigned assignments at a time.");
@@ -26,12 +26,15 @@ function RedirectButton(value, button, data) {
         navigate("/api/reviewer/dashboard");
         break;
       case "reviewer-assignment-view":
-        navigate("/api/reviewer/assignment/:id");
+        navigate("/api/reviewer/assignment/" + data);
+        break;
+      default:
+        navigate("*");
         break;
     }
   };
 
-  return <button onClick={handleRedirect}>{button}</button>;
+  return <button onClick={handleRedirect}>{buttonName}</button>;
 }
 
 export default RedirectButton;
