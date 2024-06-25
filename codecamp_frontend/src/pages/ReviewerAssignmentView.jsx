@@ -15,9 +15,7 @@ function ReviewerAssignmentView() {
   const token = localStorage.getItem("lmsusertoken");
   const userAuthority = localStorage.getItem("lmsuserauthorities");
   const cleanUserAuthority = userAuthority ? userAuthority.trim() : "";
-  const authorityArray = cleanUserAuthority
-    ? cleanUserAuthority.split(", ")
-    : "";
+  const authorityArray = cleanUserAuthority;
 
   // Validates a user's access to a webpage.
   Validate(token, cleanUserAuthority);
@@ -90,7 +88,7 @@ function ReviewerAssignmentView() {
           console.error(err);
         } else {
           console.error(err);
-          alert("Failed to claim the assignment !");
+          alert("Failed to claim the assignment!");
         }
       }
     } else {
@@ -121,7 +119,7 @@ function ReviewerAssignmentView() {
               );
             } else {
               console.error(err);
-              alert("Failed to update the assignment !");
+              alert("Failed to update the assignment!");
             }
           }
         }

@@ -10,6 +10,8 @@ function ReviewerMapping(assignments, token, data) {
   const handleClick = async (e, assignmentItem) => {
     e.preventDefault();
 
+    const id = assignmentItem.id;
+
     try {
       const assignment = {
         codeReviewer: assignmentItem.codeReviewer,
@@ -17,12 +19,12 @@ function ReviewerMapping(assignments, token, data) {
         user: assignmentItem.user,
       };
       const response = await axios.put(
-        "http://localhost:8080/api/assignments/" + assignmentItem.id,
+        "http://localhost:8080/api/assignments/" + id,
         assignment,
         { headers: { Authorization: "Bearer " + token } }
       );
 
-      alert("Assignment claimed successfully !");
+      alert("Assignment claimed successfully!");
       window.location.reload();
     } catch (err) {
       if (!err) {
@@ -54,10 +56,9 @@ function ReviewerMapping(assignments, token, data) {
     //   return null;
     // }
 
-    // Button config based in assignment status.
-    const codeReviewerIdMatch = assignments.some(
-      (item) => String(item.codeReviewer?.id) === String(data)
-    );
+    // Button conf ig based in assignment status.
+    const codeReviewerIdString = String(assignmentItem.codeReviewer?.id);
+    const codeReviewerIdMatch = codeReviewerIdString === data;
 
     if (assignmentItem.status === "Submitted") {
       return codeReviewerIdMatch ? (

@@ -17,11 +17,6 @@ function ReviewerDashboard() {
     ? cleanUserAuthority.split(", ")
     : "";
 
-  // CONSOLE
-  console.log("userAuthority", userAuthority);
-  console.log("cleanUserAuthority", cleanUserAuthority);
-  console.log("authorityArray", authorityArray);
-
   // Validate a user's access to a webpage.
   Validate(token, cleanUserAuthority);
 
@@ -35,7 +30,6 @@ function ReviewerDashboard() {
           "http://localhost:8080/api/assignments",
           { headers: { Authorization: "Bearer " + token } }
         );
-        console.log(response.data); // CONSOLE
         setAssignments(response.data.map((item) => item.assignment));
       } catch (err) {
         if (!err) {
@@ -113,7 +107,7 @@ function ReviewerDashboard() {
         </ul>
         <div>
           <a className="showall" href="/api/reviewer/dashboard/allcompleted">
-            show all completed
+            show all completed assignments
           </a>
         </div>
       </div>

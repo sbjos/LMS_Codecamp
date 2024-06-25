@@ -5,15 +5,21 @@ import RedirectButton from "../components/RedirectButton";
 import "../css/ViewAll.css";
 
 function ReviewerViewAllCompleted() {
-  const dashboard = RedirectButton("reviewer", "Dashboard");
-  const [assignments, setAssignments] = useState([]);
+  const dashboard = (
+    <RedirectButton reference="reviewer" buttonName="Dashboard" />
+  );
+  const view = (
+    <RedirectButton
+      reference="reviewer-assignment-view"
+      buttonName="View"
+      classname="viewall-claim-button"
+    />
+  );
+  const [completedAssignments, setCompletedAssignments] = useState([]);
   const token = localStorage.getItem("lmsusertoken");
   const userAuthority = localStorage.getItem("lmsuserauthorities");
   const cleanUserAuthority = userAuthority ? userAuthority.trim() : "";
-  const authorityArray = cleanUserAuthority
-    ? cleanUserAuthority.split(", ")
-    : "";
-  const user = authorityArray[0];
+  const authorityArray = cleanUserAuthority;
 
   // Validate a user's access to a webpage
   Validate(token, cleanUserAuthority);
@@ -22,51 +28,55 @@ function ReviewerViewAllCompleted() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const token = localStorage.getItem("lmsusertoken");
         const response = await axios.get(
           "http://localhost:8080/api/assignments",
           { headers: { Authorization: "Bearer " + token } }
         );
-        setAssignments(response.data);
+        setCompletedAssignments(
+          response.data.filter(
+            (item) =>
+              item.assignment.status === "Completed" &&
+              String(item.assignment.codeReviewer.id) === authorityArray[0]
+          )
+        );
       } catch (err) {
         if (!err) {
           console.error("No server response");
         } else {
           console.error(err);
+          alert("Failed to retirve assignments!");
         }
       }
     };
     fetchData();
   }, []);
 
-  const submittedAssignments = assignments.filter(
-    (item) => item.assignment.status === "Completed"
-  );
-
-  console.log(submittedAssignments); // CONSOLE
+  console.log("completedAssignments", completedAssignments); // CONSOLE
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const id = assignments.assignment.id;
-    const codeReviewer = assignments.assignment.codeReviewer;
+    const id = completedAssignments.id;
 
     try {
-      const status = "In review";
-      const assignment = { codeReviewer, status, user };
+      const assignment = {
+        codeReviewer: completedAssignments.assignment.codeReviewer,
+        status: "In review",
+        user: completedAssignments.assignment.codeReviewer,
+      };
       const response = await axios.put(
         "http://localhost:8080/api/assignments/" + id,
         assignment,
         { headers: { Authorization: "Bearer " + token } }
       );
-      alert("Assignment claimed successfully !");
+      alert("Assignment reopened successfully!");
       window.location.reload();
     } catch (err) {
       if (!err) {
         console.error("No server response");
       } else {
         console.error(err);
-        alert("Failed to claim the assignment !");
+        alert("Failed to open the assignment!");
       }
     }
   };
@@ -85,11 +95,12 @@ function ReviewerViewAllCompleted() {
               <th>Github URL</th>
               <th>Branch</th>
               <th>Learner</th>
+              <th>Reviewer</th>
               <th></th>
             </tr>
           </thead>
           <tbody>
-            {submittedAssignments.map((assignment) => (
+            {completedAssignments.map((assignment) => (
               <tr key={assignment.assignment.id}>
                 <td>{assignment.assignment.number}</td>
                 <td>
@@ -97,14 +108,8 @@ function ReviewerViewAllCompleted() {
                 </td>
                 <td>{assignment.assignment.branch}</td>
                 <td>{assignment.assignment.user.username}</td>
-                <td className="button-colunm">
-                  <button
-                    className="viewall-claim-button"
-                    onClick={handleSubmit}
-                  >
-                    Claim
-                  </button>
-                </td>
+                <td>{assignment.assignment.codeReviewer.username}</td>
+                <td className="button-colunm">{view}</td>
               </tr>
             ))}
           </tbody>

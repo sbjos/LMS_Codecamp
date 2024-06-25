@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 
-function RedirectButton({ reference, buttonName, data }) {
+function RedirectButton({ reference, buttonName, data, classname }) {
   const navigate = useNavigate();
 
   const handleRedirect = () => {
@@ -34,7 +34,11 @@ function RedirectButton({ reference, buttonName, data }) {
     }
   };
 
-  return <button onClick={handleRedirect}>{buttonName}</button>;
+  return (
+    <button className={classname} onClick={handleRedirect}>
+      {buttonName}
+    </button>
+  );
 }
 
 export default RedirectButton;
