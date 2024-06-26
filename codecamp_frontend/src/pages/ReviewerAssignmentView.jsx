@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useConfirm } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import Validate from "../components/Validate";
@@ -31,7 +31,7 @@ function ReviewerAssignmentView() {
           { headers: { Authorization: "Bearer " + token } }
         );
         setAssignment(response.data);
-        console.log("assignment", assignment); // CONSOLE
+        console.log("assignment", assignment); //CONSOLE
       } catch (err) {
         if (!err) {
           console.error("No server response");
@@ -127,6 +127,14 @@ function ReviewerAssignmentView() {
     }
   };
 
+  const confirmReopen = (e) => {
+    if (confirm("Are you sure you want to reopen this assignment?") === true) {
+      handleClick(e, "In review");
+    } else {
+      return;
+    }
+  };
+
   /**
    * Allows to view or reopen a completed assignment, or edit an open assignment.
    * @returns assignment
@@ -141,14 +149,17 @@ function ReviewerAssignmentView() {
               id="reviewvideo"
               placeholder={assignment.assignment.reviewVideoUrl}
               disabled
-              onChange={(e) => {
-                setReviewVideoUrl(e.target.value);
-              }}
             />
           </div>
           <div className="form-edit-button">
             {dashboardButton}
-            <button onClick={(e) => handleClick(e, "In review")}>Reopen</button>
+            <button
+              onClick={(e) => {
+                confirmReopen(e);
+              }}
+            >
+              Reopen
+            </button>
           </div>
         </div>
       );

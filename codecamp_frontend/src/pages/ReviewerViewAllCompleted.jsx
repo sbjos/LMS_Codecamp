@@ -8,13 +8,6 @@ function ReviewerViewAllCompleted() {
   const dashboard = (
     <RedirectButton reference="reviewer" buttonName="Dashboard" />
   );
-  const view = (
-    <RedirectButton
-      reference="reviewer-assignment-view"
-      buttonName="View"
-      classname="viewall-claim-button"
-    />
-  );
   const [completedAssignments, setCompletedAssignments] = useState([]);
   const token = localStorage.getItem("lmsusertoken");
   const userAuthority = localStorage.getItem("lmsuserauthorities");
@@ -109,7 +102,16 @@ function ReviewerViewAllCompleted() {
                 <td>{assignment.assignment.branch}</td>
                 <td>{assignment.assignment.user.username}</td>
                 <td>{assignment.assignment.codeReviewer.username}</td>
-                <td className="button-colunm">{view}</td>
+                <td className="button-colunm">
+                  {
+                    <RedirectButton
+                      reference="reviewer-assignment-view"
+                      buttonName="View"
+                      data={assignment.assignment.id}
+                      classname="viewall-claim-button"
+                    />
+                  }
+                </td>
               </tr>
             ))}
           </tbody>

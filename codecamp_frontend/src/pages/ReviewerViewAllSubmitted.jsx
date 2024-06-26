@@ -90,12 +90,10 @@ function ReviewerViewAllSubmitted() {
     // }
 
     // Button conf ig based in assignment status.
-    const codeReviewerIdString = String(
-      assignmentItem.assignment.codeReviewer?.id
-    );
+    const codeReviewerIdString = String(assignmentItem.codeReviewer?.id);
     const codeReviewerIdMatch = codeReviewerIdString === authorityArray[0];
 
-    if (assignmentItem.assignment.status === "Submitted") {
+    if (assignmentItem.status === "Submitted") {
       return codeReviewerIdMatch ? (
         <button
           className="viewall-claim-button"
@@ -158,7 +156,7 @@ function ReviewerViewAllSubmitted() {
                       Claim
                     </button>
                   )} */}
-                  {renderButton(assignmentItem)}
+                  {renderButton(assignmentItem.assignment)}
                 </td>
               </tr>
             ))}
