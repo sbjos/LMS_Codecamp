@@ -172,13 +172,7 @@ function ReviewerAssignmentView() {
           </div>
           <div className="form-edit-button">
             {dashboardButton}
-            <button
-              onClick={(e) => {
-                confirmReopen(e);
-              }}
-            >
-              Reopen
-            </button>
+            <button onClick={(e) => confirmReopen(e)}>Reopen</button>
           </div>
         </div>
       );
@@ -189,7 +183,11 @@ function ReviewerAssignmentView() {
             <div className="form-edit-github">
               <label htmlFor="githuburl">Github</label>
               <div className="input">
-                <a className="inputText" href={assignment.assignment.githubUrl}>
+                <a
+                  className="inputText"
+                  href={assignment.assignment.githubUrl}
+                  target="blank"
+                >
                   {assignment.assignment.githubUrl}
                 </a>
               </div>
@@ -207,30 +205,16 @@ function ReviewerAssignmentView() {
               <input
                 id="reviewvideo"
                 type="url"
-                defaultValue={
-                  reviewVideoUrl
-                    ? reviewVideoUrl
-                    : assignment.assignment.reviewVideoUrl
-                }
-                onChange={(e) => {
-                  setReviewVideoUrl(e.target.value);
-                }}
+                defaultValue={assignment.assignment.reviewVideoUrl}
+                onChange={(e) => setReviewVideoUrl(e.target.value)}
                 required
               />
             </div>
             <div className="form-edit-button">
-              <button
-                onClick={(e) => {
-                  handleSubmit(e, "Completed");
-                }}
-              >
+              <button onClick={(e) => handleSubmit(e, "Completed")}>
                 Completed
               </button>
-              <button
-                onClick={(e) => {
-                  handleSubmit(e, "Needs work");
-                }}
-              >
+              <button onClick={(e) => handleSubmit(e, "Needs work")}>
                 Needs work
               </button>
               {dashboardButton}

@@ -65,7 +65,7 @@ function ReviewerDashboard() {
           )}
         </ul>
         <div>
-          <a className="showall" href="/api/reviewer/dashboard/allsubmitted">
+          <a className="showall" href="/api/reviewer/allsubmitted">
             show all submitted assignments
           </a>
         </div>
@@ -104,7 +104,7 @@ function ReviewerDashboard() {
           )}
         </ul>
         <div>
-          <a className="showall" href="/api/reviewer/dashboard/allcompleted">
+          <a className="showall" href="/api/reviewer/allcompleted">
             show all completed assignments
           </a>
         </div>

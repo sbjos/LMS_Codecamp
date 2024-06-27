@@ -6,7 +6,9 @@ import RedirectButton from "../components/RedirectButton";
 import "../css/SubmitAssignment.css";
 
 function LearnerSubmitAssignment() {
-  const dashboard = RedirectButton("learner", "Dashboard");
+  const dashboard = (
+    <RedirectButton reference="learner-dashboard" buttonName="Dashboard" />
+  );
   const formRef = useRef(null);
   const [githubUrl, setGithubUrl] = useState("");
   const [branch, setBranch] = useState("");

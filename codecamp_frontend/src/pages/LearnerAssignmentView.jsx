@@ -6,7 +6,7 @@ import RedirectButton from "../components/RedirectButton";
 import "../css/AssignmentViews.css";
 
 function LearnerAssignmentView() {
-  const dashboard = (
+  const dashboardButton = (
     <RedirectButton reference="learner-dashboard" buttonName="Dashboard" />
   );
   const [assignment, setAssignment] = useState(null);
@@ -99,34 +99,22 @@ function LearnerAssignmentView() {
     }
   };
 
-  function reviewVideo() {
+  function formOrNot() {
     const status = assignment.assignment.status;
-    if (status == "Needs work") {
-      return (
-        <div className="form-create-box">
-          <label htmlFor="reviewVideo">Review video</label>
-          <input
-            id="reviewVideo"
-            placeholder={assignment.assignment.reviewVideoUrl}
-            disabled
-          />
-        </div>
-      );
-    }
-    if (status === "In review") {
+    const reviewVideoUrl = assignment.assignment.reviewVideoUrl
+      ? assignment.assignment.reviewVideoUrl
+      : "";
+
+    if (status == "Submitted") {
       return (
         <>
           <div className="form-edit-github">
             <label htmlFor="githuburl">Github</label>
             <input
-              id="githuburl"
-              type="text"
-              defaultValue={
-                githubUrl ? githubUrl : assignment.assignment.githubUrl
-              }
-              onChange={(e) => {
-                setGithubUrl(e.target.value);
-              }}
+              id="reviewvideo"
+              type="url"
+              defaultValue={assignment.assignment.githubUrl}
+              onChange={(e) => setGithubUrl(e.target.value)}
               required
             />
           </div>
@@ -135,22 +123,140 @@ function LearnerAssignmentView() {
             <input
               id="branch"
               type="text"
-              defaultValue={branch ? branch : assignment.assignment.branch}
-              onChange={(e) => {
-                setBranch(e.target.value);
-              }}
+              defaultValue={assignment.assignment.branch}
+              onChange={(e) => setBranch(e.target.value)}
+            />
+          </div>
+          {reviewVideoUrl ? (
+            <div className="form-create-box">
+              <label htmlFor="reviewVideo">Review video</label>
+              <div className="input">
+                <a className="inputText" href={reviewVideoUrl} target="blank">
+                  {reviewVideoUrl}
+                </a>
+              </div>
+            </div>
+          ) : (
+            ""
+          )}
+          <div className="form-edit-button">
+            <button onClick={handleSubmit}>Submit</button>
+            {dashboardButton}
+          </div>
+        </>
+      );
+    }
+    if (status == "Needs work") {
+      return (
+        <>
+          <div className="form-edit-github">
+            <label htmlFor="githuburl">Github</label>
+            <input
+              id="reviewvideo"
+              type="url"
+              defaultValue={assignment.assignment.githubUrl}
+              onChange={(e) => setGithubUrl(e.target.value)}
               required
+            />
+          </div>
+          <div className="form-edit-branch">
+            <label htmlFor="branch">Branch</label>
+            <input
+              id="branch"
+              type="text"
+              defaultValue={assignment.assignment.branch}
+              onChange={(e) => setBranch(e.target.value)}
             />
           </div>
           <div className="form-create-box">
             <label htmlFor="reviewVideo">Review video</label>
+            <div className="input">
+              <a
+                className="inputText"
+                href={assignment.assignment.reviewVideoUrl}
+                target="blank"
+              >
+                {assignment.assignment.reviewVideoUrl}
+              </a>
+            </div>
+          </div>
+
+          <div className="form-edit-button">
+            <button onClick={handleSubmit}>Submit</button>
+            {dashboardButton}
+          </div>
+        </>
+      );
+    }
+    if (status === "In review") {
+      return (
+        <>
+          <div className="form-edit-github">
+            <label htmlFor="githuburl">Github</label>
+            <div className="input">
+              <a
+                className="inputText"
+                href={assignment.assignment.githubUrl}
+                target="blank"
+              >
+                {assignment.assignment.githubUrl}
+              </a>
+            </div>
+          </div>
+          <div className="form-edit-branch">
+            <label htmlFor="branch">Branch</label>
             <input
-              id="reviewVideo"
+              id="branch"
+              type="text"
+              defaultValue={assignment.assignment.branch}
+              disabled
+            />
+          </div>
+          {reviewVideoUrl ? (
+            <div className="form-create-box">
+              <label htmlFor="reviewVideo">Review video</label>
+              <div className="input">
+                <a className="inputText" href={reviewVideoUrl} target="blank">
+                  {reviewVideoUrl}
+                </a>
+              </div>
+            </div>
+          ) : (
+            ""
+          )}
+          <div className="form-edit-button">{dashboardButton}</div>
+        </>
+      );
+    }
+    if (status === "Completed") {
+      return (
+        <div>
+          <div className="form-edit-github">
+            <label htmlFor="githuburl">Github</label>
+            <input
+              id="githuburl"
+              placeholder={assignment.assignment.githubUrl}
+              disabled
+            />
+          </div>
+          <div className="form-edit-branch">
+            <label htmlFor="branch">Branch</label>
+            <input
+              id="branch"
+              placeholder={assignment.assignment.branch}
+              disabled
+            />
+          </div>
+          <div className="form-edit-review">
+            <label htmlFor="reviewvideo">Review video</label>
+            <input
+              id="reviewvideo"
               placeholder={assignment.assignment.reviewVideoUrl}
               disabled
             />
           </div>
-        </>
+          <div className="form-edit-button">{dashboardButton}</div>
+        </div>
       );
     }
   }
@@ -159,43 +265,16 @@ function LearnerAssignmentView() {
     <>
       <div className="edit-header">
         <h1>Assignment {assignment.assignment.number}</h1>
-        <h2>{assignment.assignment.status}</h2>
+        <h2>Status: {assignment.assignment.status}</h2>
+        <h2>
+          Reviewer:{" "}
+          {assignment.assignment.codeReviewer
+            ? assignment.assignment.codeReviewer.username
+            : "unassigned"}
+        </h2>
+        <div className="spaceBetween"></div>
       </div>
-      <div className="burger">
-        <form className="form-edit" onSubmit={handleSubmit}>
-          <div className="form-edit-github">
-            <label htmlFor="githuburl">Github</label>
-            <input
-              id="githuburl"
-              type="text"
-              defaultValue={
-                githubUrl ? githubUrl : assignment.assignment.githubUrl
-              }
-              onChange={(e) => {
-                setGithubUrl(e.target.value);
-              }}
-              required
-            />
-          </div>
-          <div className="form-edit-branch">
-            <label htmlFor="branch">Branch</label>
-            <input
-              id="branch"
-              type="text"
-              defaultValue={branch ? branch : assignment.assignment.branch}
-              onChange={(e) => {
-                setBranch(e.target.value);
-              }}
-              required
-            />
-          </div>
-          {reviewVideo(assignment)}
-          <div className="form-edit-button">
-            <button>Submit</button>
-            {dashboard}
-          </div>
-        </form>
-      </div>
+      <div className="burger">{formOrNot()}</div>
     </>
   );
 }

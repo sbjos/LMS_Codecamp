@@ -103,9 +103,16 @@ function LearnerDashboard() {
           </div>
           <ul>
             {LearnerMapping(
-              assignments.filter((item) => item.status === "Completed")
+              assignments
+                .filter((item) => item.status === "Completed")
+                .slice(-4)
             )}
           </ul>
+          <div>
+            <a className="showall" href="/api/allcompleted">
+              show all completed assignments
+            </a>
+          </div>
         </div>
       </section>
     </>

@@ -4,9 +4,9 @@ import Validate from "../components/Validate";
 import RedirectButton from "../components/RedirectButton";
 import "../css/ViewAll.css";
 
-function ReviewerViewAllCompleted() {
+function LearnerViewAllCompleted() {
   const dashboard = (
-    <RedirectButton reference="reviewer-dashboard" buttonName="Dashboard" />
+    <RedirectButton reference="learner-dashboard" buttonName="Dashboard" />
   );
   const [completedAssignments, setCompletedAssignments] = useState([]);
   const token = localStorage.getItem("lmsusertoken");
@@ -29,7 +29,7 @@ function ReviewerViewAllCompleted() {
           response.data.filter(
             (item) =>
               item.assignment.status === "Completed" &&
-              String(item.assignment.codeReviewer.id) === authorityArray[0]
+              String(item.assignment.user.id) === authorityArray[0]
           )
         );
       } catch (err) {
@@ -37,7 +37,7 @@ function ReviewerViewAllCompleted() {
           console.error("No server response");
         } else {
           console.error(err);
-          alert("Failed to retirve assignments!");
+          alert("Failed to retrieve assignments!");
         }
       }
     };
@@ -70,11 +70,11 @@ function ReviewerViewAllCompleted() {
                   <a href={assignment.assignment.githubUrl}>Link</a>
                 </td>
                 <td>{assignment.assignment.branch}</td>
-                <td>{assignment.assignment.user.username}</td>
+                <td>{assignment.assignment.codeReviewer.username}</td>
                 <td className="button-colunm">
                   {
                     <RedirectButton
-                      reference="reviewer-assignment-view"
+                      reference="learner-assignment-view"
                       buttonName="View"
                       data={assignment.assignment.id}
                       classname="viewall-claim-button"
@@ -90,4 +90,4 @@ function ReviewerViewAllCompleted() {
   );
 }
 
-export default ReviewerViewAllCompleted;
+export default LearnerViewAllCompleted;
