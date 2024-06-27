@@ -38,7 +38,11 @@ h1 {
 h2 {
   font-size: 1.7em;
   font-weight: 500;
-  margin-bottom: 55px;
+  /* margin-bottom: 55px; */
+}
+
+.spaceBetween {
+  margin-top: 25px;
 }
 
 a {
@@ -57,8 +61,29 @@ label {
   flex-wrap: nowrap;
 }
 
+.inputText {
+  color: rgb(60, 95, 124);
+  text-decoration: underline;
+}
+
+.input {
+  width: 300px;
+  min-width: 400px;
+  margin-bottom: 15px;
+  border: 1px solid rgb(216, 216, 216);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), 0 8px 16px rgba(0, 0, 0, 0.1);
+  background-color: #ffff;
+  display: flex;
+  font-size: 1em;
+  height: 25px;
+  font-weight: 500;
+  font-family: inherit;
+  border-radius: 8px;
+  color: #35373a;
+  padding: 0.6em 1.2em;
+}
+
 input {
-  min-width: 100px;
   min-width: 400px;
   margin-bottom: 15px;
   border: 1px solid rgb(216, 216, 216);

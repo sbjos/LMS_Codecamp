@@ -6,7 +6,9 @@ import RedirectButton from "../components/RedirectButton";
 import "../css/AssignmentViews.css";
 
 function LearnerAssignmentView() {
-  const dashboard = RedirectButton("learner", "Dashboard");
+  const dashboard = (
+    <RedirectButton reference="learner-dashboard" buttonName="Dashboard" />
+  );
   const [assignment, setAssignment] = useState(null);
   const [githubUrl, setGithubUrl] = useState(null);
   const [branch, setBranch] = useState(null);
@@ -14,14 +16,14 @@ function LearnerAssignmentView() {
   const token = localStorage.getItem("lmsusertoken");
   const userAuthority = localStorage.getItem("lmsuserauthorities");
   const cleanUserAuthority = userAuthority ? userAuthority.trim() : "";
-  const authorityArray = cleanUserAuthority
-    ? cleanUserAuthority.split(", ")
-    : "";
+  const authorityArray = cleanUserAuthority.split(", ");
 
   // Validate a user's access to a webpage
   Validate(token, cleanUserAuthority);
 
-  // automatically fetches and loads the assignment by ID
+  /**
+   * Fetches and loads the assignment by ID.
+   */
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -30,24 +32,29 @@ function LearnerAssignmentView() {
           { headers: { Authorization: "Bearer " + token } }
         );
         setAssignment(response.data);
+        console.log("assignment", assignment);
       } catch (err) {
         if (!err) {
           console.error("No server response");
         } else {
           console.error(err);
+          alert("Failed to retireve the assignment!");
         }
       }
     };
     fetchData();
   }, []);
 
-  // Handles loading of data fetching
+  /**
+   * Return a loading state while fetching data
+   */
   if (!assignment) {
+    setTimeout(() => {}, 10000);
     return <div>Loading...</div>;
   }
 
   const status = assignment.assignment.status;
-  console.log("response", status); // CONSOLE
+  console.log("response", status);
 
   // Updates an assignment
   const handleSubmit = async (e) => {
@@ -93,7 +100,8 @@ function LearnerAssignmentView() {
   };
 
   function reviewVideo() {
-    if (assignment.assignment.status == "Needs work") {
+    const status = assignment.assignment.status;
+    if (status == "Needs work") {
       return (
         <div className="form-create-box">
           <label htmlFor="reviewVideo">Review video</label>
@@ -103,6 +111,46 @@ function LearnerAssignmentView() {
             disabled
           />
         </div>
+      );
+    }
+    if (status === "In review") {
+      return (
+        <>
+          <div className="form-edit-github">
+            <label htmlFor="githuburl">Github</label>
+            <input
+              id="githuburl"
+              type="text"
+              defaultValue={
+                githubUrl ? githubUrl : assignment.assignment.githubUrl
+              }
+              onChange={(e) => {
+                setGithubUrl(e.target.value);
+              }}
+              required
+            />
+          </div>
+          <div className="form-edit-branch">
+            <label htmlFor="branch">Branch</label>
+            <input
+              id="branch"
+              type="text"
+              defaultValue={branch ? branch : assignment.assignment.branch}
+              onChange={(e) => {
+                setBranch(e.target.value);
+              }}
+              required
+            />
+          </div>
+          <div className="form-create-box">
+            <label htmlFor="reviewVideo">Review video</label>
+            <input
+              id="reviewVideo"
+              placeholder={assignment.assignment.reviewVideoUrl}
+              disabled
+            />
+          </div>
+        </>
       );
     }
   }

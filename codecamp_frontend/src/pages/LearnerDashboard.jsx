@@ -13,15 +13,15 @@ function LearnerDashboard() {
   const token = localStorage.getItem("lmsusertoken");
   const userAuthority = localStorage.getItem("lmsuserauthorities");
   const cleanUserAuthority = userAuthority ? userAuthority.trim() : "";
-  const authorityArray = cleanUserAuthority
-    ? cleanUserAuthority.split(", ")
-    : "";
-  const user = authorityArray[0];
+  const authorityArray = cleanUserAuthority.split(", ");
+  const user = authorityArray[1];
 
   // Validate a user's access to a webpage
   Validate(token, cleanUserAuthority);
 
-  // automatically fetches and loads assignments by user
+  /**
+   * automatically fetches and loads assignments by user
+   */
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -29,9 +29,9 @@ function LearnerDashboard() {
           "http://localhost:8080/api/assignments",
           { headers: { Authorization: "Bearer " + token } }
         );
-        setAssignments(response.data);
+        setAssignments(response.data.map((item) => item.assignment));
 
-        console.log("response", response.data); // CONSOLE
+        console.log("response", response.data);
       } catch (err) {
         if (!err) {
           console.error("No server response");
@@ -43,29 +43,18 @@ function LearnerDashboard() {
     fetchData();
   }, []);
 
-  // Assignments by status
-  const submitted = assignments.filter(
-    (item) => item.assignment.status === "Submitted"
-  );
-  const inReview = assignments.filter(
-    (item) => item.assignment.status === "In review"
-  );
-  const needsWork = assignments.filter(
-    (item) => item.assignment.status === "Needs work"
-  );
-  const completed = assignments.filter(
-    (item) => item.assignment.status === "Completed"
-  );
+  const submitted = assignments.filter((item) => item.status === "Submitted");
 
-  // Passing data to the RedirectButton component and data to prevent more than 4 submitted assignments
+  // RedirectButton component for New assignment button.
   const newAssignment = (
     <RedirectButton
-      reference="new-assignment"
+      reference="learner-new-assignment"
       buttonName="New assignment"
-      data="submitted"
+      data={submitted}
     />
   );
 
+  // Passes the data to the ReviewerMapping.jsx component to handle cards.
   return (
     <>
       <section>
@@ -75,12 +64,10 @@ function LearnerDashboard() {
           <h2>Welcome {user}</h2>
         </div>
         <div className="dashboard-navbar">
-          {/* <button onClick={handleClick}>new assignment</button> */}
           {newAssignment}
           {logoutButton}
         </div>
         <hr className="separationline" />
-        {/* Assignment containers */}
         <div className="assignments-container">
           <div className="label-container">
             <label>Submitted</label>
@@ -92,21 +79,33 @@ function LearnerDashboard() {
           <div className="label-container">
             <label>In review</label>
           </div>
-          <ul>{LearnerMapping(inReview)}</ul>
+          <ul>
+            {LearnerMapping(
+              assignments.filter((item) => item.status === "In review")
+            )}
+          </ul>
 
           <hr className="separationline" />
 
           <div className="label-container">
             <label>Needs work</label>
           </div>
-          <ul>{LearnerMapping(needsWork)}</ul>
+          <ul>
+            {LearnerMapping(
+              assignments.filter((item) => item.status === "Needs work")
+            )}
+          </ul>
 
           <hr className="separationline" />
 
           <div className="label-container">
             <label>Completed</label>
           </div>
-          <ul>{LearnerMapping(completed)}</ul>
+          <ul>
+            {LearnerMapping(
+              assignments.filter((item) => item.status === "Completed")
+            )}
+          </ul>
         </div>
       </section>
     </>

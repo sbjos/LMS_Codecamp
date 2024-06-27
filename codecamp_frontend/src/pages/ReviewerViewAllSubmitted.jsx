@@ -6,13 +6,13 @@ import "../css/ViewAll.css";
 
 function ReviewerViewAllSubmitted() {
   const dashboardButton = (
-    <RedirectButton reference="reviewer" buttonName="Dashboard" />
+    <RedirectButton reference="reviewer-dashboard" buttonName="Dashboard" />
   );
   const [submittedAssignments, setSubmittedAssignments] = useState([]);
   const token = localStorage.getItem("lmsusertoken");
   const userAuthority = localStorage.getItem("lmsuserauthorities");
   const cleanUserAuthority = userAuthority ? userAuthority.trim() : "";
-  const authorityArray = cleanUserAuthority;
+  const authorityArray = cleanUserAuthority.split(", ");
 
   // Validate a user's access to a webpage
   Validate(token, cleanUserAuthority);

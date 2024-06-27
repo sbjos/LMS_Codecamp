@@ -13,9 +13,7 @@ function ReviewerDashboard() {
   const token = localStorage.getItem("lmsusertoken");
   const userAuthority = localStorage.getItem("lmsuserauthorities");
   const cleanUserAuthority = userAuthority ? userAuthority.trim() : "";
-  const authorityArray = cleanUserAuthority
-    ? cleanUserAuthority.split(", ")
-    : "";
+  const authorityArray = cleanUserAuthority.split(", ");
 
   // Validate a user's access to a webpage.
   Validate(token, cleanUserAuthority);
@@ -43,7 +41,7 @@ function ReviewerDashboard() {
     fetchData();
   }, []);
 
-  // Passes the data to the ReviewerMapping.jsx component to handle the cards.
+  // Passes the data to the ReviewerMapping.jsx component to handle cards.
   return (
     <>
       <div className="dashboard-header">
