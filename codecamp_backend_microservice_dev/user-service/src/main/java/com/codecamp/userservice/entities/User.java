@@ -1,5 +1,6 @@
 package com.codecamp.userservice.entities;
 
+import com.codecamp.userservice.utils.CustomPasswordEncoder;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;

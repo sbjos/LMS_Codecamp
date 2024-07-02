@@ -1,12 +1,12 @@
 package com.codecamp.assignmentservice.entities;
 
+import com.codecamp.assignmentservice.dto.UserResponseDto;
 import jakarta.persistence.*;
 import java.util.Objects;
 
 @Entity
 @Table(name = "assignment")
 public class Assignment {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -14,7 +14,6 @@ public class Assignment {
     private int number;
 
     private String status;
-
 
     @Column(name = "github_url")
     private String githubUrl;
@@ -26,16 +25,16 @@ public class Assignment {
 
     @ManyToOne
     @JoinColumn(name = "user_id")
-    private User user;
+    private UserResponseDto user;
 
     @ManyToOne
     @JoinColumn(name = "code_reviewer_id")
-    private User codeReviewer;
+    private UserResponseDto codeReviewer;
 
     public Assignment() {}
 
     public Assignment(int number, String status, String githubUrl, String branch,
-                      String reviewVideoUrl, User user, User codeReviewer) {
+                      String reviewVideoUrl, UserResponseDto user, UserResponseDto codeReviewer) {
         this.number = number;
         this.status = status;
         this.githubUrl = githubUrl;
@@ -93,19 +92,19 @@ public class Assignment {
         this.reviewVideoUrl = reviewVideoUrl;
     }
 
-    public User getUser() {
+    public UserResponseDto getUser() {
         return user;
     }
 
-    public void setUser(User user) {
+    public void setUser(UserResponseDto user) {
         this.user = user;
     }
 
-    public User getCodeReviewer() {
+    public UserResponseDto getCodeReviewer() {
         return codeReviewer;
     }
 
-    public void setCodeReviewer(User codeReviewer) {
+    public void setCodeReviewer(UserResponseDto codeReviewer) {
         this.codeReviewer = codeReviewer;
     }
 

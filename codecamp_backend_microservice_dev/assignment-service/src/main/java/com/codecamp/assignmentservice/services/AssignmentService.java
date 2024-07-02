@@ -1,6 +1,7 @@
 package com.codecamp.assignmentservice.services;
 
 import com.codecamp.assignmentservice.dto.AssignmentResponseDto;
+import com.codecamp.assignmentservice.dto.UserResponseDto;
 import com.codecamp.assignmentservice.entities.Assignment;
 import com.codecamp.assignmentservice.exceptions.AssignmentNotFoundException;
 import com.codecamp.assignmentservice.repositories.AssignmentRepository;
@@ -13,7 +14,8 @@ import org.springframework.web.bind.annotation.*;
 import java.util.*;
 import java.util.stream.Collectors;
 
-import static com.codecamp.assignmentservice.securities.AssignmentStatus.*;
+import static com.codecamp.assignmentservice.status.AssignmentStatus.*;
+import static com.codecamp.assignmentservice.userapi.permissions.AppUserRole.*;
 
 @Service
 public class AssignmentService {
@@ -28,7 +30,7 @@ public class AssignmentService {
      * @return list of assignments
      * @throws AssignmentNotFoundException assignments not found
      */
-    public List<AssignmentResponseDto> getSubmittedAssignments(User user) {
+    public List<AssignmentResponseDto> getSubmittedAssignments(UserResponseDto user) {
         List<Assignment> assignmentsPage = null;
 
         if (user.getAuthorities().toString().contains(LEARNER.name())) {
@@ -54,7 +56,7 @@ public class AssignmentService {
      * @return assignment
      * @throws AssignmentNotFoundException assignment not found
      */
-    public AssignmentResponseDto getAssignmentById(Long assignmentId, User user) {
+    public AssignmentResponseDto getAssignmentById(Long assignmentId, UserResponseDto user) {
         return new AssignmentResponseDto(assignmentLookup(assignmentId, user)
                 .orElseThrow(
                         () -> new AssignmentNotFoundException(String.format("Assignment %s not found.", assignmentId)))
@@ -70,7 +72,7 @@ public class AssignmentService {
      * @return HTTPStatus response with modified assignment
      * @throws AssignmentNotFoundException assignment not found
      */
-    public AssignmentResponseDto updateAssignmentById(Long assignmentId, Assignment update, User user) {
+    public AssignmentResponseDto updateAssignmentById(Long assignmentId, Assignment update, UserResponseDto user) {
         if (hasReachedLimit(update, user)) throw new IllegalArgumentException("Limit reached");
 
         Optional<Assignment> userAssignment;
@@ -109,7 +111,7 @@ public class AssignmentService {
      * @return HTTPStatus response with new assignment
      */
     public AssignmentResponseDto createAssignment(@RequestBody Assignment assignment,
-                                                  @AuthenticationPrincipal User user) {
+                                                  @AuthenticationPrincipal UserResponseDto user) {
         int size;
         int random;
         boolean isDuplicate;
@@ -155,7 +157,7 @@ public class AssignmentService {
      * @return assignment
      * @throws AssignmentNotFoundException assignment not found
      */
-    private Optional<Assignment> assignmentLookup(Long assignmentId, User user) {
+    private Optional<Assignment> assignmentLookup(Long assignmentId, UserResponseDto user) {
         GrantedAuthority userAuthority = user.getAuthorities().stream().findFirst().get();
 
         if (userAuthority.toString().equals(REVIEWER.name())) {
@@ -177,7 +179,7 @@ public class AssignmentService {
      * @param user user details
      * @return true if limit has reached, false if not.
      */
-    private boolean hasReachedLimit(Assignment update, User user) {
+    private boolean hasReachedLimit(Assignment update, UserResponseDto user) {
         GrantedAuthority userAuthority = user.getAuthorities().stream().findFirst().get();
         String updateStatus = update.getStatus();
         Map<String, Integer> learnerAssignments = new HashMap<>();

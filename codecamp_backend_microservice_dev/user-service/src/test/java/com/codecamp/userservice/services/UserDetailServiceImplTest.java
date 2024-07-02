@@ -1,6 +1,6 @@
-package com.hcc.services;
+package com.codecamp.userservice.services;
 
-import com.hcc.config.TestDatabaseConfig;
+import com.codecamp.userservice.config.TestDatabaseConfig;
 import com.codecamp.userservice.entities.User;
 import com.hcc.testhelper.TestUserHelper;
 import org.junit.jupiter.api.BeforeEach;

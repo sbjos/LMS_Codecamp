@@ -1,8 +1,9 @@
 package com.codecamp.assignmentservice.controllers;
 
 import com.codecamp.assignmentservice.dto.AssignmentResponseDto;
+import com.codecamp.assignmentservice.dto.UserResponseDto;
 import com.codecamp.assignmentservice.entities.Assignment;
-import com.hcc.services.AssignmentService;
+import com.codecamp.assignmentservice.services.AssignmentService;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,20 +23,20 @@ public class AssignmentController {
     private AssignmentService assignmentService;
 
     @GetMapping(value = "/api/assignments")
-    public ResponseEntity<List<AssignmentResponseDto>> getSubmittedAssignments(@AuthenticationPrincipal User user) {
+    public ResponseEntity<List<AssignmentResponseDto>> getSubmittedAssignments(@AuthenticationPrincipal UserResponseDto user) {
             return new ResponseEntity<>(assignmentService.getSubmittedAssignments(user), HttpStatus.OK);
     }
 
     @GetMapping(value = "/api/assignments/{id}")
     public ResponseEntity<AssignmentResponseDto> getAssignmentById(@PathVariable("id") Long assignmentId,
-                                                                   @AuthenticationPrincipal User user) {
+                                                                   @AuthenticationPrincipal UserResponseDto user) {
         return new ResponseEntity<>(assignmentService.getAssignmentById(assignmentId, user), HttpStatus.OK);
     }
 
     @PutMapping(value = "/api/assignments/{id}")
     public ResponseEntity<AssignmentResponseDto> updateAssignmentById(@PathVariable("id") Long assignmentId,
                                                                       @RequestBody Assignment update,
-                                                                      @AuthenticationPrincipal User user) {
+                                                                      @AuthenticationPrincipal UserResponseDto user) {
         AssignmentResponseDto assignmentDto;
 
         try {
@@ -52,7 +53,7 @@ public class AssignmentController {
 
     @PostMapping(value = "/api/assignments")
     public ResponseEntity<AssignmentResponseDto> createAssignment(@RequestBody Assignment assignment,
-                                                                  @AuthenticationPrincipal User user) {
+                                                                  @AuthenticationPrincipal UserResponseDto user) {
         AssignmentResponseDto responseDto;
 
         try {

@@ -1,6 +1,6 @@
-package com.hcc.testhelper;
+package com.codecamp.userservice.testhelper;
 
-import com.hcc.entities.User;
+import com.codecamp.userservice.entities.User;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import java.time.LocalDate;
