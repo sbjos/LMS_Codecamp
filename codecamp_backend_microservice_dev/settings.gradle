@@ -1,6 +1,0 @@
-rootProject.name = 'codecamp_backend'
-include 'user-service'
-include 'assignment-service'
-include 'security-service'
-include 'api-gateway'
-

@@ -11,22 +11,6 @@ function Login() {
   const userAuthority = localStorage.getItem("lmsuserauthorities");
   const token = localStorage.getItem("lmsusertoken");
 
-  // Redirects to apropriate dashboard based on authority if session exist
-  useEffect(() => {
-    if (token || userAuthority) {
-      const authority = userAuthority.split(", ")[1];
-      if (authority === "[LEARNER]") {
-        navigate("/api/dashboard");
-      }
-      if (authority === "[REVIEWER]") {
-        navigate("/api/reviewer/dashboard");
-      }
-      if (authority === "[ADMIN]") {
-        navigate("/api/admin");
-      }
-    }
-  }, []);
-
   // Sumbit a request to login to application.
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -47,16 +31,16 @@ function Login() {
       localStorage.setItem("lmsuserauthorities", userAuthority);
 
       // redirect to apropriate dashboard based on authority after successfull login
-      const authority = userAuthority.split(", ")[2];
+      const authority = userAuthority.split(", ");
 
-      if (authority === "[LEARNER]") {
-        navigate("/api/dashboard");
+      if (authority[2] === "[LEARNER]") {
+        navigate("/api/dashboard/" + authority[1]);
       }
-      if (authority === "[REVIEWER]") {
-        navigate("/api/reviewer/dashboard");
+      if (authority[2] === "[REVIEWER]") {
+        navigate("/api/:reviewer/dashboard/" + authority[1]);
       }
-      if (authority === "[ADMIN]") {
-        navigate("/api/admin");
+      if (authority[2] === "[ADMIN]") {
+        navigate("/api/admin/" + authority[1]);
       }
     } catch (err) {
       if (!err) {

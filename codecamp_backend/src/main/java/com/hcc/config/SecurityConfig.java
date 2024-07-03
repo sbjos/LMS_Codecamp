@@ -1,5 +1,6 @@
 package com.hcc.config;
 
+import com.hcc.enums.AuthorityEnum;
 import com.hcc.filters.JWTFilter;
 import com.hcc.services.UserDetailServiceImpl;
 import com.hcc.utils.CustomPasswordEncoder;
@@ -16,6 +17,8 @@ import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 import javax.servlet.http.HttpServletResponse;
+
+import static com.hcc.enums.AuthorityEnum.ADMIN;
 
 @Configuration
 @EnableWebSecurity
@@ -54,8 +57,7 @@ public class SecurityConfig  extends WebSecurityConfigurerAdapter {
 
         http.authorizeRequests()
                 .antMatchers("/api/auth/**").permitAll()
-//                .antMatchers("/api/user/**").hasAuthority("ADMIN")
-                .antMatchers("/api/user/**").permitAll()
+                .antMatchers("/api/admin/**").hasAuthority(ADMIN.name())
                 .anyRequest().authenticated();
 
         http.addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class);
