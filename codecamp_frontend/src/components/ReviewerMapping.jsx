@@ -45,17 +45,6 @@ function ReviewerMapping(assignments, token, data) {
    * @returns the apropriate button for the card.
    */
   const renderButton = (assignmentItem) => {
-    // console.log(
-    //   "vrify",
-    //   assignments.map((item) => item.status === "In review").length >= 4
-    // ); // CONSOLE
-
-    // FIXME: stops a reviewer from claiming more than 4 assignments
-    // if (assignments.map((item) => item.status === "In review").length >= 4) {
-    //   alert("You have to many assignments in 'in review' status");
-    //   return null;
-    // }
-
     // Button conf ig based in assignment status.
     const codeReviewerIdString = String(assignmentItem.codeReviewer?.id);
     const codeReviewerIdMatch = codeReviewerIdString === data;
@@ -88,12 +77,6 @@ function ReviewerMapping(assignments, token, data) {
           </div>
           <div>Branch: {assignmentItem.branch}</div>
           <div>Learner: {assignmentItem.user.username}</div>
-          <div>
-            Reviewer:{" "}
-            {assignmentItem.codeReviewer
-              ? assignmentItem.codeReviewer.username
-              : "Unassigned"}
-          </div>
           <div id="card-button">{renderButton(assignmentItem)}</div>
         </li>
       ))}
