@@ -1,15 +1,15 @@
 version: '3'
 
 services:
-  pgdb:
+  codecamp-database:
     image: postgres
-    container_name: pg_server_01
+    container_name: codecamp_server_01
     ports:
       - '5550:5432'
     environment:
-      - POSTGRES_USER=docker
-      - POSTGRES_PASSWORD=docker
-      - POSTGRES_DB=codecampDB
+      POSTGRES_DB: codecampDB
+      POSTGRES_USER: codecamp123
+      POSTGRES_PASSWORD: codecamp123P
     volumes:
       - ./docker/pg/postgres.conf:/etc/postgresql/postgresql.conf
       - ./data/pg:/var/lib/postgresql/data
@@ -19,8 +19,8 @@ services:
     restart: always
 
   pgadminFp:
-    container_name: pgadmin_01
     image: dpage/pgadmin4
+    container_name: pgadmin_01
     environment:
       PGADMIN_DEFAULT_EMAIL: ${PGADMIN_DEFAULT_EMAIL:-pgadmin4@pgadmin.org}
       PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_DEFAULT_PASSWORD:-admin}
