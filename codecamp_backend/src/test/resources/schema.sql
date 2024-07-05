@@ -2,6 +2,8 @@ CREATE TABLE users
     (
         id                      BIGINT PRIMARY KEY,
         cohort_start_date       DATE,
+        firstName               VARCHAR,
+        lastName                VARCHAR,
         username                VARCHAR,
         password                VARCHAR,
         isAccountNonExpired     BIT,
@@ -17,7 +19,7 @@ CREATE TABLE authorities
         user_id                 BIGINT
     );
 
-CREATE TABLE assignment
+CREATE TABLE assignments
     (
         id                      BIGINT PRIMARY KEY,
         number                  INTEGER,
