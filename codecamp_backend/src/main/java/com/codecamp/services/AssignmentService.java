@@ -44,7 +44,7 @@ public class AssignmentService {
             throw new AssignmentNotFoundException("Assignment list not found");
 
         return assignmentsPage.stream()
-                .map(AssignmentResponseDto::new)
+                .map(assignment -> new ObjectMapping().assignmentMapping(assignment))
                 .collect(Collectors.toList());
     }
 
@@ -57,7 +57,7 @@ public class AssignmentService {
      * @throws AssignmentNotFoundException assignment not found
      */
     public AssignmentResponseDto getAssignmentById(Long assignmentId, User user) {
-        return new AssignmentResponseDto(assignmentLookup(assignmentId, user)
+        return new ObjectMapping().assignmentMapping(assignmentLookup(assignmentId, user)
                 .orElseThrow(
                         () -> new AssignmentNotFoundException(String.format("Assignment %s not found.", assignmentId)))
         );
@@ -98,7 +98,7 @@ public class AssignmentService {
 
         assignmentRepository.save(userAssignment.get());
 
-        return new AssignmentResponseDto(userAssignment.orElseThrow(
+        return new ObjectMapping().assignmentMapping(userAssignment.orElseThrow(
                 () -> new AssignmentNotFoundException(String.format("Assignment %s not found.", assignmentId)))
         );
     }

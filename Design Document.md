@@ -4,10 +4,7 @@
 A learning Management System to keep track of learners assignments. This is a solutions for a learner to submit assignments and 
 get them reviewed.
 
-
-
 ## User Stories
-
 ### Learner User Stories
 - As a Learner i want to be able to log in to the app and be presented with a dashboard
 - As a learner I want a dashboard that shows all of my currently working on, submitted, rejected, and completed assignments.
@@ -20,7 +17,7 @@ get them reviewed.
 - As a Learner I cannot have more than 4 assignments that `Needs work` at a time.
 
 ### Reviewer User Stories
-- As a Reviewer I want to be able to login to the app and be presented with a dashboard.
+- As a Reviewer I want to be able to log in to the app and be presented with a dashboard.
 - As a Reviewer I want to be able to see any submitted assignments on my dashboard ready to claim.
 - As a Reviewer I want to be able to click on a `claim` button on an assignment in my dashboard to claim it ready for review
 - As a Reviewer I want to be able to be able to click a `View` button on one of my claimed assignments and get a detail view of the assignment ready to review
@@ -31,7 +28,6 @@ get them reviewed.
 - As a Reviewer I want to be able to see the 4 most recent `Submitted` assignments and clock on `view all` for a list of all-of-the submitted and resubmitted assignments.
 - As a Reviewer I cannot have more than 4 assignments that are `In review`.
 
-
 ## Technology Stack
 - **Frontend:** React JS
 - **Backend API:** Spring Boot with Spring Data JPA with Hibernate and the Postgress Driver
@@ -39,10 +35,11 @@ get them reviewed.
 - **Database:** PostgreSQL server for a relational database
 
 ## Domain Objects (Entities / DTO / ENUM)
-
 ### User
 - id : Long
 - cohortStartDate: Date
+- firstname: String
+- lastname: String
 - username: String
 - password: String
 - authorities: List<Authority>
@@ -64,6 +61,7 @@ get them reviewed.
 
 ### DTOs
 - AssignmentResponseDto
+- UserResponseDto
 - AuthCredentialRequest
 
 ### Enums
@@ -74,12 +72,14 @@ get them reviewed.
 ## Database Tables
 - users
 - authorities
-- assignment
+- assignments
 
 ### users
 - id : number
 - cohort_start_date: date
-- username: varchar
+- first_name: String
+- last_name: String
+- user_name: varchar
 - password: varchar
 
 ### authorities
@@ -89,26 +89,29 @@ get them reviewed.
 
 ### assignments
 - id: number
+- number: number
+- github_url: varchar
 - branch: varchar
 - code_review_video_url: varchar
-- github_url: varchar
-- number: number
 - user_id: number
 - code_reviewer_id: number
 
 ## Restful Endpoints
+### Authentication and verification
+- **Login**                     - *Post method* - `/api/auth/login`
+- **Validate token**            - *Get method* - `/api/auth/validate`
 
-- **Login**                     `/api/auth/login`
-- **Validate token**            `/api/auth/validate`
-- **Get Assignments By User**   `/api/assignments`
-- **Get Assignment By Id**      `/api/assignments/{id}`
-- **Put Assignment by Id**      `/api/assignments/{id}`
-- **Post Assignment**           `/api/assignments`
+### Assignments
+- **Get Assignments by User**   - *Get method* - `/api/assignments`
+- **Get Assignment by id**      - *Get method* - `/api/assignments/{id}`
+- **Update Assignment by id**   - *Put method* - `/api/assignments/{id}`
+- **Create Assignment**         - *Post Method* - `/api/assignments`
 
-
+### Users
+- **Get user by username**      - *Get method* - `/api/user/{username}`
+- **Create user**               - *Post method* - `/api/user`
 
 ## Wireframes
-
 ### Home Page (Public)
 ![Home Page (Public)](./documents/images/home_page_public.jpg)
 

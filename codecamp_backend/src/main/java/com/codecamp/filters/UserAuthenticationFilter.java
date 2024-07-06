@@ -10,12 +10,11 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
-import org.springframework.security.core.annotation.AuthenticationPrincipal;import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.stereotype.Component;
 
 import java.io.IOException;
@@ -25,8 +24,7 @@ import java.util.List;
  * Authentication component class
  */
 @Component
-public class JwtUserAuthenticationFilter extends UsernamePasswordAuthenticationFilter {
-
+public class UserAuthenticationFilter extends UsernamePasswordAuthenticationFilter {
     @Autowired
     private AuthenticationManager authenticationManager;
 
@@ -36,7 +34,7 @@ public class JwtUserAuthenticationFilter extends UsernamePasswordAuthenticationF
     @Autowired
     private JWTUtils jwtUtils;
 
-    public JwtUserAuthenticationFilter(AuthenticationManager authenticationManager) {
+    public UserAuthenticationFilter(AuthenticationManager authenticationManager) {
         super(authenticationManager);
         setFilterProcessesUrl("/api/auth/login");
     }

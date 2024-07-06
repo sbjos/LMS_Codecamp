@@ -19,14 +19,17 @@ public class User implements UserDetails {
     @Column(name = "cohort_start_date")
     private LocalDate cohortStartDate;
 
+//    @Column(name = "first_name")
     @Column
     private String firstName;
 
+//    @Column(name = "last_name")
     @Column
     private String lastName;
 
+//    @Column(name = "user_name")
     @Column
-    private String username; // Holds the email address
+    private String username; // user's email address
 
     @Column
     private String password;

@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class UserController {
-
     private final Logger log = LogManager.getLogger(AssignmentController.class);
 
     @Autowired

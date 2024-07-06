@@ -3,7 +3,6 @@ package com.codecamp.dto;
 import java.util.Objects;
 
 public class AuthCredentialRequest {
-
     private String username;
 
     private String password;

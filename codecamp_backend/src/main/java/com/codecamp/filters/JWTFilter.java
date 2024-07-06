@@ -23,7 +23,6 @@ import static org.springframework.util.ObjectUtils.isEmpty;
 
 @Component
 public class JWTFilter extends OncePerRequestFilter {
-
     @Autowired
     private UserRepository userRepository;
 

@@ -22,7 +22,6 @@ import static com.codecamp.enums.AuthorityEnum.ADMIN;
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig {
-
     @Autowired
     private UserDetailServiceImpl userDetailServiceImpl;
 
@@ -48,8 +47,8 @@ public class SecurityConfig {
                 }))
                 .authorizeHttpRequests(authRequest -> authRequest
                 .requestMatchers("/api/auth/**").permitAll()
-                .requestMatchers("/api/admin/**").hasAuthority(ADMIN.name())
                 .requestMatchers("/api/user/**").permitAll()
+//                .requestMatchers("/api/user/**").hasAuthority(ADMIN.name())
                 .anyRequest().authenticated());
 
         http.addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class);

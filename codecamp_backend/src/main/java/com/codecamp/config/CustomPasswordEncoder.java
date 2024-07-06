@@ -8,7 +8,6 @@ import org.springframework.stereotype.Component;
 @Configuration
 @Component
 public class CustomPasswordEncoder {
-
     private final PasswordEncoder passwordEncoder;
 
     public CustomPasswordEncoder() {

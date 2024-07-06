@@ -16,7 +16,6 @@ import java.util.*;
 
 @RestController
 public class AssignmentController {
-
     private final Logger log = LogManager.getLogger(AssignmentController.class);
 
     @Autowired
