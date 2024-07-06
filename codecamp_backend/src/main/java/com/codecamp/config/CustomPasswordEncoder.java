@@ -1,4 +1,4 @@
-package com.codecamp.utils;
+package com.codecamp.config;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;

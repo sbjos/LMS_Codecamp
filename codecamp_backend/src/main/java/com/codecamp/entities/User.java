@@ -1,7 +1,7 @@
 package com.codecamp.entities;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
-import com.codecamp.utils.CustomPasswordEncoder;
+import com.codecamp.config.CustomPasswordEncoder;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
