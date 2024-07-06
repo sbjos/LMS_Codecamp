@@ -5,6 +5,7 @@ import com.codecamp.entities.Assignment;
 import com.codecamp.entities.User;
 import com.codecamp.exceptions.AssignmentNotFoundException;
 import com.codecamp.repositories.AssignmentRepository;
+import com.codecamp.utils.ObjectMapping;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
@@ -30,7 +31,7 @@ public class AssignmentService {
      * @return list of assignments
      * @throws AssignmentNotFoundException assignments not found
      */
-    public List<AssignmentResponseDto> getSubmittedAssignments(User user) {
+    public List<AssignmentResponseDto> getAssignments(User user) {
         List<Assignment> assignmentsPage = null;
 
         if (user.getAuthorities().toString().contains(LEARNER.name())) {
@@ -91,8 +92,10 @@ public class AssignmentService {
 
             Optional.ofNullable(update.getGithubUrl()).ifPresent(url -> userAssignment.get().setGithubUrl(url));
             Optional.ofNullable(update.getBranch()).ifPresent(branch -> userAssignment.get().setBranch(branch));
+            Optional.ofNullable(update.getCodeReviewer())
+                    .ifPresent(codeReviewer -> userAssignment.get().setCodeReviewer(codeReviewer)
+            );
             userAssignment.get().setStatus(SUBMITTED.getStatus());
-            userAssignment.get().setCodeReviewer(update.getCodeReviewer());
 
         }
 

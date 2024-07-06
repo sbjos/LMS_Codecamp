@@ -13,24 +13,24 @@ public class TestAssignmentHelper {
     public static Assignment assignment1() {
         return new Assignment(
             11,
-            AssignmentStatusEnum.COMPLETED.getStatus(),
-            "https://GithubUrl.com",
-            "https://GithubUrl.com/branch",
-            "https://VideoUrl.com/",
+            AssignmentStatusEnum.SUBMITTED.getStatus(),
+            "https://github.com/johndoe/project",
+            "main",
+            "",
             user1(),
-            reviewer1()
+            null
         );
     }
 
     public static Assignment assignment2() {
         return new Assignment(
-            22,
-            AssignmentStatusEnum.SUBMITTED.getStatus(),
-            "https://GithubUrl.com",
-            "https://GithubUrl.com/branch",
-            "https://VideoUrl.com/",
-            user1(),
-            reviewer1()
+                22,
+                AssignmentStatusEnum.COMPLETED.getStatus(),
+                "https://github.com/janesmith/project",
+                "main",
+                "https://vid.com/review2",
+                user2(),
+                reviewer1()
         );
     }
 
@@ -38,9 +38,9 @@ public class TestAssignmentHelper {
         return new Assignment(
                 33,
                 AssignmentStatusEnum.NEEDS_WORK.getStatus(),
-                "https://GithubUrl.com",
-                "https://GithubUrl.com/branch",
-                "https://VideoUrl.com/",
+                "https://github.com/janesmith/project",
+                "main",
+                "https://vid.com/review24",
                 user2(),
                 reviewer1()
         );

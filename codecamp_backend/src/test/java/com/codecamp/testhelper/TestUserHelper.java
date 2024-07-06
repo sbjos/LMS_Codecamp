@@ -16,8 +16,8 @@ public final class TestUserHelper {
     public static User user1() {
         return new User(
                 LocalDate.of(2023, 11, 20),
-                "fn",
-                "ln",
+                "John",
+                "Doe",
                 "user1",
                 "password",
                 Set.of(learner())
@@ -27,8 +27,8 @@ public final class TestUserHelper {
     public static User user2() {
         return new User(
                 LocalDate.of(2023, 7, 4),
-                "fn",
-                "ln",
+                "Jane",
+                "Doe",
                 "user2",
                 "password",
                 Set.of(learner())
@@ -38,8 +38,8 @@ public final class TestUserHelper {
     public static User reviewer1() {
         return new User(
                 null,
-                "fn",
-                "ln",
+                "Jane",
+                "Scott",
                 "reviewer",
                 "password",
                 Set.of(reviewer())

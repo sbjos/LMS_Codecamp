@@ -72,15 +72,13 @@ public class AssignmentControllerTest {
     }
 
     @Test
-    void UpdateAssignmentById_WithValidId_ReturnsUpdatedAssignment() throws Exception {
+    void UpdateAssignmentById_WithValidId_ReturnsUpdatedAssignment_byUser() throws Exception {
         // GIVEN
         Long validAssignmentId = 2L;
 
         Assignment assignment = new Assignment();
-        assignment.setStatus("in progress");
         assignment.setGithubUrl("https://GithubUrl.com/change");
         assignment.setBranch("https://GithubUrl.com/branch/main1");
-        assignment.setReviewVideoUrl("https://VideoUrl.com/myVideo");
 
         String assignmentToString = new ObjectMapper().writeValueAsString(assignment);
 

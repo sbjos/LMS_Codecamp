@@ -19,16 +19,14 @@ public class User implements UserDetails {
     @Column(name = "cohort_start_date")
     private LocalDate cohortStartDate;
 
-//    @Column(name = "first_name")
-    @Column
-    private String firstName;
+    @Column(name = "first_name")
+    private String firstname;
 
-//    @Column(name = "last_name")
-    @Column
-    private String lastName;
+    @Column(name = "last_name")
+    private String lastname;
 
 //    @Column(name = "user_name")
-    @Column
+    @Column(name = "user_name")
     private String username; // user's email address
 
     @Column
@@ -40,11 +38,11 @@ public class User implements UserDetails {
 
     public User() {}
 
-    public User(LocalDate cohortStartDate, String firstName, String lastName,
+    public User(LocalDate cohortStartDate, String firstname, String lastname,
                 String username, String password, Set<Authority> authorities) {
         this.cohortStartDate = cohortStartDate;
-        this.firstName = firstName;
-        this.lastName = lastName;
+        this.firstname = firstname;
+        this.lastname = lastname;
         this.username = username;
         this.password = password;
         this.authorities = authorities;
@@ -63,12 +61,12 @@ public class User implements UserDetails {
         return cohortStartDate;
     }
 
-    public String getFirstName() {
-        return firstName;
+    public String getFirstname() {
+        return firstname;
     }
 
-    public String getLastName() {
-        return lastName;
+    public String getLastname() {
+        return lastname;
     }
 
     @Override
