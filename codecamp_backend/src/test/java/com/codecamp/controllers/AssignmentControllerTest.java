@@ -1,7 +1,5 @@
 package com.codecamp.controllers;
 
-import com.codecamp.entities.User;
-import com.codecamp.testhelper.TestUserHelper;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.codecamp.entities.Assignment;
 import org.junit.jupiter.api.*;
@@ -38,9 +36,12 @@ public class AssignmentControllerTest {
     }
 
     @Test
-    void getAssignmentsByUser_ReturnsAssignments() throws Exception {
+    void getSubmittedAssignments_ReturnsAssignments() throws Exception {
+        // GIVEN
+
+
         // WHEN - THEN
-        mockMvc.perform(get("/api/assignments/")
+        mockMvc.perform(get("/api/assignments")
                         .header("Authorization", token)
                         .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk());

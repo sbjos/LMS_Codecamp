@@ -5,7 +5,6 @@ import com.codecamp.entities.Assignment;
 import com.codecamp.entities.User;
 import com.codecamp.exceptions.AssignmentNotFoundException;
 import com.codecamp.repositories.AssignmentRepository;
-import com.codecamp.utils.MappingObjectUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
@@ -17,7 +16,6 @@ import java.util.stream.Collectors;
 
 import static com.codecamp.enums.AssignmentStatusEnum.*;
 import static com.codecamp.enums.AuthorityEnum.*;
-import static com.codecamp.utils.MappingObjectUtils.*;
 
 @Service
 public class AssignmentService {
@@ -46,7 +44,7 @@ public class AssignmentService {
             throw new AssignmentNotFoundException("Assignment list not found");
 
         return assignmentsPage.stream()
-                .map(MappingObjectUtils::assignmentDtoMapping)
+                .map(AssignmentResponseDto::new)
                 .collect(Collectors.toList());
     }
 
@@ -59,7 +57,7 @@ public class AssignmentService {
      * @throws AssignmentNotFoundException assignment not found
      */
     public AssignmentResponseDto getAssignmentById(Long assignmentId, User user) {
-        return assignmentDtoMapping(assignmentLookup(assignmentId, user)
+        return new AssignmentResponseDto(assignmentLookup(assignmentId, user)
                 .orElseThrow(
                         () -> new AssignmentNotFoundException(String.format("Assignment %s not found.", assignmentId)))
         );
@@ -100,7 +98,7 @@ public class AssignmentService {
 
         assignmentRepository.save(userAssignment.get());
 
-        return assignmentDtoMapping(userAssignment.orElseThrow(
+        return new AssignmentResponseDto(userAssignment.orElseThrow(
                 () -> new AssignmentNotFoundException(String.format("Assignment %s not found.", assignmentId)))
         );
     }
