@@ -74,7 +74,7 @@ public class AssignmentService {
      * @throws AssignmentNotFoundException assignment not found
      */
     public AssignmentResponseDto updateAssignmentById(Long assignmentId, Assignment update, User user) {
-        if (hasReachedLimit(update, user)) throw new IllegalArgumentException("Limit reached");
+        if (hasReachedLimit(assignmentId, update, user)) throw new IllegalArgumentException("Limit reached");
 
         Optional<Assignment> userAssignment;
         GrantedAuthority userAuthority = user.getAuthorities().stream().findFirst().get();
@@ -179,12 +179,16 @@ public class AssignmentService {
      * @param user user details
      * @return true if limit has reached, false if not.
      */
-    private boolean hasReachedLimit(Assignment update, User user) {
+    private boolean hasReachedLimit(Long assignmentId, Assignment update, User user) {
         GrantedAuthority userAuthority = user.getAuthorities().stream().findFirst().get();
         String updateStatus = update.getStatus();
         Map<String, Integer> learnerAssignments = new HashMap<>();
 
         if (userAuthority.toString().equals(LEARNER.name())) {
+            if (assignmentLookup(assignmentId, user).get().getStatus().equals(SUBMITTED.getStatus())) {
+                return false;
+            }
+
             assignmentRepository.findByUser(user).stream()
                     .map(Assignment::getStatus)
                     .forEach(status -> learnerAssignments.put(

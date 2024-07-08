@@ -3,6 +3,7 @@ package com.codecamp.dto;
 import com.codecamp.enums.AssignmentEnum;
 import com.codecamp.enums.AssignmentStatusEnum;
 
+import java.util.Arrays;
 import java.util.Objects;
 
 public class AssignmentResponseDto {
@@ -91,6 +92,22 @@ public class AssignmentResponseDto {
 
     public AssignmentStatusEnum[] getAssignmentStatusEnum() {
         return assignmentStatusEnum;
+    }
+
+    @Override
+    public String toString() {
+        return "AssignmentResponseDto{" +
+                "id=" + id +
+                ", number=" + number +
+                ", status='" + status + '\'' +
+                ", githubUrl='" + githubUrl + '\'' +
+                ", branch='" + branch + '\'' +
+                ", reviewVideoUrl='" + reviewVideoUrl + '\'' +
+                ", user=" + user +
+                ", codeReviewer=" + codeReviewer +
+                ", AssignmentEnum=" + Arrays.toString(AssignmentEnum) +
+                ", assignmentStatusEnum=" + Arrays.toString(assignmentStatusEnum) +
+                '}';
     }
 
     @Override

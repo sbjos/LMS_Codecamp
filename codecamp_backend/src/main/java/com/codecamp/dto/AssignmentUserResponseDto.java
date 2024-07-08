@@ -5,6 +5,7 @@ import org.springframework.security.core.GrantedAuthority;
 import java.time.LocalDate;
 import java.util.Collection;
 import java.util.Objects;
+import java.util.Set;
 
 public class AssignmentUserResponseDto {
     private Long id;
@@ -13,7 +14,7 @@ public class AssignmentUserResponseDto {
     private String lastname;
     private String username; // Holds the email address
     private String password;
-    private Collection<? extends GrantedAuthority> authorities;
+    private Set<GrantedAuthority> authorities;
 
     public AssignmentUserResponseDto() {}
 
@@ -57,12 +58,24 @@ public class AssignmentUserResponseDto {
         this.username = username;
     }
 
-    public Collection<? extends GrantedAuthority> getAuthorities() {
+    public Set<GrantedAuthority> getAuthorities() {
         return authorities;
     }
 
-    public void setAuthorities(Collection<? extends GrantedAuthority> authorities) {
+    public void setAuthorities(Set<GrantedAuthority> authorities) {
         this.authorities = authorities;
+    }
+
+    @Override
+    public String toString() {
+        return "AssignmentUserResponseDto{" +
+                "id=" + id +
+                ", cohortStartDate=" + cohortStartDate +
+                ", firstname='" + firstname + '\'' +
+                ", lastname='" + lastname + '\'' +
+                ", username='" + username + '\'' +
+                ", authorities=" + authorities +
+                '}';
     }
 
     @Override

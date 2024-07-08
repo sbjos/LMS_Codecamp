@@ -18,12 +18,10 @@ import java.util.function.Function;
 
 @Component
 public class JWTUtils implements Serializable {
-
-    //how long is the token valid? a whole day
-    public static final long JWT_TOKEN_VALIDITY = 5 * 24 * 60 * 60;
+    public static final long JWT_TOKEN_VALIDITY = 12 * 60 * 60;
 
     @Value("${jwt.secret}")
-    private String secret; // get the jwt secret from the properties file
+    private String secret;
 
     /**
      * Gets a username from a token claim.
@@ -91,7 +89,7 @@ public class JWTUtils implements Serializable {
      * @param user user
      * @return a JWTs generated version of a token.
      */
-    public String generateToken(User user) {
+    public String generateToken(UserDetails user) {
         return doGenerateToken(user);
     }
 
@@ -106,7 +104,7 @@ public class JWTUtils implements Serializable {
     }
 
     /**
-     * Validates a token.
+     * Checks the validity of a token
      * @param token jwt token
      * @param userDetails UserDetails service
      * @return a boolean value of if the token is expired for a user.

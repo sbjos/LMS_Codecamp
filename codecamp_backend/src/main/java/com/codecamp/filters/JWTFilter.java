@@ -49,7 +49,7 @@ public class JWTFilter extends OncePerRequestFilter {
                 jwtUtils.getUsernameFromToken(token)).orElse(null
         );
 
-        var valid = jwtUtils.validateToken(token, userDetails);
+//        var valid = jwtUtils.validateToken(token, userDetails);
         if (!jwtUtils.validateToken(token, userDetails)) {
             filterChain.doFilter(request,response);
             return;

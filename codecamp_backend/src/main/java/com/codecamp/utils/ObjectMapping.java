@@ -6,7 +6,9 @@ import com.codecamp.entities.Assignment;
 import com.codecamp.entities.User;
 import org.springframework.stereotype.Component;
 
+import java.util.HashSet;
 import java.util.Optional;
+import java.util.Set;
 
 @Component
 public class ObjectMapping {
@@ -35,7 +37,7 @@ public class ObjectMapping {
         dto.setFirstname(user.getFirstname());
         dto.setLastname(user.getLastname());
         dto.setUsername(user.getUsername());
-        dto.setAuthorities(user.getAuthorities());
+        dto.setAuthorities(new HashSet<>(user.getAuthorities()));
 
         return dto;
     }
