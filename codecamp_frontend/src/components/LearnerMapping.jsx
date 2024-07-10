@@ -1,3 +1,4 @@
+import { Outlet } from "react-router-dom";
 import RedirectButton from "../components/RedirectButton";
 
 function LearnerMapping(assignments) {
@@ -8,7 +9,6 @@ function LearnerMapping(assignments) {
    */
   function renderButton(assignmentItem) {
     const assignmentStatus = assignmentItem.status;
-    const video = assignmentItem.reviewVideoUrl;
     const id = assignmentItem.id;
 
     // filters by assignment status to assign the appropriate button on the assignment card
@@ -48,6 +48,7 @@ function LearnerMapping(assignments) {
           <div id="card-button">{renderButton(assignmentItem)}</div>
         </li>
       ))}
+      <div></div>
     </>
   );
 }

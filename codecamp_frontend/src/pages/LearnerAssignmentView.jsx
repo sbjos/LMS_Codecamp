@@ -1,14 +1,12 @@
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 import Validate from "../components/Validate";
 import RedirectButton from "../components/RedirectButton";
 import "../css/AssignmentViews.css";
 
 function LearnerAssignmentView() {
-  const dashboardButton = (
-    <RedirectButton reference="learner-dashboard" buttonName="Dashboard" />
-  );
+  const navigate = useNavigate();
   const [assignment, setAssignment] = useState(null);
   const [githubUrl, setGithubUrl] = useState(null);
   const [branch, setBranch] = useState(null);
@@ -17,6 +15,14 @@ function LearnerAssignmentView() {
   const userAuthority = localStorage.getItem("lmsuserauthorities");
   const cleanUserAuthority = userAuthority ? userAuthority.trim() : "";
   const authorityArray = cleanUserAuthority.split(", ");
+  const userNamePathVariable = authorityArray[1] + authorityArray[2];
+  const dashboardButton = (
+    <RedirectButton
+      reference="learner-dashboard"
+      buttonName="Dashboard"
+      data={userNamePathVariable}
+    />
+  );
 
   // Validate a user's access to a webpage
   Validate(token, cleanUserAuthority);
@@ -32,7 +38,6 @@ function LearnerAssignmentView() {
           { headers: { Authorization: "Bearer " + token } }
         );
         setAssignment(response.data);
-        console.log("assignment", assignment);
       } catch (err) {
         if (!err) {
           console.error("No server response");
@@ -53,18 +58,17 @@ function LearnerAssignmentView() {
     return <div>Loading...</div>;
   }
 
-  const status = assignment.assignment.status;
-  console.log("response", status);
+  const status = assignment.status;
 
   // Updates an assignment
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const codeReviewer = assignment.assignment.codeReviewer;
+    const codeReviewer = assignment.codeReviewer;
     if (
       (!githubUrl && !branch) ||
-      githubUrl == assignment.assignment.githubUrl ||
-      branch == assignment.assignment.branch
+      githubUrl == assignment.githubUrl ||
+      branch == assignment.branch
     ) {
       alert("No changes detected");
     } else {
@@ -81,7 +85,7 @@ function LearnerAssignmentView() {
         }
         if (response.status === 200) {
           alert("Assignment updated !");
-          window.location.assign("/api/dashboard");
+          navigate("/codecamp/dashboard/" + userNamePathVariable);
         }
       } catch (err) {
         if (!err) {
@@ -90,7 +94,7 @@ function LearnerAssignmentView() {
           alert(
             "To many open assignments. You can only have 4 submitted at a time."
           );
-          window.location.assign("/api/dashboard");
+          navigate("/codecamp/dashboard/" + userNamePathVariable);
         } else {
           console.error(err);
           alert("Failed to update the assignment !");
@@ -100,9 +104,9 @@ function LearnerAssignmentView() {
   };
 
   function formOrNot() {
-    const status = assignment.assignment.status;
-    const reviewVideoUrl = assignment.assignment.reviewVideoUrl
-      ? assignment.assignment.reviewVideoUrl
+    const status = assignment.status;
+    const reviewVideoUrl = assignment.reviewVideoUrl
+      ? assignment.reviewVideoUrl
       : "";
 
     if (status == "Submitted") {
@@ -113,7 +117,7 @@ function LearnerAssignmentView() {
             <input
               id="reviewvideo"
               type="url"
-              defaultValue={assignment.assignment.githubUrl}
+              defaultValue={assignment.githubUrl}
               onChange={(e) => setGithubUrl(e.target.value)}
               required
             />
@@ -123,7 +127,7 @@ function LearnerAssignmentView() {
             <input
               id="branch"
               type="text"
-              defaultValue={assignment.assignment.branch}
+              defaultValue={assignment.branch}
               onChange={(e) => setBranch(e.target.value)}
             />
           </div>
@@ -154,7 +158,7 @@ function LearnerAssignmentView() {
             <input
               id="reviewvideo"
               type="url"
-              defaultValue={assignment.assignment.githubUrl}
+              defaultValue={assignment.githubUrl}
               onChange={(e) => setGithubUrl(e.target.value)}
               required
             />
@@ -164,7 +168,7 @@ function LearnerAssignmentView() {
             <input
               id="branch"
               type="text"
-              defaultValue={assignment.assignment.branch}
+              defaultValue={assignment.branch}
               onChange={(e) => setBranch(e.target.value)}
             />
           </div>
@@ -173,10 +177,10 @@ function LearnerAssignmentView() {
             <div className="input">
               <a
                 className="inputText"
-                href={assignment.assignment.reviewVideoUrl}
+                href={assignment.reviewVideoUrl}
                 target="blank"
               >
-                {assignment.assignment.reviewVideoUrl}
+                {assignment.reviewVideoUrl}
               </a>
             </div>
           </div>
@@ -196,10 +200,10 @@ function LearnerAssignmentView() {
             <div className="input">
               <a
                 className="inputText"
-                href={assignment.assignment.githubUrl}
+                href={assignment.githubUrl}
                 target="blank"
               >
-                {assignment.assignment.githubUrl}
+                {assignment.githubUrl}
               </a>
             </div>
           </div>
@@ -208,7 +212,7 @@ function LearnerAssignmentView() {
             <input
               id="branch"
               type="text"
-              defaultValue={assignment.assignment.branch}
+              defaultValue={assignment.branch}
               disabled
             />
           </div>
@@ -233,25 +237,17 @@ function LearnerAssignmentView() {
         <div>
           <div className="form-edit-github">
             <label htmlFor="githuburl">Github</label>
-            <input
-              id="githuburl"
-              placeholder={assignment.assignment.githubUrl}
-              disabled
-            />
+            <input id="githuburl" placeholder={assignment.githubUrl} disabled />
           </div>
           <div className="form-edit-branch">
             <label htmlFor="branch">Branch</label>
-            <input
-              id="branch"
-              placeholder={assignment.assignment.branch}
-              disabled
-            />
+            <input id="branch" placeholder={assignment.branch} disabled />
           </div>
           <div className="form-edit-review">
             <label htmlFor="reviewvideo">Review video</label>
             <input
               id="reviewvideo"
-              placeholder={assignment.assignment.reviewVideoUrl}
+              placeholder={assignment.reviewVideoUrl}
               disabled
             />
           </div>
@@ -264,12 +260,12 @@ function LearnerAssignmentView() {
   return (
     <>
       <div className="edit-header">
-        <h1>Assignment {assignment.assignment.number}</h1>
-        <h2>Status: {assignment.assignment.status}</h2>
+        <h1>Assignment {assignment.number}</h1>
+        <h2>Status: {assignment.status}</h2>
         <h2>
           Reviewer:{" "}
-          {assignment.assignment.codeReviewer
-            ? assignment.assignment.codeReviewer.username
+          {assignment.codeReviewer
+            ? assignment.codeReviewer.username
             : "unassigned"}
         </h2>
         <div className="spaceBetween"></div>

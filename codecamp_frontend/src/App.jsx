@@ -1,4 +1,9 @@
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import {
+  createBrowserRouter,
+  createRoutesFromElements,
+  Route,
+  RouterProvider,
+} from "react-router-dom";
 import PublicHomepage from "./pages/PublicHomepage";
 import Login from "./pages/Login";
 import LearnerDashboard from "./pages/LearnerDashboard";
@@ -9,47 +14,118 @@ import ReviewerDashboard from "./pages/ReviewerDashboard";
 import ReviewerViewAllSubmitted from "./pages/ReviewerViewAllSubmitted";
 import ReviewerViewAllCompleted from "./pages/ReviewerViewAllCompleted";
 import ReviewerAssignmentView from "./pages/ReviewerAssignmentView";
+import RootOutlet from "./components/RootOutlet.jsx";
+
+const router = createBrowserRouter(
+  createRoutesFromElements(
+    <Route>
+      <Route path="/codecamp" element={<RootOutlet />}>
+        <Route index element={<PublicHomepage />} />
+        <Route path="login" element={<Login />} />
+      </Route>
+
+      {/* Learner routes */}
+      <Route path="/codecamp/dashboard/:learnerName" element={<RootOutlet />}>
+        <Route index element={<LearnerDashboard />} />
+        <Route path="assignment/:id" element={<LearnerAssignmentView />} />
+        <Route path="submitassignment" element={<LearnerSubmitAssignment />} />
+        <Route path="allcompleted" element={<LearnerViewAllCompleted />} />
+      </Route>
+
+      {/* Reviewer routes */}
+      <Route
+        path="/codecamp/reviewer/dashboard:reviewerName"
+        element={<RootOutlet />}
+      >
+        <Route index element={<ReviewerAssignmentView />} />
+        <Route path="assignment/:id" element={<ReviewerAssignmentView />} />
+        <Route path="allsubmitted" element={<ReviewerViewAllSubmitted />} />
+        <Route path="allcompleted" element={<ReviewerViewAllCompleted />} />
+      </Route>
+
+      {/* 404 not found */}
+      <Route
+        path="*"
+        element={
+          <>
+            <h1 style={{ fontWeight: "500" }}>404 not found</h1>
+            <h3 style={{ fontWeight: "400" }}>
+              The requested URL was not found on this server.
+            </h3>
+          </>
+        }
+      />
+    </Route>
+  )
+);
 
 function App() {
-  return (
-    <Router>
-      <Routes>
-        <Route exact path="/codecamp" element={<PublicHomepage />} />
-        <Route path="/api/auth/login" element={<Login />} />
-        <Route path="/api/dashboard" element={<LearnerDashboard />} />
-        <Route path="/api/assignment/:id" element={<LearnerAssignmentView />} />
-        <Route path="/api/allcompleted" element={<LearnerViewAllCompleted />} />
-        <Route path="/api/reviewer/dashboard" element={<ReviewerDashboard />} />
-        <Route
-          path="/api/reviewer/allsubmitted"
-          element={<ReviewerViewAllSubmitted />}
-        />
-        <Route
-          path="/api/reviewer/allcompleted"
-          element={<ReviewerViewAllCompleted />}
-        />
-        <Route
-          path="/api/reviewer/assignment/:id"
-          element={<ReviewerAssignmentView />}
-        />
-        <Route
-          path="/api/submitassignment"
-          element={<LearnerSubmitAssignment />}
-        />
-        <Route
-          path="*"
-          element={
-            <>
-              <h1 style={{ fontWeight: "500" }}>404 not found</h1>
-              <h3 style={{ fontWeight: "400" }}>
-                The requested URL was not found on this server.
-              </h3>
-            </>
-          }
-        />
-      </Routes>
-    </Router>
-  );
+  return <RouterProvider router={router} />;
 }
 
 export default App;
+
+///////////////////////////////////////////
+
+// import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+// import PublicHomepage from "./pages/PublicHomepage";
+// import Login from "./pages/Login";
+// import LearnerDashboard from "./pages/LearnerDashboard";
+// import LearnerAssignmentView from "./pages/LearnerAssignmentView";
+// import LearnerSubmitAssignment from "./pages/LearnerSubmitAssignment";
+// import LearnerViewAllCompleted from "./pages/LearnerViewAllCompleted";
+// import ReviewerDashboard from "./pages/ReviewerDashboard";
+// import ReviewerViewAllSubmitted from "./pages/ReviewerViewAllSubmitted";
+// import ReviewerViewAllCompleted from "./pages/ReviewerViewAllCompleted";
+// import ReviewerAssignmentView from "./pages/ReviewerAssignmentView";
+
+// function App() {
+//   return (
+//     <Router>
+//       <Routes>
+//         {/* Public pages routes */}
+//         <Route path="/codecamp" element={<PublicHomepage />} >
+//         <Route path="login" element={<Login />} />
+//         </Route>
+
+//         {/* Learner routes */}
+//         <Route
+//           path="/codecamp/dashboard/:learnerName"
+//           element={<LearnerDashboard />}
+//         >
+//           <Route path="assignment/:id" element={<LearnerAssignmentView />} />
+//           <Route path="allcompleted" element={<LearnerViewAllCompleted />} />
+//           <Route
+//             path="submitassignment"
+//             element={<LearnerSubmitAssignment />}
+//           />
+//         </Route>
+
+//         {/* Reviewer routes */}
+//         <Route
+//           path="/codecamp/reviewer/dashboard:reviewerName"
+//           element={<ReviewerDashboard />}
+//         >
+//           <Route path="assignment/:id" element={<ReviewerAssignmentView />} />
+//           <Route path="allsubmitted" element={<ReviewerViewAllSubmitted />} />
+//           <Route path="allcompleted" element={<ReviewerViewAllCompleted />} />
+//         </Route>
+
+//         {/* 404 not found */}
+//         <Route
+//           path="*"
+//           element={
+//             <>
+//               <h1 style={{ fontWeight: "500" }}>404 not found</h1>
+//               <h3 style={{ fontWeight: "400" }}>
+//                 The requested URL was not found on this server.
+//               </h3>
+//             </>
+//           }
+//         />
+//       </Routes>
+//     </Router>
+//   );
+// }
+
+// export default App;

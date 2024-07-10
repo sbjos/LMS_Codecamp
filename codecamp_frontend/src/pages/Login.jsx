@@ -1,6 +1,7 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import Validate from "../components/Validate";
 import "../css/Login.css";
 
 function Login() {
@@ -8,8 +9,26 @@ function Login() {
   const [password, setPassword] = useState("");
   const [error, setError] = useState(null);
   const navigate = useNavigate("");
-  const userAuthority = localStorage.getItem("lmsuserauthorities");
   const token = localStorage.getItem("lmsusertoken");
+  const userAuthority = localStorage.getItem("lmsuserauthorities");
+
+  // if (userAuthority && token) {
+  //   if (Validate(token, userAuthority) === 200) {
+  //     const authority = userAuthority.split(", ");
+  //     const userNamePathVariable = authority[1] + authority[2];
+  //     if (authority[4] === "[LEARNER]") {
+  //       navigate("/codecamp/dashboard/" + userNamePathVariable);
+  //     }
+  //     if (authority[4] === "[REVIEWER]") {
+  //       navigate("/codecamp/reviewer/dashboard/" + userNamePathVariable);
+  //     }
+  //     if (authority[4] === "[ADMIN]") {
+  //       navigate("/codecamp/admin/" + userNamePathVariable);
+  //     }
+  //   } else {
+  //     navigate("codecamp/login");
+  //   }
+  // }
 
   // Sumbit a request to login to application.
   const handleSubmit = async (e) => {
@@ -21,26 +40,27 @@ function Login() {
         { username, password }
       );
 
-      const userAuthority = response.headers.authority.slice(1, -1);
-
       localStorage.setItem(
         "lmsusertoken",
         response.headers.authorization.split(" ")[1]
       );
 
+      const userAuthority = response.headers.authority.slice(1, -1);
+
       localStorage.setItem("lmsuserauthorities", userAuthority);
 
       // redirect to apropriate dashboard based on authority after successfull login
       const authority = userAuthority.split(", ");
+      const userNamePathVariable = authority[1] + authority[2];
 
-      if (authority[2] === "[LEARNER]") {
-        navigate("/api/dashboard/" + authority[1]);
+      if (authority[4] === "[LEARNER]") {
+        navigate("/codecamp/dashboard/" + userNamePathVariable);
       }
-      if (authority[2] === "[REVIEWER]") {
-        navigate("/api/:reviewer/dashboard/" + authority[1]);
+      if (authority[4] === "[REVIEWER]") {
+        navigate("/codecamp/reviewer/dashboard/" + userNamePathVariable);
       }
-      if (authority[2] === "[ADMIN]") {
-        navigate("/api/admin/" + authority[1]);
+      if (authority[4] === "[ADMIN]") {
+        navigate("/codecamp/admin/" + userNamePathVariable);
       }
     } catch (err) {
       if (!err) {

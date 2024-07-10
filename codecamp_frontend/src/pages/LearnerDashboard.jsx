@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Outlet } from "react-router-dom";
 import axios from "axios";
 import LearnerMapping from "../components/LearnerMapping";
 import Validate from "../components/Validate";
@@ -17,7 +18,7 @@ function LearnerDashboard() {
   const user = authorityArray[1];
 
   // Validate a user's access to a webpage
-  Validate(token, cleanUserAuthority);
+  Validate(token, userAuthority);
 
   /**
    * automatically fetches and loads assignments by user
@@ -29,9 +30,7 @@ function LearnerDashboard() {
           "http://localhost:8080/api/assignments",
           { headers: { Authorization: "Bearer " + token } }
         );
-        setAssignments(response.data.map((item) => item.assignment));
-
-        console.log("response", response.data);
+        setAssignments(response.data);
       } catch (err) {
         if (!err) {
           console.error("No server response");
