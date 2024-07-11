@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import { Outlet } from "react-router-dom";
 import axios from "axios";
 import LearnerMapping from "../components/LearnerMapping";
 import Validate from "../components/Validate";
@@ -7,15 +6,14 @@ import RedirectButton from "../components/RedirectButton";
 import "../css/Dashboard.css";
 
 function LearnerDashboard() {
-  const [assignments, setAssignments] = useState([]);
   const logoutButton = (
     <RedirectButton reference="logout" buttonName="Logout" />
   );
+  const [assignments, setAssignments] = useState([]);
   const token = localStorage.getItem("lmsusertoken");
   const userAuthority = localStorage.getItem("lmsuserauthorities");
-  const cleanUserAuthority = userAuthority ? userAuthority.trim() : "";
-  const authorityArray = cleanUserAuthority.split(", ");
-  const user = authorityArray[1];
+  const authorityArray = userAuthority.split(", ");
+  const firstname = authorityArray[1];
 
   // Validate a user's access to a webpage
   Validate(token, userAuthority);
@@ -47,7 +45,7 @@ function LearnerDashboard() {
   // RedirectButton component for New assignment button.
   const newAssignment = (
     <RedirectButton
-      reference="learner-new-assignment"
+      reference="learner-submit-assignment"
       buttonName="New assignment"
       data={submitted}
     />
@@ -59,8 +57,8 @@ function LearnerDashboard() {
       <section>
         {/* Header */}
         <div className="dashboard-header">
-          <h1>{user}'s Dashboard</h1>
-          <h2>Welcome {user}</h2>
+          <h1>{firstname}'s Dashboard</h1>
+          <h2>Welcome {firstname}</h2>
         </div>
         <div className="dashboard-navbar">
           {newAssignment}

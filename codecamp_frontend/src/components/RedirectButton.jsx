@@ -1,12 +1,9 @@
-import { useNavigate, useLocation, NavLink } from "react-router-dom";
-import LearnerAssignmentView from "../pages/LearnerAssignmentView";
+import { useNavigate } from "react-router-dom";
 
 function RedirectButton({ reference, buttonName, data, classname }) {
   const navigate = useNavigate();
-  const location = useLocation();
 
   const handleRedirect = () => {
-    console.log("Current location:", location.pathname);
     switch (reference) {
       case "logout":
         localStorage.clear();
@@ -18,11 +15,11 @@ function RedirectButton({ reference, buttonName, data, classname }) {
       case "learner-assignment-view":
         navigate("assignment/" + data);
         break;
-      case "learner-new-assignment":
+      case "learner-submit-assignment":
         if (data.length >= 4) {
           alert("You can only have 4 unassigned assignments at a time.");
         } else {
-          navigate("/codecamp/submitassignment");
+          navigate("submitassignment");
         }
         break;
       case "reviewer-dashboard":
@@ -36,8 +33,6 @@ function RedirectButton({ reference, buttonName, data, classname }) {
         break;
     }
   };
-
-  const value = (value) => {};
 
   return (
     <button className={classname} onClick={handleRedirect}>

@@ -4,24 +4,27 @@ import React, { useRef } from "react";
 import Validate from "../components/Validate";
 import RedirectButton from "../components/RedirectButton";
 import "../css/SubmitAssignment.css";
+import { useNavigate } from "react-router-dom";
 
 function LearnerSubmitAssignment() {
-  const dashboard = (
-    <RedirectButton reference="learner-dashboard" buttonName="Dashboard" />
-  );
+  const navigate = useNavigate();
   const formRef = useRef(null);
   const [githubUrl, setGithubUrl] = useState("");
   const [branch, setBranch] = useState("");
   const token = localStorage.getItem("lmsusertoken");
   const userAuthority = localStorage.getItem("lmsuserauthorities");
-  const cleanUserAuthority = userAuthority ? userAuthority.trim() : "";
-  const authorityArray = cleanUserAuthority
-    ? cleanUserAuthority.split(", ")
-    : "";
-  const user = authorityArray[0];
+  const authorityArray = userAuthority.split(", ");
+  const urlPathVariable = authorityArray[1] + authorityArray[2];
+  const dashboard = (
+    <RedirectButton
+      reference="learner-dashboard"
+      buttonName="Dashboard"
+      data={urlPathVariable}
+    />
+  );
 
   // Validate a user's access to a webpage
-  Validate(token, cleanUserAuthority);
+  Validate(token, userAuthority);
 
   // creates a new assignment
   const handleSubmit = async (e) => {
@@ -37,21 +40,16 @@ function LearnerSubmitAssignment() {
       if (!response.status) {
         return <p>loading</p>;
       }
-      if (response.status === 200) {
-        alert("Assignment updated !");
-        window.location.assign("/api/dashboard");
-      }
       if (response.status === 201) {
         alert("Assignment created !");
-        window.location.assign("/api/dashboard");
+        navigate("../");
       }
-      console.log(response);
     } catch (err) {
       if (!err) {
         console.error("No Server Response");
       } else if (err.response.status === 403) {
         alert("You can only have 4 unassigned assignments at a time.");
-        window.location.assign("/api/dashboard");
+        navigate("../");
       } else {
         console.error(err);
         alert("Failed to create the assignment !");

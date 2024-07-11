@@ -7,25 +7,24 @@ import "../css/AssignmentViews.css";
 
 function LearnerAssignmentView() {
   const navigate = useNavigate();
-  const [assignment, setAssignment] = useState(null);
-  const [githubUrl, setGithubUrl] = useState(null);
-  const [branch, setBranch] = useState(null);
-  const { id } = useParams(null);
+  const [assignment, setAssignment] = useState();
+  const [githubUrl, setGithubUrl] = useState();
+  const [branch, setBranch] = useState();
+  const { id } = useParams();
   const token = localStorage.getItem("lmsusertoken");
   const userAuthority = localStorage.getItem("lmsuserauthorities");
-  const cleanUserAuthority = userAuthority ? userAuthority.trim() : "";
-  const authorityArray = cleanUserAuthority.split(", ");
-  const userNamePathVariable = authorityArray[1] + authorityArray[2];
+  const authorityArray = userAuthority.split(", ");
+  const urlPathVariable = authorityArray[1] + authorityArray[2];
   const dashboardButton = (
     <RedirectButton
       reference="learner-dashboard"
       buttonName="Dashboard"
-      data={userNamePathVariable}
+      data={urlPathVariable}
     />
   );
 
   // Validate a user's access to a webpage
-  Validate(token, cleanUserAuthority);
+  Validate(token, authorityArray);
 
   /**
    * Fetches and loads the assignment by ID.
@@ -85,7 +84,7 @@ function LearnerAssignmentView() {
         }
         if (response.status === 200) {
           alert("Assignment updated !");
-          navigate("/codecamp/dashboard/" + userNamePathVariable);
+          navigate("../");
         }
       } catch (err) {
         if (!err) {
@@ -94,7 +93,7 @@ function LearnerAssignmentView() {
           alert(
             "To many open assignments. You can only have 4 submitted at a time."
           );
-          navigate("/codecamp/dashboard/" + userNamePathVariable);
+          navigate("/codecamp/dashboard/" + urlPathVariable);
         } else {
           console.error(err);
           alert("Failed to update the assignment !");
