@@ -35,7 +35,7 @@ function Login() {
         navigate("/codecamp/dashboard/" + urlPathVariable);
       }
       if (authorityArray[4] === "[REVIEWER]") {
-        navigate("/codecamp/reviewer/dashboard/" + urlPathVariable);
+        navigate("/codecamp/reviewerdashboard/" + urlPathVariable);
       }
       if (authorityArray[4] === "[ADMIN]") {
         navigate("/codecamp/admin/" + urlPathVariable);

@@ -2,7 +2,13 @@ import { useNavigate } from "react-router-dom";
 
 function RedirectButton({ reference, buttonName, data, classname }) {
   const navigate = useNavigate();
+  const userAuthority = localStorage.getItem("lmsuserauthorities");
+  const authorityArray = userAuthority.split(", ");
+  const urlPathVariable = authorityArray[1] + authorityArray[2];
+  const learnerRootUrl = "/codecamp/dashboard/" + urlPathVariable;
+  const reviewerRootUrl = "/codecamp/reviewerdashboard/" + urlPathVariable;
 
+  console.log("urlPathVariable", urlPathVariable);
   const handleRedirect = () => {
     switch (reference) {
       case "logout":
@@ -10,10 +16,10 @@ function RedirectButton({ reference, buttonName, data, classname }) {
         navigate("/codecamp/login");
         break;
       case "learner-dashboard":
-        navigate("/codecamp/dashboard/" + data);
+        navigate(learnerRootUrl);
         break;
       case "learner-assignment-view":
-        navigate("assignment/" + data);
+        navigate(learnerRootUrl + "/assignment/" + data);
         break;
       case "learner-submit-assignment":
         if (data.length >= 4) {
@@ -23,10 +29,10 @@ function RedirectButton({ reference, buttonName, data, classname }) {
         }
         break;
       case "reviewer-dashboard":
-        navigate("/codecamp/reviewer/dashboard/" + data);
+        navigate(reviewerRootUrl);
         break;
       case "reviewer-assignment-view":
-        navigate("/codecamp/reviewer/assignment/" + data);
+        navigate(reviewerRootUrl + "/assignment/" + data);
         break;
       default:
         navigate("*");

@@ -5,20 +5,24 @@ import Validate from "../components/Validate";
 import RedirectButton from "../components/RedirectButton";
 
 function ReviewerAssignmentView() {
-  const dashboardButton = (
-    <RedirectButton reference="reviewer-dashboard" buttonName="Dashboard" />
-  );
   const navigate = useNavigate();
   const [assignment, setAssignment] = useState(null);
   const [reviewVideoUrl, setReviewVideoUrl] = useState("");
   const { id } = useParams(null);
   const token = localStorage.getItem("lmsusertoken");
   const userAuthority = localStorage.getItem("lmsuserauthorities");
-  const cleanUserAuthority = userAuthority ? userAuthority.trim() : "";
-  const authorityArray = cleanUserAuthority.split(", ");
+  const authorityArray = userAuthority.split(", ");
+  const urlPathVariable = authorityArray[1] + authorityArray[2];
+  const dashboardButton = (
+    <RedirectButton
+      reference="reviewer-dashboard"
+      buttonName="Dashboard"
+      data={urlPathVariable}
+    />
+  );
 
   // Validates a user's access to a webpage.
-  Validate(token, cleanUserAuthority);
+  Validate(token, userAuthority);
 
   /**
    * Fetches and loads the assignment by ID.
@@ -52,7 +56,7 @@ function ReviewerAssignmentView() {
     return <div>Loading...</div>;
   }
 
-  const user = assignment.assignment.user;
+  const user = assignment.user;
 
   /**
    * Submit the changes made to the assignment.
@@ -66,7 +70,7 @@ function ReviewerAssignmentView() {
     if (status === "In review") {
       try {
         const assignment = {
-          reviewVideoUrl: assignment.assignment.reviewVideoUrl,
+          reviewVideoUrl: assignment.reviewVideoUrl,
           status,
           user,
         };
@@ -98,7 +102,7 @@ function ReviewerAssignmentView() {
       if (!reviewVideoUrl) {
         alert("Please add a review video.");
       } else {
-        if (reviewVideoUrl == assignment.assignment.reviewVideoUrl) {
+        if (reviewVideoUrl == assignment.reviewVideoUrl) {
           alert("No changes detected");
         } else {
           try {
@@ -110,7 +114,7 @@ function ReviewerAssignmentView() {
             );
             if (response.status === 200) {
               alert("Assignment updated !");
-              navigate("/api/reviewer/dashboard");
+              navigate("../");
             }
           } catch (err) {
             if (!err) {
@@ -143,30 +147,22 @@ function ReviewerAssignmentView() {
    * @returns assignment
    */
   function formOrNot() {
-    if (assignment.assignment.status === "Completed") {
+    if (assignment.status === "Completed") {
       return (
         <div>
           <div className="form-edit-github">
             <label htmlFor="githuburl">Github</label>
-            <input
-              id="githuburl"
-              placeholder={assignment.assignment.githubUrl}
-              disabled
-            />
+            <input id="githuburl" placeholder={assignment.githubUrl} disabled />
           </div>
           <div className="form-edit-branch">
             <label htmlFor="branch">Branch</label>
-            <input
-              id="branch"
-              placeholder={assignment.assignment.branch}
-              disabled
-            />
+            <input id="branch" placeholder={assignment.branch} disabled />
           </div>
           <div className="form-edit-review">
             <label htmlFor="reviewvideo">Review video</label>
             <input
               id="reviewvideo"
-              placeholder={assignment.assignment.reviewVideoUrl}
+              placeholder={assignment.reviewVideoUrl}
               disabled
             />
           </div>
@@ -185,27 +181,23 @@ function ReviewerAssignmentView() {
               <div className="input">
                 <a
                   className="inputText"
-                  href={assignment.assignment.githubUrl}
+                  href={assignment.githubUrl}
                   target="blank"
                 >
-                  {assignment.assignment.githubUrl}
+                  {assignment.githubUrl}
                 </a>
               </div>
             </div>
             <div className="form-edit-branch">
               <label htmlFor="branch">Branch</label>
-              <input
-                id="branch"
-                placeholder={assignment.assignment.branch}
-                disabled
-              />
+              <input id="branch" placeholder={assignment.branch} disabled />
             </div>
             <div className="form-edit-review">
               <label htmlFor="reviewvideo">Review video</label>
               <input
                 id="reviewvideo"
                 type="url"
-                defaultValue={assignment.assignment.reviewVideoUrl}
+                defaultValue={assignment.reviewVideoUrl}
                 onChange={(e) => setReviewVideoUrl(e.target.value)}
                 required
               />
@@ -228,9 +220,9 @@ function ReviewerAssignmentView() {
   return (
     <>
       <div className="edit-header">
-        <h1>Assignment {assignment.assignment.number}</h1>
-        <h2>Status: {assignment.assignment.status}</h2>
-        <h2>Learner: {assignment.assignment.user.username}</h2>
+        <h1>Assignment {assignment.number}</h1>
+        <h2>Status: {assignment.status}</h2>
+        <h2>Learner: {assignment.user.username}</h2>
         <div className="spaceBetween"></div>
       </div>
       <div className="burger">{formOrNot()}</div>

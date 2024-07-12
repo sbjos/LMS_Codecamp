@@ -1,4 +1,3 @@
-import { Outlet } from "react-router-dom";
 import RedirectButton from "../components/RedirectButton";
 
 function LearnerMapping(assignments) {
@@ -33,19 +32,21 @@ function LearnerMapping(assignments) {
 
   return (
     <>
-      {assignments.map((assignmentItem) => (
-        <li className="cards" key={assignmentItem.id}>
-          <div>Assignment {assignmentItem.number}</div>
+      {assignments.map((assignment) => (
+        <li className="cards" key={assignment.id}>
+          <div>Assignment {assignment.number}</div>
           <div>
-            <a href={assignmentItem.githubUrl}>Github Link</a>
+            <a href={assignment.githubUrl}>Github Link</a>
           </div>
-          <div>Branch: {assignmentItem.branch}</div>
+          <div>Branch: {assignment.branch}</div>
           <div>
-            {assignmentItem.codeReviewer
-              ? assignmentItem.codeReviewer.username
-              : "Unassigned"}
+            {assignment.codeReviewer
+              ? assignment.codeReviewer.firstname +
+                " " +
+                assignment.codeReviewer.lastname
+              : "unassigned"}
           </div>
-          <div id="card-button">{renderButton(assignmentItem)}</div>
+          <div id="card-button">{renderButton(assignment)}</div>
         </li>
       ))}
       <div></div>

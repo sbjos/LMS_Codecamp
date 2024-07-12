@@ -3,25 +3,19 @@ import axios from "axios";
 import React, { useRef } from "react";
 import Validate from "../components/Validate";
 import RedirectButton from "../components/RedirectButton";
-import "../css/SubmitAssignment.css";
 import { useNavigate } from "react-router-dom";
+import "../css/SubmitAssignment.css";
 
 function LearnerSubmitAssignment() {
+  const dashboard = (
+    <RedirectButton reference="learner-dashboard" buttonName="Dashboard" />
+  );
   const navigate = useNavigate();
   const formRef = useRef(null);
   const [githubUrl, setGithubUrl] = useState("");
   const [branch, setBranch] = useState("");
   const token = localStorage.getItem("lmsusertoken");
   const userAuthority = localStorage.getItem("lmsuserauthorities");
-  const authorityArray = userAuthority.split(", ");
-  const urlPathVariable = authorityArray[1] + authorityArray[2];
-  const dashboard = (
-    <RedirectButton
-      reference="learner-dashboard"
-      buttonName="Dashboard"
-      data={urlPathVariable}
-    />
-  );
 
   // Validate a user's access to a webpage
   Validate(token, userAuthority);

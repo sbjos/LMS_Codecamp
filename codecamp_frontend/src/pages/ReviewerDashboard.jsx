@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import axios from "axios";
 import ReviewerMapping from "../components/ReviewerMapping";
 import Validate from "../components/Validate";
@@ -28,7 +29,7 @@ function ReviewerDashboard() {
           "http://localhost:8080/api/assignments",
           { headers: { Authorization: "Bearer " + token } }
         );
-        setAssignments(response.data.map((item) => item.assignment));
+        setAssignments(response.data);
       } catch (err) {
         if (!err) {
           console.error("No server response");
@@ -103,10 +104,8 @@ function ReviewerDashboard() {
             token
           )}
         </ul>
-        <div>
-          <a className="showall" href="/api/reviewer/allcompleted">
-            show all completed assignments
-          </a>
+        <div className="showall">
+          <Link to="allcompleted">show all completed assignments</Link>
         </div>
       </div>
     </>

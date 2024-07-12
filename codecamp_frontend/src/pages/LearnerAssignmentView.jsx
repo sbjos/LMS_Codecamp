@@ -6,6 +6,9 @@ import RedirectButton from "../components/RedirectButton";
 import "../css/AssignmentViews.css";
 
 function LearnerAssignmentView() {
+  const dashboardButton = (
+    <RedirectButton reference="learner-dashboard" buttonName="Dashboard" />
+  );
   const navigate = useNavigate();
   const [assignment, setAssignment] = useState();
   const [githubUrl, setGithubUrl] = useState();
@@ -14,14 +17,6 @@ function LearnerAssignmentView() {
   const token = localStorage.getItem("lmsusertoken");
   const userAuthority = localStorage.getItem("lmsuserauthorities");
   const authorityArray = userAuthority.split(", ");
-  const urlPathVariable = authorityArray[1] + authorityArray[2];
-  const dashboardButton = (
-    <RedirectButton
-      reference="learner-dashboard"
-      buttonName="Dashboard"
-      data={urlPathVariable}
-    />
-  );
 
   // Validate a user's access to a webpage
   Validate(token, authorityArray);
@@ -93,7 +88,7 @@ function LearnerAssignmentView() {
           alert(
             "To many open assignments. You can only have 4 submitted at a time."
           );
-          navigate("/codecamp/dashboard/" + urlPathVariable);
+          navigate("../");
         } else {
           console.error(err);
           alert("Failed to update the assignment !");
@@ -264,8 +259,10 @@ function LearnerAssignmentView() {
         <h2>
           Reviewer:{" "}
           {assignment.codeReviewer
-            ? assignment.codeReviewer.username
-            : "unassigned"}
+            ? assignment.codeReviewer.firstname +
+              " " +
+              assignment.codeReviewer.lastname
+            : "Unassigned"}
         </h2>
         <div className="spaceBetween"></div>
       </div>

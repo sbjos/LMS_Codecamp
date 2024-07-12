@@ -36,7 +36,7 @@ const router = createBrowserRouter(
 
       {/* Reviewer routes */}
       <Route
-        path="/codecamp/reviewer/dashboard:reviewerName"
+        path="/codecamp/reviewerdashboard/:reviewerName"
         element={<RootOutlet />}
       >
         <Route index element={<ReviewerDashboard />} />

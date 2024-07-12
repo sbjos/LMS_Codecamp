@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import axios from "axios";
 import LearnerMapping from "../components/LearnerMapping";
 import Validate from "../components/Validate";
@@ -105,10 +106,8 @@ function LearnerDashboard() {
                 .slice(-4)
             )}
           </ul>
-          <div>
-            <a className="showall" href="/api/allcompleted">
-              show all completed assignments
-            </a>
+          <div className="showall">
+            <Link to="allcompleted">show all completed assignments</Link>
           </div>
         </div>
       </section>

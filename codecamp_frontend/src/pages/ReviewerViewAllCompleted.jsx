@@ -5,17 +5,16 @@ import RedirectButton from "../components/RedirectButton";
 import "../css/ViewAll.css";
 
 function ReviewerViewAllCompleted() {
-  const dashboard = (
-    <RedirectButton reference="reviewer-dashboard" buttonName="Dashboard" />
-  );
   const [completedAssignments, setCompletedAssignments] = useState([]);
   const token = localStorage.getItem("lmsusertoken");
   const userAuthority = localStorage.getItem("lmsuserauthorities");
-  const cleanUserAuthority = userAuthority ? userAuthority.trim() : "";
-  const authorityArray = cleanUserAuthority.split(", ");
+  const authorityArray = userAuthority.split(", ");
+  const dashboard = (
+    <RedirectButton reference="reviewer-dashboard" buttonName="Dashboard" />
+  );
 
   // Validate a user's access to a webpage
-  Validate(token, cleanUserAuthority);
+  Validate(token, authorityArray);
 
   // automatically fetches and loads all assignments
   useEffect(() => {
@@ -26,11 +25,7 @@ function ReviewerViewAllCompleted() {
           { headers: { Authorization: "Bearer " + token } }
         );
         setCompletedAssignments(
-          response.data.filter(
-            (item) =>
-              item.assignment.status === "Completed" &&
-              String(item.assignment.codeReviewer.id) === authorityArray[0]
-          )
+          response.data.filter((item) => item.status === "Completed")
         );
       } catch (err) {
         if (!err) {
@@ -43,6 +38,8 @@ function ReviewerViewAllCompleted() {
     };
     fetchData();
   }, []);
+
+  console.log("completedAssignments", completedAssignments);
 
   return (
     <>
@@ -64,19 +61,21 @@ function ReviewerViewAllCompleted() {
           </thead>
           <tbody>
             {completedAssignments.map((assignment) => (
-              <tr key={assignment.assignment.id}>
-                <td>{assignment.assignment.number}</td>
+              <tr key={assignment.id}>
+                <td>{assignment.number}</td>
                 <td>
-                  <a href={assignment.assignment.githubUrl}>Link</a>
+                  <a href={assignment.githubUrl}>Link</a>
                 </td>
-                <td>{assignment.assignment.branch}</td>
-                <td>{assignment.assignment.user.username}</td>
+                <td>{assignment.branch}</td>
+                <td>
+                  {assignment.user.firstname + " " + assignment.user.lastname}
+                </td>
                 <td className="button-colunm">
                   {
                     <RedirectButton
                       reference="reviewer-assignment-view"
                       buttonName="View"
-                      data={assignment.assignment.id}
+                      data={assignment.id}
                       classname="viewall-claim-button"
                     />
                   }
