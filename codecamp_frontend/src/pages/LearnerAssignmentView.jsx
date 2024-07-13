@@ -231,7 +231,15 @@ function LearnerAssignmentView() {
         <div>
           <div className="form-edit-github">
             <label htmlFor="githuburl">Github</label>
-            <input id="githuburl" placeholder={assignment.githubUrl} disabled />
+            <div className="input">
+              <a
+                className="inputText"
+                href={assignment.githubUrl}
+                target="blank"
+              >
+                {assignment.githubUrl}
+              </a>
+            </div>
           </div>
           <div className="form-edit-branch">
             <label htmlFor="branch">Branch</label>
@@ -239,11 +247,15 @@ function LearnerAssignmentView() {
           </div>
           <div className="form-edit-review">
             <label htmlFor="reviewvideo">Review video</label>
-            <input
-              id="reviewvideo"
-              placeholder={assignment.reviewVideoUrl}
-              disabled
-            />
+            <div className="input">
+              <a
+                className="inputText"
+                href={assignment.reviewVideoUrl}
+                target="blank"
+              >
+                {assignment.reviewVideoUrl}
+              </a>
+            </div>
           </div>
           <div className="form-edit-button">{dashboardButton}</div>
         </div>

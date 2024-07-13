@@ -29,8 +29,8 @@ function Validate(token, userAuthority) {
             navigate("login");
             console.error("No Server Response");
           } else {
-            navigate("/codecamp/login");
             console.error(err);
+            navigate("/codecamp/login");
           }
         }
       };

@@ -26,7 +26,7 @@ function ReviewerViewAllSubmitted() {
           { headers: { Authorization: "Bearer " + token } }
         );
         setSubmittedAssignments(
-          response.data.filter((item) => item.assignment.status === "Submitted")
+          response.data.filter((item) => item.status === "Submitted")
         );
       } catch (err) {
         if (!err) {
@@ -42,7 +42,7 @@ function ReviewerViewAllSubmitted() {
   console.log("submittedAssignments", submittedAssignments);
 
   // const submittedAssignments = assignments.filter(
-  //   (item) => item.assignment.status === "Submitted"
+  //   (item) => item.status === "Submitted"
   // );
 
   const handleSubmit = async (e, assignmentItem) => {
@@ -132,31 +132,26 @@ function ReviewerViewAllSubmitted() {
           </thead>
           <tbody>
             {submittedAssignments.map((assignmentItem) => (
-              <tr key={assignmentItem.assignment.id}>
-                <td>{assignmentItem.assignment.number}</td>
+              <tr key={assignmentItem.id}>
+                <td>{assignmentItem.number}</td>
                 <td>
-                  <a href={assignmentItem.assignment.githubUrl}>Link</a>
+                  <a href={assignmentItem.githubUrl}>Link</a>
                 </td>
-                <td>{assignmentItem.assignment.branch}</td>
-                <td>{assignmentItem.assignment.user.username}</td>
-                <td>{assignmentItem.assignment.codeReviewer?.username}</td>
+                <td>{assignmentItem.branch}</td>
+                <td>
+                  {assignmentItem.user.firstname +
+                    " " +
+                    assignmentItem.user.lastname}
+                </td>
+                <td>
+                  {assignmentItem.codeReviewer
+                    ? assignmentItem.codeReviewer.firstname +
+                      " " +
+                      assignmentItem.codeReviewer.lastname
+                    : ""}
+                </td>
                 <td className="button-colunm">
-                  {/* {assignmentItem.codeReviewer ? (
-                    <button
-                      className="viewall-claim-button"
-                      onClick={(e) => handleSubmit(e, assignmentItem)}
-                    >
-                      Reclaim
-                    </button>
-                  ) : (
-                    <button
-                      className="viewall-claim-button"
-                      onClick={(e) => handleSubmit(e, assignmentItem)}
-                    >
-                      Claim
-                    </button>
-                  )} */}
-                  {renderButton(assignmentItem.assignment)}
+                  {renderButton(assignmentItem)}
                 </td>
               </tr>
             ))}

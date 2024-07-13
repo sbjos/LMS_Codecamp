@@ -72,8 +72,9 @@ function ReviewerMapping(assignments, token, data) {
         <li className="cards" key={assignmentItem.id}>
           <div>Number: {assignmentItem.number}</div>
           <div>
-            Github:&nbsp;
-            <a href={assignmentItem.githubUrl}>Link</a>
+            <a href={assignmentItem.githubUrl} target="blank">
+              <u>Github</u>
+            </a>
           </div>
           <div>Branch: {assignmentItem.branch}</div>
           <div>Learner: {assignmentItem.user.username}</div>

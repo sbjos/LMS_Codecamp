@@ -65,10 +65,8 @@ function ReviewerDashboard() {
             authorityArray[0]
           )}
         </ul>
-        <div>
-          <a className="showall" href="/api/reviewer/allsubmitted">
-            show all submitted assignments
-          </a>
+        <div className="showall">
+          <Link to="allsubmitted">show all submitted assignments</Link>
         </div>
 
         <hr className="separationline" />

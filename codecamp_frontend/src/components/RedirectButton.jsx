@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 function RedirectButton({ reference, buttonName, data, classname }) {
   const navigate = useNavigate();
   const userAuthority = localStorage.getItem("lmsuserauthorities");
-  const authorityArray = userAuthority.split(", ");
+  const authorityArray = userAuthority ? userAuthority.split(", ") : "";
   const urlPathVariable = authorityArray[1] + authorityArray[2];
   const learnerRootUrl = "/codecamp/dashboard/" + urlPathVariable;
   const reviewerRootUrl = "/codecamp/reviewerdashboard/" + urlPathVariable;
@@ -16,7 +16,8 @@ function RedirectButton({ reference, buttonName, data, classname }) {
         navigate("/codecamp/login");
         break;
       case "learner-dashboard":
-        navigate(learnerRootUrl);
+        // navigate(learnerRootUrl);
+        setPath(learnerRootUrl);
         break;
       case "learner-assignment-view":
         navigate(learnerRootUrl + "/assignment/" + data);

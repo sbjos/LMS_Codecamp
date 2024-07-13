@@ -4,27 +4,25 @@ import {
   Route,
   RouterProvider,
 } from "react-router-dom";
-import PublicHomepage from "./pages/PublicHomepage";
-import Login from "./pages/Login";
-import LearnerDashboard from "./pages/LearnerDashboard";
-import LearnerAssignmentView from "./pages/LearnerAssignmentView";
-import LearnerSubmitAssignment from "./pages/LearnerSubmitAssignment";
-import LearnerViewAllCompleted from "./pages/LearnerViewAllCompleted";
-import ReviewerDashboard from "./pages/ReviewerDashboard";
-import ReviewerViewAllSubmitted from "./pages/ReviewerViewAllSubmitted";
-import ReviewerViewAllCompleted from "./pages/ReviewerViewAllCompleted";
-import ReviewerAssignmentView from "./pages/ReviewerAssignmentView";
+import PublicHomepage from "./pages/PublicHomepage.jsx";
+import Login from "./pages/Login.jsx";
+import LearnerDashboard from "./pages/LearnerDashboard.jsx";
+import LearnerAssignmentView from "./pages/LearnerAssignmentView.jsx";
+import LearnerSubmitAssignment from "./pages/LearnerSubmitAssignment.jsx";
+import LearnerViewAllCompleted from "./pages/LearnerViewAllCompleted.jsx";
+import ReviewerDashboard from "./pages/ReviewerDashboard.jsx";
+import ReviewerViewAllSubmitted from "./pages/ReviewerViewAllSubmitted.jsx";
+import ReviewerViewAllCompleted from "./pages/ReviewerViewAllCompleted.jsx";
+import ReviewerAssignmentView from "./pages/ReviewerAssignmentView.jsx";
 import RootOutlet from "./components/RootOutlet.jsx";
 import WhitePage from "./pages/WhitePage.jsx";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route>
-      <Route path="/codecamp" element={<RootOutlet />}>
-        <Route index element={<PublicHomepage />} />
-        <Route path="auth" element={<WhitePage />} />
-        <Route path="login" element={<Login />} />
-      </Route>
+      <Route path="/codecamp" element={<PublicHomepage />} />
+      <Route path="/codecamp/auth" element={<WhitePage />} />
+      <Route path="/codecamp/login" element={<Login />} />
 
       {/* Learner routes */}
       <Route path="/codecamp/dashboard/:learnerName" element={<RootOutlet />}>

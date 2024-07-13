@@ -31,12 +31,13 @@ function LearnerViewAllCompleted() {
           console.error("No server response");
         } else {
           console.error(err);
-          alert("Failed to retrieve assignments!");
         }
       }
     };
     fetchData();
   }, []);
+
+  console.log("completedAssignments", completedAssignments);
 
   return (
     <>
@@ -56,15 +57,22 @@ function LearnerViewAllCompleted() {
               <th></th>
             </tr>
           </thead>
+
           <tbody>
             {completedAssignments.map((assignment) => (
               <tr key={assignment.id}>
                 <td>{assignment.number}</td>
                 <td>
-                  <a href={assignment.githubUrl}>Link</a>
+                  <a href={assignment.githubUrl} target="blank">
+                    <u>Github</u>
+                  </a>
                 </td>
                 <td>{assignment.branch}</td>
-                <td>{assignment.codeReviewer.username}</td>
+                <td>
+                  {assignment.codeReviewer.firstname +
+                    " " +
+                    assignment.codeReviewer.lastname}
+                </td>
                 <td className="button-colunm">
                   {
                     <RedirectButton

@@ -24,6 +24,38 @@
   }
 }
 
+/* button, */
+.button {
+  color: #ffffff;
+  border-radius: 8px;
+  border: none;
+  padding: 12px;
+  font-size: 1rem;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #1971cf;
+  cursor: pointer;
+  transition: border-color 0.25s;
+  text-decoration: none;
+  text-wrap: nowrap;
+  margin: 0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), 0 8px 16px rgba(0, 0, 0, 0.1);
+
+  &:hover {
+    background-color: #0a7ebd;
+    -webkit-transition: background-color 0.2s ease-out;
+    -moz-transition: background-color 0.2s ease-out;
+    -o-transition: background-color 0.2s ease-out;
+    transition: background-color 0.2s ease-out;
+  }
+
+  &:disabled {
+    border: 1px solid #928c8c;
+    background-color: #888484;
+    color: #423e35;
+  }
+}
+
 .showall {
   font-size: 1.2em;
   position: inherit;
