@@ -1,15 +1,17 @@
+/* * */
 * {
-  max-width: 1080px;
-  margin: 0 auto;
+  max-width: 75vw;
+  margin: auto;
 }
 
+/* * */
 :root {
   font-family: apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Noto Sans,
     Ubuntu, Droid Sans, Helvetica Neue, sans-serif;
   line-height: 2;
   font-weight: 400;
   font-size: 1rem;
-  text-shadow: 2px 2px rgba(131, 130, 130, 0.1);
+  text-shadow: 1px 1px rgba(131, 130, 130, 0.1);
 
   color-scheme: light dark;
   color: #35373a;
@@ -25,26 +27,24 @@
   text-align: center;
 }
 
+/* Works with AssignmentView (Review) */
 .burger {
   width: 477px;
 }
 
-h1 {
+/* h1 {
   font-size: 3em;
   line-height: 1.1;
   font-weight: 600;
-}
+} */
 
+/* * */
 h2 {
   font-size: 1.7em;
   font-weight: 500;
-  /* margin-bottom: 55px; */
 }
 
-.spaceBetween {
-  margin-top: 25px;
-}
-
+/* For all hiperlink */
 a {
   color: #6e6e6e;
   text-decoration: none;
@@ -52,22 +52,22 @@ a {
   padding: 0;
 }
 
+/* For labels */
 label {
   font-size: 1.05em;
-  font-weight: 500;
   margin: 0;
   display: flex;
   justify-content: center;
   flex-wrap: nowrap;
 }
 
+/* For text input for form submissions (Review) */
 .inputText {
-  line-height: 2;
-  text-shadow: 2px 2px rgba(131, 130, 130, 0.1);
-  color: #928c8c;
+  color: rgb(60, 95, 124);
   text-decoration: underline;
 }
 
+/* For text input for form submissions (Review) */
 .input {
   width: 300px;
   min-width: 400px;
@@ -85,6 +85,7 @@ label {
   padding: 0.6em 1.2em;
 }
 
+/* For text input for form submissions (Review) */
 input {
   min-width: 400px;
   margin-bottom: 15px;
@@ -101,6 +102,30 @@ input {
   padding: 0.6em 1.2em;
 }
 
+/* Navbar button */
+.navbar-btn-custom {
+  background-color: transparent;
+  border: none;
+  box-shadow: none;
+}
+
+/* Navbar dropdown menu */
+.navbar-dropdown-menu-custom {
+  &:hover {
+    -webkit-transition: background-color 0.2s ease-out;
+    -moz-transition: background-color 0.2s ease-out;
+    -o-transition: background-color 0.2s ease-out;
+    transition: background-color 0.2s ease-out;
+  }
+}
+.navbar-dropdown-menu-item {
+  &:active {
+    color: black;
+    background-color: #f8f8f8 !important;
+  }
+}
+
+/* For buttons (Review) */
 button,
 .button {
   color: #ffffff;
@@ -119,7 +144,7 @@ button,
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), 0 8px 16px rgba(0, 0, 0, 0.1);
 
   &:hover {
-    background-color: #0a7ebd;
+    /* background-color: #0a7ebd; */
     -webkit-transition: background-color 0.2s ease-out;
     -moz-transition: background-color 0.2s ease-out;
     -o-transition: background-color 0.2s ease-out;

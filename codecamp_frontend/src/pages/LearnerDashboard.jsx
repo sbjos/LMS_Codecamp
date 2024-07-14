@@ -54,85 +54,52 @@ function LearnerDashboard() {
   return (
     <>
       <section>
-        <div class="card" style={{ width: "18rem" }}>
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <h6 class="card-subtitle mb-2 text-body-secondary">
-              Card subtitle
-            </h6>
-            <p class="card-text">
-              Some quick example text to build on the card title and make up the
-              bulk of the card's content.
-            </p>
-            <a href="#" class="card-link">
-              Card link
-            </a>
-            <a href="#" class="card-link">
-              Another link
-            </a>
+        {/* Header */}
+        <hr className="separationline" />
+        <div className="assignments-container">
+          <div className="label-container">
+            <label>Submitted</label>
           </div>
+          <ul class="status-container">{LearnerMapping(submitted)}</ul>
+
+          <hr className="separationline" />
+
+          <div className="label-container">
+            <label>In review</label>
+          </div>
+          <ul class="status-container">
+            {LearnerMapping(
+              assignments.filter((item) => item.status === "In review")
+            )}
+          </ul>
+
+          <hr className="separationline" />
+
+          <div className="label-container">
+            <label>Needs work</label>
+          </div>
+          <ul class="status-container">
+            {LearnerMapping(
+              assignments.filter((item) => item.status === "Needs work")
+            )}
+          </ul>
+
+          <hr className="separationline" />
+
+          <div className="label-container">
+            <label>Completed</label>
+          </div>
+          <ul class="status-container">
+            {LearnerMapping(
+              assignments
+                .filter((item) => item.status === "Completed")
+                .slice(-4)
+            )}
+          </ul>
+          <div className="showall"></div>
         </div>
       </section>
     </>
-
-    // <>
-    //   <section>
-    //     {/* Header */}
-    //     <div className="dashboard-header">
-    //       <h1>{firstname}'s Dashboard</h1>
-    //       <h2>Welcome {firstname}</h2>
-    //     </div>
-    //     <div className="dashboard-navbar">
-    //       {newAssignment}
-    //       {Logout}
-    //     </div>
-    //     <hr className="separationline" />
-    //     <div className="assignments-container">
-    //       <div className="label-container">
-    //         <label>Submitted</label>
-    //       </div>
-    //       <ul>{LearnerMapping(submitted)}</ul>
-
-    //       <hr className="separationline" />
-
-    //       <div className="label-container">
-    //         <label>In review</label>
-    //       </div>
-    //       <ul>
-    //         {LearnerMapping(
-    //           assignments.filter((item) => item.status === "In review")
-    //         )}
-    //       </ul>
-
-    //       <hr className="separationline" />
-
-    //       <div className="label-container">
-    //         <label>Needs work</label>
-    //       </div>
-    //       <ul>
-    //         {LearnerMapping(
-    //           assignments.filter((item) => item.status === "Needs work")
-    //         )}
-    //       </ul>
-
-    //       <hr className="separationline" />
-
-    //       <div className="label-container">
-    //         <label>Completed</label>
-    //       </div>
-    //       <ul>
-    //         {LearnerMapping(
-    //           assignments
-    //             .filter((item) => item.status === "Completed")
-    //             .slice(-4)
-    //         )}
-    //       </ul>
-    //       <div className="showall">
-    //         <Link to="allcompleted">show all completed assignments</Link>
-    //       </div>
-    //     </div>
-    //   </section>
-    // </>
   );
 }
 

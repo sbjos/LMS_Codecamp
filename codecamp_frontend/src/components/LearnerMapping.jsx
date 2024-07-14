@@ -15,13 +15,13 @@ function LearnerMapping(assignments) {
     // filters by assignment status to assign the appropriate button on the assignment card
     if (assignmentStatus !== "Completed" && assignmentStatus !== "In review") {
       return (
-        <a class="button" href={learnerRootUrl + "/assignment/" + id}>
+        <a class="card-link" href={learnerRootUrl + "/assignment/" + id}>
           Edit
         </a>
       );
     } else {
       return (
-        <a class="button" href={learnerRootUrl + "/assignment/" + id}>
+        <a class="card-link" href={learnerRootUrl + "/assignment/" + id}>
           View
         </a>
       );
@@ -31,23 +31,31 @@ function LearnerMapping(assignments) {
   return (
     <>
       {assignments.map((assignment) => (
-        <li className="cards" key={assignment.id}>
-          <div>Assignment {assignment.number}</div>
-          <div>
-            <a href={assignment.githubUrl} target="blank">
-              <u>Github</u>
+        <div class="card card-custom" key={assignment.id}>
+          <div class="card-body">
+            <h5 class="card-title">{assignment.number}</h5>
+          </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+              <a href={assignment.githubUrl} target="blank">
+                <u>Github</u>
+              </a>
+            </li>
+            <li class="list-group-item">Branch: {assignment.branch}</li>
+            <li class="list-group-item">
+              {assignment.codeReviewer
+                ? assignment.codeReviewer.firstname +
+                  " " +
+                  assignment.codeReviewer.lastname
+                : "unassigned"}
+            </li>
+          </ul>
+          <div class="card-body">
+            <a href="#" class="card-link">
+              {renderButton(assignment)}
             </a>
           </div>
-          <div>Branch: {assignment.branch}</div>
-          <div>
-            {assignment.codeReviewer
-              ? assignment.codeReviewer.firstname +
-                " " +
-                assignment.codeReviewer.lastname
-              : "unassigned"}
-          </div>
-          <div id="card-button">{renderButton(assignment)}</div>
-        </li>
+        </div>
       ))}
       <div></div>
     </>

@@ -41,7 +41,7 @@ function RootOutlet() {
             {/* dropdown menu */}
             <div class="dropdown-center mx-0">
               <button
-                class="btn btn-secondary dropdown-toggle w-auto"
+                class="btn navbar-btn-custom dropdown-toggle w-auto"
                 type="button"
                 data-bs-toggle="dropdown"
                 aria-expanded="false"
@@ -61,14 +61,18 @@ function RootOutlet() {
                   />
                 </svg>
               </button>
-              <ul class="dropdown-menu dropdown-menu-lg-end">
+              <ul class="dropdown-menu dropdown-menu-lg-end navbar-dropdown-menu-custom">
                 <li>
-                  <a class="dropdown-item" href="#">
+                  <a
+                    class="dropdown-item navbar-dropdown-menu-item"
+                    aria-current="false"
+                    href="#"
+                  >
                     Profile
                   </a>
                 </li>
                 <li>
-                  <a class="dropdown-item" href="#">
+                  <a class="dropdown-item navbar-dropdown-menu-item" href="#">
                     Settings
                   </a>
                 </li>
@@ -76,7 +80,11 @@ function RootOutlet() {
                   <hr class="dropdown-divider" />
                 </li>
                 <li>
-                  <button class="dropdown-item" href="#" type="button">
+                  <button
+                    class="dropdown-item navbar-dropdown-menu-item"
+                    href="#"
+                    type="button"
+                  >
                     Logout
                   </button>
                 </li>
