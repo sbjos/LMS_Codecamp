@@ -2,14 +2,10 @@ import { useState } from "react";
 import axios from "axios";
 import React, { useRef } from "react";
 import Validate from "../components/Validate";
-import RedirectButton from "../components/RedirectButton";
 import { useNavigate } from "react-router-dom";
 import "../css/SubmitAssignment.css";
 
 function LearnerSubmitAssignment() {
-  const dashboard = (
-    <RedirectButton reference="learner-dashboard" buttonName="Dashboard" />
-  );
   const navigate = useNavigate();
   const formRef = useRef(null);
   const [githubUrl, setGithubUrl] = useState("");
@@ -42,7 +38,7 @@ function LearnerSubmitAssignment() {
       if (!err) {
         console.error("No Server Response");
       } else if (err.response.status === 403) {
-        alert("You can only have 4 unassigned assignments at a time.");
+        alert("You have reached the limit of 6 unassigned assignments.");
         navigate("../");
       } else {
         console.error(err);
@@ -59,16 +55,17 @@ function LearnerSubmitAssignment() {
 
   return (
     <>
-      <div className="create-header">
-        <h1>Submit a new assignment</h1>
-      </div>
-      <div className="burger">
-        <form ref={formRef} className="form-create" onSubmit={handleSubmit}>
-          <div className="form-create-github">
-            <label htmlFor="githuburl">Github</label>
+      <div className="form-create">
+        <form ref={formRef} onSubmit={handleSubmit}>
+          <div className="mb-3">
+            <label htmlFor="exampleFormControlInput1" className="form-label">
+              Github url
+            </label>
             <input
-              id="githuburl"
-              type="text"
+              type="url"
+              className="form-control border border-secondary p-2 mb-2 border-opacity-75 input-box-shadow"
+              id="exampleFormControlInput1"
+              placeholder="https://www.github.com/..."
               value={githubUrl}
               onChange={(e) => {
                 setGithubUrl(e.target.value);
@@ -76,11 +73,15 @@ function LearnerSubmitAssignment() {
               required
             />
           </div>
-          <div className="form-create-branch">
-            <label htmlFor="branch">Branch</label>
+          <div className="mb-4">
+            <label htmlFor="exampleFormControlTextarea1" className="form-label">
+              Branch
+            </label>
             <input
-              id="branch"
               type="text"
+              className="form-control border border-secondary p-2 mb-2 border-opacity-75 shadow-none"
+              id="exampleFormControlInput1"
+              placeholder="branch"
               value={branch}
               onChange={(e) => {
                 setBranch(e.target.value);
@@ -88,11 +89,14 @@ function LearnerSubmitAssignment() {
               required
             />
           </div>
+          <button
+            type="button"
+            class="btn btn-success btn-custom"
+            onClick={handleClick}
+          >
+            Submit
+          </button>
         </form>
-        <div className="form-create-button">
-          <button onClick={handleClick}>Submit</button>
-          {dashboard}
-        </div>
       </div>
     </>
   );

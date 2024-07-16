@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import Validate from "../components/Validate";
-import RedirectButton from "../components/RedirectButton";
+import RedirectUrl from "../components/RedirectUrl";
 import "../css/ViewAll.css";
 
 function ReviewerViewAllCompleted() {
@@ -10,7 +10,7 @@ function ReviewerViewAllCompleted() {
   const userAuthority = localStorage.getItem("lmsuserauthorities");
   const authorityArray = userAuthority.split(", ");
   const dashboard = (
-    <RedirectButton reference="reviewer-dashboard" buttonName="Dashboard" />
+    <RedirectUrl reference="reviewer-dashboard" buttonName="Dashboard" />
   );
 
   // Validate a user's access to a webpage
@@ -72,7 +72,7 @@ function ReviewerViewAllCompleted() {
                 </td>
                 <td className="button-colunm">
                   {
-                    <RedirectButton
+                    <RedirectUrl
                       reference="reviewer-assignment-view"
                       buttonName="View"
                       data={assignment.id}

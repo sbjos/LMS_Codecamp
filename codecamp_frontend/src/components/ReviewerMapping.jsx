@@ -1,5 +1,5 @@
 import axios from "axios";
-import RedirectButton from "./RedirectButton";
+import RedirectUrl from "./RedirectUrl";
 
 function ReviewerMapping(assignments, token, data) {
   /**
@@ -57,7 +57,7 @@ function ReviewerMapping(assignments, token, data) {
       );
     } else {
       return (
-        <RedirectButton
+        <RedirectUrl
           reference="reviewer-assignment-view"
           buttonName="View"
           data={assignmentItem.id}

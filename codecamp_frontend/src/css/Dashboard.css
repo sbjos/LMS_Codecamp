@@ -6,40 +6,33 @@
 .label-container {
   display: flex;
   justify-content: flex-start;
-  margin-left: 45px;
+  margin-left: 05%;
   position: relative;
   top: 12px;
+
+  label {
+    font-size: 1.15em;
+    padding: 0 10px;
+    margin: 0 15px;
+    background: linear-gradient(to top, white 0%, rgb(275, 275, 275) 85%);
+  }
 }
 
-.assignments-container label {
-  font-size: 1.15em;
-  color: #615f5f;
-  padding: 0 10px 0 10px;
-  margin: 0 15px;
-  background-color: rgb(252, 252, 252);
-  background: linear-gradient(to top, white 0%, rgb(275, 275, 275) 85%);
-}
-
-.status-container {
-  border-top: 1px solid #dad9d9;
-  border-bottom: 1px solid #dad9d9;
+.card-container {
+  display: flex;
+  margin: auto;
+  border: 1px solid #dad9d9;
   display: flex;
   flex-direction: row;
-  margin: auto;
-  margin-bottom: 25px;
   padding: 30px;
-  gap: 30px;
-  max-width: 1184px;
-  height: 320px;
+  max-width: 95%;
+  min-height: 320px;
 }
 
 .card-custom {
-  margin: 0;
-  max-width: 200px;
-  max-width: 200px;
-}
-.cards a:hover {
-  text-decoration: underline;
+  margin: 0 18px;
+  width: 169px;
+  min-width: 130px;
 }
 
 .cards .button:hover {
@@ -62,4 +55,25 @@
 
 .card-container-submit {
   margin: 0;
+}
+
+.separation-line {
+  border: 1.5px solid #e6e4e4;
+  margin-top: 43px;
+}
+
+.text-info {
+  color: aqua;
+}
+
+@media screen and (max-width: 1200px) {
+  .card-custom:nth-child(6) {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .card-custom:nth-child(5) {
+    display: none;
+  }
 }

@@ -2,13 +2,10 @@ import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 import Validate from "../components/Validate";
-import RedirectButton from "../components/RedirectButton";
+import RedirectUrl from "../components/RedirectUrl";
 import "../css/AssignmentViews.css";
 
 function LearnerAssignmentView() {
-  const dashboardButton = (
-    <RedirectButton reference="learner-dashboard" buttonName="Dashboard" />
-  );
   const navigate = useNavigate();
   const [assignment, setAssignment] = useState();
   const [githubUrl, setGithubUrl] = useState();
@@ -139,7 +136,7 @@ function LearnerAssignmentView() {
           )}
           <div className="form-edit-button">
             <button onClick={handleSubmit}>Submit</button>
-            {dashboardButton}
+            {/* {dashboardButton} */}
           </div>
         </>
       );
@@ -181,7 +178,7 @@ function LearnerAssignmentView() {
 
           <div className="form-edit-button">
             <button onClick={handleSubmit}>Submit</button>
-            {dashboardButton}
+            {/* {dashboardButton} */}
           </div>
         </>
       );
@@ -222,7 +219,7 @@ function LearnerAssignmentView() {
           ) : (
             ""
           )}
-          <div className="form-edit-button">{dashboardButton}</div>
+          {/* <div className="form-edit-button">{dashboardButton}</div> */}
         </>
       );
     }
@@ -257,7 +254,7 @@ function LearnerAssignmentView() {
               </a>
             </div>
           </div>
-          <div className="form-edit-button">{dashboardButton}</div>
+          {/* <div className="form-edit-button">{dashboardButton}</div> */}
         </div>
       );
     }

@@ -1,0 +1,36 @@
+.navbar-custom {
+  margin-bottom: 50px;
+}
+
+.navbar-brand-custom {
+}
+
+.navbar-toggler-custom {
+  width: 60px;
+}
+
+.navbar-menu-custom {
+  margin: auto;
+}
+
+/* .navbar-btn-custom {
+  background-color: transparent;
+  border: none;
+  box-shadow: none;
+}
+
+.navbar-dropdown-menu-custom {
+  &:hover {
+    -webkit-transition: background-color 0.2s ease-out;
+    -moz-transition: background-color 0.2s ease-out;
+    -o-transition: background-color 0.2s ease-out;
+    transition: background-color 0.2s ease-out;
+  }
+}
+
+.navbar-dropdown-menu-item {
+  &:active {
+    color: black;
+    background-color: #f8f8f8 !important;
+  }
+} */

@@ -3,13 +3,11 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import ReviewerMapping from "../components/ReviewerMapping";
 import Validate from "../components/Validate";
-import RedirectButton from "../components/RedirectButton";
+import RedirectUrl from "../components/RedirectUrl";
 import "../css/Dashboard.css";
 
 function ReviewerDashboard() {
-  const logoutButton = (
-    <RedirectButton reference="logout" buttonName="Logout" />
-  );
+  const logoutButton = <RedirectUrl reference="logout" buttonName="Logout" />;
   const [assignments, setAssignments] = useState([]);
   const token = localStorage.getItem("lmsusertoken");
   const userAuthority = localStorage.getItem("lmsuserauthorities");

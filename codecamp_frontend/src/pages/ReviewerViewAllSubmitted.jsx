@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import Validate from "../components/Validate";
-import RedirectButton from "../components/RedirectButton";
+import RedirectUrl from "../components/RedirectUrl";
 import "../css/ViewAll.css";
 
 function ReviewerViewAllSubmitted() {
   const dashboardButton = (
-    <RedirectButton reference="reviewer-dashboard" buttonName="Dashboard" />
+    <RedirectUrl reference="reviewer-dashboard" buttonName="Dashboard" />
   );
   const [submittedAssignments, setSubmittedAssignments] = useState([]);
   const token = localStorage.getItem("lmsusertoken");

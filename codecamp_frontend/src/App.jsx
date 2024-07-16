@@ -6,6 +6,7 @@ import {
 } from "react-router-dom";
 import PublicHomepage from "./pages/PublicHomepage.jsx";
 import Login from "./pages/Login.jsx";
+import LearnerRootOutlet from "./components/LearnerRootOutlet.jsx";
 import LearnerDashboard from "./pages/LearnerDashboard.jsx";
 import LearnerAssignmentView from "./pages/LearnerAssignmentView.jsx";
 import LearnerSubmitAssignment from "./pages/LearnerSubmitAssignment.jsx";
@@ -14,7 +15,6 @@ import ReviewerDashboard from "./pages/ReviewerDashboard.jsx";
 import ReviewerViewAllSubmitted from "./pages/ReviewerViewAllSubmitted.jsx";
 import ReviewerViewAllCompleted from "./pages/ReviewerViewAllCompleted.jsx";
 import ReviewerAssignmentView from "./pages/ReviewerAssignmentView.jsx";
-import RootOutlet from "./components/RootOutlet.jsx";
 import WhitePage from "./pages/WhitePage.jsx";
 
 const router = createBrowserRouter(
@@ -25,22 +25,25 @@ const router = createBrowserRouter(
       <Route path="/codecamp/login" element={<Login />} />
 
       {/* Learner routes */}
-      <Route path="/codecamp/dashboard/:learnerName" element={<RootOutlet />}>
+      <Route
+        path="/codecamp/dashboard/:learnerName"
+        element={<LearnerRootOutlet />}
+      >
         <Route index element={<LearnerDashboard />} />
         <Route path="assignment/:id" element={<LearnerAssignmentView />} />
         <Route path="submitassignment" element={<LearnerSubmitAssignment />} />
-        <Route path="allcompleted" element={<LearnerViewAllCompleted />} />
+        <Route path="completed" element={<LearnerViewAllCompleted />} />
       </Route>
 
       {/* Reviewer routes */}
       <Route
         path="/codecamp/reviewerdashboard/:reviewerName"
-        element={<RootOutlet />}
+        element={<LearnerRootOutlet />}
       >
         <Route index element={<ReviewerDashboard />} />
         <Route path="assignment/:id" element={<ReviewerAssignmentView />} />
         <Route path="allsubmitted" element={<ReviewerViewAllSubmitted />} />
-        <Route path="allcompleted" element={<ReviewerViewAllCompleted />} />
+        <Route path="completed" element={<ReviewerViewAllCompleted />} />
       </Route>
 
       {/* 404 not found */}

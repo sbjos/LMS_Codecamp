@@ -1,13 +1,10 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import Validate from "../components/Validate";
-import RedirectButton from "../components/RedirectButton";
+import RedirectUrl from "../components/RedirectUrl";
 import "../css/ViewAll.css";
 
 function LearnerViewAllCompleted() {
-  const dashboardButton = (
-    <RedirectButton reference="learner-dashboard" buttonName="Dashboard" />
-  );
   const [completedAssignments, setCompletedAssignments] = useState([]);
   const token = localStorage.getItem("lmsusertoken");
   const userAuthority = localStorage.getItem("lmsuserauthorities");
@@ -37,12 +34,10 @@ function LearnerViewAllCompleted() {
     fetchData();
   }, []);
 
-  console.log("completedAssignments", completedAssignments);
-
   return (
     <>
       <div className="assignment-table">
-        {dashboardButton}
+        {/* {dashboardButton} */}
 
         <hr className="separationline" />
 
@@ -52,7 +47,6 @@ function LearnerViewAllCompleted() {
               <th>Assignment</th>
               <th>Github URL</th>
               <th>Branch</th>
-              <th>Learner</th>
               <th>Reviewer</th>
               <th></th>
             </tr>
@@ -74,14 +68,12 @@ function LearnerViewAllCompleted() {
                     assignment.codeReviewer.lastname}
                 </td>
                 <td className="button-colunm">
-                  {
-                    <RedirectButton
-                      reference="learner-assignment-view"
-                      buttonName="View"
-                      data={assignment.id}
-                      classname="viewall-claim-button"
-                    />
-                  }
+                  <a
+                    className="nav-link active"
+                    href={RedirectUrl.learnerAssignmentView + assignment.id}
+                  >
+                    View
+                  </a>
                 </td>
               </tr>
             ))}

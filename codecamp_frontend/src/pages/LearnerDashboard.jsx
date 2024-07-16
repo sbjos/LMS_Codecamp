@@ -1,10 +1,7 @@
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
 import axios from "axios";
 import LearnerMapping from "../components/LearnerMapping";
 import Validate from "../components/Validate";
-import RedirectButton from "../components/RedirectButton";
-import Logout from "../components/Logout";
 import "../css/Dashboard.css";
 
 function LearnerDashboard() {
@@ -41,59 +38,60 @@ function LearnerDashboard() {
 
   const submitted = assignments.filter((item) => item.status === "Submitted");
 
-  // RedirectButton component for New assignment button.
-  const newAssignment = (
-    <RedirectButton
-      reference="learner-submit-assignment"
-      buttonName="New assignment"
-      data={submitted}
-    />
-  );
-
   // Passes the data to the ReviewerMapping.jsx component to handle cards.
   return (
     <>
       <section>
-        {/* Header */}
-        <hr className="separationline" />
         <div className="assignments-container">
           <div className="label-container">
             <label>Submitted</label>
           </div>
-          <ul class="status-container">{LearnerMapping(submitted)}</ul>
+          <ul className="card-container">
+            {LearnerMapping(
+              submitted,
+              "card text-center p-3 border border-info card-custom",
+              "btn btn-outline-info"
+            )}
+          </ul>
 
-          <hr className="separationline" />
+          <hr className="separation-line" />
 
           <div className="label-container">
             <label>In review</label>
           </div>
-          <ul class="status-container">
+          <ul className="card-container">
             {LearnerMapping(
-              assignments.filter((item) => item.status === "In review")
+              assignments.filter((item) => item.status === "In review"),
+              "card text-center p-3 border border-warning card-custom",
+              "btn btn-outline-warning"
             )}
           </ul>
 
-          <hr className="separationline" />
+          <hr className="separation-line" />
 
           <div className="label-container">
             <label>Needs work</label>
           </div>
-          <ul class="status-container">
+          <ul className="card-container">
             {LearnerMapping(
-              assignments.filter((item) => item.status === "Needs work")
+              assignments.filter((item) => item.status === "Needs work"),
+              "card text-center p-3 border border-danger card-custom",
+              "btn btn-outline-danger"
             )}
           </ul>
 
-          <hr className="separationline" />
+          <hr className="separation-line" />
 
           <div className="label-container">
             <label>Completed</label>
           </div>
-          <ul class="status-container">
+          <ul className="card-container">
             {LearnerMapping(
               assignments
                 .filter((item) => item.status === "Completed")
-                .slice(-4)
+                .slice(-4),
+              "card text-center p-3 border border-success card-custom",
+              "btn btn-outline-success"
             )}
           </ul>
           <div className="showall"></div>

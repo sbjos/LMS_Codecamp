@@ -1,12 +1,14 @@
-function LearnerMapping(assignments) {
+import RedirectUrl from "./RedirectUrl";
+
+function LearnerMapping(assignments, cardClass, btnClass) {
   /**
    * Sets the button based on the assignment status.
-   * @param {*} assignmentItem
+   * @param {*} assignment
    * @returns the appropriate button for the card.
    */
-  function renderButton(assignmentItem) {
-    const assignmentStatus = assignmentItem.status;
-    const id = assignmentItem.id;
+  function renderButton(assignment) {
+    const assignmentStatus = assignment.status;
+    const id = assignment.id;
     const userAuthority = localStorage.getItem("lmsuserauthorities");
     const authorityArray = userAuthority.split(", ");
     const urlPathVariable = authorityArray[1] + authorityArray[2];
@@ -15,13 +17,21 @@ function LearnerMapping(assignments) {
     // filters by assignment status to assign the appropriate button on the assignment card
     if (assignmentStatus !== "Completed" && assignmentStatus !== "In review") {
       return (
-        <a class="card-link" href={learnerRootUrl + "/assignment/" + id}>
+        <a
+          type="button"
+          class={btnClass}
+          href={RedirectUrl.learnerAssignmentView + id}
+        >
           Edit
         </a>
       );
     } else {
       return (
-        <a class="card-link" href={learnerRootUrl + "/assignment/" + id}>
+        <a
+          type="button"
+          class={btnClass}
+          href={RedirectUrl.learnerAssignmentView + id}
+        >
           View
         </a>
       );
@@ -31,30 +41,28 @@ function LearnerMapping(assignments) {
   return (
     <>
       {assignments.map((assignment) => (
-        <div class="card card-custom" key={assignment.id}>
-          <div class="card-body">
-            <h5 class="card-title">{assignment.number}</h5>
+        <div className={cardClass} key={assignment.id}>
+          <div className="card-body">
+            <h5 className="card-title">{assignment.number}</h5>
           </div>
-          <ul class="list-group list-group-flush">
-            <li class="list-group-item">
+          <ul className="list-group list-group-flush">
+            <li className="list-group-item bg-transparent">
               <a href={assignment.githubUrl} target="blank">
                 <u>Github</u>
               </a>
             </li>
-            <li class="list-group-item">Branch: {assignment.branch}</li>
-            <li class="list-group-item">
+            <li className="list-group-item bg-transparent">
+              Branch: {assignment.branch}
+            </li>
+            <li className="list-group-item bg-transparent">
               {assignment.codeReviewer
                 ? assignment.codeReviewer.firstname +
                   " " +
                   assignment.codeReviewer.lastname
-                : "unassigned"}
+                : "Not assigned"}
             </li>
           </ul>
-          <div class="card-body">
-            <a href="#" class="card-link">
-              {renderButton(assignment)}
-            </a>
-          </div>
+          <div className="card-body">{renderButton(assignment)}</div>
         </div>
       ))}
       <div></div>

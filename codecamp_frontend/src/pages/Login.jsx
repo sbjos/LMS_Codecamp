@@ -52,16 +52,20 @@ function Login() {
 
   return (
     <>
-      <div className="login-header">
-        <h1>Login</h1>
-      </div>
       <div className="login-burger">
-        <form className="form-login" onSubmit={handleSubmit}>
-          <div className="form-login-username">
-            <label htmlFor="username">Username</label>
+        <div className="login-header">
+          <h1>Login</h1>
+        </div>
+        <form onSubmit={handleSubmit}>
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label ">
+              Username
+            </label>
             <input
               id="username"
               type="text"
+              class="form-control border border-secondary p-2 mb-2 border-opacity-75 input-box-shadow"
+              aria-describedby="emailHelp"
               autoComplete="username"
               value={username}
               onChange={(e) => {
@@ -69,12 +73,18 @@ function Login() {
               }}
               required
             />
+            <div id="emailHelp" class="form-text">
+              {/* We'll never share your email with anyone else. */}
+            </div>
           </div>
-          <div className="form-login-password">
-            <label htmlFor="password">Password</label>
+          <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">
+              Password
+            </label>
             <input
               id="password"
               type="password"
+              class="form-control border border-secondary p-2 mb-2 border-opacity-75 input-box-shadow"
               autoComplete="current-password"
               onChange={(e) => {
                 setPassword(e.target.value);
@@ -82,8 +92,13 @@ function Login() {
               required
             />
           </div>
-          <div id="error">{error}</div>
-          <button disabled={!username || !password}>Login</button>
+          <button
+            disabled={!username || !password}
+            type="submit"
+            class="btn btn-success btn-login-custom"
+          >
+            Login
+          </button>
         </form>
       </div>
     </>

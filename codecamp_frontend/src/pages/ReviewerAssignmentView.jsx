@@ -2,7 +2,7 @@ import { useEffect, useState, useConfirm } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import Validate from "../components/Validate";
-import RedirectButton from "../components/RedirectButton";
+import RedirectUrl from "../components/RedirectUrl";
 import "../css/AssignmentViews.css";
 
 function ReviewerAssignmentView() {
@@ -15,7 +15,7 @@ function ReviewerAssignmentView() {
   const authorityArray = userAuthority.split(", ");
   const urlPathVariable = authorityArray[1] + authorityArray[2];
   const dashboardButton = (
-    <RedirectButton
+    <RedirectUrl
       reference="reviewer-dashboard"
       buttonName="Dashboard"
       data={urlPathVariable}
