@@ -30,6 +30,7 @@ public class ValidateSession {
      */
     @GetMapping(value = "/api/auth/validate")
     public ResponseEntity<?> validate(HttpServletRequest request, HttpServletResponse response) {
+        String a = request.getHeader("Authority");
         List<String> authority = List.of(request.getHeader("Authority").split(","));
         User user = userRepository.findByUsername(authority.get(3).trim()).orElse(null);
 
