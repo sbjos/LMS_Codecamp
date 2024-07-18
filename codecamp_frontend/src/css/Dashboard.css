@@ -3,8 +3,46 @@
   position: inherit;
 }
 
-.header-welcome-section {
+.section-1 {
+  /* border: 1px solid red; */
+  width: 100vw;
+  margin: auto;
+  padding: 50px 0;
+  background-color: #6752ec;
+}
+
+.welcome-section-text {
+  /* border: 1px solid blue; */
+  margin: 0 450px;
+
+  p {
+    font-size: 1.5em;
+    color: rgb(245, 245, 245);
+    font-weight: 500;
+  }
+}
+
+.welcome-section-image {
+  /* border: 1px solid blue; */
+  margin: 0 450px;
+
+  p {
+    font-size: 1.5em;
+    color: rgb(245, 245, 245);
+    font-weight: 500;
+  }
+}
+
+.section-2 {
   border: 1px solid red;
+  width: 100vw;
+  margin: auto;
+}
+
+.section-3 {
+  border: 1px solid red;
+  width: 100vw;
+  margin: auto;
 }
 
 .assignments-container {

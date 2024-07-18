@@ -8,6 +8,7 @@ function LearnerDashboard() {
   const [assignments, setAssignments] = useState([]);
   const token = localStorage.getItem("lmsusertoken");
   const userAuthority = localStorage.getItem("lmsuserauthorities");
+  const authorityArray = userAuthority ? userAuthority.split(", ") : "";
 
   // Validate a user's access to a webpage
   Validate(token, userAuthority);
@@ -39,8 +40,24 @@ function LearnerDashboard() {
   // Passes the data to the ReviewerMapping.jsx component to handle cards.
   return (
     <>
+      <section className="section-1 ">
+        <div className="welcome-section-text">
+          <div>
+            <p>
+              Hey {authorityArray[1]},
+              <br /> Welcome to your learning dashboard !
+            </p>
+          </div>
+          <div>
+            <p>Put some extrat Something here</p>
+          </div>
+          <div>
+            <p>Here is for another estra text here</p>
+          </div>
+        </div>
+        <div className="welcome-section-image"></div>
+      </section>
       <section>
-        <div className="burger header-welcome-section"></div>
         <div className="assignments-container">
           <div className="label-container">
             <label>Submitted</label>

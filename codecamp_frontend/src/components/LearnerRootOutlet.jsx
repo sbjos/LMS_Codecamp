@@ -18,7 +18,7 @@ function LearnerRootOutlet() {
       <nav className="navbar navbar-expand-lg navbar-custom ">
         <div className="container-fluid">
           <a
-            className="navbar-brand fw-semibold ms-2 fs-4 navbar-brand-custom"
+            className="navbar-brand fw-semibold ms-2 fs-4 text-dark-emphasis navbar-brand-custom"
             href={RedirectUrl.learnerDashboard}
           >
             {"codeCamp/>"}
@@ -38,7 +38,7 @@ function LearnerRootOutlet() {
             <ul className="navbar-nav me-auto navbar-menu-custom">
               <li className="nav-item ">
                 <a
-                  className="nav-link active mx-3 text-dark-emphasis fw-medium"
+                  className="nav-link active mx-3 text-light-emphasis fw-medium"
                   aria-current="page"
                   href={RedirectUrl.newAssignment}
                 >
@@ -47,7 +47,7 @@ function LearnerRootOutlet() {
               </li>
               <li className="nav-item ">
                 <a
-                  className="nav-link active mx-3 text-dark-emphasis fw-medium"
+                  className="nav-link active mx-3 text-light-emphasis fw-medium"
                   href={RedirectUrl.learnerCompletedAssignments}
                 >
                   Closed assignments
@@ -55,7 +55,7 @@ function LearnerRootOutlet() {
               </li>
               <li className="nav-item ">
                 <a
-                  className="nav-link active mx-3 text-dark-emphasis fw-medium"
+                  className="nav-link active mx-3 text-light-emphasis fw-medium"
                   href="#"
                 >
                   Support
@@ -80,7 +80,7 @@ function LearnerRootOutlet() {
               </li>
             </ul>
             {/* dropdown menu */}
-            <div className="dropdown-center me-3">
+            <div className="dropdown-center me-5">
               <button
                 className="btn navbar-btn-custom dropdown w-auto"
                 type="button"

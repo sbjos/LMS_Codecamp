@@ -34,11 +34,6 @@ input {
   outline: none !important;
 }
 
-/* Works with AssignmentView (Review) */
-.burger {
-  width: 477px;
-}
-
 /* For all hiperlink */
 a {
   color: #6e6e6e;
