@@ -56,15 +56,15 @@ function Login() {
         <div className="login-header">
           <h1>Login</h1>
         </div>
-        <form onSubmit={handleSubmit}>
-          <div class="mb-3">
-            <label for="exampleInputEmail1" class="form-label ">
+        <form className="login-form" onSubmit={handleSubmit}>
+          <div className="mb-3">
+            <label htmlFor="exampleInputEmail1" className="form-label ">
               Username
             </label>
             <input
               id="username"
               type="text"
-              class="form-control border border-secondary p-2 mb-2 border-opacity-75 input-box-shadow"
+              className="form-control border border-secondary p-2 mb-2 border-opacity-75 input-box-shadow"
               aria-describedby="emailHelp"
               autoComplete="username"
               value={username}
@@ -73,18 +73,18 @@ function Login() {
               }}
               required
             />
-            <div id="emailHelp" class="form-text">
+            <div id="emailHelp" className="form-text">
               {/* We'll never share your email with anyone else. */}
             </div>
           </div>
-          <div class="mb-3">
-            <label for="exampleInputPassword1" class="form-label">
+          <div className="mb-3">
+            <label htmlFor="exampleInputPassword1" className="form-label">
               Password
             </label>
             <input
               id="password"
               type="password"
-              class="form-control border border-secondary p-2 mb-2 border-opacity-75 input-box-shadow"
+              className="form-control border border-secondary p-2 mb-2 border-opacity-75 input-box-shadow"
               autoComplete="current-password"
               onChange={(e) => {
                 setPassword(e.target.value);
@@ -95,7 +95,7 @@ function Login() {
           <button
             disabled={!username || !password}
             type="submit"
-            class="btn btn-success btn-login-custom"
+            className="btn btn-success btn-login-custom"
           >
             Login
           </button>

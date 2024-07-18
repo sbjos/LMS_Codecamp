@@ -10,7 +10,11 @@ function LearnerViewAllCompleted() {
   const userAuthority = localStorage.getItem("lmsuserauthorities");
 
   // Validate a user's access to a webpage
-  Validate(token, userAuthority);
+  try {
+    Validate(token, userAuthority);
+  } catch (error) {
+    console.error(error);
+  }
 
   // automatically fetches and loads all assignments
   useEffect(() => {

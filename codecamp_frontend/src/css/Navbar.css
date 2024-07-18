@@ -3,17 +3,34 @@
 }
 
 .navbar-brand-custom {
+  font-family: Consolas, Fira Code, and JetBrains Mono;
+}
+
+.navbar-menu-custom {
+  margin: 0 auto;
+}
+
+.search-input {
+  inline-size: auto;
+  max-width: 197px;
+}
+
+.navbar-dropdown-name {
+  margin: 0 15px 5px;
+  padding-bottom: 5px;
+  font-weight: 500;
 }
 
 .navbar-toggler-custom {
   width: 60px;
 }
 
-.navbar-menu-custom {
-  margin: auto;
+.search-btn {
+  max-width: fit-content;
+  max-width: -moz-fit-content;
 }
 
-/* .navbar-btn-custom {
+.navbar-btn-custom {
   background-color: transparent;
   border: none;
   box-shadow: none;
@@ -33,4 +50,4 @@
     color: black;
     background-color: #f8f8f8 !important;
   }
-} */
+}

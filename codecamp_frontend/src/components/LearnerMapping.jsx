@@ -9,10 +9,6 @@ function LearnerMapping(assignments, cardClass, btnClass) {
   function renderButton(assignment) {
     const assignmentStatus = assignment.status;
     const id = assignment.id;
-    const userAuthority = localStorage.getItem("lmsuserauthorities");
-    const authorityArray = userAuthority.split(", ");
-    const urlPathVariable = authorityArray[1] + authorityArray[2];
-    const learnerRootUrl = "/codecamp/dashboard/" + urlPathVariable;
 
     // filters by assignment status to assign the appropriate button on the assignment card
     if (assignmentStatus !== "Completed" && assignmentStatus !== "In review") {
@@ -42,19 +38,19 @@ function LearnerMapping(assignments, cardClass, btnClass) {
     <>
       {assignments.map((assignment) => (
         <div className={cardClass} key={assignment.id}>
-          <div className="card-body">
+          <div className="card-body card-body-header-custom">
             <h5 className="card-title">{assignment.number}</h5>
           </div>
           <ul className="list-group list-group-flush">
-            <li className="list-group-item bg-transparent">
+            <li className="list-group-item bg-transparent list-group-item-custom">
               <a href={assignment.githubUrl} target="blank">
                 <u>Github</u>
               </a>
             </li>
-            <li className="list-group-item bg-transparent">
-              Branch: {assignment.branch}
+            <li className="list-group-item bg-transparent list-group-item-custom">
+              {assignment.branch}
             </li>
-            <li className="list-group-item bg-transparent">
+            <li className="list-group-item bg-transparent list-group-item-custom">
               {assignment.codeReviewer
                 ? assignment.codeReviewer.firstname +
                   " " +

@@ -8,8 +8,6 @@ function LearnerDashboard() {
   const [assignments, setAssignments] = useState([]);
   const token = localStorage.getItem("lmsusertoken");
   const userAuthority = localStorage.getItem("lmsuserauthorities");
-  const authorityArray = userAuthority.split(", ");
-  const firstname = authorityArray[1];
 
   // Validate a user's access to a webpage
   Validate(token, userAuthority);
