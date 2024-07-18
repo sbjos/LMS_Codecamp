@@ -42,7 +42,7 @@ function LearnerRootOutlet() {
                   aria-current="page"
                   href={RedirectUrl.newAssignment}
                 >
-                  New assignment
+                  Dashboard
                 </a>
               </li>
               <li className="nav-item ">
@@ -50,7 +50,15 @@ function LearnerRootOutlet() {
                   className="nav-link active mx-3 text-light-emphasis fw-medium"
                   href={RedirectUrl.learnerCompletedAssignments}
                 >
-                  Closed assignments
+                  Calendar
+                </a>
+              </li>
+              <li className="nav-item ">
+                <a
+                  className="nav-link active mx-3 text-light-emphasis fw-medium"
+                  href="#"
+                >
+                  Inbox
                 </a>
               </li>
               <li className="nav-item ">

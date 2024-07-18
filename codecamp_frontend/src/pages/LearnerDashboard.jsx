@@ -40,24 +40,22 @@ function LearnerDashboard() {
   // Passes the data to the ReviewerMapping.jsx component to handle cards.
   return (
     <>
-      <section className="section-1 ">
+      <section className="section-1">
         <div className="welcome-section-text">
-          <div>
+          <div className="welcome-section-text-head">
             <p>
               Hey {authorityArray[1]},
-              <br /> Welcome to your learning dashboard !
+              <br /> Welcome to your learning dashboard!
             </p>
-          </div>
-          <div>
-            <p>Put some extrat Something here</p>
-          </div>
-          <div>
-            <p>Here is for another estra text here</p>
+            <hr />
           </div>
         </div>
         <div className="welcome-section-image"></div>
       </section>
-      <section>
+      <section className="section-2">
+        <div className="empty-section"></div>
+      </section>
+      <section className="section-3">
         <div className="assignments-container">
           <div className="label-container">
             <label>Submitted</label>
