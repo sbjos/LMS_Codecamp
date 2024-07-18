@@ -18,7 +18,7 @@ function LearnerRootOutlet() {
       <nav className="navbar navbar-expand-lg navbar-custom ">
         <div className="container-fluid">
           <a
-            className="navbar-brand fw-semibold navbar-brand-custom"
+            className="navbar-brand fw-semibold ms-2 fs-4 navbar-brand-custom"
             href={RedirectUrl.learnerDashboard}
           >
             {"codeCamp/>"}
@@ -80,7 +80,7 @@ function LearnerRootOutlet() {
               </li>
             </ul>
             {/* dropdown menu */}
-            <div className="dropdown-center mx-0">
+            <div className="dropdown-center me-3">
               <button
                 className="btn navbar-btn-custom dropdown w-auto"
                 type="button"

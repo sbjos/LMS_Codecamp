@@ -40,6 +40,7 @@ function LearnerDashboard() {
   return (
     <>
       <section>
+        <div className="burger header-welcome-section"></div>
         <div className="assignments-container">
           <div className="label-container">
             <label>Submitted</label>
