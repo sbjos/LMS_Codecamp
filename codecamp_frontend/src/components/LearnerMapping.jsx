@@ -1,6 +1,6 @@
 import RedirectUrl from "./RedirectUrl";
 
-function LearnerMapping(assignments, btnClass) {
+function LearnerMapping(assignments) {
   /**
    * Sets the button based on the assignment status.
    * @param {*} assignment
@@ -13,21 +13,13 @@ function LearnerMapping(assignments, btnClass) {
     // filters by assignment status to assign the appropriate button on the assignment card
     if (assignmentStatus !== "Completed" && assignmentStatus !== "In review") {
       return (
-        <a
-          type="button"
-          class={btnClass}
-          href={RedirectUrl.learnerAssignmentView + id}
-        >
+        <a class="card-link" href={RedirectUrl.learnerAssignmentView + id}>
           Edit
         </a>
       );
     } else {
       return (
-        <a
-          type="button"
-          class={btnClass}
-          href={RedirectUrl.learnerAssignmentView + id}
-        >
+        <a class="card-link" href={RedirectUrl.learnerAssignmentView + id}>
           View
         </a>
       );
@@ -57,14 +49,6 @@ function LearnerMapping(assignments, btnClass) {
             </li>
           </ul>
           <div className="card-body">{renderButton(assignment)}</div>
-          <div class="card-body">
-            <a href="#" class="card-link">
-              Card link
-            </a>
-            <a href="#" class="card-link">
-              Another link
-            </a>
-          </div>
         </div>
       ))}
     </>

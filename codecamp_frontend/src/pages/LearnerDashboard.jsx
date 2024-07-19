@@ -2,8 +2,8 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import LearnerMapping from "../components/LearnerMapping";
 import Validate from "../components/Validate";
-import "../css/Dashboard.css";
 import RedirectUrl from "../components/RedirectUrl";
+import "../css/Dashboard.css";
 
 function LearnerDashboard() {
   const [assignments, setAssignments] = useState([]);
@@ -41,85 +41,83 @@ function LearnerDashboard() {
   // Passes the data to the ReviewerMapping.jsx component to handle cards.
   return (
     <>
+      {/* section-1 */}
       <section className="section-1">
         <div className="welcome-section-text">
           <div className="welcome-section-text-head">
             <p>Hey {authorityArray[1]},</p>
+          </div>
+          <div className="welcome-section-text-body">
             <p>Welcome to your learning dashboard!</p>
-            <hr />
-            <div className="welcome-section-btn">
-              <a
-                href={RedirectUrl.newAssignment}
-                className="btn btn-warning"
-                role="button"
-              >
-                Create a new assignment
-              </a>
-              <a href="#" className="btn btn-light" role="button">
-                Request a One on One
-              </a>
-            </div>
+          </div>
+          <hr />
+          <div className="welcome-section-text-btn">
+            <a
+              href={RedirectUrl.newAssignment}
+              className="btn btn-warning"
+              role="button"
+            >
+              Create a new assignment
+            </a>
+            <a href="#" className="btn btn-light" role="button">
+              Request a One on One
+            </a>
           </div>
         </div>
         <div className="welcome-section-image"></div>
       </section>
+
+      {/* section-2 */}
       <section className="section-2">
         <div className="empty-section"></div>
       </section>
+
+      {/* section-3 */}
       <section className="section-3">
-        <div className="assignments-container">
-          <div className="label-container">
-            <label>Submitted</label>
-          </div>
-          <ul className="card-container">
+        <div className="card-container" id="submitted-container">
+          <label>Submitted</label>
+          <ul className="card-list">{LearnerMapping(submitted.slice(-4))}</ul>
+        </div>
+
+        <hr className="separation-line" />
+
+        <div className="card-container" id="inreview-container">
+          <label>In review</label>
+          <ul className="card-list">
             {LearnerMapping(
-              submitted,
-              "card text-center p-3 border border-info card-custom",
-              "btn btn-outline-info"
+              assignments
+                .filter((item) => item.status === "In review")
+                .slice(-4)
             )}
           </ul>
+        </div>
 
-          <hr className="separation-line" />
+        <hr className="separation-line" />
 
-          <div className="label-container">
-            <label>In review</label>
-          </div>
-          <ul className="card-container">
+        <div className="card-container" id="needswork-container">
+          <label>Needs work</label>
+          <ul className="card-list">
             {LearnerMapping(
-              assignments.filter((item) => item.status === "In review"),
-              "btn btn-outline-warning"
+              assignments
+                .filter((item) => item.status === "Needs work")
+                .slice(-4)
             )}
           </ul>
+        </div>
 
-          <hr className="separation-line" />
+        <hr className="separation-line" />
 
-          <div className="label-container">
-            <label>Needs work</label>
-          </div>
-          <ul className="card-container">
-            {LearnerMapping(
-              assignments.filter((item) => item.status === "Needs work"),
-
-              "btn btn-outline-danger"
-            )}
-          </ul>
-
-          <hr className="separation-line" />
-
-          <div className="label-container">
-            <label>Completed</label>
-          </div>
-          <ul className="card-container">
+        <div className="card-container" id="completed-container">
+          <label>Completed</label>
+          <ul className="card-list">
             {LearnerMapping(
               assignments
                 .filter((item) => item.status === "Completed")
-                .slice(-4),
-
-              "btn btn-outline-success"
+                .slice(-4)
             )}
           </ul>
-          <div className="showall"></div>
         </div>
+        <div className="showall"></div>
       </section>
     </>
   );

@@ -4,13 +4,14 @@
 }
 
 .section-1 {
-  width: 100vw;
+  width: 100%;
   padding: 50px 0;
   display: flex;
   justify-content: center;
   background-color: #6752ec;
 
   .welcome-section-text {
+    border: 1px solid red;
     width: 550px;
     font-family: "Poppins", sans-serif;
     color: rgb(245, 245, 245);
@@ -24,28 +25,13 @@
 
     .welcome-section-text-body {
       p {
-        font-size: 1em;
-      }
-    }
-
-    .welcome-section-text-footer {
-      p {
-        font-size: 1rem;
+        font-size: 1.5em;
+        font-weight: 500;
       }
     }
   }
 
-  .welcome-section-image {
-    width: 550px;
-
-    p {
-      font-size: 1.5em;
-      color: rgb(245, 245, 245);
-      font-weight: 500;
-    }
-  }
-
-  .welcome-section-btn {
+  .welcome-section-text-btn {
     display: flex;
 
     a {
@@ -57,100 +43,53 @@
       height: 45px;
     }
   }
+
+  .welcome-section-image {
+    width: 550px;
+  }
 }
 
 .section-2 {
-  width: 100vw;
+  /* border: 1px solid red; */
+  width: 100%;
   margin: auto;
   height: 55px;
 }
 
 .section-3 {
-  width: 100vw;
+  /* border: 1px solid red; */
+  width: 100%;
   margin: auto;
   background-color: #f7f7f7;
-}
 
-.assignments-container {
-  /* border: 1px solid red; */
-  display: inline-flex;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  width: 70vw;
-  max-width: 1244px;
-  min-width: 195px;
-}
+  .card-container {
+    border: 1px solid red;
+    margin: auto;
 
-.label-container {
-  display: flex;
-  margin-left: 2rem;
-  position: relative;
-  top: 12px;
+    flex-direction: column;
+    padding: 30px;
+    width: 70vw;
+    max-width: 1244px;
+    min-width: 195px;
+    /* max-height: 350px; */
+    min-height: 312px;
 
-  label {
-    font-size: 1.15em;
-    padding: 0 10px;
-    margin: 0 15px;
-    background: linear-gradient(to top, white 0%, rgb(275, 275, 275) 85%);
+    .card-list {
+      border: 1px solid red;
+      /* margin: auto; */
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+    }
+
+    label {
+      font-size: 1.15em;
+      margin-bottom: 15px;
+
+      background: transparent;
+    }
   }
-}
-
-.card-body-header-custom {
-  padding: 5px 0;
-}
-
-.list-group-item-custom {
-  padding: 5px 0;
-}
-
-.card-container {
-  display: inline-flex;
-  margin: auto;
-  /* border-top: 1px solid #dad9d9;
-  border-bottom: 1px solid #dad9d9; */
-  border: 1px solid #dad9d9;
-  display: flex;
-  flex-direction: row;
-  padding: 30px;
-  width: 70vw;
-  max-width: 1244px;
-  min-width: 195px;
-  max-height: 350px;
-  min-height: 312px;
-}
-
-.card-custom {
-  display: flex;
-  justify-content: flex-start;
-  margin: 0 22.3281px;
-  width: 169px;
-  min-width: 150px;
-  max-height: 250px;
-  white-space: nowrap;
-  overflow: hidden;
-}
-
-.cards .button:hover {
-  text-decoration: none;
-}
-
-#card-button {
-  margin-top: 28px;
-  height: 47px;
-  display: flex;
-  justify-content: center;
-}
-
-#card-button a {
-  display: flex;
-  justify-content: center;
-  width: 160px;
-  align-items: center;
-}
-
-.card-container-submit {
-  margin: 0;
 }
 
 .separation-line {
@@ -158,9 +97,32 @@
   margin-top: 43px;
 }
 
-.text-info {
-  color: aqua;
+@media screen and (max-width: 1200px) {
+  .welcome-section-text {
+    margin-left: 30px;
+  }
+
+  .welcome-section-image {
+    margin-right: 25px;
+  }
 }
+
+@media screen and (max-width: 1024px) {
+}
+
+@media screen and (max-width: 768px) {
+  .welcome-section-image {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 1284px) {
+  .welcome-section-text .welcome-section-text-head .welcome-section-text-body {
+    margin-left: 100px;
+  }
+}
+
+/* //// */
 
 @media screen and (max-width: 1760px) {
   .card-custom:nth-child(6) {
@@ -186,12 +148,6 @@
   .card-custom {
     min-width: 130px;
     margin: 0 1vw;
-  }
-}
-
-@media screen and (max-width: 1284px) {
-  .welcome-section-text {
-    margin-left: 100px;
   }
 }
 

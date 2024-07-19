@@ -99,10 +99,10 @@ get them reviewed.
 ## Restful Endpoints
 ### Authentication and verification
 - **Login**                     - *Post method* - `/api/auth/login`
-- **Validate token**            - *Get method* - `/api/auth/validate`
+- **Refresh the token**         - *Get method* - `/api/auth/validate`
 
 ### Assignments
-- **Get Assignments by User**   - *Get method* - `/api/assignments`
+- **Get Assignments**           - *Get method* - `/api/assignments`
 - **Get Assignment by id**      - *Get method* - `/api/assignments/{id}`
 - **Update Assignment by id**   - *Put method* - `/api/assignments/{id}`
 - **Create Assignment**         - *Post Method* - `/api/assignments`
