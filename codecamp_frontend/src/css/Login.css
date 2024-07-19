@@ -24,27 +24,11 @@
     background-color: #888484;
     color: #423e35;
   }
-}
 
-#error {
-  color: rgb(223, 26, 26);
-  margin-top: 15px;
-  margin-bottom: 5px;
-  height: 28px;
-}
-
-.separation-line {
-  border: 1.5px solid #e6e4e4;
-  margin-top: 43px;
-}
-
-@media screen and (max-width: 992px) {
-  .login-burger {
-    margin: auto;
-
-    h1 {
-      width: auto;
-      justify-content: center;
-    }
+  #error {
+    color: rgb(223, 26, 26);
+    /* margin-top: 15px; */
+    /* margin-bottom: 5px; */
+    /* height: 28px; */
   }
 }

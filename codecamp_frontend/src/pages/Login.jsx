@@ -92,6 +92,7 @@ function Login() {
               required
             />
           </div>
+          {error ? <div id="error">Login failed</div> : null}
           <button
             disabled={!username || !password}
             type="submit"

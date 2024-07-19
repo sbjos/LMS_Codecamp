@@ -44,18 +44,31 @@
       font-weight: 500;
     }
   }
+
+  .welcome-section-btn {
+    display: flex;
+
+    a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 5px 20px 0 0;
+      width: 235px;
+      height: 45px;
+    }
+  }
 }
 
 .section-2 {
   width: 100vw;
   margin: auto;
-  height: 80px;
+  height: 55px;
 }
 
 .section-3 {
   width: 100vw;
   margin: auto;
-  background-color: #f5f5f5;
+  background-color: #f7f7f7;
 }
 
 .assignments-container {

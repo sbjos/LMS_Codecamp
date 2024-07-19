@@ -3,6 +3,7 @@ import axios from "axios";
 import LearnerMapping from "../components/LearnerMapping";
 import Validate from "../components/Validate";
 import "../css/Dashboard.css";
+import RedirectUrl from "../components/RedirectUrl";
 
 function LearnerDashboard() {
   const [assignments, setAssignments] = useState([]);
@@ -43,11 +44,21 @@ function LearnerDashboard() {
       <section className="section-1">
         <div className="welcome-section-text">
           <div className="welcome-section-text-head">
-            <p>
-              Hey {authorityArray[1]},
-              <br /> Welcome to your learning dashboard!
-            </p>
+            <p>Hey {authorityArray[1]},</p>
+            <p>Welcome to your learning dashboard!</p>
             <hr />
+            <div className="welcome-section-btn">
+              <a
+                href={RedirectUrl.newAssignment}
+                className="btn btn-warning"
+                role="button"
+              >
+                Create a new assignment
+              </a>
+              <a href="#" className="btn btn-light" role="button">
+                Request a One on One
+              </a>
+            </div>
           </div>
         </div>
         <div className="welcome-section-image"></div>
@@ -76,7 +87,6 @@ function LearnerDashboard() {
           <ul className="card-container">
             {LearnerMapping(
               assignments.filter((item) => item.status === "In review"),
-              "card text-center p-3 border border-warning card-custom",
               "btn btn-outline-warning"
             )}
           </ul>
@@ -89,7 +99,7 @@ function LearnerDashboard() {
           <ul className="card-container">
             {LearnerMapping(
               assignments.filter((item) => item.status === "Needs work"),
-              "card text-center p-3 border border-danger card-custom",
+
               "btn btn-outline-danger"
             )}
           </ul>
@@ -104,7 +114,7 @@ function LearnerDashboard() {
               assignments
                 .filter((item) => item.status === "Completed")
                 .slice(-4),
-              "card text-center p-3 border border-success card-custom",
+
               "btn btn-outline-success"
             )}
           </ul>

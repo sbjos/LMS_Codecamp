@@ -24,7 +24,7 @@ function LearnerRootOutlet() {
             {"codeCamp/>"}
           </a>
           <button
-            className="navbar-toggler navbar-toggler-custom"
+            className="navbar-toggler me-5 navbar-toggler-custom"
             type="button"
             data-bs-toggle="collapse"
             data-bs-target="#navbarSupportedContent"
@@ -40,7 +40,7 @@ function LearnerRootOutlet() {
                 <a
                   className="nav-link active mx-3 text-light-emphasis fw-medium"
                   aria-current="page"
-                  href={RedirectUrl.newAssignment}
+                  href={RedirectUrl.learnerDashboard}
                 >
                   Dashboard
                 </a>
@@ -71,15 +71,15 @@ function LearnerRootOutlet() {
               </li>
               <li>
                 {/* Search bar */}
-                <form class="d-flex  " role="search">
+                <form className="d-flex  " role="search">
                   <input
-                    class="form-control mx-2 search-input"
+                    className="form-control mx-2 search-input"
                     type="search"
                     placeholder="Search"
                     aria-label="Search"
                   />
                   <button
-                    class="btn btn-outline-secondary search-btn"
+                    className="btn btn-outline-secondary search-btn"
                     type="submit"
                   >
                     Search

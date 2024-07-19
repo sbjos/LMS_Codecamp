@@ -1,6 +1,6 @@
 import RedirectUrl from "./RedirectUrl";
 
-function LearnerMapping(assignments, cardClass, btnClass) {
+function LearnerMapping(assignments, btnClass) {
   /**
    * Sets the button based on the assignment status.
    * @param {*} assignment
@@ -37,20 +37,18 @@ function LearnerMapping(assignments, cardClass, btnClass) {
   return (
     <>
       {assignments.map((assignment) => (
-        <div className={cardClass} key={assignment.id}>
-          <div className="card-body card-body-header-custom">
-            <h5 className="card-title">{assignment.number}</h5>
+        <div class="card" style={{ width: "18rem" }} key={assignment.id}>
+          <img src="..." class="card-img-top" alt="..." />
+          <div class="card-body">
+            <h5 class="card-title">{assignment.number}</h5>
+            <p class="card-text">Aquick summary on the assignment.</p>
           </div>
-          <ul className="list-group list-group-flush">
-            <li className="list-group-item bg-transparent list-group-item-custom">
-              <a href={assignment.githubUrl} target="blank">
-                <u>Github</u>
-              </a>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+              <a href={assignment.githubUrl} target="blank"></a>
             </li>
-            <li className="list-group-item bg-transparent list-group-item-custom">
-              {assignment.branch}
-            </li>
-            <li className="list-group-item bg-transparent list-group-item-custom">
+            <li class="list-group-item">{assignment.branch}</li>
+            <li class="list-group-item">
               {assignment.codeReviewer
                 ? assignment.codeReviewer.firstname +
                   " " +
@@ -59,9 +57,16 @@ function LearnerMapping(assignments, cardClass, btnClass) {
             </li>
           </ul>
           <div className="card-body">{renderButton(assignment)}</div>
+          <div class="card-body">
+            <a href="#" class="card-link">
+              Card link
+            </a>
+            <a href="#" class="card-link">
+              Another link
+            </a>
+          </div>
         </div>
       ))}
-      <div></div>
     </>
   );
 }
