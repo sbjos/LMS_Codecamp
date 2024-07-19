@@ -1,5 +1,6 @@
 package com.codecamp.filters;
 
+import com.codecamp.controllers.AssignmentController;
 import com.codecamp.dto.AuthCredentialRequest;
 import com.codecamp.entities.User;
 import com.codecamp.repositories.UserRepository;
@@ -9,6 +10,8 @@ import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -25,6 +28,9 @@ import java.util.List;
  */
 @Component
 public class UserAuthenticationFilter extends UsernamePasswordAuthenticationFilter {
+
+    private final Logger log = LogManager.getLogger(AssignmentController.class);
+
     @Autowired
     private AuthenticationManager authenticationManager;
 
@@ -50,6 +56,8 @@ public class UserAuthenticationFilter extends UsernamePasswordAuthenticationFilt
     @Override
     public Authentication attemptAuthentication(HttpServletRequest request,
                                                 HttpServletResponse response) throws AuthenticationException {
+        Authentication authenticate = null;
+
         AuthCredentialRequest authRequest;
         try {
             authRequest = new ObjectMapper().readValue(
@@ -60,12 +68,19 @@ public class UserAuthenticationFilter extends UsernamePasswordAuthenticationFilt
             throw new RuntimeException(e);
         }
 
-        Authentication authentication = new UsernamePasswordAuthenticationToken(
-                authRequest.getUsername(),
-                authRequest.getPassword()
-        );
+        try {
+            Authentication authentication = new UsernamePasswordAuthenticationToken(
+                    authRequest.getUsername(),
+                    authRequest.getPassword()
+            );
 
-        return authenticationManager.authenticate(authentication);
+            authenticate = authenticationManager.authenticate(authentication);
+
+        } catch (Exception e) {
+            log.warn(Exception.class, e);
+        }
+
+        return authenticate;
     }
 
     /**
