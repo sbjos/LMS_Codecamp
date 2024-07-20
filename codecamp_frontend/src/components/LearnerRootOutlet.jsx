@@ -18,7 +18,7 @@ function LearnerRootOutlet() {
       <nav className="navbar navbar-expand-lg navbar-custom ">
         <div className="container-fluid">
           <a
-            className="navbar-brand fw-semibold ms-2 fs-4 text-dark-emphasis navbar-brand-custom"
+            className="navbar-brand fw-semibold ms-2 fs-5 text-dark-emphasis navbar-brand-custom"
             href={RedirectUrl.learnerDashboard}
           >
             {"codeCamp/>"}
@@ -97,8 +97,8 @@ function LearnerRootOutlet() {
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  width="30"
-                  height="30"
+                  width="25"
+                  height="25"
                   fill="grey"
                   className="bi bi-person-circle"
                   viewBox="0 0 16 16"

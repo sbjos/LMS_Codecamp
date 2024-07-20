@@ -44,11 +44,11 @@ function LearnerDashboard() {
       {/* section-1 */}
       <section className="section-1">
         <div className="welcome-section-text">
-          <div className="welcome-section-text-head">
-            <p>Hey {authorityArray[1]},</p>
-          </div>
           <div className="welcome-section-text-body">
-            <p>Welcome to your learning dashboard!</p>
+            <p>
+              Hey {authorityArray[1]},<br />
+              Welcome to your learning dashboard!
+            </p>
           </div>
           <hr />
           <div className="welcome-section-text-btn">
@@ -64,7 +64,6 @@ function LearnerDashboard() {
             </a>
           </div>
         </div>
-        <div className="welcome-section-image"></div>
       </section>
 
       {/* section-2 */}
