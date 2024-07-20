@@ -1,46 +1,41 @@
-.showall {
-  font-size: 1.2em;
-  position: inherit;
-}
-
 .section-1 {
-  width: 100%;
+  max-width: 100%;
   padding: 50px;
-  display: flex;
   background-color: #6752ec;
   background-image: linear-gradient(#6752ec, rgb(20, 150, 202));
 
   .welcome-section-text {
-    width: 550px;
-    margin-left: 300px;
-    font-family: "Poppins", sans-serif;
+    max-width: 450px;
+    margin-left: 20%;
+    font-family: Optimist, Arial, Helvetica, sans-serif;
     color: rgb(245, 245, 245);
 
     .welcome-section-text-head {
       p {
-        font-size: 1.8em;
-        font-weight: 500;
-      }
-    }
-
-    .welcome-section-text-body {
-      p {
+        margin-bottom: 0;
         font-size: 1.5em;
         font-weight: 500;
       }
     }
-  }
+    .welcome-section-text-body {
+      p {
+        font-size: 1.3em;
+        font-weight: 500;
+      }
+    }
 
-  .welcome-section-text-btn {
-    display: flex;
-
-    a {
+    .welcome-section-text-btn {
       display: flex;
-      align-items: center;
-      justify-content: center;
-      margin: 5px 20px 0 0;
-      width: 235px;
-      height: 45px;
+
+      a {
+        font-family: "Poppins", sans-serif;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 5px 20px 0 0;
+        width: 180px;
+        height: 40px;
+      }
     }
   }
 }
@@ -93,27 +88,29 @@
   margin-top: 43px;
 }
 
-@media screen and (max-width: 1230px) {
+@media screen and (max-width: 780px) {
   .welcome-section-text {
-    margin-left: 25px;
-  }
+    margin: auto !important;
 
-  .welcome-section-image {
-    margin-right: 25px;
+    .welcome-section-text-btn {
+      display: flex;
+      /* flex-direction: column; */
+
+      a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: auto;
+        width: 180px;
+        height: 40px;
+      }
+    }
   }
 }
 
-@media screen and (max-width: 1024px) {
-}
-
-@media screen and (max-width: 768px) {
-  .welcome-section-image {
-    display: none;
-  }
-}
-
-@media screen and (max-width: 1284px) {
-  .welcome-section-text .welcome-section-text-head .welcome-section-text-body {
-    margin-left: 100px;
+@media screen and (max-width: 495px) {
+  .welcome-section-text-btn {
+    display: flex;
+    flex-direction: column;
   }
 }

@@ -44,23 +44,23 @@ function LearnerDashboard() {
       {/* section-1 */}
       <section className="section-1">
         <div className="welcome-section-text">
-          <div className="welcome-section-text-body">
-            <p>
-              Hey {authorityArray[1]},<br />
-              Welcome to your learning dashboard!
-            </p>
+          <div className="welcome-section-text-head">
+            <p>Hey {authorityArray[1]},</p>
+            <div className="welcome-section-text-body">
+              <p>Welcome to your assignment dashboard!</p>
+            </div>
           </div>
           <hr />
           <div className="welcome-section-text-btn">
             <a
               href={RedirectUrl.newAssignment}
-              className="btn btn-warning"
+              className="btn btn-warning btn-sm"
               role="button"
             >
-              Create a new assignment
+              Create new assignment
             </a>
-            <a href="#" className="btn btn-light" role="button">
-              Request a One on One
+            <a href="#" className="btn btn-light btn-sm" role="button">
+              Request One on One
             </a>
           </div>
         </div>
