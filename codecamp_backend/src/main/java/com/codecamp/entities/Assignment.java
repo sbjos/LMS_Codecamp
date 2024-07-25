@@ -15,6 +15,12 @@ public class Assignment {
     private int number;
 
     @Column
+    private String name;
+
+    @Column
+    private String description;
+
+    @Column
     private String status;
 
     @Column(name = "github_url")
@@ -36,9 +42,11 @@ public class Assignment {
 
     public Assignment() {}
 
-    public Assignment(int number, String status, String githubUrl, String branch,
+    public Assignment(int number, String name, String description, String status, String githubUrl, String branch,
                       String reviewVideoUrl, User user, User codeReviewer) {
         this.number = number;
+        this.name = name;
+        this.description = description;
         this.status = status;
         this.githubUrl = githubUrl;
         this.branch = branch;
@@ -61,6 +69,22 @@ public class Assignment {
 
     public void setNumber(int number) {
         this.number = number;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public String getStatus() {
@@ -115,8 +139,10 @@ public class Assignment {
     public String toString() {
         return "Assignment{" +
                 "id=" + id +
-                ", status='" + status + '\'' +
                 ", number=" + number +
+                ", name='" + name + '\'' +
+                ", description='" + description + '\'' +
+                ", status='" + status + '\'' +
                 ", githubUrl='" + githubUrl + '\'' +
                 ", branch='" + branch + '\'' +
                 ", reviewVideoUrl='" + reviewVideoUrl + '\'' +

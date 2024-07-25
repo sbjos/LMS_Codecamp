@@ -125,7 +125,7 @@ public class AssignmentService {
 
         size = submittedAssignments.size();
 
-        if (size >= 6) {
+        if (size >= 10) {
             throw new IllegalArgumentException("To many unassigned assignments " + size);
 
         } else {
@@ -196,7 +196,7 @@ public class AssignmentService {
                     );
 
             if (learnerAssignments.containsKey(SUBMITTED.getStatus())) {
-                return learnerAssignments.get(SUBMITTED.getStatus()) >= 6;
+                return learnerAssignments.get(SUBMITTED.getStatus()) >= 10;
             }
         }
 
@@ -212,19 +212,19 @@ public class AssignmentService {
                     .toList();
 
             if (updateStatus.equals(IN_REVIEW.getStatus()) &&
-                    assignedToReviewer.size() >= 6)
+                    assignedToReviewer.size() >= 10)
                 return true;
 
             if (learnerAssignments.containsKey(IN_REVIEW.getStatus())) {
                 if (updateStatus.equals(IN_REVIEW.getStatus()) &&
-                        learnerAssignments.get(IN_REVIEW.getStatus()) >= 6) {
+                        learnerAssignments.get(IN_REVIEW.getStatus()) >= 10) {
                     return true;
                 }
             }
 
             if (learnerAssignments.containsKey(NEEDS_WORK.getStatus())) {
                 return updateStatus.equals(NEEDS_WORK.getStatus()) &&
-                        learnerAssignments.get(NEEDS_WORK.getStatus()) >= 6;
+                        learnerAssignments.get(NEEDS_WORK.getStatus()) >= 10;
             }
         }
 
