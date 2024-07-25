@@ -24,7 +24,7 @@ function LearnerRootOutlet() {
             {"codeCamp/>"}
           </a>
           <button
-            className="navbar-toggler me-5 navbar-toggler-custom"
+            className="navbar-toggler navbar-toggler-custom"
             type="button"
             data-bs-toggle="collapse"
             data-bs-target="#navbarSupportedContent"
