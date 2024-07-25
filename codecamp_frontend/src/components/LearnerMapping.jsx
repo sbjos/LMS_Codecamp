@@ -1,4 +1,5 @@
 import RedirectUrl from "./RedirectUrl";
+import "../css/Dashboard.css";
 
 function LearnerMapping(assignments) {
   /**
@@ -13,13 +14,21 @@ function LearnerMapping(assignments) {
     // filters by assignment status to assign the appropriate button on the assignment card
     if (assignmentStatus !== "Completed" && assignmentStatus !== "In review") {
       return (
-        <a class="card-link" href={RedirectUrl.learnerAssignmentView + id}>
+        <a
+          className="card-link"
+          style={{ textDecoration: "underline" }}
+          href={RedirectUrl.learnerAssignmentView + id}
+        >
           Edit
         </a>
       );
     } else {
       return (
-        <a class="card-link" href={RedirectUrl.learnerAssignmentView + id}>
+        <a
+          className="card-link"
+          style={{ textDecoration: "underline" }}
+          href={RedirectUrl.learnerAssignmentView + id}
+        >
           View
         </a>
       );
@@ -29,18 +38,29 @@ function LearnerMapping(assignments) {
   return (
     <>
       {assignments.map((assignment) => (
-        <div class="card" style={{ width: "18rem" }} key={assignment.id}>
-          <img src="..." class="card-img-top" alt="..." />
-          <div class="card-body">
-            <h5 class="card-title">{assignment.number}</h5>
-            <p class="card-text">Aquick summary on the assignment.</p>
+        <li className="card card-custom" key={assignment.id}>
+          <div className="card-body card-body-custom">
+            <h5 className="card-title card-title-custom">
+              {assignment.number}
+            </h5>
+            <p className="card-text card-text-custom ">
+              A quick summary on the assignment.{assignment.desctiption}
+            </p>
           </div>
-          <ul class="list-group list-group-flush">
-            <li class="list-group-item">
-              <a href={assignment.githubUrl} target="blank"></a>
+          <ul className="list-group list-group-flush card-list-group-custom">
+            <li className="list-group-item list-group-item-custom">
+              <a
+                className="card-link"
+                href={assignment.githubUrl}
+                target="blank"
+              >
+                Github link
+              </a>
             </li>
-            <li class="list-group-item">{assignment.branch}</li>
-            <li class="list-group-item">
+            <li className="list-group-item list-group-item-custom-branch">
+              {assignment.branch}
+            </li>
+            <li className="list-group-item list-group-item-custom">
               {assignment.codeReviewer
                 ? assignment.codeReviewer.firstname +
                   " " +
@@ -48,8 +68,10 @@ function LearnerMapping(assignments) {
                 : "Not assigned"}
             </li>
           </ul>
-          <div className="card-body">{renderButton(assignment)}</div>
-        </div>
+          <div className="card-body card-body-link-custom">
+            {renderButton(assignment)}
+          </div>
+        </li>
       ))}
     </>
   );

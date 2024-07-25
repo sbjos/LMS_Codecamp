@@ -152,6 +152,9 @@ function LearnerRootOutlet() {
       <main>
         <Outlet />
       </main>
+      <footer>
+        <div></div>
+      </footer>
     </>
   );
 }

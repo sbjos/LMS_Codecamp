@@ -22,8 +22,8 @@
 }
 
 .search-btn {
-  max-width: fit-content;
   max-width: -moz-fit-content;
+  max-width: fit-content;
 }
 
 .navbar-btn-custom {
