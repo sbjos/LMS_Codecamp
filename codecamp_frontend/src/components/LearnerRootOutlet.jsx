@@ -1,6 +1,6 @@
 import { Outlet, useNavigate } from "react-router-dom";
 import RedirectUrl from "./RedirectUrl";
-import "../css/Navbar.css";
+import "../css/NavbarandFooter.css";
 
 function LearnerRootOutlet() {
   const navigate = useNavigate();
@@ -66,7 +66,7 @@ function LearnerRootOutlet() {
                   className="nav-link active mx-3 text-light-emphasis fw-medium"
                   href="#"
                 >
-                  Support
+                  Reminders
                 </a>
               </li>
               <li>
@@ -152,8 +152,27 @@ function LearnerRootOutlet() {
       <main>
         <Outlet />
       </main>
-      <footer>
-        <div></div>
+      <footer className="footer text-dark-emphasis">
+        <div className="rightreserved-text">
+          &copy; 2024 <b className="navbar-brand-custom">{"codeCamp/>"}</b>{" "}
+          &nbsp; All rights reserved.
+        </div>
+        <div className="option-list">
+          <ul>
+            <li>
+              <a href="">Privacy</a>
+            </li>
+            <li>
+              <a href="">Terms</a>
+            </li>
+            <li>
+              <a href="">Feedback</a>
+            </li>
+            <li>
+              <a href="">Support</a>
+            </li>
+          </ul>
+        </div>
       </footer>
     </>
   );

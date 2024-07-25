@@ -1,0 +1,131 @@
+.navbar-brand-custom {
+  font-family: Consolas, Fira Code, and JetBrains Mono;
+}
+
+.navbar-menu-custom {
+  margin: 0 auto;
+}
+
+.search-input {
+  inline-size: auto;
+  max-width: 197px;
+}
+
+.navbar-dropdown-name {
+  margin: 0 15px 5px;
+  padding-bottom: 5px;
+  font-weight: 500;
+}
+
+.navbar-toggler-custom {
+  width: 60px;
+}
+
+.search-btn {
+  max-width: -moz-fit-content;
+  max-width: fit-content;
+}
+
+.navbar-btn-custom {
+  background-color: transparent;
+  border: none;
+  box-shadow: none;
+}
+
+.navbar-dropdown-menu-custom {
+  &:hover {
+    -webkit-transition: background-color 0.2s ease-out;
+    -moz-transition: background-color 0.2s ease-out;
+    -o-transition: background-color 0.2s ease-out;
+    transition: background-color 0.2s ease-out;
+  }
+}
+
+.navbar-dropdown-menu-item {
+  &:active {
+    color: black;
+    background-color: #f8f8f8 !important;
+  }
+}
+
+@media screen and (max-width: 1082px) {
+  .navbar-menu-custom {
+    a {
+      margin: 2px !important;
+      white-space: nowrap;
+    }
+  }
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  min-height: 40px;
+  max-height: 250px;
+  margin: 20px 12rem;
+  font-size: 0.85em;
+  font-weight: 200;
+  color: #5b6269;
+
+  /* Color */
+  .rightreserved-text,
+  a {
+    color: #5b6269;
+  }
+
+  .navbar-brand-custom {
+    font-size: 1.1em;
+  }
+
+  .option-list {
+    ul {
+      padding: 0;
+      margin: 0;
+      li {
+        display: inline-block;
+
+        a {
+          align-items: center;
+          text-decoration: none;
+
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1189px) {
+  .footer {
+    margin: 20px 20px;
+
+    justify-content: space-around;
+    align-items: first baseline;
+
+    .option-list {
+      ul {
+        padding: 0;
+
+        li {
+          display: block;
+          margin-bottom: 15px;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 459px) {
+  .footer {
+    display: block;
+    justify-content: center;
+    text-align: center;
+    margin-bottom: 30px;
+
+    .rightreserved-text {
+      margin-bottom: 20px;
+    }
+  }
+}

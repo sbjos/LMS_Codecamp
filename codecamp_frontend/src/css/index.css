@@ -28,7 +28,6 @@
   }
 }
 
-/* For text input for form submissions (Review) */
 .inputText {
   color: rgb(60, 95, 124);
   text-decoration: underline;
@@ -39,4 +38,12 @@
   margin-top: 15px;
   margin-bottom: 5px;
   height: 28px;
+}
+
+a {
+  color: #1a5cbe;
+
+  &:hover {
+    color: #0b449b;
+  }
 }
