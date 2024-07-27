@@ -1,9 +1,9 @@
-.root {
+.dashboard-root {
   display: grid;
-  grid-template-rows: 3;
+  grid-template-rows: repeat(3);
 }
 
-.section-1 {
+.dashboard-section-1 {
   display: grid;
   padding: 50px;
   background-color: #6752ec;
@@ -30,10 +30,10 @@
 
     .welcome-section-text-btn {
       display: flex;
+      gap: 12px;
 
       a {
         font-family: "Poppins", sans-serif;
-        margin: 5px 20px 0 0;
         text-wrap: nowrap;
         width: 185px;
         height: 40px;
@@ -45,12 +45,12 @@
   }
 }
 
-.section-2 {
+.dashboard-section-2 {
   display: grid;
   grid-template-rows: 53px;
 }
 
-.section-3 {
+.dashboard-section-3 {
   display: grid;
   grid-template-rows: 4;
   grid-gap: 54px;
@@ -66,7 +66,7 @@
       display: none;
     }
 
-    .card-container-label {
+    .card-container-label-desktop {
       display: flex;
       justify-content: space-between;
       padding: 0 8px 10px 5px;
@@ -111,11 +111,12 @@
         }
 
         .card-title-custom {
-          margin-bottom: 25px;
+          margin-bottom: 15px;
+          font-weight: 500;
         }
 
         .card-body-link-custom {
-          font-weight: 500;
+          font-weight: 600;
         }
       }
     }
@@ -123,13 +124,13 @@
 }
 
 @media screen and (max-width: 1023px) {
-  .section-1 {
+  .dashboard-section-1 {
     .welcome-section-text {
       margin: auto;
     }
   }
 
-  .section-3 {
+  .dashboard-section-3 {
     padding-left: 45px;
     padding-right: 45px;
 
@@ -163,7 +164,7 @@
 }
 
 @media screen and (max-width: 669px) {
-  .section-3 {
+  .dashboard-section-3 {
     margin: auto;
     grid-gap: 60px;
 
@@ -175,7 +176,7 @@
   }
 }
 
-@media screen and (max-width: 459px) {
+@media screen and (max-width: 493px) {
   .separation-line {
     width: 200px;
   }
@@ -187,18 +188,22 @@
   .welcome-section-text-btn {
     display: flex;
     flex-direction: column;
+    gap: 10px;
   }
 
-  .section-3 {
+  .dashboard-section-3 {
     grid-gap: 30px;
 
     .card-container {
-      .card-container-label {
+      .card-container-label-desktop {
         display: none;
       }
 
       .card-container-label-mobile {
         display: flex;
+        justify-content: center;
+        text-align: center;
+        align-items: center;
 
         .btn-label-status-mobile {
           font-size: 1.15em;
@@ -211,7 +216,7 @@
 }
 
 @media screen and (max-width: 399px) {
-  .section-3 {
+  .dashboard-section-3 {
     .card-container {
       height: 58px;
 

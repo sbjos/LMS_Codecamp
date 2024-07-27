@@ -35,14 +35,14 @@ function LearnerMapping(assignments) {
     }
   }
 
+  console.log(assignments);
+
   return (
     <>
       {assignments.map((assignment) => (
         <li className="card card-custom" key={assignment.id}>
           <div className="card-body card-body-custom">
-            <h5 className="card-title card-title-custom">
-              {assignment.number}
-            </h5>
+            <h5 className="card-title card-title-custom">{assignment.name}</h5>
             <p className="card-text card-text-custom ">
               A quick summary on the assignment.{assignment.desctiption}
             </p>

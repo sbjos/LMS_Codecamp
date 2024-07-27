@@ -34,9 +34,12 @@ function LearnerRootOutlet() {
           >
             <span className="navbar-toggler-icon"></span>
           </button>
-          <div className="collapse navbar-collapse" id="navbarSupportedContent">
+          <div
+            className="collapse navbar-collapse collapse navbar-collapse-custom"
+            id="navbarSupportedContent"
+          >
             <ul className="navbar-nav me-auto navbar-menu-custom">
-              <li className="nav-item ">
+              <li className="nav-item nav-item-custom">
                 <a
                   className="nav-link active mx-3 text-light-emphasis fw-medium"
                   aria-current="page"
@@ -45,7 +48,7 @@ function LearnerRootOutlet() {
                   Dashboard
                 </a>
               </li>
-              <li className="nav-item ">
+              <li className="nav-item nav-item-custom">
                 <a
                   className="nav-link active mx-3 text-light-emphasis fw-medium"
                   href={RedirectUrl.learnerCompletedAssignments}
@@ -53,7 +56,7 @@ function LearnerRootOutlet() {
                   Calendar
                 </a>
               </li>
-              <li className="nav-item ">
+              <li className="nav-item nav-item-custom">
                 <a
                   className="nav-link active mx-3 text-light-emphasis fw-medium"
                   href="#"
@@ -61,7 +64,7 @@ function LearnerRootOutlet() {
                   Inbox
                 </a>
               </li>
-              <li className="nav-item ">
+              <li className="nav-item nav-item-custom">
                 <a
                   className="nav-link active mx-3 text-light-emphasis fw-medium"
                   href="#"
@@ -149,9 +152,12 @@ function LearnerRootOutlet() {
           </div>
         </div>
       </nav>
+
       <main>
         <Outlet />
       </main>
+
+      {/* Footer */}
       <footer className="footer text-dark-emphasis">
         <div className="rightreserved-text">
           &copy; 2024 <b className="navbar-brand-custom">{"codeCamp/>"}</b>{" "}

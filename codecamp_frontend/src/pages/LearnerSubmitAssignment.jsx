@@ -8,6 +8,8 @@ import "../css/SubmitAssignment.css";
 function LearnerSubmitAssignment() {
   const navigate = useNavigate();
   const formRef = useRef(null);
+  const [name, setName] = useState("");
+  const [description, setDescription] = useState("");
   const [githubUrl, setGithubUrl] = useState("");
   const [branch, setBranch] = useState("");
   const token = localStorage.getItem("lmsusertoken");
@@ -21,7 +23,7 @@ function LearnerSubmitAssignment() {
     e.preventDefault();
 
     try {
-      const assignment = { githubUrl, branch };
+      const assignment = { name, description, githubUrl, branch };
       const response = await axios.post(
         "http://localhost:8080/api/assignments",
         assignment,
@@ -55,48 +57,100 @@ function LearnerSubmitAssignment() {
 
   return (
     <>
-      <div className="form-create">
-        <form ref={formRef} onSubmit={handleSubmit}>
-          <div className="mb-3">
-            <label htmlFor="exampleFormControlInput1" className="form-label">
-              Github url
-            </label>
-            <input
-              type="url"
-              className="form-control border border-secondary p-2 mb-2 border-opacity-75 input-box-shadow"
-              id="exampleFormControlInput1"
-              placeholder="https://www.github.com/..."
-              value={githubUrl}
-              onChange={(e) => {
-                setGithubUrl(e.target.value);
-              }}
-              required
-            />
-          </div>
-          <div className="mb-4">
-            <label htmlFor="exampleFormControlTextarea1" className="form-label">
-              Branch
-            </label>
-            <input
-              type="text"
-              className="form-control border border-secondary p-2 mb-2 border-opacity-75 shadow-none"
-              id="exampleFormControlInput1"
-              placeholder="branch"
-              value={branch}
-              onChange={(e) => {
-                setBranch(e.target.value);
-              }}
-              required
-            />
-          </div>
-          <button
-            type="button"
-            class="btn btn-success btn-custom"
-            onClick={handleClick}
+      <div class="create-assignment-root">
+        {/* section-1 */}
+        <div className="create-assignment-section-1"></div>
+
+        {/* section-2 */}
+        <div className="create-assignment-section-2">
+          <form
+            className="create-assignment-form"
+            ref={formRef}
+            onSubmit={handleSubmit}
           >
-            Submit
-          </button>
-        </form>
+            <div className="mb-3 assignment-input">
+              <label htmlFor="exampleFormControlInput1" className="form-label">
+                Project name
+              </label>
+              <input
+                type="text"
+                className="form-control border border-secondary p-2 mb-2 border-opacity-75 input-box-shadow"
+                id="exampleFormControlInput1"
+                placeholder="Name"
+                value={name}
+                onChange={(e) => {
+                  setName(e.target.value);
+                }}
+                required
+              />
+            </div>
+            <div className="mb-3 assignment-input">
+              <label htmlFor="exampleFormControlInput1" className="form-label">
+                Project description
+              </label>
+
+              <textarea
+                textarea
+                rows={2}
+                type="text"
+                maxLength={60}
+                className="form-control border border-secondary p-2 mb-2 border-opacity-75 input-box-shadow"
+                id="exampleFormControlInput1"
+                placeholder="Description"
+                value={description}
+                onChange={(e) => {
+                  setDescription(e.target.value);
+                }}
+                required
+              />
+            </div>
+            <div className="mb-3 assignment-input">
+              <label htmlFor="exampleFormControlInput1" className="form-label">
+                Github url
+              </label>
+              <input
+                type="url"
+                className="form-control border border-secondary p-2 mb-2 border-opacity-75 input-box-shadow"
+                id="exampleFormControlInput1"
+                placeholder="https://www.github.com/..."
+                value={githubUrl}
+                onChange={(e) => {
+                  setGithubUrl(e.target.value);
+                }}
+                required
+              />
+            </div>
+            <div className="mb-4 assignment-input">
+              <label
+                htmlFor="exampleFormControlTextarea1"
+                className="form-label"
+              >
+                Branch
+              </label>
+              <input
+                type="text"
+                className="form-control border border-secondary p-2 mb-2 border-opacity-75 input-box-shadow"
+                id="exampleFormControlInput1"
+                placeholder="branch"
+                value={branch}
+                onChange={(e) => {
+                  setBranch(e.target.value);
+                }}
+                required
+              />
+            </div>
+            <button
+              type="button"
+              class="btn btn-success btn-custom"
+              onClick={handleClick}
+            >
+              Submit
+            </button>
+          </form>
+        </div>
+
+        {/* section-3 */}
+        <div className="create-assignment-section-3"></div>
       </div>
     </>
   );

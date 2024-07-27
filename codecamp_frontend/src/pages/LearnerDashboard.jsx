@@ -36,6 +36,8 @@ function LearnerDashboard() {
     fetchData();
   }, []);
 
+  console.log("assignments", assignments);
+
   const submitted = assignments.filter((item) => item.status === "Submitted");
   const inReview = assignments.filter((item) => item.status === "In review");
   const needsWwork = assignments.filter((item) => item.status === "Needs work");
@@ -44,9 +46,9 @@ function LearnerDashboard() {
   // Passes the data to the ReviewerMapping.jsx component to handle cards.
   return (
     <>
-      <div class="root">
+      <div class="dashboard-root">
         {/* section-1 */}
-        <section className="section-1">
+        <section className="dashboard-section-1">
           <div className="welcome-section-text welcome-section-text-custom">
             <div className="welcome-section-text-head">
               <p>Hey {authorityArray[1]},</p>
@@ -58,7 +60,7 @@ function LearnerDashboard() {
             <div className="welcome-section-text-btn">
               <a
                 href={RedirectUrl.newAssignment}
-                className="btn btn-warning btn-md"
+                className="btn btn-warning btn-md welcome-section-text-btn-new-assignment"
                 role="button"
               >
                 new assignment
@@ -71,14 +73,15 @@ function LearnerDashboard() {
         </section>
 
         {/* section-2 */}
-        <section className="section-2">
+        <section className="dashboard-section-2">
           <div className="empty-section"></div>
         </section>
 
         {/* section-3 */}
-        <section className="section-3">
+        <section className="dashboard-section-3">
           <div className="card-container" id="submitted-container">
-            <div className="card-container-label" id="submitted-label">
+            {/* desktop */}
+            <div className="card-container-label-desktop" id="submitted-label">
               <label
                 className="label-status"
                 htmlFor="View Assignments submitted"
@@ -94,6 +97,7 @@ function LearnerDashboard() {
               </a>
             </div>
 
+            {/* mobile */}
             <div
               className="card-container-label-mobile"
               id="submitted-label-mobile"
@@ -107,7 +111,8 @@ function LearnerDashboard() {
           </div>
 
           <div className="card-container" id="inreview-container">
-            <div className="card-container-label" id="inreview-label">
+            {/* desktop */}
+            <div className="card-container-label-desktop" id="inreview-label">
               <label className="label-status">Assignments in review</label>
               <a
                 type="button"
@@ -118,7 +123,7 @@ function LearnerDashboard() {
               </a>
             </div>
 
-            {/* Label mobile */}
+            {/* mobile */}
             <div
               className="card-container-label-mobile"
               id="submitted-label-mobile"
@@ -132,7 +137,8 @@ function LearnerDashboard() {
           </div>
 
           <div className="card-container" id="needswork-container">
-            <div className="card-container-label" id="needswork-label">
+            {/* desktop */}
+            <div className="card-container-label-desktop" id="needswork-label">
               <label className="label-status">Assignments needs work</label>
               <a
                 type="button"
@@ -143,7 +149,7 @@ function LearnerDashboard() {
               </a>
             </div>
 
-            {/* Label mobile */}
+            {/* mobile */}
             <div
               className="card-container-label-mobile"
               id="submitted-label-mobile"
@@ -159,7 +165,8 @@ function LearnerDashboard() {
           </div>
 
           <div className="card-container" id="completed-container">
-            <div className="card-container-label" id="completed-label">
+            {/* desktop */}
+            <div className="card-container-label-desktop" id="completed-label">
               <label className="label-status">Assignments completed</label>
               <a
                 type="button"
@@ -170,7 +177,7 @@ function LearnerDashboard() {
               </a>
             </div>
 
-            {/* Label mobile */}
+            {/* mobile */}
             <div
               className="card-container-label-mobile"
               id="submitted-label-mobile"
