@@ -24,7 +24,7 @@ function LearnerRootOutlet() {
             {"codeCamp/>"}
           </a>
           <button
-            className="navbar-toggler navbar-toggler-custom"
+            className="navbar-toggler btn-sm navbar-toggler-custom"
             type="button"
             data-bs-toggle="collapse"
             data-bs-target="#navbarSupportedContent"
@@ -38,7 +38,7 @@ function LearnerRootOutlet() {
             className="collapse navbar-collapse collapse navbar-collapse-custom"
             id="navbarSupportedContent"
           >
-            <ul className="navbar-nav me-auto navbar-menu-custom">
+            <ul className="navbar-nav me-auto mb-2 mb-lg-0 navbar-menu-custom">
               <li className="nav-item nav-item-custom">
                 <a
                   className="nav-link active mx-3 text-light-emphasis fw-medium"
@@ -74,7 +74,7 @@ function LearnerRootOutlet() {
               </li>
               <li>
                 {/* Search bar */}
-                <form className="d-flex  " role="search">
+                <form className="d-flex d-flex-custom" role="search">
                   <input
                     className="form-control mx-2 search-input"
                     type="search"
@@ -91,7 +91,7 @@ function LearnerRootOutlet() {
               </li>
             </ul>
             {/* dropdown menu */}
-            <div className="dropdown-center me-5">
+            <div className="dropdown-center me-4">
               <button
                 className="btn navbar-btn-custom dropdown w-auto"
                 type="button"

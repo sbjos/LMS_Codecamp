@@ -36,11 +36,7 @@
 
 @media screen and (max-width: 991px) {
   .create-assignment-section-2 {
-    display: grid;
     grid-template: "b ";
-    padding-left: 20.182%;
-    padding-right: 20.182%;
-    background-color: hsla(0, 0%, 89%, 0.452);
 
     .create-assignment-form {
       grid-area: b;

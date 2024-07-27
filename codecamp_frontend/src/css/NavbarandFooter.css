@@ -5,14 +5,8 @@
   }
 
   .navbar-collapse-custom {
-    width: max-content;
-
     .navbar-menu-custom {
       margin: 0 auto;
-    }
-
-    .search-input {
-      /* inline-size: auto; */
     }
 
     .navbar-dropdown-name {
@@ -21,13 +15,13 @@
       font-weight: 500;
     }
 
-    .navbar-toggler-custom {
-      width: 60px;
-    }
+    .d-flex-custom {
+      margin-right: 50px;
 
-    .search-btn {
-      max-width: -moz-fit-content;
-      max-width: fit-content;
+      .search-btn {
+        max-width: -moz-fit-content;
+        max-width: fit-content;
+      }
     }
 
     .navbar-btn-custom {
@@ -121,6 +115,12 @@
         }
       }
     }
+  }
+}
+
+@media screen and (max-width: 991px) {
+  .navbar-toggler-custom {
+    width: 72px;
   }
 }
 
