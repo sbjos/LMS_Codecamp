@@ -53,7 +53,7 @@ function LearnerRootOutlet() {
                   className="nav-link active mx-3 text-light-emphasis fw-medium"
                   href={RedirectUrl.learnerCompletedAssignments}
                 >
-                  Calendar
+                  Inbox
                 </a>
               </li>
               <li className="nav-item nav-item-custom">
@@ -61,7 +61,7 @@ function LearnerRootOutlet() {
                   className="nav-link active mx-3 text-light-emphasis fw-medium"
                   href="#"
                 >
-                  Inbox
+                  Calendar
                 </a>
               </li>
               <li className="nav-item nav-item-custom">

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 import React, { useRef } from "react";
-import Validate from "../components/Validate";
+import Validate from "./Validate";
 import { useNavigate } from "react-router-dom";
 import "../css/SubmitAssignment.css";
 
@@ -69,7 +69,10 @@ function LearnerSubmitAssignment() {
             onSubmit={handleSubmit}
           >
             <div className="mb-3 assignment-input">
-              <label htmlFor="exampleFormControlInput1" className="form-label">
+              <label
+                htmlFor="exampleFormControlInput1"
+                className="form-label text-body-secondary form-label-custom"
+              >
                 Project name
               </label>
               <input
@@ -85,7 +88,10 @@ function LearnerSubmitAssignment() {
               />
             </div>
             <div className="mb-3 assignment-input">
-              <label htmlFor="exampleFormControlInput1" className="form-label">
+              <label
+                htmlFor="exampleFormControlInput1"
+                className="form-label text-body-secondary form-label-custom"
+              >
                 Project description
               </label>
 
@@ -105,7 +111,10 @@ function LearnerSubmitAssignment() {
               />
             </div>
             <div className="mb-3 assignment-input">
-              <label htmlFor="exampleFormControlInput1" className="form-label">
+              <label
+                htmlFor="exampleFormControlInput1"
+                className="form-label text-body-secondary form-label-custom"
+              >
                 Github url
               </label>
               <input
@@ -123,7 +132,7 @@ function LearnerSubmitAssignment() {
             <div className="mb-4 assignment-input">
               <label
                 htmlFor="exampleFormControlTextarea1"
-                className="form-label"
+                className="form-label text-body-secondary form-label-custom"
               >
                 Branch
               </label>

@@ -32,10 +32,18 @@
       display: flex;
       gap: 12px;
 
-      a {
+      .modal-header {
+        /* display: flex; */
+        justify-content: center;
+        /* text-align: center; */
+        /* align-items: center; */
+      }
+
+      .welcome-section-text-btn-new-assignment,
+      .welcome-section-text-btn-one-on-one {
         font-family: "Poppins", sans-serif;
         text-wrap: nowrap;
-        width: 185px;
+        width: 170px;
         height: 40px;
         display: flex;
         align-items: center;

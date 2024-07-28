@@ -135,3 +135,11 @@
     }
   }
 }
+
+@media screen and (max-width: 449px) {
+  .footer-text {
+    .rightreserved-text {
+      width: 130px;
+    }
+  }
+}

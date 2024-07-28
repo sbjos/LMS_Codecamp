@@ -1,49 +1,8 @@
-.create-assignment-root {
-  display: grid;
+.btn-custom {
+  width: 100%;
+  font-size: 1.05em;
 }
 
-.create-assignment-section-1 {
-  display: grid;
-  grid-template-rows: 88px;
-}
-
-.create-assignment-section-2 {
-  display: grid;
-  grid-template: "a b c";
-  padding: 100px 20.182%;
-  background-color: hsla(0, 0%, 89%, 0.452);
-
-  .create-assignment-form {
-    grid-area: b;
-
-    .assignment-input {
-      min-width: 350px;
-    }
-  }
-
-  .btn-custom {
-    display: flex;
-    justify-content: center;
-    text-align: center;
-    width: 100%;
-  }
-}
-
-.create-assignment-section-3 {
-  display: grid;
-  grid-template-rows: 88px;
-}
-
-@media screen and (max-width: 991px) {
-  .create-assignment-section-2 {
-    grid-template: "b ";
-
-    .create-assignment-form {
-      grid-area: b;
-
-      .assignment-input {
-        width: auto;
-      }
-    }
-  }
+.form-label-custom {
+  font-size: 1.05em;
 }

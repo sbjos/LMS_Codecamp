@@ -17,3 +17,49 @@
 button {
   width: 10rem;
 }
+
+.assignment-view-root {
+  display: grid;
+}
+
+.assignment-view-section-1 {
+  display: grid;
+  grid-template-rows: 88px;
+}
+
+.assignment-view-section-2 {
+  display: grid;
+  grid-template: "a b c";
+  padding: 100px 20.182%;
+  background-color: hsla(0, 0%, 89%, 0.452);
+
+  .assignment-view-form {
+    grid-area: b;
+  }
+
+  .btn-custom {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+  }
+}
+
+.assignment-view-section-3 {
+  display: grid;
+  grid-template-rows: 88px;
+}
+
+@media screen and (max-width: 991px) {
+  .assignment-view-section-2 {
+    grid-template: "b ";
+
+    .assignment-view-form {
+      grid-area: b;
+
+      .assignment-input {
+        /* width: auto; */
+      }
+    }
+  }
+}

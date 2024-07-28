@@ -2,12 +2,13 @@ import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 import Validate from "../components/Validate";
-import RedirectUrl from "../components/RedirectUrl";
 import "../css/AssignmentViews.css";
 
 function LearnerAssignmentView() {
   const navigate = useNavigate();
   const [assignment, setAssignment] = useState();
+  const [name, setName] = useState("");
+  const [description, setDescription] = useState("");
   const [githubUrl, setGithubUrl] = useState();
   const [branch, setBranch] = useState();
   const { id } = useParams();
@@ -185,42 +186,89 @@ function LearnerAssignmentView() {
     }
     if (status === "In review") {
       return (
+        //  ------------------------------
         <>
-          <div className="form-edit-github">
-            <label htmlFor="githuburl">Github</label>
-            <div className="input">
-              <a
-                className="inputText"
-                href={assignment.githubUrl}
-                target="blank"
+          <div className="assignment-view-section-2">
+            <div className="mb-3 assignment-input">
+              <label htmlFor="exampleFormControlInput1" className="form-label">
+                Github url
+              </label>
+              <div
+                className="form-control border border-secondary p-2 mb-2 border-opacity-75 input-box-shadow"
+                id="exampleFormControlInput1"
               >
-                {assignment.githubUrl}
-              </a>
-            </div>
-          </div>
-          <div className="form-edit-branch">
-            <label htmlFor="branch">Branch</label>
-            <input
-              id="branch"
-              type="text"
-              defaultValue={assignment.branch}
-              disabled
-            />
-          </div>
-          {reviewVideoUrl ? (
-            <div className="form-create-box">
-              <label htmlFor="reviewVideo">Review video</label>
-              <div className="input">
-                <a className="inputText" href={reviewVideoUrl} target="blank">
-                  {reviewVideoUrl}
+                <a
+                  // className="inputText"
+                  href={assignment.githubUrl}
+                  target="blank"
+                >
+                  {assignment.githubUrl}
                 </a>
               </div>
             </div>
-          ) : (
-            ""
-          )}
-          {/* <div className="form-edit-button">{dashboardButton}</div> */}
+            <div className="mb-4 assignment-input">
+              <label
+                htmlFor="exampleFormControlTextarea1"
+                className="form-label"
+              >
+                Branch
+              </label>
+              <div
+                // type="text"
+                className="form-control border border-secondary p-2 mb-2 border-opacity-75 input-box-shadow"
+                id="exampleFormControlInput1"
+              >
+                {assignment.branch}
+              </div>
+            </div>
+            {/* <button
+              type="button"
+              class="btn btn-success btn-custom"
+              onClick={handleClick}
+            >
+              Submit
+            </button> */}
+            {/* </form> */}
+          </div>
         </>
+        //   -----------------------------
+
+        // <>
+        //   <div className="form-edit-github">
+        //     <label htmlFor="githuburl">Github</label>
+        //     <div className="input">
+        //       <a
+        //         className="inputText"
+        //         href={assignment.githubUrl}
+        //         target="blank"
+        //       >
+        //         {assignment.githubUrl}
+        //       </a>
+        //     </div>
+        //   </div>
+        //   <div className="form-edit-branch">
+        //     <label htmlFor="branch">Branch</label>
+        //     <input
+        //       id="branch"
+        //       type="text"
+        //       defaultValue={assignment.branch}
+        //       disabled
+        //     />
+        //   </div>
+        //   {reviewVideoUrl ? (
+        //     <div className="form-create-box">
+        //       <label htmlFor="reviewVideo">Review video</label>
+        //       <div className="input">
+        //         <a className="inputText" href={reviewVideoUrl} target="blank">
+        //           {reviewVideoUrl}
+        //         </a>
+        //       </div>
+        //     </div>
+        //   ) : (
+        //     ""
+        //   )}
+        //   {/* <div className="form-edit-button">{dashboardButton}</div> */}
+        // </>
       );
     }
     if (status === "Completed") {
@@ -262,20 +310,29 @@ function LearnerAssignmentView() {
 
   return (
     <>
-      <div className="edit-header">
-        <h1>Assignment {assignment.number}</h1>
-        <h2>Status: {assignment.status}</h2>
-        <h2>
-          Reviewer:{" "}
-          {assignment.codeReviewer
-            ? assignment.codeReviewer.firstname +
-              " " +
-              assignment.codeReviewer.lastname
-            : "Unassigned"}
-        </h2>
-        <div className="spaceBetween"></div>
+      <div class="assignment-view-root">
+        {/* section-1 */}
+        <div className="assignment-view-section-1">
+          <h1>Assignment {assignment.name}</h1>
+          <h2>Assignment {assignment.name}</h2>
+          <h2>Status: {assignment.status}</h2>
+          <h2>
+            Reviewer:{" "}
+            {assignment.codeReviewer
+              ? assignment.codeReviewer.firstname +
+                " " +
+                assignment.codeReviewer.lastname
+              : "Unassigned"}
+          </h2>
+          <div className="spaceBetween"></div>
+        </div>
+
+        {/* section-2 */}
+        <div className="burger">{formOrNot()}</div>
+
+        {/* section-3 */}
+        <div className="assignment-view-section-3"></div>
       </div>
-      <div className="burger">{formOrNot()}</div>
     </>
   );
 }
