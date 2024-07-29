@@ -32,13 +32,6 @@
       display: flex;
       gap: 12px;
 
-      .modal-header {
-        /* display: flex; */
-        justify-content: center;
-        /* text-align: center; */
-        /* align-items: center; */
-      }
-
       .welcome-section-text-btn-new-assignment,
       .welcome-section-text-btn-one-on-one {
         font-family: "Poppins", sans-serif;
@@ -60,7 +53,7 @@
 
 .dashboard-section-3 {
   display: grid;
-  grid-template-rows: 4;
+  grid-template-rows: repeat(4);
   grid-gap: 54px;
   padding: 40px 45px;
   background-color: hsla(0, 0%, 89%, 0.452);
@@ -100,7 +93,7 @@
 
     .card-list {
       display: grid;
-      grid-template: 299px / repeat(4, minmax(181px, 250px));
+      grid-template: 330px / repeat(4, minmax(181px, 250px));
       padding: 20px;
       margin: 0;
       grid-gap: 1.5rem;
@@ -108,23 +101,87 @@
       border-bottom: 0.5px solid rgb(228, 227, 227);
 
       .card-custom {
+        overflow: hidden;
         a {
           color: #054a75;
           text-decoration: none;
           padding: 0;
 
           &:hover {
-            color: #1a5cbe;
+            color: #1662d4;
           }
-        }
-
-        .card-title-custom {
-          margin-bottom: 15px;
-          font-weight: 500;
         }
 
         .card-body-link-custom {
           font-weight: 600;
+        }
+      }
+    }
+
+    .card-body-custom {
+      height: 130.14px;
+    }
+
+    .card-list-submitted {
+      .card-body-custom {
+        background: linear-gradient(45deg, #096aa7, #0f77ff);
+
+        .separation-line {
+          color: white;
+          width: 75%;
+        }
+
+        .card-title-custom,
+        .card-text-custom {
+          color: white;
+        }
+      }
+    }
+
+    .card-list-inreview {
+      .card-body-custom {
+        background: linear-gradient(45deg, #ac4205e5, #fc630be5);
+
+        .separation-line {
+          color: white;
+          width: 75%;
+        }
+
+        .card-title-custom,
+        .card-text-custom {
+          color: white;
+        }
+      }
+    }
+
+    .card-list-needswork {
+      .card-body-custom {
+        background: linear-gradient(45deg, #9b232f, #dc3545);
+
+        .separation-line {
+          color: white;
+          width: 75%;
+        }
+
+        .card-title-custom,
+        .card-text-custom {
+          color: white;
+        }
+      }
+    }
+
+    .card-list-completed {
+      .card-body-custom {
+        background: linear-gradient(45deg, #10633c, #198754);
+
+        .separation-line {
+          color: white;
+          width: 75%;
+        }
+
+        .card-title-custom,
+        .card-text-custom {
+          color: white;
         }
       }
     }

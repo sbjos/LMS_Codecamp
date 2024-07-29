@@ -2,8 +2,8 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import LearnerMapping from "../components/LearnerMapping";
 import Validate from "../components/Validate";
-import "../css/Dashboard.css";
 import LearnerSubmitAssignment from "../components/LearnerSubmitAssignment";
+import "../css/Dashboard.css";
 
 function LearnerDashboard() {
   const [assignments, setAssignments] = useState([]);
@@ -36,6 +36,8 @@ function LearnerDashboard() {
     fetchData();
   }, []);
 
+  console.log(assignments);
+
   const submitted = assignments.filter((item) => item.status === "Submitted");
   const inReview = assignments.filter((item) => item.status === "In review");
   const needsWwork = assignments.filter((item) => item.status === "Needs work");
@@ -44,7 +46,7 @@ function LearnerDashboard() {
   // Passes the data to the ReviewerMapping.jsx component to handle cards.
   return (
     <>
-      <div class="dashboard-root">
+      <div className="dashboard-root">
         {/* section-1 */}
         <section className="dashboard-section-1">
           <div className="welcome-section-text welcome-section-text-custom">
@@ -61,28 +63,28 @@ function LearnerDashboard() {
                 type="button"
                 className="btn btn-warning btn-md welcome-section-text-btn-new-assignment"
                 data-bs-toggle="modal"
-                data-bs-target="#exampleModal"
+                data-bs-target="#new-assignment-modal"
               >
                 New assignment
               </button>
               <div
-                class="modal fade"
-                id="exampleModal"
-                tabindex="-1"
-                aria-labelledby="exampleModalLabel"
+                className="modal fade"
+                id="new-assignment-modal"
+                tabIndex="-1"
+                aria-labelledby="new-assignment-modal-label"
                 aria-hidden="true"
               >
-                <div class="modal-dialog modal-dialog-centered modal-dialog-custom">
-                  <div class="modal-content">
-                    <div class="modal-header">
+                <div className="modal-dialog modal-dialog-centered modal-dialog-custom">
+                  <div className="modal-content modal-content-custom">
+                    <div className="modal-header">
                       <h1
-                        class="modal-title text-body-secondary fw-medium fs-4 modal-title-custom"
-                        id="exampleModalLabel"
+                        className="modal-title text-body-secondary fw-medium fs-4 modal-title-custom"
+                        id="new-assignment-modal-label"
                       >
                         Create a new assignment
                       </h1>
                     </div>
-                    <div className="modal-body px-5">
+                    <div className="modal-body">
                       {<LearnerSubmitAssignment />}
                     </div>
                   </div>
@@ -136,7 +138,9 @@ function LearnerDashboard() {
               </a>
             </div>
 
-            <ul className="card-list">{LearnerMapping(submitted.slice(-4))}</ul>
+            <ul className="card-list card-list-submitted">
+              {LearnerMapping(submitted.slice(-4))}
+            </ul>
           </div>
 
           <div className="card-container" id="inreview-container">
@@ -162,7 +166,9 @@ function LearnerDashboard() {
               </a>
             </div>
 
-            <ul className="card-list">{LearnerMapping(inReview.slice(-4))}</ul>
+            <ul className="card-list card-list-inreview">
+              {LearnerMapping(inReview.slice(-4))}
+            </ul>
           </div>
 
           <div className="card-container" id="needswork-container">
@@ -188,7 +194,7 @@ function LearnerDashboard() {
               </a>
             </div>
 
-            <ul className="card-list">
+            <ul className="card-list card-list-needswork">
               {LearnerMapping(needsWwork.slice(-4))}
             </ul>
           </div>
@@ -216,7 +222,9 @@ function LearnerDashboard() {
               </a>
             </div>
 
-            <ul className="card-list">{LearnerMapping(completed.slice(-4))}</ul>
+            <ul className="card-list card-list-completed">
+              {LearnerMapping(completed.slice(-4))}
+            </ul>
           </div>
           <div className="showall"></div>
         </section>

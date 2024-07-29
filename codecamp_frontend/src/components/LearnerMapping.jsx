@@ -1,4 +1,5 @@
 import RedirectUrl from "./RedirectUrl";
+import LearnerAssignmentEditTest from "./LearnerAssignmentEditTest";
 import "../css/Dashboard.css";
 
 function LearnerMapping(assignments) {
@@ -7,6 +8,7 @@ function LearnerMapping(assignments) {
    * @param {*} assignment
    * @returns the appropriate button for the card.
    */
+
   function renderButton(assignment) {
     const assignmentStatus = assignment.status;
     const id = assignment.id;
@@ -14,13 +16,42 @@ function LearnerMapping(assignments) {
     // filters by assignment status to assign the appropriate button on the assignment card
     if (assignmentStatus !== "Completed" && assignmentStatus !== "In review") {
       return (
-        <a
-          className="card-link"
-          style={{ textDecoration: "underline" }}
-          href={RedirectUrl.learnerAssignmentView + id}
-        >
-          Edit
-        </a>
+        <>
+          {/* modal */}
+          <a
+            className="card-link"
+            style={{ textDecoration: "underline" }}
+            type="button"
+            data-bs-toggle="modal"
+            data-bs-target="#edit-assignment-modal"
+          >
+            Edit
+          </a>
+          <div
+            className="modal fade"
+            id="edit-assignment-modal"
+            tabIndex="-1"
+            aria-labelledby="edit-assignment-modal-label"
+            aria-hidden="true"
+          >
+            <div className="modal-dialog modal-dialog-centered modal-dialog-custom">
+              <div className="modal-content modal-content-custom">
+                <div className="modal-header">
+                  <h1
+                    className="modal-title text-body-secondary fw-medium fs-4 modal-title-custom"
+                    id="edit-assignment-modal-label"
+                  >
+                    Edit this assignment
+                  </h1>
+                </div>
+                <div className="modal-body">
+                  <LearnerAssignmentEditTest assignments={assignments} />
+                </div>
+              </div>
+            </div>
+          </div>
+          {/* modal */}
+        </>
       );
     } else {
       return (
@@ -35,16 +66,17 @@ function LearnerMapping(assignments) {
     }
   }
 
-  console.log(assignments);
-
   return (
     <>
       {assignments.map((assignment) => (
         <li className="card card-custom" key={assignment.id}>
           <div className="card-body card-body-custom">
             <h5 className="card-title card-title-custom">{assignment.name}</h5>
+
+            <hr className="separation-line" />
+
             <p className="card-text card-text-custom ">
-              A quick summary on the assignment.{assignment.desctiption}
+              {assignment.description}
             </p>
           </div>
           <ul className="list-group list-group-flush card-list-group-custom">

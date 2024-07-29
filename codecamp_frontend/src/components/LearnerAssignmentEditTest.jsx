@@ -1,29 +1,31 @@
-import { useState } from "react";
-import axios from "axios";
-import React, { useRef } from "react";
+import { useRef, useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 import Validate from "./Validate";
-import { useNavigate } from "react-router-dom";
 import "../css/ModalStyle.css";
 
-function LearnerSubmitAssignment() {
+function LearnerAssignmentEditTest(assignment) {
   const navigate = useNavigate();
   const formRef = useRef(null);
-  const [name, setName] = useState("");
-  const [description, setDescription] = useState("");
   const [githubUrl, setGithubUrl] = useState("");
   const [branch, setBranch] = useState("");
+  const { id } = useParams();
   const token = localStorage.getItem("lmsusertoken");
   const userAuthority = localStorage.getItem("lmsuserauthorities");
 
   // Validate a user's access to a webpage
   Validate(token, userAuthority);
 
-  // creates a new assignment
+  const handleClick = () => {
+    if (formRef.current) {
+      formRef.current.requestSubmit();
+    }
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     try {
-      const assignment = { name, description, githubUrl, branch };
+      const assignment = { githubUrl, branch };
       const response = await axios.post(
         "http://localhost:8080/api/assignments",
         assignment,
@@ -49,62 +51,49 @@ function LearnerSubmitAssignment() {
     }
   };
 
-  const handleClick = () => {
-    if (formRef.current) {
-      formRef.current.requestSubmit();
-    }
-  };
+  console.log("assignment", assignment);
 
   return (
     <>
-      <div className="create-assignment">
+      <div className="edit-assignment" key={id}>
+        <ul className="list-group">
+          <label
+            htmlFor="exampleFormControlInput1"
+            className="form-label text-body-secondary form-label-custom"
+          >
+            Project name
+          </label>
+          <li className="list-group-item">{assignment.name}</li>
+          <label
+            htmlFor="exampleFormControlInput1"
+            className="form-label text-body-secondary form-label-custom"
+          >
+            Project description
+          </label>
+          <li className="list-group-item">{assignment.description}</li>
+          {assignment.reviewVideoUrl ? (
+            <div>
+              <label
+                htmlFor="exampleFormControlInput1"
+                className="form-label text-body-secondary form-label-custom"
+              >
+                Reviewer's video feedback
+              </label>
+              <li className="list-group-item">
+                <a className="inputText" href={reviewVideoUrl} target="blank">
+                  {reviewVideoUrl}
+                </a>
+              </li>
+            </div>
+          ) : (
+            ""
+          )}
+        </ul>
         <form
-          className="create-assignment-form"
+          className="edit-assignment-form"
           ref={formRef}
           onSubmit={handleSubmit}
         >
-          <div className="mb-3 assignment-input">
-            <label
-              htmlFor="exampleFormControlInput1"
-              className="form-label text-body-secondary form-label-custom"
-            >
-              Project name
-            </label>
-            <input
-              type="text"
-              className="form-control border border-secondary p-2 mb-2 border-opacity-75 input-box-shadow"
-              id="exampleFormControlInput1"
-              placeholder="Name"
-              value={name}
-              onChange={(e) => {
-                setName(e.target.value);
-              }}
-              required
-            />
-          </div>
-          <div className="mb-3 assignment-input">
-            <label
-              htmlFor="exampleFormControlInput1"
-              className="form-label text-body-secondary form-label-custom"
-            >
-              Project description
-            </label>
-
-            <textarea
-              textarea="true"
-              rows={2}
-              type="text"
-              maxLength={60}
-              className="form-control border border-secondary p-2 mb-2 border-opacity-75 input-box-shadow"
-              id="exampleFormControlInput1"
-              placeholder="Description"
-              value={description}
-              onChange={(e) => {
-                setDescription(e.target.value);
-              }}
-              required
-            />
-          </div>
           <div className="mb-3 assignment-input">
             <label
               htmlFor="exampleFormControlInput1"
@@ -156,4 +145,4 @@ function LearnerSubmitAssignment() {
   );
 }
 
-export default LearnerSubmitAssignment;
+export default LearnerAssignmentEditTest;
