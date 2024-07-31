@@ -1,19 +1,16 @@
 import { useRef, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
-import Validate from "./Validate";
+import axios from "axios";
 import "../css/ModalStyle.css";
 
-function LearnerAssignmentEditTest(assignment) {
-  const navigate = useNavigate();
+function LearnerAssignmentEdit(assignments) {
+  const assignment = assignments.assignments;
   const formRef = useRef(null);
-  const [githubUrl, setGithubUrl] = useState("");
-  const [branch, setBranch] = useState("");
-  const { id } = useParams();
+  const id = assignment.id;
+  const codeReviewer = assignment.codeReviewer;
+  const feedback = assignment.reviewVideoUrl;
+  const [githubUrl, setGithubUrl] = useState(assignment.githubUrl);
+  const [branch, setBranch] = useState(assignment.branch);
   const token = localStorage.getItem("lmsusertoken");
-  const userAuthority = localStorage.getItem("lmsuserauthorities");
-
-  // Validate a user's access to a webpage
-  Validate(token, userAuthority);
 
   const handleClick = () => {
     if (formRef.current) {
@@ -25,25 +22,21 @@ function LearnerAssignmentEditTest(assignment) {
     e.preventDefault();
 
     try {
-      const assignment = { githubUrl, branch };
-      const response = await axios.post(
-        "http://localhost:8080/api/assignments",
-        assignment,
+      const updateAssignment = { githubUrl, branch, codeReviewer };
+      const response = await axios.put(
+        "http://localhost:8080/api/assignments/" + id,
+        updateAssignment,
         { headers: { Authorization: "Bearer " + token } }
       );
-      if (!response.status) {
-        return <p>loading</p>;
-      }
-      if (response.status === 201) {
-        alert("Assignment created !");
-        navigate("../");
+      if (response.status === 200) {
+        alert("Assignment updated !");
+        window.location.reload();
       }
     } catch (err) {
       if (!err) {
         console.error("No Server Response");
       } else if (err.response.status === 403) {
-        alert("You have reached the limit of 6 unassigned assignments.");
-        navigate("../");
+        alert("You have reached the limit of 10 unassigned assignments.");
       } else {
         console.error(err);
         alert("Failed to create the assignment !");
@@ -51,50 +44,63 @@ function LearnerAssignmentEditTest(assignment) {
     }
   };
 
-  console.log("assignment", assignment);
-
   return (
     <>
       <div className="edit-assignment" key={id}>
-        <ul className="list-group">
+        <div className="mb-3 assignment-input">
           <label
             htmlFor="exampleFormControlInput1"
             className="form-label text-body-secondary form-label-custom"
           >
-            Project name
+            Reviewer
           </label>
-          <li className="list-group-item">{assignment.name}</li>
+          <input
+            type="text"
+            className="form-control border border-secondary p-2 mb-2 border-opacity-75 input-box-shadow"
+            id="exampleFormControlInput1"
+            value={
+              codeReviewer
+                ? codeReviewer.firstname + " " + codeReviewer.lastname
+                : "Unassigned"
+            }
+            disabled={true}
+          />
+        </div>
+
+        <div className="mb-3 assignment-input">
           <label
             htmlFor="exampleFormControlInput1"
             className="form-label text-body-secondary form-label-custom"
           >
-            Project description
+            Feedback
           </label>
-          <li className="list-group-item">{assignment.description}</li>
-          {assignment.reviewVideoUrl ? (
-            <div>
-              <label
-                htmlFor="exampleFormControlInput1"
-                className="form-label text-body-secondary form-label-custom"
-              >
-                Reviewer's video feedback
-              </label>
-              <li className="list-group-item">
-                <a className="inputText" href={reviewVideoUrl} target="blank">
-                  {reviewVideoUrl}
-                </a>
-              </li>
-            </div>
+          {feedback ? (
+            <a
+              type="url"
+              className="form-control border border-secondary p-2 mb-2 border-opacity-75 input-border-color input-box-shadow input-text-video-url-custom"
+              id="exampleFormControlInput1"
+              href={feedback}
+              target="blank"
+            >
+              Click here for feedback
+            </a>
           ) : (
-            ""
+            <input
+              type="text"
+              className="form-control border border-secondary p-2 mb-2 border-opacity-75 input-box-shadow"
+              id="exampleFormControlInput1"
+              value={"No feedback"}
+              disabled={true}
+            />
           )}
-        </ul>
+        </div>
+
         <form
           className="edit-assignment-form"
           ref={formRef}
           onSubmit={handleSubmit}
         >
-          <div className="mb-3 assignment-input">
+          <div className="mb-3 assignment-input modal-form-input-custom">
             <label
               htmlFor="exampleFormControlInput1"
               className="form-label text-body-secondary form-label-custom"
@@ -105,7 +111,6 @@ function LearnerAssignmentEditTest(assignment) {
               type="url"
               className="form-control border border-secondary p-2 mb-2 border-opacity-75 input-box-shadow"
               id="exampleFormControlInput1"
-              placeholder="https://www.github.com/..."
               value={githubUrl}
               onChange={(e) => {
                 setGithubUrl(e.target.value);
@@ -113,7 +118,7 @@ function LearnerAssignmentEditTest(assignment) {
               required
             />
           </div>
-          <div className="mb-4 assignment-input">
+          <div className="mb-4 assignment-input modal-form-input-custom">
             <label
               htmlFor="exampleFormControlTextarea1"
               className="form-label text-body-secondary form-label-custom"
@@ -124,7 +129,6 @@ function LearnerAssignmentEditTest(assignment) {
               type="text"
               className="form-control border border-secondary p-2 mb-2 border-opacity-75 input-box-shadow"
               id="exampleFormControlInput1"
-              placeholder="branch"
               value={branch}
               onChange={(e) => {
                 setBranch(e.target.value);
@@ -145,4 +149,4 @@ function LearnerAssignmentEditTest(assignment) {
   );
 }
 
-export default LearnerAssignmentEditTest;
+export default LearnerAssignmentEdit;

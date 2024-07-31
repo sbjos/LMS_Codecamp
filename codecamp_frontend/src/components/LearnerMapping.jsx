@@ -1,6 +1,8 @@
 import RedirectUrl from "./RedirectUrl";
-import LearnerAssignmentEditTest from "./LearnerAssignmentEditTest";
+import LearnerAssignmentEdit from "./LearnerAssignmentEdit";
+import LearnerAssignmentView from "./LearnerAssignmentView";
 import "../css/Dashboard.css";
+import "../css/ModalStyle.css";
 
 function LearnerMapping(assignments) {
   /**
@@ -20,48 +22,97 @@ function LearnerMapping(assignments) {
           {/* modal */}
           <a
             className="card-link"
-            style={{ textDecoration: "underline" }}
             type="button"
             data-bs-toggle="modal"
-            data-bs-target="#edit-assignment-modal"
+            data-bs-target={`#edit-assignment-modal-${id}`}
           >
             Edit
           </a>
           <div
             className="modal fade"
-            id="edit-assignment-modal"
+            id={`edit-assignment-modal-${id}`}
             tabIndex="-1"
-            aria-labelledby="edit-assignment-modal-label"
+            aria-labelledby={`edit-assignment-modal-label-"${id}`}
             aria-hidden="true"
           >
             <div className="modal-dialog modal-dialog-centered modal-dialog-custom">
               <div className="modal-content modal-content-custom">
-                <div className="modal-header">
+                <div className="modal-header modal-header-custom">
                   <h1
-                    className="modal-title text-body-secondary fw-medium fs-4 modal-title-custom"
-                    id="edit-assignment-modal-label"
+                    className="modal-title fs-4 modal-title-custom"
+                    id={`edit-assignment-modal-label-${id}`}
                   >
-                    Edit this assignment
+                    {assignment.name}
                   </h1>
+                  <h3
+                    className="form-label text-body-secondary modal-label-description"
+                    htmlFor="exampleFormControlInput1"
+                  >
+                    {assignment.description}
+                  </h3>
+                  <h3
+                    className="form-label text-body-secondary modal-label-status"
+                    htmlFor="exampleFormControlInput1"
+                  >
+                    {assignment.status}
+                  </h3>
                 </div>
                 <div className="modal-body">
-                  <LearnerAssignmentEditTest assignments={assignments} />
+                  <LearnerAssignmentEdit assignments={assignment} />
                 </div>
               </div>
             </div>
           </div>
-          {/* modal */}
         </>
       );
     } else {
       return (
-        <a
-          className="card-link"
-          style={{ textDecoration: "underline" }}
-          href={RedirectUrl.learnerAssignmentView + id}
-        >
-          View
-        </a>
+        <>
+          <a
+            className="card-link"
+            style={{ textDecoration: "underline" }}
+            type="button"
+            data-bs-toggle="modal"
+            data-bs-target={`#view-assignment-modal-${id}`}
+          >
+            View
+          </a>
+          <div
+            className="modal fade"
+            id={`view-assignment-modal-${id}`}
+            tabIndex="-1"
+            aria-labelledby={`view-assignment-modal-label-"${id}`}
+            aria-hidden="true"
+          >
+            <div className="modal-dialog modal-dialog-centered modal-dialog-custom">
+              <div className="modal-content modal-content-custom">
+                <div className="modal-header modal-header-custom">
+                  <h1
+                    className="modal-title fs-4 modal-title-custom"
+                    id={`view-assignment-modal-label-${id}`}
+                  >
+                    {assignment.name}
+                  </h1>
+                  <h3
+                    className="form-label text-body-secondary modal-label-description"
+                    htmlFor="exampleFormControlInput1"
+                  >
+                    {assignment.description}
+                  </h3>
+                  <h3
+                    className="form-label text-body-secondary modal-label-status"
+                    htmlFor="exampleFormControlInput1"
+                  >
+                    {assignment.status}
+                  </h3>
+                </div>
+                <div className="modal-body">
+                  <LearnerAssignmentView assignments={assignment} />
+                </div>
+              </div>
+            </div>
+          </div>
+        </>
       );
     }
   }

@@ -1,12 +1,10 @@
 import { useState } from "react";
-import axios from "axios";
 import React, { useRef } from "react";
+import axios from "axios";
 import Validate from "./Validate";
-import { useNavigate } from "react-router-dom";
 import "../css/ModalStyle.css";
 
 function LearnerSubmitAssignment() {
-  const navigate = useNavigate();
   const formRef = useRef(null);
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
@@ -34,14 +32,14 @@ function LearnerSubmitAssignment() {
       }
       if (response.status === 201) {
         alert("Assignment created !");
-        navigate("../");
+        location.reload();
       }
     } catch (err) {
       if (!err) {
         console.error("No Server Response");
       } else if (err.response.status === 403) {
-        alert("You have reached the limit of 6 unassigned assignments.");
-        navigate("../");
+        location.reload();
+        alert("You have reached the limit of 10 unassigned assignments.");
       } else {
         console.error(err);
         alert("Failed to create the assignment !");

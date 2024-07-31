@@ -39,7 +39,7 @@ function LearnerAssignmentView() {
       }
     }
   };
-  // fetchData();
+  fetchData();
   // }, []);
 
   /**

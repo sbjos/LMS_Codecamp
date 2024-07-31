@@ -25,6 +25,7 @@ function LearnerDashboard() {
           { headers: { Authorization: "Bearer " + token } }
         );
         setAssignments(response.data);
+        console.log("response", response);
       } catch (err) {
         if (!err) {
           console.error("No server response");
@@ -35,8 +36,6 @@ function LearnerDashboard() {
     };
     fetchData();
   }, []);
-
-  console.log(assignments);
 
   const submitted = assignments.filter((item) => item.status === "Submitted");
   const inReview = assignments.filter((item) => item.status === "In review");

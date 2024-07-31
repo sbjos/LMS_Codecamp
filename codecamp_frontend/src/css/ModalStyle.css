@@ -1,9 +1,30 @@
 .modal-content-custom {
   padding: 15px 15px 25px;
-  .modal-title-custom {
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
-      Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
-      sans-serif;
+
+  .modal-header-custom {
+    display: inline-block;
+
+    .modal-title-custom {
+      color: var(--text-color);
+      margin-bottom: 20px;
+    }
+
+    .modal-label-description {
+      font-size: 1.05em;
+      margin-bottom: 10px;
+    }
+  
+    .modal-label-status {
+      font-size: 1.1em;
+      margin: 0;
+      text-decoration: underline;
+      text-underline-offset: 2px;;
+    }
+
+    .modal-description-custom {
+      /* margin-top: 18px; */
+      color: var(--text-color);
+    }
   }
 
   .btn-custom {
@@ -11,7 +32,28 @@
     font-size: 1.05em;
   }
 
-  .form-label-custom {
-    font-size: 1.05em;
+  .label-reviewer,
+  .label-feedback {
+    color: var(--text-color);
+    font-weight: 600 !important;
+  }
+}
+
+.input-text-video-url-custom {
+  background: #e9ecef !important;
+  box-shadow: none !important;
+}
+
+.modal-form-input-custom {
+  ::placeholder {
+    color: black !important;
+  }
+}
+
+.form-label-custom {
+  display: inline-flex;
+
+  .modal-click-here-dithuburl {
+    font-weight: 1.05em;
   }
 }

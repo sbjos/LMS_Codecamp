@@ -104,7 +104,7 @@
         overflow: hidden;
         a {
           color: #054a75;
-          text-decoration: none;
+          /* text-decoration: none; */
           padding: 0;
 
           &:hover {
@@ -120,69 +120,43 @@
 
     .card-body-custom {
       height: 130.14px;
+
+      .card-title-custom {
+        margin: 3px 0 0;
+      }
+    }
+
+    .card-title-custom,
+    .card-text-custom {
+      color: white;
+    }
+
+    .separation-line {
+      color: white;
+      width: 75%;
     }
 
     .card-list-submitted {
       .card-body-custom {
         background: linear-gradient(45deg, #096aa7, #0f77ff);
-
-        .separation-line {
-          color: white;
-          width: 75%;
-        }
-
-        .card-title-custom,
-        .card-text-custom {
-          color: white;
-        }
       }
     }
 
     .card-list-inreview {
       .card-body-custom {
         background: linear-gradient(45deg, #ac4205e5, #fc630be5);
-
-        .separation-line {
-          color: white;
-          width: 75%;
-        }
-
-        .card-title-custom,
-        .card-text-custom {
-          color: white;
-        }
       }
     }
 
     .card-list-needswork {
       .card-body-custom {
         background: linear-gradient(45deg, #9b232f, #dc3545);
-
-        .separation-line {
-          color: white;
-          width: 75%;
-        }
-
-        .card-title-custom,
-        .card-text-custom {
-          color: white;
-        }
       }
     }
 
     .card-list-completed {
       .card-body-custom {
         background: linear-gradient(45deg, #10633c, #198754);
-
-        .separation-line {
-          color: white;
-          width: 75%;
-        }
-
-        .card-title-custom,
-        .card-text-custom {
-          color: white;
-        }
       }
     }
   }
@@ -203,10 +177,19 @@
       grid-template-columns: minmax(50px, 824px);
 
       .card-list {
-        grid-template: 172px / repeat(4, minmax(50px, 187.47px));
+        grid-template: 230px / repeat(4, minmax(50px, 187.47px));
         grid-gap: 3%;
 
         .card-custom {
+          .card-body-custom {
+            .separation-line {
+              display: none;
+            }
+
+            display: inline-flex;
+            align-items: center;
+          }
+
           .card-title-custom {
             margin-bottom: 0px;
           }
@@ -284,16 +267,14 @@
   .dashboard-section-3 {
     .card-container {
       height: 58px;
+      justify-content: center;
+      text-align: center;
+      align-items: center;
 
-      .card-container-label-mobile {
-        width: 238px;
-        height: 58px;
-
-        .btn-label-status-mobile {
-          font-size: 1.15em;
-          font-weight: 500;
-          color: rgb(98, 87, 116);
-        }
+      .btn-label-status-mobile {
+        font-size: 1.15em;
+        font-weight: 500;
+        color: rgb(98, 87, 116);
       }
     }
   }

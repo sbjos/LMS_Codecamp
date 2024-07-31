@@ -39,8 +39,6 @@ function ReviewerViewAllCompleted() {
     fetchData();
   }, []);
 
-  console.log("completedAssignments", completedAssignments);
-
   return (
     <>
       <div className="assignment-table">

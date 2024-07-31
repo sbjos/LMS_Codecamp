@@ -8,7 +8,6 @@ import PublicHomepage from "./pages/PublicHomepage.jsx";
 import Login from "./pages/Login.jsx";
 import LearnerRootOutlet from "./components/LearnerRootOutlet.jsx";
 import LearnerDashboard from "./pages/LearnerDashboard.jsx";
-import LearnerAssignmentView from "./pages/LearnerAssignmentView.jsx";
 import LearnerViewAllCompleted from "./pages/LearnerViewAllCompleted.jsx";
 import ReviewerDashboard from "./pages/ReviewerDashboard.jsx";
 import ReviewerViewAllSubmitted from "./pages/ReviewerViewAllSubmitted.jsx";
@@ -29,7 +28,6 @@ const router = createBrowserRouter(
         element={<LearnerRootOutlet />}
       >
         <Route index element={<LearnerDashboard />} />
-        <Route path="assignment/:id" element={<LearnerAssignmentView />} />
         <Route path="completed" element={<LearnerViewAllCompleted />} />
       </Route>
 
