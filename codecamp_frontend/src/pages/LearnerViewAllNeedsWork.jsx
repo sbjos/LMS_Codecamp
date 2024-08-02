@@ -1,12 +1,11 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import Validate from "../components/Validate";
-import ModalViewButton from "../components/ModalViewButton";
-import "../css/ViewAll.css";
 import ModalEditButton from "../components/ModalEditButton";
+import "../css/ViewAll.css";
 
-function LearnerViewAllCompleted() {
-  const [completedAssignments, setCompletedAssignments] = useState([]);
+function LearnerViewAllNeedsWork() {
+  const [assignmentsNeedsWork, setAssignmentsNeedsWork] = useState([]);
   const token = localStorage.getItem("lmsusertoken");
   const userAuthority = localStorage.getItem("lmsuserauthorities");
 
@@ -21,8 +20,8 @@ function LearnerViewAllCompleted() {
           "http://localhost:8080/api/assignments",
           { headers: { Authorization: "Bearer " + token } }
         );
-        setCompletedAssignments(
-          response.data.filter((item) => item.status === "Completed")
+        setAssignmentsNeedsWork(
+          response.data.filter((item) => item.status === "Needs work")
         );
       } catch (err) {
         if (!err) {
@@ -41,7 +40,7 @@ function LearnerViewAllCompleted() {
         <section className="viewall-section-1"></section>
 
         <section className="viewall-section-2">
-          <h1 className="title">Completed assignments</h1>
+          <h1 className="title">Assignments needs work</h1>
           <table className="assignment-table">
             <thead>
               <tr>
@@ -56,7 +55,7 @@ function LearnerViewAllCompleted() {
             </thead>
 
             <tbody>
-              {completedAssignments.map((assignment) => (
+              {assignmentsNeedsWork.map((assignment) => (
                 <tr key={assignment.id}>
                   <td className="viewall-name-desktop">{assignment.name}</td>
 
@@ -96,7 +95,7 @@ function LearnerViewAllCompleted() {
                     {ModalEditButton(
                       assignment,
                       "btn-card-link",
-                      "Open assignment"
+                      "Update assignment"
                     )}
                   </td>
                 </tr>
@@ -109,4 +108,4 @@ function LearnerViewAllCompleted() {
   );
 }
 
-export default LearnerViewAllCompleted;
+export default LearnerViewAllNeedsWork;

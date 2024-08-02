@@ -82,14 +82,14 @@ function LearnerAssignmentEdit(assignments) {
               href={feedback}
               target="blank"
             >
-              Click here for feedback
+              Watch the feedback!
             </a>
           ) : (
             <input
               type="text"
               className="form-control border border-secondary p-2 mb-2 border-opacity-75 input-box-shadow"
               id="exampleFormControlInput1"
-              value={"No feedback"}
+              value="No feedback"
               disabled={true}
             />
           )}

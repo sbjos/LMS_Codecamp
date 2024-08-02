@@ -51,7 +51,7 @@ function LearnerRootOutlet() {
               <li className="nav-item nav-item-custom">
                 <a
                   className="nav-link active mx-3 text-light-emphasis fw-medium"
-                  href={RedirectUrl.learnerCompletedAssignments}
+                  href="#"
                 >
                   Inbox
                 </a>

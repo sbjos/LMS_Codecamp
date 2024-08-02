@@ -1,0 +1,33 @@
+.oneonone-root {
+  display: grid;
+  grid-template-rows: repeat(2);
+}
+
+.oneonone-section-1 {
+  display: grid;
+  grid-template-rows: 53px;
+}
+
+.oneonone-section-2 {
+  display: grid;
+  grid-template-columns: repeat(3);
+  grid-template-areas: "a b c d";
+  gap: 50px;
+
+  .oneonone-banner-section {
+grid-area: b;
+  }
+
+  .oneonone-form {
+    grid-area: c;
+    margin: auto;
+  }
+}
+
+@media screen and (max-width: 459px) {
+  .oneonone-section-2 {
+    .oneonone-row {
+      display: block;
+    }
+  }
+}

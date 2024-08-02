@@ -1,39 +1,110 @@
-.assignment-tables {
-  margin-top: 30px;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px; /* Adjust the gap as needed */
-  justify-content: space-evenly;
+.viewall-root {
+  display: grid;
+  grid-template-rows: repeat(3);
 }
 
-.assignment-table {
-  width: 100%;
-  border-collapse: collapse;
+.viewall-section-1 {
+  display: grid;
+  grid-template-rows: 53px;
 }
 
-th,
-td {
-  padding: 10px 20px; /* Adjust the padding values as needed */
-  /* text-align: left; */
-  border-bottom: 1px solid #ddd;
+.viewall-section-2 {
+  display: grid;
+  grid-template-columns: repeat(3);
+  grid-template-rows: repeat(2);
+  grid-template:
+    "a b c"
+    "d e f";
+    justify-content: space-around;
+
+  .title {
+    padding: 15px;
+    grid-area: b;
+    font-size: 1.5em;
+  }
+
+  .assignment-table {
+    grid-area: e;
+    width: 100%;
+    border-collapse: collapse;
+
+    .viewall-name-mobile {
+      display: none;
+    }
+
+    .viewall-feedback {
+      padding: 0;
+      
+      a {
+        padding: 0;
+      }
+    }
+
+    th,
+    td {
+      padding: 10px 20px;
+      border-bottom: 1px solid #ddd;
+    }
+
+    th {
+      background-color: #f4f4f4;
+    }
+
+    tbody {
+      font-family: Optimist, Helvetica Neue, Helvetica, Arial, sans-serif;
+    }
+  }
 }
 
-th {
-  background-color: #f4f4f4;
+@media screen and (max-width: 991px) {
+  .viewall-description {
+    display: none;
+  }
 }
 
-.button-colunm {
+@media screen and (max-width: 679px) {
+  .assignment-table {
+    grid-area: b;
+  }
+
+  .viewall-reviewer {
+    display: none;
+  }
 }
 
-.viewall-claim-button {
-  padding: 5px 10px;
-  background-color: #1971cf;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
+@media screen and (max-width: 619px) {
+  .title {
+    text-align: center;
+  }
+
+  .viewall-branch {
+    display: none;
+  }
 }
 
-.viewall-claim-button:hover {
-  background-color: #0056b3;
+@media screen and (max-width: 449px) {
+  .viewall-section-2 {
+    .viewall-github,
+    .viewall-feedback,
+    .viewall-name-desktop {
+      display: none;
+    }
+
+    .assignment-table {
+      .viewall-name-mobile {
+        display: flex;
+      }
+    }
+  }
+
+  .viewall-button {
+    padding: 0 !important;
+    height: 42.8px;
+
+    .btn-viewall {
+      padding: 0 10px;
+      font-size: 0.85em !important;
+      text-decoration: none !important;
+    }
+  }
 }

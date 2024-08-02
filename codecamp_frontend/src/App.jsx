@@ -9,6 +9,10 @@ import Login from "./pages/Login.jsx";
 import LearnerRootOutlet from "./components/LearnerRootOutlet.jsx";
 import LearnerDashboard from "./pages/LearnerDashboard.jsx";
 import LearnerViewAllCompleted from "./pages/LearnerViewAllCompleted.jsx";
+import LearnerViewAllSubmitted from "./pages/LearnerViewAllSubmitted.jsx";
+import LearnerViewAllInReview from "./pages/LearnerViewAllInReview.jsx";
+import LearnerViewAllNeedsWork from "./pages/LearnerViewAllNeedsWork.jsx";
+import LearnerRequestOneOnOne from "./pages/LearnerRequestOneOnOne.jsx";
 import ReviewerDashboard from "./pages/ReviewerDashboard.jsx";
 import ReviewerViewAllSubmitted from "./pages/ReviewerViewAllSubmitted.jsx";
 import ReviewerViewAllCompleted from "./pages/ReviewerViewAllCompleted.jsx";
@@ -28,7 +32,11 @@ const router = createBrowserRouter(
         element={<LearnerRootOutlet />}
       >
         <Route index element={<LearnerDashboard />} />
+        <Route path="submitted" element={<LearnerViewAllSubmitted />} />
+        <Route path="inreview" element={<LearnerViewAllInReview />} />
+        <Route path="needswork" element={<LearnerViewAllNeedsWork />} />
         <Route path="completed" element={<LearnerViewAllCompleted />} />
+        <Route path="request1on1" element={<LearnerRequestOneOnOne />} />
       </Route>
 
       {/* Reviewer routes */}

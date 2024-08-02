@@ -3,6 +3,7 @@ import axios from "axios";
 import LearnerMapping from "../components/LearnerMapping";
 import Validate from "../components/Validate";
 import LearnerSubmitAssignment from "../components/LearnerSubmitAssignment";
+import RedirectUrl from "../components/RedirectUrl";
 import "../css/Dashboard.css";
 
 function LearnerDashboard() {
@@ -25,7 +26,6 @@ function LearnerDashboard() {
           { headers: { Authorization: "Bearer " + token } }
         );
         setAssignments(response.data);
-        console.log("response", response);
       } catch (err) {
         if (!err) {
           console.error("No server response");
@@ -93,7 +93,7 @@ function LearnerDashboard() {
 
               <a
                 className="btn btn-light btn-md welcome-section-text-btn-one-on-one"
-                href="#"
+                href={RedirectUrl.LearnerRequestOneOnOne}
                 role="button"
               >
                 Request One on One
@@ -121,7 +121,7 @@ function LearnerDashboard() {
               <a
                 type="button"
                 className="btn btn-md btn-card-container-viewall"
-                href="#"
+                href={RedirectUrl.learnerSubmittedAssignments}
               >
                 View all
               </a>
@@ -132,7 +132,11 @@ function LearnerDashboard() {
               className="card-container-label-mobile"
               id="submitted-label-mobile"
             >
-              <a type="button" className="btn-label-status-mobile" href="#">
+              <a
+                type="button"
+                className="btn-label-status-mobile"
+                href={RedirectUrl.learnerSubmittedAssignments}
+              >
                 View submitted assignments
               </a>
             </div>
@@ -149,7 +153,7 @@ function LearnerDashboard() {
               <a
                 type="button"
                 className="btn btn-md btn-card-container-viewall"
-                href="#"
+                href={RedirectUrl.learnerInReviewAssignments}
               >
                 View all
               </a>
@@ -160,7 +164,11 @@ function LearnerDashboard() {
               className="card-container-label-mobile"
               id="submitted-label-mobile"
             >
-              <a type="button" className="btn-label-status-mobile" href="#">
+              <a
+                type="button"
+                className="btn-label-status-mobile"
+                href={RedirectUrl.learnerInReviewAssignments}
+              >
                 View assignments in review
               </a>
             </div>
@@ -177,7 +185,7 @@ function LearnerDashboard() {
               <a
                 type="button"
                 className="btn btn-md btn-card-container-viewall"
-                href="#"
+                href={RedirectUrl.learnerNeedsWorkAssignments}
               >
                 View all
               </a>
@@ -188,7 +196,11 @@ function LearnerDashboard() {
               className="card-container-label-mobile"
               id="submitted-label-mobile"
             >
-              <a type="button" className="btn-label-status-mobile" href="#">
+              <a
+                type="button"
+                className="btn-label-status-mobile"
+                href={RedirectUrl.learnerNeedsWorkAssignments}
+              >
                 View assignments that needs work
               </a>
             </div>
@@ -205,7 +217,7 @@ function LearnerDashboard() {
               <a
                 type="button"
                 className="btn btn-md btn-card-container-viewall"
-                href="#"
+                href={RedirectUrl.learnerCompletedAssignments}
               >
                 View all
               </a>
@@ -216,7 +228,11 @@ function LearnerDashboard() {
               className="card-container-label-mobile"
               id="submitted-label-mobile"
             >
-              <a type="button" className="btn-label-status-mobile" href="#">
+              <a
+                type="button"
+                className="btn-label-status-mobile"
+                href={RedirectUrl.learnerCompletedAssignments}
+              >
                 View completed assignments
               </a>
             </div>

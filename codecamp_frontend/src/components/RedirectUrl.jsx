@@ -5,10 +5,15 @@ const learnerRootUrl = "/codecamp/dashboard/" + urlPathVariable;
 const reviewerRootUrl = "/codecamp/reviewerdashboard/" + urlPathVariable;
 
 const RedirectUrl = {
+  // Learner url
   learnerDashboard: learnerRootUrl,
-  learnerAssignmentView: learnerRootUrl + "/assignment/",
-  newAssignment: learnerRootUrl + "/submitassignment",
+  learnerSubmittedAssignments: learnerRootUrl + "/submitted",
+  learnerInReviewAssignments: learnerRootUrl + "/inreview",
+  learnerNeedsWorkAssignments: learnerRootUrl + "/needswork",
   learnerCompletedAssignments: learnerRootUrl + "/completed",
+  LearnerRequestOneOnOne: learnerRootUrl + "/request1on1",
+
+  // Reviewer url
   reviewerDashboard: reviewerRootUrl,
   reviewerAssignmentView: reviewerRootUrl + "/assignment/",
 };

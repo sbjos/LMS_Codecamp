@@ -13,16 +13,15 @@
       font-size: 1.05em;
       margin-bottom: 10px;
     }
-  
+
     .modal-label-status {
       font-size: 1.1em;
       margin: 0;
       text-decoration: underline;
-      text-underline-offset: 2px;;
+      text-underline-offset: 2px;
     }
 
     .modal-description-custom {
-      /* margin-top: 18px; */
       color: var(--text-color);
     }
   }
@@ -55,5 +54,12 @@
 
   .modal-click-here-dithuburl {
     font-weight: 1.05em;
+  }
+}
+
+@media screen and (max-width: 899px) {
+  .modal-content-custom {
+    margin-left: 50px;
+    margin-right: 50px;
   }
 }

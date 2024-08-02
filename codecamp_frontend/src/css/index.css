@@ -1,12 +1,12 @@
 * {
   max-width: 1920px;
-  /* border: 1px solid red; */
+  /* border: 1px solid blueviolet; */
 }
 
 html,
 body {
   height: 100vh;
-  margin: 0;
+  margin: auto;
   box-sizing: border-box;
 }
 
@@ -19,10 +19,8 @@ main {
   position: relative;
   min-width: 320px;
   min-height: 100vh;
-  /* font-family: apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Noto Sans,
-  Ubuntu, Droid Sans, Helvetica Neue, sans-serif; */
-  font-family: Optimist, Helvetica Neue, Helvetica, Arial, sans-serif !important;
   line-height: 2;
+  font-family: Optimist, Helvetica Neue, Helvetica, Arial, sans-serif !important;
   font-weight: 400;
   font-size: 0.95rem;
   text-shadow: 1px 1px rgba(131, 130, 130, 0.1);
@@ -30,8 +28,10 @@ main {
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-
+  
   --text-color: hsla(200, 4%, 14%, 0.767) !important;
+  --button-link-color: hsl(203, 92%, 24%) !important;
+  --button-link-color-hover: hsl(216, 81%, 46%) !important;
 
   ::placeholder {
     color: #b6b6b6;
@@ -48,6 +48,16 @@ main {
   margin-top: 15px;
   margin-bottom: 5px;
   height: 28px;
+}
+
+.btn-card-link {
+  font-weight: 600;
+  text-decoration: underline;
+  color: var(--button-link-color);
+
+  &:hover {
+    color: var(-button-link-color-hover);
+  }
 }
 
 a {
