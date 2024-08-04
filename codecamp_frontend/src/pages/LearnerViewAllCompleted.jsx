@@ -1,9 +1,8 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import Validate from "../components/Validate";
-import ModalViewButton from "../components/ModalViewButton";
-import "../css/ViewAll.css";
 import ModalEditButton from "../components/ModalEditButton";
+import "../css/ViewAll.css";
 
 function LearnerViewAllCompleted() {
   const [completedAssignments, setCompletedAssignments] = useState([]);

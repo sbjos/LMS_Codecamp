@@ -5,13 +5,18 @@
     display: inline-block;
 
     .modal-title-custom {
+      font-size: 1.45em;
+      margin-bottom: 10px;
       color: var(--text-color);
-      margin-bottom: 20px;
+
+      h1 {
+      }
     }
 
     .modal-label-description {
       font-size: 1.05em;
-      margin-bottom: 10px;
+      margin-bottom: 30px;
+      font-weight: 400;
     }
 
     .modal-label-status {
@@ -30,12 +35,6 @@
     width: 100%;
     font-size: 1.05em;
   }
-
-  .label-reviewer,
-  .label-feedback {
-    color: var(--text-color);
-    font-weight: 600 !important;
-  }
 }
 
 .input-text-video-url-custom {
@@ -51,6 +50,7 @@
 
 .form-label-custom {
   display: inline-flex;
+  font-weight: 500;
 
   .modal-click-here-dithuburl {
     font-weight: 1.05em;

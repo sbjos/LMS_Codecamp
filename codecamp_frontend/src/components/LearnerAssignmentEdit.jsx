@@ -50,7 +50,7 @@ function LearnerAssignmentEdit(assignments) {
         <div className="mb-3 assignment-input">
           <label
             htmlFor="exampleFormControlInput1"
-            className="form-label text-body-secondary form-label-custom"
+            className="form-label form-label-custom"
           >
             Reviewer
           </label>
@@ -70,7 +70,7 @@ function LearnerAssignmentEdit(assignments) {
         <div className="mb-3 assignment-input">
           <label
             htmlFor="exampleFormControlInput1"
-            className="form-label text-body-secondary form-label-custom"
+            className="form-label form-label-custom"
           >
             Feedback
           </label>
@@ -103,7 +103,7 @@ function LearnerAssignmentEdit(assignments) {
           <div className="mb-3 assignment-input modal-form-input-custom">
             <label
               htmlFor="exampleFormControlInput1"
-              className="form-label text-body-secondary form-label-custom"
+              className="form-label form-label-custom"
             >
               Github url
             </label>
@@ -121,7 +121,7 @@ function LearnerAssignmentEdit(assignments) {
           <div className="mb-4 assignment-input modal-form-input-custom">
             <label
               htmlFor="exampleFormControlTextarea1"
-              className="form-label text-body-secondary form-label-custom"
+              className="form-label form-label-custom"
             >
               Branch
             </label>

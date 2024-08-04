@@ -1,27 +1,73 @@
 .oneonone-root {
   display: grid;
   grid-template-rows: repeat(2);
+  color: var(--text-color);
 }
 
 .oneonone-section-1 {
   display: grid;
-  grid-template-rows: 53px;
+  grid-template-rows: 80px;
 }
 
 .oneonone-section-2 {
   display: grid;
-  grid-template-columns: repeat(3);
-  grid-template-areas: "a b c d";
-  gap: 50px;
+  grid-template-columns: minmax(100px, 400px) minmax(100px, 500px);
+  grid-template-areas: "a b";
+  justify-content: center;
+  padding: 50px 5%;
+  gap: 5%;
+  background-color: var(--background-color);
 
   .oneonone-banner-section {
-grid-area: b;
+    grid-area: a;
+    margin: 55px auto;
+
+    .oneonone-banner-header {
+      margin-bottom: 2.5em;
+
+      .oneonone-header {
+        font-size: 2.5em;
+      }
+    }
+
+    .oneonone-banner-body {
+      p {
+        padding: 10px 0;
+      }
+    }
   }
 
   .oneonone-form {
-    grid-area: c;
+    grid-area: b;
     margin: auto;
+    padding: 40px 30px;
+    border-radius: 15px;
+    background-color: hsla(0, 0%, 100%, 0.918);
+
+    .oneonone-form-header {
+      margin-bottom: 2em;
+      justify-content: center;
+      text-align: center;
+      align-items: center;
+
+      h1 {
+        font-size: 1.45em;
+      }
+    }
+
+    .oneonone-form-label {
+      color: var(--text-color);
+    }
+
+    .oneonone-form-control {
+      border-color: rgb(153, 153, 153);
+    }
   }
+}
+
+.btn-custom {
+  width: 100%;
+  font-size: 1.05em;
 }
 
 @media screen and (max-width: 459px) {

@@ -29,12 +29,12 @@ function ModalViewButton(assignment, buttonClass, buttonName) {
               >
                 {assignment.name}
               </h1>
-              <h3
+              <p
                 className="form-label text-body-secondary modal-label-description"
                 htmlFor="exampleFormControlInput1"
               >
-                {assignment.description}
-              </h3>
+                <p>{assignment.description}</p>
+              </p>
               <h3
                 className="form-label text-body-secondary modal-label-status"
                 htmlFor="exampleFormControlInput1"

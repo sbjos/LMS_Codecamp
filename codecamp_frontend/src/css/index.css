@@ -28,13 +28,16 @@ main {
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  
-  --text-color: hsla(200, 4%, 14%, 0.767) !important;
-  --button-link-color: hsl(203, 92%, 24%) !important;
-  --button-link-color-hover: hsl(216, 81%, 46%) !important;
+
+  --label-text-color: hwb(210 13% 84% / 0.749);
+  --background-color: hsla(0, 0%, 89%, 0.452);
+  --text-color: hsla(210, 5%, 8%, 0.767);
+  --button-link-color: hsl(203, 92%, 24%);
+  --button-link-color-hover: hsl(216, 81%, 46%);
+  --placeholder-color: hsl(0, 0%, 71%);
 
   ::placeholder {
-    color: #b6b6b6;
+    color: var(--placeholder-color);
   }
 }
 
@@ -72,7 +75,22 @@ h1,
 h2,
 h3,
 h4,
-h5,
+h5 {
+  font-family: "Poppins", sans-serif;
+}
+
 p {
   font-family: Optimist, Helvetica Neue, Helvetica, Arial, sans-serif;
+}
+
+.form-required {
+  color: #cc4841;
+  font-size: 14px;
+}
+
+.form-label-custom {
+  color: var(--label-text-color);
+}
+
+input {
 }
