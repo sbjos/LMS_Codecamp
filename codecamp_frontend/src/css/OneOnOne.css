@@ -72,7 +72,7 @@
 
 @media screen and (max-width: 991px) {
   .oneonone-section-1 {
-    /* grid-template-rows: 40px; */
+    grid-template-rows: 40px;
   }
 
   .oneonone-section-2 {
