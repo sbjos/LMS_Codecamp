@@ -1,137 +1,123 @@
 import "../css/OneOnOne.css";
 
 function Timezone() {
+  const timezoneList = () => {
+    return (
+      <>
+        <select
+          class="form-select oneonone-form-control oneonone-form-control-timezone-dropdown"
+          aria-label="Default select example"
+        >
+          <option value="+00:00" selected="selected">
+            Choose your timezone
+          </option>
+          <option value="-12:00">(GMT -12:00) Eniwetok, Kwajalein</option>
+          <option value="-11:00">(GMT -11:00) Midway Island, Samoa</option>
+          <option value="-10:00">(GMT -10:00) Hawaii</option>
+          <option value="-09:50">(GMT -9:30) Taiohae</option>
+          <option value="-09:00">(GMT -9:00) Alaska</option>
+          <option value="-08:00">
+            (GMT -8:00) Pacific Time (US &amp; Canada)
+          </option>
+          <option value="-07:00">
+            (GMT -7:00) Mountain Time (US &amp; Canada)
+          </option>
+          <option value="-06:00">
+            (GMT -6:00) Central Time (US &amp; Canada)
+          </option>
+          <option value="-05:00">
+            (GMT -5:00) Eastern Time (US &amp; Canada)
+          </option>
+          <option value="-04:50">(GMT -4:30) Caracas</option>
+          <option value="-04:00">
+            (GMT -4:00) Atlantic Time (Canada), Caracas, La Paz
+          </option>
+          <option value="-03:50">(GMT -3:30) Newfoundland</option>
+          <option value="-03:00">
+            (GMT -3:00) Brazil, Buenos Aires, Georgetown
+          </option>
+          <option value="-02:00">(GMT -2:00) Mid-Atlantic</option>
+          <option value="-01:00">(GMT -1:00) Azores, Cape Verde Islands</option>
+          <option value="+00:00">
+            (GMT) Western Europe Time, London, Lisbon, Casablanca
+          </option>
+          <option value="+01:00">
+            (GMT +1:00) Brussels, Copenhagen, Madrid, Paris
+          </option>
+          <option value="+02:00">(GMT +2:00) Kaliningrad, South Africa</option>
+          <option value="+03:00">
+            (GMT +3:00) Baghdad, Riyadh, Moscow, St. Petersburg
+          </option>
+          <option value="+03:50">(GMT +3:30) Tehran</option>
+          <option value="+04:00">
+            (GMT +4:00) Abu Dhabi, Muscat, Baku, Tbilisi
+          </option>
+          <option value="+04:50">(GMT +4:30) Kabul</option>
+          <option value="+05:00">
+            (GMT +5:00) Ekaterinburg, Islamabad, Karachi, Tashkent
+          </option>
+          <option value="+05:50">
+            (GMT +5:30) Bombay, Calcutta, Madras, New Delhi
+          </option>
+          <option value="+05:75">(GMT +5:45) Kathmandu, Pokhara</option>
+          <option value="+06:00">(GMT +6:00) Almaty, Dhaka, Colombo</option>
+          <option value="+06:50">(GMT +6:30) Yangon, Mandalay</option>
+          <option value="+07:00">(GMT +7:00) Bangkok, Hanoi, Jakarta</option>
+          <option value="+08:00">
+            (GMT +8:00) Beijing, Perth, Singapore, Hong Kong
+          </option>
+          <option value="+08:75">(GMT +8:45) Eucla</option>
+          <option value="+09:00">
+            (GMT +9:00) Tokyo, Seoul, Osaka, Sapporo, Yakutsk
+          </option>
+          <option value="+09:50">(GMT +9:30) Adelaide, Darwin</option>
+          <option value="+10:00">
+            (GMT +10:00) Eastern Australia, Guam, Vladivostok
+          </option>
+          <option value="+10:50">(GMT +10:30) Lord Howe Island</option>
+          <option value="+11:00">
+            (GMT +11:00) Magadan, Solomon Islands, New Caledonia
+          </option>
+          <option value="+11:50">(GMT +11:30) Norfolk Island</option>
+          <option value="+12:00">
+            (GMT +12:00) Auckland, Wellington, Fiji, Kamchatka
+          </option>
+          <option value="+12:75">(GMT +12:45) Chatham Islands</option>
+          <option value="+13:00">(GMT +13:00) Apia, Nukualofa</option>
+          <option value="+14:00">(GMT +14:00) Line Islands, Tokelau</option>
+        </select>
+      </>
+    );
+  };
+
+  const timezoneListMobile = () => {};
+
   return (
     <>
-      <select class="form-select oneonone-form-control" aria-label="Default select example">
-        <option className="default-selection-timezone" selected>
-          Choose your time zone
+    {timezoneList()}
+      {/* <select
+        class="form-select oneonone-form-control oneonone-form-control-timezone-dropdown"
+        aria-label="Default select example"
+      >
+        <option value="+00:00" selected="selected">
+          Choose your timezone
         </option>
-        <option value="-12">(UTC-12:00) International Date Line West</option>
-        <option value="-11">(UTC-11:00) Coordinated Universal Time-11</option>
-        <option value="-10">(UTC-10:00) Hawaii</option>
-        <option value="-9">(UTC-09:00) Alaska</option>
-        <option value="-7">(UTC-08:00) Baja California</option>
-        <option value="-7">(UTC-07:00) Pacific Time (US &amp; Canada)</option>
-        <option value="-8">(UTC-08:00) Pacific Time (US &amp; Canada)</option>
-        <option value="-7">(UTC-07:00) Arizona</option>
-        <option value="-6">(UTC-07:00) Chihuahua, La Paz, Mazatlan</option>
-        <option value="-6">(UTC-07:00) Mountain Time (US &amp; Canada)</option>
-        <option value="-6">(UTC-06:00) Central America</option>
-        <option value="-5">(UTC-06:00) Central Time (US &amp; Canada)</option>
-        <option value="-5">
-          (UTC-06:00) Guadalajara, Mexico City, Monterrey
-        </option>
-        <option value="-6">(UTC-06:00) Saskatchewan</option>
-        <option value="-5">(UTC-05:00) Bogota, Lima, Quito</option>
-        <option value="-4">(UTC-05:00) Eastern Time (US &amp; Canada)</option>
-        <option value="-4">(UTC-05:00) Indiana (East)</option>
-        <option value="-4.5">(UTC-04:30) Caracas</option>
-        <option value="-4">(UTC-04:00) Asuncion</option>
-        <option value="-3">(UTC-04:00) Atlantic Time (Canada)</option>
-        <option value="-4">(UTC-04:00) Cuiaba</option>
-        <option value="-4">
-          (UTC-04:00) Georgetown, La Paz, Manaus, San Juan
-        </option>
-        <option value="-4">(UTC-04:00) Santiago</option>
-        <option value="-2.5">(UTC-03:30) Newfoundland</option>
-        <option value="-3">(UTC-03:00) Brasilia</option>
-        <option value="-3">(UTC-03:00) Buenos Aires</option>
-        <option value="-3">(UTC-03:00) Cayenne, Fortaleza</option>
-        <option value="-3">(UTC-03:00) Greenland</option>
-        <option value="-3">(UTC-03:00) Montevideo</option>
-        <option value="-3">(UTC-03:00) Salvador</option>
-        <option value="-2">(UTC-02:00) Coordinated Universal Time-02</option>
-        <option value="-1">(UTC-02:00) Mid-Atlantic - Old</option>
-        <option value="0">(UTC-01:00) Azores</option>
-        <option value="-1">(UTC-01:00) Cape Verde Is.</option>
-        <option value="1">(UTC) Casablanca</option>
-        <option value="0">(UTC) Coordinated Universal Time</option>
-        <option value="0">(UTC) Edinburgh, London</option>
-        <option value="1">(UTC+01:00) Edinburgh, London</option>
-        <option value="1">(UTC) Dublin, Lisbon</option>
-        <option value="0">(UTC) Monrovia, Reykjavik</option>
-        <option value="2">
-          (UTC+01:00) Amsterdam, Berlin, Bern, Rome, Stockholm, Vienna
-        </option>
-        <option value="2">
-          (UTC+01:00) Belgrade, Bratislava, Budapest, Ljubljana, Prague
-        </option>
-        <option value="2">
-          (UTC+01:00) Brussels, Copenhagen, Madrid, Paris
-        </option>
-        <option value="2">(UTC+01:00) Sarajevo, Skopje, Warsaw, Zagreb</option>
-        <option value="1">(UTC+01:00) West Central Africa</option>
-        <option value="1">(UTC+01:00) Windhoek</option>
-        <option value="3">(UTC+02:00) Athens, Bucharest</option>
-        <option value="3">(UTC+02:00) Beirut</option>
-        <option value="2">(UTC+02:00) Cairo</option>
-        <option value="3">(UTC+02:00) Damascus</option>
-        <option value="3">(UTC+02:00) E. Europe</option>
-        <option value="2">(UTC+02:00) Harare, Pretoria</option>
-        <option value="3">
-          (UTC+02:00) Helsinki, Kyiv, Riga, Sofia, Tallinn, Vilnius
-        </option>
-        <option value="3">(UTC+03:00) Istanbul</option>
-        <option value="3">(UTC+02:00) Jerusalem</option>
-        <option value="2">(UTC+02:00) Tripoli</option>
-        <option value="3">(UTC+03:00) Amman</option>
-        <option value="3">(UTC+03:00) Baghdad</option>
-        <option value="3">(UTC+02:00) Kaliningrad</option>
-        <option value="3">(UTC+03:00) Kuwait, Riyadh</option>
-        <option value="3">(UTC+03:00) Nairobi</option>
-        <option value="3">
-          (UTC+03:00) Moscow, St. Petersburg, Volgograd, Minsk
-        </option>
-        <option value="4">(UTC+04:00) Samara, Ulyanovsk, Saratov</option>
-        <option value="4.5">(UTC+03:30) Tehran</option>
-        <option value="4">(UTC+04:00) Abu Dhabi, Muscat</option>
-        <option value="5">(UTC+04:00) Baku</option>
-        <option value="4">(UTC+04:00) Port Louis</option>
-        <option value="4">(UTC+04:00) Tbilisi</option>
-        <option value="4">(UTC+04:00) Yerevan</option>
-        <option value="4.5">(UTC+04:30) Kabul</option>
-        <option value="5">(UTC+05:00) Ashgabat, Tashkent</option>
-        <option value="5">(UTC+05:00) Yekaterinburg</option>
-        <option value="5">(UTC+05:00) Islamabad, Karachi</option>
-        <option value="5.5">
-          (UTC+05:30) Chennai, Kolkata, Mumbai, New Delhi
-        </option>
-        <option value="5.5">(UTC+05:30) Sri Jayawardenepura</option>
-        <option value="5.75">(UTC+05:45) Kathmandu</option>
-        <option value="6">(UTC+06:00) Nur-Sultan (Astana)</option>
-        <option value="6">(UTC+06:00) Dhaka</option>
-        <option value="6.5">(UTC+06:30) Yangon (Rangoon)</option>
-        <option value="7">(UTC+07:00) Bangkok, Hanoi, Jakarta</option>
-        <option value="7">(UTC+07:00) Novosibirsk</option>
-        <option value="8">
-          (UTC+08:00) Beijing, Chongqing, Hong Kong, Urumqi
-        </option>
-        <option value="8">(UTC+08:00) Krasnoyarsk</option>
-        <option value="8">(UTC+08:00) Kuala Lumpur, Singapore</option>
-        <option value="8">(UTC+08:00) Perth</option>
-        <option value="8">(UTC+08:00) Taipei</option>
-        <option value="8">(UTC+08:00) Ulaanbaatar</option>
-        <option value="8">(UTC+08:00) Irkutsk</option>
-        <option value="9">(UTC+09:00) Osaka, Sapporo, Tokyo</option>
-        <option value="9">(UTC+09:00) Seoul</option>
-        <option value="9.5">(UTC+09:30) Adelaide</option>
-        <option value="9.5">(UTC+09:30) Darwin</option>
-        <option value="10">(UTC+10:00) Brisbane</option>
-        <option value="10">(UTC+10:00) Canberra, Melbourne, Sydney</option>
-        <option value="10">(UTC+10:00) Guam, Port Moresby</option>
-        <option value="10">(UTC+10:00) Hobart</option>
-        <option value="9">(UTC+09:00) Yakutsk</option>
-        <option value="11">(UTC+11:00) Solomon Is., New Caledonia</option>
-        <option value="11">(UTC+11:00) Vladivostok</option>
-        <option value="12">(UTC+12:00) Auckland, Wellington</option>
-        <option value="12">(UTC+12:00) Coordinated Universal Time+12</option>
-        <option value="12">(UTC+12:00) Fiji</option>
-        <option value="12">(UTC+12:00) Magadan</option>
-        <option value="13">(UTC+12:00) Petropavlovsk-Kamchatsky - Old</option>
-        <option value="13">(UTC+13:00) Nuku'alofa</option>
-        <option value="13">(UTC+13:00) Samoa</option>
-      </select>
+      {timezoneList()}
+      </select> */}
+
+      {/* <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+  Launch demo modal
+</button> 
+
+      <button
+        type="button"
+        class="form-select oneonone-form-control oneonone-form-control-timezone-dropdown-mobile"
+        data-bs-toggle="modal"
+        data-bs-target="#exampleModal"
+        aria-label="Default select example"
+      >
+        {timezoneListMobile()}
+      </button>*/}
     </>
   );
 }

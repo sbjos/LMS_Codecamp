@@ -56,10 +56,3 @@
     font-weight: 1.05em;
   }
 }
-
-@media screen and (max-width: 899px) {
-  .modal-content-custom {
-    margin-left: 50px;
-    margin-right: 50px;
-  }
-}

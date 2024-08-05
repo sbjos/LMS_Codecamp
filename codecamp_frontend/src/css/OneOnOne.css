@@ -6,7 +6,7 @@
 
 .oneonone-section-1 {
   display: grid;
-  grid-template-rows: 80px;
+  grid-template-rows: 70px;
 }
 
 .oneonone-section-2 {
@@ -17,6 +17,10 @@
   padding: 50px 5%;
   gap: 5%;
   background-color: var(--background-color);
+
+  .oneonone-form-control-timezone-dropdown-mobile {
+    display: none;
+  }
 
   .oneonone-banner-section {
     grid-area: a;
@@ -63,11 +67,15 @@
       border-color: rgb(153, 153, 153);
     }
   }
+
+  .btn-custom {
+    width: 100%;
+  }
 }
 
-.btn-custom {
-  width: 100%;
-  font-size: 1.05em;
+.section-3 {
+  display: grid;
+  grid-template-rows: 70px;
 }
 
 @media screen and (max-width: 991px) {
@@ -107,9 +115,32 @@
   }
 }
 
-@media screen and (max-width: 655px) {
+/* @media screen and (max-width: 594px) {
   .oneonone-section-2 {
-    padding: 50px;
+    .oneonone-form-control-timezone-dropdown {
+      display: none;
+    }
+
+    .oneonone-form-control-timezone-dropdown-mobile {
+      display: flex;
+      &:focus {
+        outline: none;
+        box-shadow: none;
+      }
+    }
+  } */
+
+.modal-body-custom {
+  padding: 15px;
+  border: none;
+
+  .modal-form-select-custom {
+    height: 600px;
+    border: none;
+    &:focus {
+      outline: none;
+      box-shadow: none;
+    }
   }
 }
 
