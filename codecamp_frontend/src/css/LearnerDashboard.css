@@ -103,7 +103,7 @@
 
       .card-custom {
         overflow: hidden;
-        
+
         a {
           color: var(--button-link-color);
           padding: 0;
@@ -139,25 +139,25 @@
 
     .card-list-submitted {
       .card-body-custom {
-        background: linear-gradient(45deg, #096aa7, #0f77ff);
+        background: var(--submitted-card-color);
       }
     }
 
     .card-list-inreview {
       .card-body-custom {
-        background: linear-gradient(45deg, #ac4205e5, #fc630be5);
+        background: var(--inreview-card-color);
       }
     }
 
     .card-list-needswork {
       .card-body-custom {
-        background: linear-gradient(45deg, #9b232f, #dc3545);
+        background: var(--needswork-card-color);
       }
     }
 
     .card-list-completed {
       .card-body-custom {
-        background: linear-gradient(45deg, #10633c, #198754);
+        background: var(--completed-card-color);
       }
     }
   }

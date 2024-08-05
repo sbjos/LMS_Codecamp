@@ -36,6 +36,20 @@ main {
   --button-link-color-hover: hsl(216, 81%, 46%);
   --placeholder-color: hsl(0, 0%, 71%);
 
+  /* --submitted-card-color: linear-gradient(45deg, #096aa7, #0f77ff); */
+  /* --submitted-card-color: #096aa7; */
+  /* --submitted-card-color: #0f77ff; */
+  --submitted-card-color: #1073f5;
+  /* --inreview-card-color: linear-gradient(45deg, #ac4205e5, #fc630be5); */
+  /* --inreview-card-color: #ac4205e5; */
+  --inreview-card-color: #fc630be5;
+  /* --needswork-card-color: linear-gradient(45deg, #9b232f, #dc3545); */
+  /* --needswork-card-color: #9b232f; */
+  --needswork-card-color: #dc3545;
+  /* --completed-card-color: linear-gradient(45deg, #10633c, #198754); */
+  /* --completed-card-color: #10633c; */
+  --completed-card-color: #198754;
+
   ::placeholder {
     color: var(--placeholder-color);
   }
@@ -90,4 +104,11 @@ p {
 
 .form-label-custom {
   color: var(--label-text-color);
+}
+
+.btn-custom {
+  height: 50px;
+  font-size: 1.2em !important;
+  font-weight: 600;
+  margin-top: 10px;
 }

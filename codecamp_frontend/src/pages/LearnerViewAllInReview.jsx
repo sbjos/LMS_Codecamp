@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import Validate from "../components/Validate";
-import ModalEditButton from "../components/ModalEditButton";
+import ModalView from "../components/ModalView";
 import "../css/ViewAll.css";
 
 function LearnerViewAllInReview() {
@@ -43,7 +43,7 @@ function LearnerViewAllInReview() {
           <h1 className="title">Assignments in review</h1>
           <table className="assignment-table">
             <thead>
-              <tr>
+              <tr className="assignment-table-inreview">
                 <th className="viewall-name">App name</th>
                 <th className="viewall-description">Description</th>
                 <th className="viewall-reviewer">Reviewer</th>
@@ -92,10 +92,10 @@ function LearnerViewAllInReview() {
                   </td>
                   <td className="viewall-branch">{assignment.branch}</td>
                   <td className="viewall-button">
-                    {ModalEditButton(
+                    {ModalView(
                       assignment,
                       "btn-card-link",
-                      "Open assignment"
+                      "Open"
                     )}
                   </td>
                 </tr>

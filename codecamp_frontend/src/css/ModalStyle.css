@@ -7,10 +7,8 @@
     .modal-title-custom {
       font-size: 1.45em;
       margin-bottom: 10px;
+      font-weight: 600;
       color: var(--text-color);
-
-      h1 {
-      }
     }
 
     .modal-label-description {

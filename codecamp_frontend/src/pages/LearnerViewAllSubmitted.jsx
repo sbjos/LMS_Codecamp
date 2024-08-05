@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import Validate from "../components/Validate";
-import ModalEditButton from "../components/ModalEditButton";
+import ModalEdit from "../components/ModalEdit";
 import "../css/ViewAll.css";
 
 function LearnerViewAllSubmitted() {
@@ -42,7 +42,7 @@ function LearnerViewAllSubmitted() {
         <section className="viewall-section-2">
           <h1 className="title">Submitted assignments</h1>
           <table className="assignment-table">
-            <thead>
+            <thead className="assignment-table-submitted">
               <tr>
                 <th className="viewall-name">App name</th>
                 <th className="viewall-description">Description</th>
@@ -57,7 +57,9 @@ function LearnerViewAllSubmitted() {
             <tbody>
               {submittedAssignments.map((assignment) => (
                 <tr key={assignment.id}>
-                  <td className="viewall-name-desktop">{assignment.name}</td>
+                  <td className="viewall-name-desktop">
+                    {assignment.name}
+                    </td>
 
                   {/* mobile */}
                   <td className="viewall-name-mobile">
@@ -80,11 +82,7 @@ function LearnerViewAllSubmitted() {
                   </td>
                   <td className="viewall-branch">{assignment.branch}</td>
                   <td className="viewall-button">
-                    {ModalEditButton(
-                      assignment,
-                      "btn-card-link",
-                      "Update assignment"
-                    )}
+                    {ModalEdit(assignment, "btn-card-link", "Update")}
                   </td>
                 </tr>
               ))}

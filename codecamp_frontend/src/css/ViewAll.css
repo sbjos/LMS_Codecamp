@@ -15,7 +15,6 @@
   grid-template:
     "a b c"
     "d e f";
-    justify-content: space-around;
 
   .title {
     padding: 15px;
@@ -27,6 +26,11 @@
     grid-area: e;
     width: 100%;
     border-collapse: collapse;
+    border-radius: 5px;
+
+    .viewall-name-desktop {
+      font-weight: 600;
+    }
 
     .viewall-name-mobile {
       display: none;
@@ -34,7 +38,7 @@
 
     .viewall-feedback {
       padding: 0;
-      
+
       a {
         padding: 0;
       }
@@ -46,10 +50,26 @@
       border-bottom: 1px solid #ddd;
     }
 
-    th {
-      background-color: #f4f4f4;
+    .assignment-table-submitted {
+      background-color: var(--submitted-card-color);
+      color: white;
     }
 
+    .assignment-table-inreview {
+      background-color: var(--inreview-card-color);
+      color: white;
+    }
+
+    .assignment-table-needswork {
+      background-color: var(--needswork-card-color);
+      color: white;
+    }
+
+    .assignment-table-completed {
+      background-color: var(--completed-card-color);
+      color: white;
+    }
+    
     tbody {
       font-family: Optimist, Helvetica Neue, Helvetica, Arial, sans-serif;
     }
@@ -93,6 +113,7 @@
     .assignment-table {
       .viewall-name-mobile {
         display: flex;
+        font-weight: 600;
       }
     }
   }

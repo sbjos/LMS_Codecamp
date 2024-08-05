@@ -1,6 +1,7 @@
 import LearnerAssignmentView from "./LearnerAssignmentView";
+import "../css/ModalStyle.css";
 
-function ModalViewButton(assignment, buttonClass, buttonName) {
+function ModalView(assignment, buttonClass, buttonName) {
   const id = assignment.id;
 
   return (
@@ -24,7 +25,7 @@ function ModalViewButton(assignment, buttonClass, buttonName) {
           <div className="modal-content modal-content-custom">
             <div className="modal-header modal-header-custom">
               <h1
-                className="modal-title fs-4 modal-title-custom"
+                className="modal-title modal-title-custom"
                 id={`view-assignment-modal-label-${id}`}
               >
                 {assignment.name}
@@ -33,7 +34,7 @@ function ModalViewButton(assignment, buttonClass, buttonName) {
                 className="form-label text-body-secondary modal-label-description"
                 htmlFor="exampleFormControlInput1"
               >
-                <p>{assignment.description}</p>
+                {assignment.description}
               </p>
               <h3
                 className="form-label text-body-secondary modal-label-status"
@@ -52,4 +53,4 @@ function ModalViewButton(assignment, buttonClass, buttonName) {
   );
 }
 
-export default ModalViewButton;
+export default ModalView;

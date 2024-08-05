@@ -11,7 +11,7 @@
 
 .oneonone-section-2 {
   display: grid;
-  grid-template-columns: minmax(100px, 400px) minmax(100px, 500px);
+  grid-template-columns: minmax(100px, 500px) minmax(100px, 500px);
   grid-template-areas: "a b";
   justify-content: center;
   padding: 50px 5%;
@@ -55,7 +55,8 @@
       align-items: center;
 
       h1 {
-        font-size: 1.45em;
+        font-size: 1.55em;
+        font-weight: 600;
       }
     }
 

@@ -1,6 +1,7 @@
 import LearnerAssignmentEdit from "./LearnerAssignmentEdit";
+import "../css/ModalStyle.css";
 
-function ModalEditButton(assignment, buttonClass, buttonName) {
+function ModalEdit(assignment, buttonClass, buttonName) {
   const id = assignment.id;
 
   return (
@@ -24,7 +25,7 @@ function ModalEditButton(assignment, buttonClass, buttonName) {
           <div className="modal-content modal-content-custom">
             <div className="modal-header modal-header-custom">
               <h1
-                className="modal-title  modal-title-custom"
+                className="modal-title modal-title-custom"
                 id={`edit-assignment-modal-label-${id}`}
               >
                 {assignment.name}
@@ -52,4 +53,4 @@ function ModalEditButton(assignment, buttonClass, buttonName) {
   );
 }
 
-export default ModalEditButton;
+export default ModalEdit;

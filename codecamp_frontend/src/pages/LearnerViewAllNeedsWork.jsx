@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import Validate from "../components/Validate";
-import ModalEditButton from "../components/ModalEditButton";
+import ModalEdit from "../components/ModalEdit";
 import "../css/ViewAll.css";
 
 function LearnerViewAllNeedsWork() {
@@ -43,7 +43,7 @@ function LearnerViewAllNeedsWork() {
           <h1 className="title">Assignments needs work</h1>
           <table className="assignment-table">
             <thead>
-              <tr>
+              <tr className="assignment-table-needswork">
                 <th className="viewall-name">App name</th>
                 <th className="viewall-description">Description</th>
                 <th className="viewall-reviewer">Reviewer</th>
@@ -92,10 +92,10 @@ function LearnerViewAllNeedsWork() {
                   </td>
                   <td className="viewall-branch">{assignment.branch}</td>
                   <td className="viewall-button">
-                    {ModalEditButton(
+                    {ModalEdit(
                       assignment,
                       "btn-card-link",
-                      "Update assignment"
+                      "Update"
                     )}
                   </td>
                 </tr>

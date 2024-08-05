@@ -66,7 +66,7 @@ function LearnerSubmitAssignment() {
               htmlFor="exampleFormControlInput1"
               className="form-label text-body-secondary form-label-custom"
             >
-              Project name
+              Project name<span className="form-required">*</span>
             </label>
             <input
               type="text"
@@ -85,7 +85,7 @@ function LearnerSubmitAssignment() {
               htmlFor="exampleFormControlInput1"
               className="form-label text-body-secondary form-label-custom"
             >
-              Project description
+              Project description<span className="form-required">*</span>
             </label>
 
             <textarea
@@ -108,7 +108,7 @@ function LearnerSubmitAssignment() {
               htmlFor="exampleFormControlInput1"
               className="form-label text-body-secondary form-label-custom"
             >
-              Github url
+              Github url<span className="form-required">*</span>
             </label>
             <input
               type="url"
@@ -127,7 +127,7 @@ function LearnerSubmitAssignment() {
               htmlFor="exampleFormControlTextarea1"
               className="form-label text-body-secondary form-label-custom"
             >
-              Branch
+              Branch<span className="form-required">*</span>
             </label>
             <input
               type="text"

@@ -37,7 +37,7 @@ function LearnerRequestOneOnOne() {
           </div>
           <form className="oneonone-form" action="">
             <div className="oneonone-form-header">
-              <h1>Request your One on One</h1>
+              <h1>Request a One on One</h1>
             </div>
             <div className="row oneonone-row">
               <div className="mb-3 col">
@@ -93,7 +93,7 @@ function LearnerRequestOneOnOne() {
               </label>
               <Timezone/>
             </div>
-            <div className="mb-3">
+            <div className="mb-4">
               <label
                 for="exampleFormControlTextarea1"
                 className="form-label oneonone-form-label"

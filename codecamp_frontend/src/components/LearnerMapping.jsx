@@ -1,6 +1,6 @@
-import ModalEditButton from "./ModalEditButton";
-import ModalViewButton from "./ModalViewButton";
-import "../css/Dashboard.css";
+import ModalEdit from "./ModalEdit";
+import ModalView from "./ModalView";
+import "../css/LearnerDashboard.css";
 import "../css/ModalStyle.css";
 
 function LearnerMapping(assignments) {
@@ -16,9 +16,9 @@ function LearnerMapping(assignments) {
 
     // filters by assignment status to assign the appropriate button on the assignment card
     if (assignmentStatus !== "Completed" && assignmentStatus !== "In review") {
-      return ModalEditButton(assignment, "btn-card-link", "Edit");
+      return ModalEdit(assignment, "btn-card-link", "Edit");
     } else {
-      return ModalViewButton(assignment, "btn-card-link", "View");
+      return ModalView(assignment, "btn-card-link", "View");
     }
   }
 

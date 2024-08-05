@@ -4,7 +4,7 @@ import axios from "axios";
 import ReviewerMapping from "../components/ReviewerMapping";
 import Validate from "../components/Validate";
 import RedirectUrl from "../components/RedirectUrl";
-import "../css/Dashboard.css";
+// import "../css/Dashboard.css";
 
 function ReviewerDashboard() {
   const logoutButton = <RedirectUrl reference="logout" buttonName="Logout" />;

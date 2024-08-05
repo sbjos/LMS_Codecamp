@@ -2,9 +2,9 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import LearnerMapping from "../components/LearnerMapping";
 import Validate from "../components/Validate";
-import LearnerSubmitAssignment from "../components/LearnerSubmitAssignment";
 import RedirectUrl from "../components/RedirectUrl";
-import "../css/Dashboard.css";
+import ModalNewAssignment from "../components/ModalNewAssignment";
+import "../css/LearnerDashboard.css";
 
 function LearnerDashboard() {
   const [assignments, setAssignments] = useState([]);
@@ -57,40 +57,7 @@ function LearnerDashboard() {
             </div>
             <hr className="separation-line" />
             <div className="welcome-section-text-btn">
-              {/* modal */}
-              <button
-                type="button"
-                className="btn btn-warning btn-md welcome-section-text-btn-new-assignment"
-                data-bs-toggle="modal"
-                data-bs-target="#new-assignment-modal"
-              >
-                New assignment
-              </button>
-              <div
-                className="modal fade"
-                id="new-assignment-modal"
-                tabIndex="-1"
-                aria-labelledby="new-assignment-modal-label"
-                aria-hidden="true"
-              >
-                <div className="modal-dialog modal-dialog-centered modal-dialog-custom">
-                  <div className="modal-content modal-content-custom">
-                    <div className="modal-header">
-                      <h1
-                        className="modal-title text-body-secondary fw-medium fs-4 modal-title-custom"
-                        id="new-assignment-modal-label"
-                      >
-                        Create a new assignment
-                      </h1>
-                    </div>
-                    <div className="modal-body">
-                      {<LearnerSubmitAssignment />}
-                    </div>
-                  </div>
-                </div>
-              </div>
-              {/* modal */}
-
+              {ModalNewAssignment()}
               <a
                 className="btn btn-light btn-md welcome-section-text-btn-one-on-one"
                 href={RedirectUrl.LearnerRequestOneOnOne}
