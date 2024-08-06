@@ -22,9 +22,8 @@ public class AssignmentController {
     private AssignmentService assignmentService;
 
     @GetMapping(value = "/api/assignments")
-    public ResponseEntity<List<AssignmentResponseDto>> getAssignments(@AuthenticationPrincipal User user) {
-        List<AssignmentResponseDto> a = assignmentService.getAssignments(user);
-        return new ResponseEntity<>(a, HttpStatus.OK);
+    public ResponseEntity<List<AssignmentResponseDto>> getAssignmentsByUser(@AuthenticationPrincipal User user) {
+        return new ResponseEntity<>(assignmentService.getAssignmentsByUser(user), HttpStatus.OK);
     }
 
     @GetMapping(value = "/api/assignments/{id}")

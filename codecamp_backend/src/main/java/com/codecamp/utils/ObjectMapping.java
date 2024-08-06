@@ -2,13 +2,13 @@ package com.codecamp.utils;
 
 import com.codecamp.dto.AssignmentResponseDto;
 import com.codecamp.dto.AssignmentUserResponseDto;
+import com.codecamp.dto.UserResponseDto;
 import com.codecamp.entities.Assignment;
 import com.codecamp.entities.User;
 import org.springframework.stereotype.Component;
 
 import java.util.HashSet;
 import java.util.Optional;
-import java.util.Set;
 
 @Component
 public class ObjectMapping {
@@ -19,6 +19,8 @@ public class ObjectMapping {
         dto.setId(assignment.getId());
         dto.setNumber(assignment.getNumber());
         dto.setStatus(assignment.getStatus());
+        dto.setName(assignment.getName());
+        dto.setDescription(assignment.getDescription());
         dto.setGithubUrl(assignment.getGithubUrl());
         dto.setBranch(assignment.getBranch());
         dto.setReviewVideoUrl(assignment.getReviewVideoUrl());
@@ -42,14 +44,7 @@ public class ObjectMapping {
         return dto;
     }
 
-    // TODO: is that necessary?
-//    public static AssignmentUserResponseDto userDetailsDtoMapping(UserDetails user) {
-//        return AssignmentUserResponseDto.builder()
-//                .withId(user.getId())
-//                .withCohortStartDate(user.getCohortStartDate())
-//                .withFirstName(user.getFirstName())
-//                .withLastName(user.getLastName())
-//                .withAuthorities(user.getAuthorities())
-//                .build();
-//    }
+    public UserResponseDto userResponseMapping(User user) {
+        return new UserResponseDto(user);
+    }
 }

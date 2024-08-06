@@ -3,7 +3,6 @@ package com.codecamp.dto;
 import org.springframework.security.core.GrantedAuthority;
 
 import java.time.LocalDate;
-import java.util.Collection;
 import java.util.Objects;
 import java.util.Set;
 
@@ -13,7 +12,6 @@ public class AssignmentUserResponseDto {
     private String firstname;
     private String lastname;
     private String username; // Holds the email address
-    private String password;
     private Set<GrantedAuthority> authorities;
 
     public AssignmentUserResponseDto() {}

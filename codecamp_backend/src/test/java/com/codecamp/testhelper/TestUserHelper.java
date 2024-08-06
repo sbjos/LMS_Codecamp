@@ -20,6 +20,11 @@ public final class TestUserHelper {
                 "Doe",
                 "user1",
                 "password",
+                "12 Main st",
+                "",
+                "Riverdale",
+                "MT",
+                "58563",
                 Set.of(learner())
         );
     }
@@ -31,6 +36,11 @@ public final class TestUserHelper {
                 "Doe",
                 "user2",
                 "password",
+                "12 Main st",
+                "",
+                "Riverdale",
+                "MT",
+                "58563",
                 Set.of(learner())
         );
     }
@@ -42,6 +52,11 @@ public final class TestUserHelper {
                 "Scott",
                 "reviewer",
                 "password",
+                "12 Main st",
+                "",
+                "Riverdale",
+                "MT",
+                "58563",
                 Set.of(reviewer())
         );
     }
