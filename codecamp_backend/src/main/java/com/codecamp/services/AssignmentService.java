@@ -107,10 +107,10 @@ public class AssignmentService {
      * @param user user details
      */
     public void createAssignment(@RequestBody Assignment newAssignment, @AuthenticationPrincipal User user) {
-        List<Assignment> submittedAssignments = assignmentRepository.findByStatus(SUBMITTED.getStatus());
+        List<Assignment> submittedAssignments = assignmentRepository.findByStatusAndUser(SUBMITTED.getStatus(), user);
         int size = submittedAssignments.size();
         int random;
-        boolean isDuplicate;
+        boolean isDuplicate = false;
 
         if (size >= 10) {
             throw new IllegalArgumentException("To many unassigned assignments " + size);
@@ -118,15 +118,12 @@ public class AssignmentService {
         } else {
             do {
                 random = new Random().nextInt(90959 - 10959 + 1) + 10959;
-                Assignment assignmentNumber = assignmentRepository.findByNumber(random).get();
-                isDuplicate = false;
+                Optional<Assignment> assignmentNumber = assignmentRepository.findByNumber(random);
 
-
-                if (assignmentNumber.getNumber() == random) {
+                if (assignmentNumber.isPresent()) {
                     isDuplicate = true;
-                    break;
-
                 }
+
             } while (isDuplicate);
 
             newAssignment.setNumber(random);

@@ -11,7 +11,6 @@ public class UserResponseDto {
         this.user = user;
     }
 
-
     public User getUser() {
         return user;
     }
