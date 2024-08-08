@@ -13,6 +13,11 @@ import java.util.Optional;
 @Component
 public class ObjectMapping {
 
+    /**
+     * Converts Assignment objects to a DTO
+     * @param assignment assignment object
+     * @return a DTO object
+     */
     public static AssignmentResponseDto assignmentMapping(Assignment assignment) {
         AssignmentResponseDto dto = new AssignmentResponseDto();
 
@@ -31,6 +36,11 @@ public class ObjectMapping {
         return dto;
     }
 
+    /**
+     * Converts user objects to a DTO for AssignmentResponseDto.
+     * @param user object
+     * @return a DTO object
+     */
     public static AssignmentUserResponseDto userMapping(User user) {
         AssignmentUserResponseDto dto = new AssignmentUserResponseDto();
 
@@ -44,6 +54,11 @@ public class ObjectMapping {
         return dto;
     }
 
+    /**
+     * Converts a user object to a DTO
+     * @param user user object
+     * @return a DTO object
+     */
     public static UserResponseDto userResponseMapping(User user) {
         return new UserResponseDto(user);
     }

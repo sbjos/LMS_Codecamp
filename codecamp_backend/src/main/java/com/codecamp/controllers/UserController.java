@@ -23,8 +23,14 @@ public class UserController {
         return new ResponseEntity<>(userService.getUserById(id), HttpStatus.OK);
     }
 
-    @PutMapping("/api/user/{id}")
-    public ResponseEntity<UserResponseDto> updateUser(@RequestBody User update, @AuthenticationPrincipal User user) {
+    @GetMapping("/api/admin/user/{username}")
+    public ResponseEntity<UserResponseDto> getUserByUsername(@PathVariable String username) {
+        return new ResponseEntity<>(userService.getUserByUsername(username), HttpStatus.OK);
+    }
+
+    @PutMapping("/api/user")
+    public ResponseEntity<UserResponseDto> updateUser(@RequestBody User update,
+                                                      @AuthenticationPrincipal User user) {
         UserResponseDto updatedUser;
 
         try {

@@ -31,7 +31,7 @@ public class SecurityConfig {
     @Autowired
     private JWTFilter jwtFilter;
 
-    @Bean/*(name = BeanIds.AUTHENTICATION_MANAGER)*/
+    @Bean
     public AuthenticationManager authenticationManagerBean(HttpSecurity http) throws Exception {
         AuthenticationManagerBuilder auth = http.getSharedObject(AuthenticationManagerBuilder.class);
         auth.userDetailsService(userDetailServiceImpl).passwordEncoder(customPasswordEncoder.getPasswordEncoder());

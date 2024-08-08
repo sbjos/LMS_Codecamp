@@ -19,7 +19,6 @@ public class UserService {
 
     /**
      * Get a user by username
-     *
      * @param id user id
      * @return user details
      */
@@ -28,8 +27,20 @@ public class UserService {
     }
 
     /**
+     * Gets a user by username
+     * @param username
+     * @return
+     */
+    public UserResponseDto getUserByUsername(String username) {
+        Optional<User> user = Optional.ofNullable(userRepository.findByUsername(username).orElseThrow(
+                () -> new UserNotFoundException(String.format("user %s not found.", username)))
+        );
+
+        return userResponseMapping(user.get());
+    }
+
+    /**
      * Updates an existing user.
-     *
      * @param update updated user details
      * @return the updated assignment
      */
@@ -46,8 +57,6 @@ public class UserService {
         Optional.ofNullable(update.getState()).ifPresent(user::setState);
         Optional.ofNullable(update.getZipcode()).ifPresent(user::setZipcode);
 
-
-
         userRepository.save(user);
 
         return userResponseMapping(user);
@@ -55,7 +64,6 @@ public class UserService {
 
     /**
      * Creates a user
-     *
      * @param newUser the user information to create the new user
      */
     public void createUser(User newUser) {
@@ -65,7 +73,6 @@ public class UserService {
 
     /**
      * Helper method that finds a user by username.
-     *
      * @param id user's username
      * @return user details
      * @throws UserNotFoundException user not found

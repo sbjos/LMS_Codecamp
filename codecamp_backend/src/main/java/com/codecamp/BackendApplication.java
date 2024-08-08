@@ -13,6 +13,10 @@ public class BackendApplication {
 		SpringApplication.run(BackendApplication.class, args);
 	}
 
+	/**
+	 * Manages cors configuration for the application
+	 * @return allowedOrigin for cors
+	 */
 	@Bean
 	public WebMvcConfigurer corsConfigurer() {
 		return new WebMvcConfigurer() {

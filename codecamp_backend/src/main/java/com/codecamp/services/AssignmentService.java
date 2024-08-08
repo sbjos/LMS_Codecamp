@@ -25,7 +25,6 @@ public class AssignmentService {
     /**
      * For learners, this will pull all of their submitted assignments.
      * For reviewers, this will pull all submitted assignments and allow them to claim an assignment.
-     *
      * @param user user details
      * @return list of assignments
      * @throws AssignmentNotFoundException assignments not found
@@ -52,7 +51,6 @@ public class AssignmentService {
 
     /**
      * Gets an assignment by ID.
-     *
      * @param assignmentId assignment id
      * @return assignment
      * @throws AssignmentNotFoundException assignment not found
@@ -65,7 +63,6 @@ public class AssignmentService {
 
     /**
      * Updates an existing assignment.
-     *
      * @param assignmentId assignment id.
      * @param update       updated assignment details
      * @param user         user details
@@ -104,7 +101,6 @@ public class AssignmentService {
 
     /**
      * Saves a new assignment.
-     *
      * @param newAssignment assignment details
      * @param user          user details
      */
@@ -138,7 +134,6 @@ public class AssignmentService {
 
     /**
      * Helper method that finds an assignment by id and user or by id and reviewer.
-     *
      * @param assignmentId assignment id
      * @return assignment
      * @throws AssignmentNotFoundException assignment not found
@@ -152,7 +147,6 @@ public class AssignmentService {
 
     /**
      * Helper method that verifies if the limit is reached before submitting the request.
-     *
      * @param update assignment details
      * @param user user details
      * @return true if limit has reached, false if not.
