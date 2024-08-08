@@ -7,11 +7,11 @@ plugins {
 group = 'com.codecamp'
 version = '0.0.1-SNAPSHOT'
 
-//java {
-//	toolchain {
-//		languageVersion = JavaLanguageVersion.of(17)
-//	}
-//}
+java {
+	toolchain {
+		languageVersion = JavaLanguageVersion.of(17)
+	}
+}
 
 repositories {
 	mavenCentral()
@@ -31,7 +31,7 @@ dependencies {
 	runtimeOnly 'io.jsonwebtoken:jjwt-jackson:0.12.6'
 	runtimeOnly 'org.postgresql:postgresql'
 
-	testImplementation 'com.h2database:h2'
+	testImplementation 'junit:junit:4.13.2'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testImplementation 'org.springframework.security:spring-security-test'
 }

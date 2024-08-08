@@ -8,15 +8,14 @@ import com.codecamp.repositories.AssignmentRepository;
 import com.codecamp.utils.ObjectMapping;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.*;
 
 import java.util.*;
 import java.util.stream.Collectors;
 
 import static com.codecamp.enums.AssignmentStatusEnum.*;
 import static com.codecamp.enums.AuthorityEnum.*;
+import static com.codecamp.utils.ObjectMapping.assignmentMapping;
 
 @Service
 public class AssignmentService {
@@ -31,21 +30,23 @@ public class AssignmentService {
      * @return list of assignments
      * @throws AssignmentNotFoundException assignments not found
      */
-    public List<AssignmentResponseDto> getAssignmentsByUser(User user) {
-        List<Assignment> assignmentsPage = null;
+    public List<AssignmentResponseDto> getUserAssignmentList(User user) {
+        List<Assignment> assignmentsPage = new ArrayList<>();
 
         if (user.getAuthorities().toString().contains(LEARNER.name())) {
-            assignmentsPage = assignmentRepository.findByUser(user);
+            assignmentsPage.addAll(assignmentRepository.findByUser(user));
 
         } else if (user.getAuthorities().toString().contains(REVIEWER.name())) {
-            assignmentsPage = assignmentRepository.findAll();
+            assignmentsPage.addAll(assignmentRepository.findByStatus(SUBMITTED.getStatus()));
+            assignmentsPage.addAll(assignmentRepository.findByCodeReviewer(user));
+
         }
 
         if (assignmentsPage.isEmpty())
             throw new AssignmentNotFoundException("Assignment list not found");
 
         return assignmentsPage.stream()
-                .map(assignment -> new ObjectMapping().assignmentMapping(assignment))
+                .map(ObjectMapping::assignmentMapping)
                 .collect(Collectors.toList());
     }
 
@@ -53,60 +54,61 @@ public class AssignmentService {
      * Gets an assignment by ID.
      *
      * @param assignmentId assignment id
-     * @param user user details
      * @return assignment
      * @throws AssignmentNotFoundException assignment not found
      */
-    public AssignmentResponseDto getAssignmentById(Long assignmentId, User user) {
-        Assignment assignment = assignmentLookup(assignmentId, user);
+    public AssignmentResponseDto getAssignmentById(Long assignmentId) {
+        Assignment assignment = assignmentLookup(assignmentId);
 
-        return new ObjectMapping().assignmentMapping(assignment);
+        return assignmentMapping(assignment);
     }
 
     /**
      * Updates an existing assignment.
      *
      * @param assignmentId assignment id.
-     * @param update updated assignment details
-     * @param user user details
+     * @param update       updated assignment details
+     * @param user         user details
      * @return an updated assignment
      * @throws AssignmentNotFoundException assignment not found
      */
-    public AssignmentResponseDto updateAssignmentById(Long assignmentId, Assignment update, User user) {
+    public AssignmentResponseDto updateAssignment(Long assignmentId, Assignment update, User user) {
         if (hasReachedLimit(assignmentId, update, user)) throw new IllegalArgumentException("Limit reached");
 
         Assignment userAssignment;
         GrantedAuthority userAuthority = user.getAuthorities().stream().findFirst().get();
 
         if (userAuthority.toString().equals(REVIEWER.name())) {
-            userAssignment = assignmentLookup(assignmentId, update.getUser());
+            userAssignment = assignmentLookup(assignmentId);
 
-            userAssignment.setStatus(update.getStatus());
             Optional.of(user).ifPresent(userAssignment::setCodeReviewer);
             Optional.ofNullable(update.getReviewVideoUrl()).ifPresent(userAssignment::setReviewVideoUrl);
+            userAssignment.setStatus(update.getStatus());
 
         } else {
-            userAssignment = assignmentLookup(assignmentId, user);
+            userAssignment = assignmentLookup(assignmentId);
 
             Optional.ofNullable(update.getGithubUrl()).ifPresent(userAssignment::setGithubUrl);
             Optional.ofNullable(update.getBranch()).ifPresent(userAssignment::setBranch);
             Optional.ofNullable(update.getCodeReviewer()).ifPresent(userAssignment::setCodeReviewer);
-            userAssignment.setStatus(IN_REVIEW.getStatus());
 
+            if (userAssignment.getStatus().equals(NEEDS_WORK.getStatus())) {
+                userAssignment.setStatus(IN_REVIEW.getStatus());
+            }
         }
 
         assignmentRepository.save(userAssignment);
 
-        return new ObjectMapping().assignmentMapping(userAssignment);
+        return assignmentMapping(userAssignment);
     }
 
     /**
      * Saves a new assignment.
      *
      * @param newAssignment assignment details
-     * @param user user details
+     * @param user          user details
      */
-    public void createAssignment(@RequestBody Assignment newAssignment, @AuthenticationPrincipal User user) {
+    public AssignmentResponseDto createAssignment(Assignment newAssignment, User user) {
         List<Assignment> submittedAssignments = assignmentRepository.findByStatusAndUser(SUBMITTED.getStatus(), user);
         int size = submittedAssignments.size();
         int random;
@@ -132,29 +134,21 @@ public class AssignmentService {
 
             assignmentRepository.save(newAssignment);
         }
+
+        return assignmentMapping(newAssignment);
     }
 
     /**
      * Helper method that finds an assignment by id and user or by id and reviewer.
      *
      * @param assignmentId assignment id
-     * @param user user details
      * @return assignment
      * @throws AssignmentNotFoundException assignment not found
      */
-    private Assignment assignmentLookup(Long assignmentId, User user) {
-        GrantedAuthority userAuthority = user.getAuthorities().stream().findFirst().get();
-
-        if (userAuthority.toString().equals(REVIEWER.name())) {
-            return assignmentRepository.findByIdAndCodeReviewer(assignmentId, user)
-                    .orElseThrow(() -> new AssignmentNotFoundException("Assignment not found")
-            );
-
-        } else {
-            return assignmentRepository.findByIdAndUser(assignmentId, user)
-                    .orElseThrow(() -> new AssignmentNotFoundException("Assignment not found")
-            );
-        }
+    private Assignment assignmentLookup(Long assignmentId) {
+        return assignmentRepository.findById(assignmentId)
+                .orElseThrow(() -> new AssignmentNotFoundException("Assignment not found")
+                );
     }
 
     /**
@@ -170,7 +164,7 @@ public class AssignmentService {
         Map<String, Integer> learnerAssignments = new HashMap<>();
 
         if (userAuthority.toString().equals(LEARNER.name())) {
-            if (assignmentLookup(assignmentId, user).getStatus().equals(SUBMITTED.getStatus())) {
+            if (assignmentLookup(assignmentId).getStatus().equals(SUBMITTED.getStatus())) {
                 return false;
             }
 

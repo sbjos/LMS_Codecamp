@@ -12,7 +12,7 @@ public class Assignment {
     private Long id;
 
     @Column
-    private int number;
+    private Integer number;
 
     @Column
     private String name;
@@ -42,8 +42,9 @@ public class Assignment {
 
     public Assignment() {}
 
-    public Assignment(int number, String name, String description, String status, String githubUrl, String branch,
+    public Assignment(Long id, Integer number, String name, String description, String status, String githubUrl, String branch,
                       String reviewVideoUrl, User user, User codeReviewer) {
+        this.id = id;
         this.number = number;
         this.name = name;
         this.description = description;
@@ -63,11 +64,11 @@ public class Assignment {
         this.id = id;
     }
 
-    public int getNumber() {
+    public Integer getNumber() {
         return number;
     }
 
-    public void setNumber(int number) {
+    public void setNumber(Integer number) {
         this.number = number;
     }
 

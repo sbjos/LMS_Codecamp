@@ -23,7 +23,7 @@ public class UserService {
      * @return user details
      */
     public UserResponseDto getUserById(Long id) {
-        return new ObjectMapping().userResponseMapping(userLookup(id, null));
+        return ObjectMapping.userResponseMapping(userLookup(id, null));
     }
 
     /**
@@ -47,7 +47,7 @@ public class UserService {
 
         userRepository.save(user);
 
-        return new ObjectMapping().userResponseMapping(user);
+        return ObjectMapping.userResponseMapping(user);
     }
 
     /**

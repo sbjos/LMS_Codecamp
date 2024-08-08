@@ -22,24 +22,23 @@ public class AssignmentController {
     private AssignmentService assignmentService;
 
     @GetMapping(value = "/api/assignments")
-    public ResponseEntity<List<AssignmentResponseDto>> getAssignmentsByUser(@AuthenticationPrincipal User user) {
-        return new ResponseEntity<>(assignmentService.getAssignmentsByUser(user), HttpStatus.OK);
+    public ResponseEntity<List<AssignmentResponseDto>> getUserAssignmentList(@AuthenticationPrincipal User user) {
+        return new ResponseEntity<>(assignmentService.getUserAssignmentList(user), HttpStatus.OK);
     }
 
     @GetMapping(value = "/api/assignments/{id}")
-    public ResponseEntity<AssignmentResponseDto> getAssignmentById(@PathVariable("id") Long assignmentId,
-                                                                   @AuthenticationPrincipal User user) {
-        return new ResponseEntity<>(assignmentService.getAssignmentById(assignmentId, user), HttpStatus.OK);
+    public ResponseEntity<AssignmentResponseDto> getAssignmentById(@PathVariable("id") Long assignmentId) {
+        return new ResponseEntity<>(assignmentService.getAssignmentById(assignmentId), HttpStatus.OK);
     }
 
     @PutMapping(value = "/api/assignments/{id}")
-    public ResponseEntity<AssignmentResponseDto> updateAssignmentById(@PathVariable("id") Long assignmentId,
+    public ResponseEntity<AssignmentResponseDto> updateAssignment(@PathVariable("id") Long assignmentId,
                                                                       @RequestBody Assignment update,
                                                                       @AuthenticationPrincipal User user) {
         AssignmentResponseDto assignmentDto;
 
         try {
-            assignmentDto = assignmentService.updateAssignmentById(assignmentId, update, user);
+            assignmentDto = assignmentService.updateAssignment(assignmentId, update, user);
 
         } catch (IllegalArgumentException e) {
             log.warn(e, new IllegalArgumentException());

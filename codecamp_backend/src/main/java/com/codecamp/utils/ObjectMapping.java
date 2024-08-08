@@ -13,7 +13,7 @@ import java.util.Optional;
 @Component
 public class ObjectMapping {
 
-    public AssignmentResponseDto assignmentMapping(Assignment assignment) {
+    public static AssignmentResponseDto assignmentMapping(Assignment assignment) {
         AssignmentResponseDto dto = new AssignmentResponseDto();
 
         dto.setId(assignment.getId());
@@ -31,7 +31,7 @@ public class ObjectMapping {
         return dto;
     }
 
-    public AssignmentUserResponseDto userMapping(User user) {
+    public static AssignmentUserResponseDto userMapping(User user) {
         AssignmentUserResponseDto dto = new AssignmentUserResponseDto();
 
         dto.setId(user.getId());
@@ -44,7 +44,7 @@ public class ObjectMapping {
         return dto;
     }
 
-    public UserResponseDto userResponseMapping(User user) {
+    public static UserResponseDto userResponseMapping(User user) {
         return new UserResponseDto(user);
     }
 }
