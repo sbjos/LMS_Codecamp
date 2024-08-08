@@ -108,7 +108,7 @@ public class AssignmentService {
      * @param newAssignment assignment details
      * @param user          user details
      */
-    public AssignmentResponseDto createAssignment(Assignment newAssignment, User user) {
+    public void createAssignment(Assignment newAssignment, User user) {
         List<Assignment> submittedAssignments = assignmentRepository.findByStatusAndUser(SUBMITTED.getStatus(), user);
         int size = submittedAssignments.size();
         int random;
@@ -134,8 +134,6 @@ public class AssignmentService {
 
             assignmentRepository.save(newAssignment);
         }
-
-        return assignmentMapping(newAssignment);
     }
 
     /**
@@ -147,7 +145,8 @@ public class AssignmentService {
      */
     private Assignment assignmentLookup(Long assignmentId) {
         return assignmentRepository.findById(assignmentId)
-                .orElseThrow(() -> new AssignmentNotFoundException("Assignment not found")
+                .orElseThrow(() -> new AssignmentNotFoundException(
+                        String.format("Assignment %s not found", assignmentId))
                 );
     }
 

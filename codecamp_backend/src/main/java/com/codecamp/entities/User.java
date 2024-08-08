@@ -52,9 +52,10 @@ public class User implements UserDetails {
 
     public User() {}
 
-    public User(LocalDate cohortStartDate, String firstname, String lastname, String username,
+    public User(Long id, LocalDate cohortStartDate, String firstname, String lastname, String username,
                 String password, String address, String address2, String city, String state,
                 String zipcode, Set<Authority> authorities) {
+        this.id = id;
         this.cohortStartDate = cohortStartDate;
         this.firstname = firstname;
         this.lastname = lastname;

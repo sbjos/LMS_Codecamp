@@ -5,6 +5,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
+import org.mockito.MockitoAnnotations;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 
@@ -23,7 +24,9 @@ public class UserDetailServiceImplTest {
     private UserRepository userRepository;
 
     @BeforeEach
-    void setup() {}
+    void setup() {
+        MockitoAnnotations.openMocks(this);
+    }
 
     @Test
     void loadUserByUsername_withValidUser_returnsUser() {
@@ -45,6 +48,7 @@ public class UserDetailServiceImplTest {
         // WHEN - THEN
         assertThrows(UsernameNotFoundException.class, () ->
                 userDetailService.loadUserByUsername(invalidUser),
-                "Invalid Credentials");
+                String.format("user %s not found.", user1().getUsername())
+        );
     }
 }

@@ -4,11 +4,12 @@ import com.codecamp.dto.UserResponseDto;
 import com.codecamp.entities.User;
 import com.codecamp.exceptions.UserNotFoundException;
 import com.codecamp.repositories.UserRepository;
-import com.codecamp.utils.ObjectMapping;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
+
+import static com.codecamp.utils.ObjectMapping.userResponseMapping;
 
 @Service
 public class UserService {
@@ -23,7 +24,7 @@ public class UserService {
      * @return user details
      */
     public UserResponseDto getUserById(Long id) {
-        return ObjectMapping.userResponseMapping(userLookup(id, null));
+        return userResponseMapping(userLookup(id));
     }
 
     /**
@@ -33,7 +34,7 @@ public class UserService {
      * @return the updated assignment
      */
     public UserResponseDto updateUser(Long id, User update) {
-        User user = userLookup(id, null);
+        User user = userLookup(id);
 
         Optional.ofNullable(update.getFirstname()).ifPresent(user::setFirstname);
         Optional.ofNullable(update.getLastname()).ifPresent(user::setLastname);
@@ -45,9 +46,11 @@ public class UserService {
         Optional.ofNullable(update.getState()).ifPresent(user::setState);
         Optional.ofNullable(update.getZipcode()).ifPresent(user::setZipcode);
 
+
+
         userRepository.save(user);
 
-        return ObjectMapping.userResponseMapping(user);
+        return userResponseMapping(user);
     }
 
     /**
@@ -67,16 +70,9 @@ public class UserService {
      * @return user details
      * @throws UserNotFoundException user not found
      */
-    private User userLookup(Long id, String username) {
-        if (id == null) {
-            return userRepository.findByUsername(username).orElseThrow(
-                    () -> new UserNotFoundException(String.format("user %s not found.", username))
-            );
-
-        } else {
-            return userRepository.findById(id).orElseThrow(
-                    () -> new UserNotFoundException(String.format("user %s not found.", id))
-            );
-        }
+    private User userLookup(Long id) {
+        return userRepository.findById(id).orElseThrow(
+                () -> new UserNotFoundException(String.format("user %s not found.", id))
+        );
     }
 }

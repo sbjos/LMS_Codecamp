@@ -15,11 +15,12 @@ public final class TestUserHelper {
 
     public static User user1() {
         return new User(
+                1L,
                 LocalDate.of(2023, 11, 20),
                 "John",
                 "Doe",
                 "user1",
-                "",
+                "password",
                 "123 Main st",
                 "",
                 "Orlando",
@@ -31,6 +32,7 @@ public final class TestUserHelper {
 
     public static User user2() {
         return new User(
+                2L,
                 LocalDate.of(2023, 7, 4),
                 "Jane",
                 "Smith",
@@ -45,14 +47,32 @@ public final class TestUserHelper {
         );
     }
 
+    public static User user3() {
+        return new User(
+                3L,
+                LocalDate.of(2024, 7, 14),
+                "Jean Claude",
+                "Vann Damme",
+                "user3",
+                "password",
+                "789 Main st",
+                "",
+                "Memphis",
+                "TN",
+                "32771",
+                Set.of(learner())
+        );
+    }
+
     public static User reviewer1() {
         return new User(
+                4L,
                 null,
                 "Jane",
                 "Scott",
                 "reviewer",
                 "password",
-                "789 Main st",
+                "147 Main st",
                 "",
                 "Auburndale",
                 "FL",

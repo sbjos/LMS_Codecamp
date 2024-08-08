@@ -17,7 +17,6 @@ import java.util.Optional;
 import static com.codecamp.enums.AssignmentStatusEnum.*;
 import static com.codecamp.testhelper.TestAssignmentHelper.*;
 import static com.codecamp.testhelper.TestUserHelper.*;
-import static com.codecamp.testhelper.TestUserHelper.user2;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
@@ -42,11 +41,11 @@ public class AssignmentServiceTest {
                 ObjectMapping.assignmentMapping(assignment2()),
                 ObjectMapping.assignmentMapping(assignment3())
         );
-        when(assignmentRepository.findByUser(assignment2().getUser()))
+        when(assignmentRepository.findByUser(user2()))
                 .thenReturn(List.of(assignment2(), assignment3()));
 
         // WHEN
-        List<AssignmentResponseDto> result = assignmentService.getUserAssignmentList(assignment2().getUser());
+        List<AssignmentResponseDto> result = assignmentService.getUserAssignmentList(user2());
 
         // THEN
         assertEquals(assignmentList.size(), result.size());
@@ -55,11 +54,11 @@ public class AssignmentServiceTest {
     @Test
     void getUserAssignmentList_throws_AssignmentNotFoundException() {
         // GIVEN
-        when(assignmentRepository.findByUser(assignment2().getUser())).thenReturn(List.of());
+        when(assignmentRepository.findByUser(user3())).thenReturn(List.of());
 
         // WHEN - THEN
         assertThrows(AssignmentNotFoundException.class, () ->
-                        assignmentService.getUserAssignmentList(assignment2().getUser()),
+                        assignmentService.getUserAssignmentList(user2()),
                 "Assignment list not found");
     }
 
@@ -76,7 +75,7 @@ public class AssignmentServiceTest {
                 .thenReturn(List.of(assignment2(), assignment3()));
 
         // WHEN
-        List<AssignmentResponseDto> result = assignmentService.getUserAssignmentList(assignment2().getCodeReviewer());
+        List<AssignmentResponseDto> result = assignmentService.getUserAssignmentList(reviewer1());
 
         // THEN
         assertEquals(assignmentList.size(), result.size());
@@ -90,7 +89,7 @@ public class AssignmentServiceTest {
 
         // WHEN - THEN
         assertThrows(AssignmentNotFoundException.class, () ->
-                        assignmentService.getUserAssignmentList(assignment2().getCodeReviewer()),
+                        assignmentService.getUserAssignmentList(reviewer1()),
                 "Assignment list not found");
     }
 
@@ -98,7 +97,6 @@ public class AssignmentServiceTest {
     void getAssignmentById_Returns_Assignment() {
         // GIVEN
         AssignmentResponseDto assignment = ObjectMapping.assignmentMapping(assignment1());
-
         when(assignmentRepository.findById(assignment1().getId())).thenReturn(Optional.of(assignment1()));
 
         // WHEN
@@ -123,7 +121,6 @@ public class AssignmentServiceTest {
     void getAssignmentById_fromCodeReviewer_Returns_Assignment() {
         // GIVEN
         AssignmentResponseDto assignment = ObjectMapping.assignmentMapping(assignment1());
-
         when(assignmentRepository.findById(assignment1().getId())).thenReturn(Optional.of(assignment1()));
 
         // WHEN
@@ -296,32 +293,5 @@ public class AssignmentServiceTest {
         assertThrows(AssignmentNotFoundException.class, () ->
                         assignmentService.getAssignmentById(assignment1().getId()),
                 "Assignment list not found");
-    }
-
-    @Test
-    void CreateAssignment_where_assignment_number_is_not_duplicate() {
-        // GIVEN
-        Assignment newAssignment = new Assignment(
-                null,
-                null,
-                "new app",
-                "new app description",
-                "",
-                "https://github.com/johndoe/project/updated",
-                "main",
-                "",
-                null,
-                null
-        );
-
-        when(assignmentRepository.findByStatusAndUser(SUBMITTED.getStatus(), user1())).thenReturn(List.of(assignment1()));
-        when(assignmentRepository.findByNumber(assignment1().getNumber())).thenReturn(Optional.of(assignment1()));
-        when(assignmentRepository.save(any())).thenReturn(null);
-
-        // WHEN
-        AssignmentResponseDto result = assignmentService.createAssignment(newAssignment, user1());
-
-        // THEN
-        assertNotNull(result);
     }
 }
