@@ -16,6 +16,7 @@ import java.util.List;
 
 @RestController
 public class ValidateSession {
+
     @Autowired
     private JWTUtils jwtUtils;
 

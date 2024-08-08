@@ -52,7 +52,7 @@ public class UserServiceTest {
     void getUserById_throws_UserNotFoundException() {
         // GIVEN
         Long userId = 0L;
-        when(userRepository.findById(0L)).thenReturn(Optional.empty());
+        when(userRepository.findById(userId)).thenReturn(Optional.empty());
 
         // WHEN - THEN
         assertThrows(UserNotFoundException.class, () ->
@@ -77,7 +77,11 @@ public class UserServiceTest {
                         "Orlando",
                         "FL",
                         "32835",
-                        Set.of(learner())
+                        Set.of(learner()),
+                        true,
+                        true,
+                        true,
+                        true
                 )
         );
 
@@ -93,7 +97,11 @@ public class UserServiceTest {
                 null,
                 null,
                 null,
-                null
+                null,
+                true,
+                true,
+                true,
+                true
         );
 
         when(userRepository.findById(user1().getId())).thenReturn(Optional.of(user1()));
@@ -125,7 +133,11 @@ public class UserServiceTest {
                 null,
                 null,
                 null,
-                null
+                null,
+                true,
+                true,
+                true,
+                true
         );
 
         when(userRepository.findById(user1().getId())).thenReturn(Optional.empty());

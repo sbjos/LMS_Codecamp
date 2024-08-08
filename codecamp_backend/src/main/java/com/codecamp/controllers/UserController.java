@@ -18,15 +18,15 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    @GetMapping("/api/user/{id}")
-    public ResponseEntity<UserResponseDto> getUserById(@PathVariable Long id) {
-        return new ResponseEntity<>(userService.getUserById(id), HttpStatus.OK);
+    @GetMapping("/api/user")
+    public ResponseEntity<UserResponseDto> getUserById(@AuthenticationPrincipal User user) {
+        return new ResponseEntity<>(userService.getUserById(user.getId()), HttpStatus.OK);
     }
 
-    @GetMapping("/api/admin/user/{username}")
-    public ResponseEntity<UserResponseDto> getUserByUsername(@PathVariable String username) {
-        return new ResponseEntity<>(userService.getUserByUsername(username), HttpStatus.OK);
-    }
+//    @GetMapping("/api/admin/user/{username}")
+//    public ResponseEntity<UserResponseDto> getUserByUsername(@PathVariable String username) {
+//        return new ResponseEntity<>(userService.getUserByUsername(username), HttpStatus.OK);
+//    }
 
     @PutMapping("/api/user")
     public ResponseEntity<UserResponseDto> updateUser(@RequestBody User update,

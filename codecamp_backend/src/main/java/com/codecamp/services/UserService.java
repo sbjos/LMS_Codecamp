@@ -23,20 +23,7 @@ public class UserService {
      * @return user details
      */
     public UserResponseDto getUserById(Long id) {
-        return userResponseMapping(userLookup(id));
-    }
-
-    /**
-     * Gets a user by username
-     * @param username
-     * @return
-     */
-    public UserResponseDto getUserByUsername(String username) {
-        Optional<User> user = Optional.ofNullable(userRepository.findByUsername(username).orElseThrow(
-                () -> new UserNotFoundException(String.format("user %s not found.", username)))
-        );
-
-        return userResponseMapping(user.get());
+        return userResponseMapping(userLookup(id).get());
     }
 
     /**
@@ -45,7 +32,7 @@ public class UserService {
      * @return the updated assignment
      */
     public UserResponseDto updateUser(Long id, User update) {
-        User user = userLookup(id);
+        User user = userLookup(id).get();
 
         Optional.ofNullable(update.getFirstname()).ifPresent(user::setFirstname);
         Optional.ofNullable(update.getLastname()).ifPresent(user::setLastname);
@@ -68,6 +55,11 @@ public class UserService {
      */
     public void createUser(User newUser) {
         newUser.setEncodedPassword(newUser.getPassword());
+        newUser.setAccountNonExpired(true);
+        newUser.setAccountNonLocked(true);
+        newUser.setCredentialsNonExpired(true);
+        newUser.setEnabled(true);
+
         userRepository.save(newUser);
     }
 
@@ -77,9 +69,9 @@ public class UserService {
      * @return user details
      * @throws UserNotFoundException user not found
      */
-    private User userLookup(Long id) {
-        return userRepository.findById(id).orElseThrow(
-                () -> new UserNotFoundException(String.format("user %s not found.", id))
+    private Optional<User> userLookup(Long id) {
+        return Optional.ofNullable(userRepository.findById(id).orElseThrow(
+                () -> new UserNotFoundException(String.format("user %s not found.", id)))
         );
     }
 }

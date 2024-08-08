@@ -50,11 +50,24 @@ public class User implements UserDetails {
     @JsonManagedReference
      private Set<Authority> authorities;
 
+    @Column(name = "account_non_expired")
+    private boolean accountNonExpired;
+
+    @Column(name = "account_non_locked")
+    private boolean accountNonLocked;
+
+    @Column(name = "credentials_non_expired")
+    private boolean credentialsNonExpired;
+
+    @Column
+    private boolean enabled;
+
     public User() {}
 
     public User(Long id, LocalDate cohortStartDate, String firstname, String lastname, String username,
-                String password, String address, String address2, String city, String state,
-                String zipcode, Set<Authority> authorities) {
+                String password, String address, String address2, String city, String state, String zipcode,
+                Set<Authority> authorities, boolean accountNonExpired, boolean accountNonLocked,
+                boolean credentialsNonExpired, boolean enabled) {
         this.id = id;
         this.cohortStartDate = cohortStartDate;
         this.firstname = firstname;
@@ -67,6 +80,10 @@ public class User implements UserDetails {
         this.state = state;
         this.zipcode = zipcode;
         this.authorities = authorities;
+        this.accountNonExpired = accountNonExpired;
+        this.accountNonLocked = accountNonLocked;
+        this.credentialsNonExpired = credentialsNonExpired;
+        this.enabled = enabled;
     }
 
     // To encode a password for a created user
@@ -154,6 +171,26 @@ public class User implements UserDetails {
         this.zipcode = zipcode;
     }
 
+    public void setAuthorities(Set<Authority> authorities) {
+        this.authorities = authorities;
+    }
+
+    public void setAccountNonExpired(boolean accountNonExpired) {
+        this.accountNonExpired = accountNonExpired;
+    }
+
+    public void setAccountNonLocked(boolean accountNonLocked) {
+        this.accountNonLocked = accountNonLocked;
+    }
+
+    public void setCredentialsNonExpired(boolean credentialsNonExpired) {
+        this.credentialsNonExpired = credentialsNonExpired;
+    }
+
+    public void setEnabled(boolean enabled) {
+        this.enabled = enabled;
+    }
+
     @Override
     public String getPassword() {
         return password;
@@ -166,21 +203,21 @@ public class User implements UserDetails {
 
     @Override
     public boolean isAccountNonExpired() {
-        return true;
+        return accountNonExpired;
     }
     @Override
     public boolean isAccountNonLocked() {
-        return true;
+        return accountNonLocked;
     }
 
     @Override
     public boolean isCredentialsNonExpired() {
-        return true;
+        return credentialsNonExpired;
     }
 
     @Override
     public boolean isEnabled() {
-        return true;
+        return enabled;
     }
 
     @Override

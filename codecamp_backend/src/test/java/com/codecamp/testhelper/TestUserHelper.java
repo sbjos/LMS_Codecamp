@@ -26,7 +26,12 @@ public final class TestUserHelper {
                 "Orlando",
                 "FL",
                 "32835",
-                Set.of(learner())
+                Set.of(learner()),
+                true,
+                true,
+                true,
+                true
+
         );
     }
 
@@ -43,7 +48,11 @@ public final class TestUserHelper {
                 "Sanford",
                 "FL",
                 "32771",
-                Set.of(learner())
+                Set.of(learner()),
+                true,
+                true,
+                true,
+                true
         );
     }
 
@@ -60,7 +69,11 @@ public final class TestUserHelper {
                 "Memphis",
                 "TN",
                 "32771",
-                Set.of(learner())
+                Set.of(learner()),
+                true,
+                true,
+                true,
+                true
         );
     }
 
@@ -77,7 +90,11 @@ public final class TestUserHelper {
                 "Auburndale",
                 "FL",
                 "33823",
-                Set.of(reviewer())
+                Set.of(reviewer()),
+                true,
+                true,
+                true,
+                true
         );
     }
 }
