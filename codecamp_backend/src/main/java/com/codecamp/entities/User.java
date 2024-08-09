@@ -2,16 +2,18 @@ package com.codecamp.entities;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.codecamp.config.CustomPasswordEncoder;
+import jakarta.persistence.*;
+import org.springframework.data.relational.core.mapping.Table;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import jakarta.persistence.*;
 import java.time.LocalDate;
 import java.util.*;
 
 @Entity
 @Table(name = "users")
 public class User implements UserDetails {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -31,24 +33,17 @@ public class User implements UserDetails {
     @Column
     private String password;
 
-    @Column
-    private String address;
-
-    @Column
-    private String address2;
-
-    @Column
-    private String city;
-
-    @Column
-    private String state;
-
-    @Column(name = "zip_code")
-    private String zipcode;
-
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JsonManagedReference
      private Set<Authority> authorities;
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JsonManagedReference
+     private Contact contact;
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JsonManagedReference
+     private Address address;
 
     @Column(name = "account_non_expired")
     private boolean accountNonExpired;
@@ -65,38 +60,25 @@ public class User implements UserDetails {
     public User() {}
 
     public User(Long id, LocalDate cohortStartDate, String firstname, String lastname, String username,
-                String password, String address, String address2, String city, String state, String zipcode,
-                Set<Authority> authorities, boolean accountNonExpired, boolean accountNonLocked,
-                boolean credentialsNonExpired, boolean enabled) {
+                String password, Set<Authority> authorities, Contact contact, Address address,
+                boolean accountNonExpired, boolean accountNonLocked, boolean credentialsNonExpired, boolean enabled) {
         this.id = id;
         this.cohortStartDate = cohortStartDate;
         this.firstname = firstname;
         this.lastname = lastname;
         this.username = username;
         this.password = password;
-        this.address = address;
-        this.address2 = address2;
-        this.city = city;
-        this.state = state;
-        this.zipcode = zipcode;
         this.authorities = authorities;
+        this.contact = contact;
+        this.address = address;
         this.accountNonExpired = accountNonExpired;
         this.accountNonLocked = accountNonLocked;
         this.credentialsNonExpired = credentialsNonExpired;
         this.enabled = enabled;
     }
 
-    // To encode a password for a created user
-    public void setEncodedPassword(String password) {
-        this.password = new CustomPasswordEncoder().getPasswordEncoder().encode(password);
-    }
-
     public Long getId() {
         return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
     }
 
     public LocalDate getCohortStartDate() {
@@ -127,52 +109,28 @@ public class User implements UserDetails {
         this.username = username;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
-    public String getAddress2() {
-        return address2;
-    }
-
-    public void setAddress2(String address2) {
-        this.address2 = address2;
-    }
-
-    public String getCity() {
-        return city;
-    }
-
-    public void setCity(String city) {
-        this.city = city;
-    }
-
-    public String getState() {
-        return state;
-    }
-
-    public void setState(String state) {
-        this.state = state;
-    }
-
-    public String getZipcode() {
-        return zipcode;
-    }
-
-    public void setZipcode(String zipcode) {
-        this.zipcode = zipcode;
+    public void setEncodedPassword(String password) {
+        this.password = new CustomPasswordEncoder().getPasswordEncoder().encode(password);
     }
 
     public void setAuthorities(Set<Authority> authorities) {
         this.authorities = authorities;
+    }
+
+    public Contact getContact() {
+        return contact;
+    }
+
+    public void setContact(Contact contact) {
+        this.contact = contact;
+    }
+
+    public Address getAddress() {
+        return address;
+    }
+
+    public void setAddress(Address address) {
+        this.address = address;
     }
 
     public void setAccountNonExpired(boolean accountNonExpired) {

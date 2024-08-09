@@ -6,8 +6,10 @@ import org.springframework.boot.test.context.SpringBootTest;
 import java.time.LocalDate;
 import java.util.Set;
 
+import static com.codecamp.testhelper.TestAddressHelper.*;
 import static com.codecamp.testhelper.TestAuthorityHelper.*;
 import static com.codecamp.testhelper.TestAuthorityHelper.learner;
+import static com.codecamp.testhelper.TestContactHelper.*;
 
 // Test helper class
 @SpringBootTest
@@ -21,12 +23,9 @@ public final class TestUserHelper {
                 "Doe",
                 "user1",
                 "password",
-                "123 Main st",
-                "password",
-                "Orlando",
-                "FL",
-                "32835",
                 Set.of(learner()),
+                contactUser1(),
+                addressUser1(),
                 true,
                 true,
                 true,
@@ -43,12 +42,9 @@ public final class TestUserHelper {
                 "Smith",
                 "user2",
                 "password",
-                "456 Main st",
-                "password",
-                "Sanford",
-                "FL",
-                "32771",
                 Set.of(learner()),
+                contactUser2(),
+                addressUser2(),
                 true,
                 true,
                 true,
@@ -64,12 +60,9 @@ public final class TestUserHelper {
                 "Vann Damme",
                 "user3",
                 "password",
-                "789 Main st",
-                "password",
-                "Memphis",
-                "TN",
-                "32771",
                 Set.of(learner()),
+                contactUser3(),
+                addressUser3(),
                 true,
                 true,
                 true,
@@ -85,12 +78,9 @@ public final class TestUserHelper {
                 "Scott",
                 "reviewer",
                 "password",
-                "147 Main st",
-                "password",
-                "Auburndale",
-                "FL",
-                "33823",
                 Set.of(reviewer()),
+                contactReviewer1(),
+                addressReviewer1(),
                 true,
                 true,
                 true,

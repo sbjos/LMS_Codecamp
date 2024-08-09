@@ -2,8 +2,8 @@ package com.codecamp.entities;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import org.springframework.security.core.GrantedAuthority;
-
 import jakarta.persistence.*;
+import org.springframework.data.relational.core.mapping.Table;
 import java.util.Objects;
 
 @Entity
@@ -21,6 +21,11 @@ public class Authority implements GrantedAuthority {
     private User user;
 
     public Authority() {}
+
+    public Authority(Long id, String authority) {
+        this.id = id;
+        this.authority = authority;
+    }
 
     public Authority(String authority) {
         this.authority = authority;
@@ -49,12 +54,12 @@ public class Authority implements GrantedAuthority {
         if (this == o) return true;
         if (o == null || this.getClass() != o.getClass()) return false;
         Authority that = (Authority) o;
-        return Objects.equals(this.authority, that.authority) &&
+        return Objects.equals(this.id, that.id) &&
                 Objects.equals(this.user, that.user);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(this.authority, this.user);
+        return Objects.hash(this.id, this.user);
     }
 }

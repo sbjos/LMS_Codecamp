@@ -1,6 +1,7 @@
 package com.codecamp.entities;
 
 import jakarta.persistence.*;
+import org.springframework.data.relational.core.mapping.Table;
 import java.util.Objects;
 
 @Entity
@@ -58,10 +59,6 @@ public class Assignment {
 
     public Long getId() {
         return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
     }
 
     public Integer getNumber() {

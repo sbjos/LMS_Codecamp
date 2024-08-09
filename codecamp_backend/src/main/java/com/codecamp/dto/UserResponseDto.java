@@ -1,5 +1,7 @@
 package com.codecamp.dto;
 
+import com.codecamp.entities.Address;
+import com.codecamp.entities.Contact;
 import org.springframework.security.core.GrantedAuthority;
 
 import java.time.LocalDate;
@@ -13,11 +15,8 @@ public class UserResponseDto {
     private String lastname;
     private String username;
     private Set<GrantedAuthority> authorities;
-    private String address;
-    private String address2;
-    private String city;
-    private String state;
-    private String zipcode;
+    private Contact contact;
+    private Address address;
     private boolean accountNonExpired;
     private boolean accountNonLocked;
     private boolean credentialsNonExpired;
@@ -26,20 +25,16 @@ public class UserResponseDto {
     public UserResponseDto() {}
 
     public UserResponseDto(Long id, LocalDate cohortStartDate, String firstname, String lastname,
-                           String username, Set<GrantedAuthority> authorities, String address, String address2, String city, String state,
-                           String zipcode, boolean accountNonExpired,
-                           boolean accountNonLocked, boolean credentialsNonExpired, boolean enabled) {
+                           String username, Set<GrantedAuthority> authorities, Contact contact, Address address,
+                           boolean accountNonExpired, boolean accountNonLocked, boolean credentialsNonExpired, boolean enabled) {
         this.id = id;
         this.cohortStartDate = cohortStartDate;
         this.firstname = firstname;
         this.lastname = lastname;
         this.username = username;
         this.authorities = authorities;
+        this.contact = contact;
         this.address = address;
-        this.address2 = address2;
-        this.city = city;
-        this.state = state;
-        this.zipcode = zipcode;
         this.accountNonExpired = accountNonExpired;
         this.accountNonLocked = accountNonLocked;
         this.credentialsNonExpired = credentialsNonExpired;
@@ -94,44 +89,20 @@ public class UserResponseDto {
         this.authorities = authorities;
     }
 
-    public String getAddress() {
+    public Contact getContact() {
+        return contact;
+    }
+
+    public void setContact(Contact contact) {
+        this.contact = contact;
+    }
+
+    public Address getAddress() {
         return address;
     }
 
-    public void setAddress(String address) {
+    public void setAddress(Address address) {
         this.address = address;
-    }
-
-    public String getAddress2() {
-        return address2;
-    }
-
-    public void setAddress2(String address2) {
-        this.address2 = address2;
-    }
-
-    public String getCity() {
-        return city;
-    }
-
-    public void setCity(String city) {
-        this.city = city;
-    }
-
-    public String getState() {
-        return state;
-    }
-
-    public void setState(String state) {
-        this.state = state;
-    }
-
-    public String getZipcode() {
-        return zipcode;
-    }
-
-    public void setZipcode(String zipcode) {
-        this.zipcode = zipcode;
     }
 
     public boolean isAccountNonExpired() {
@@ -174,12 +145,9 @@ public class UserResponseDto {
                 ", firstname='" + firstname + '\'' +
                 ", lastname='" + lastname + '\'' +
                 ", username='" + username + '\'' +
-                ", address='" + address + '\'' +
-                ", address2='" + address2 + '\'' +
-                ", city='" + city + '\'' +
-                ", state='" + state + '\'' +
-                ", zipcode='" + zipcode + '\'' +
                 ", authorities=" + authorities +
+                ", contact=" + contact +
+                ", address=" + address +
                 ", accountNonExpired=" + accountNonExpired +
                 ", accountNonLocked=" + accountNonLocked +
                 ", credentialsNonExpired=" + credentialsNonExpired +

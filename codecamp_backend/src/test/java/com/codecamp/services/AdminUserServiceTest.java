@@ -1,6 +1,8 @@
 package com.codecamp.services;
 
 import com.codecamp.dto.UserResponseDto;
+import com.codecamp.entities.Address;
+import com.codecamp.entities.Contact;
 import com.codecamp.entities.User;
 import com.codecamp.exceptions.UserNotFoundException;
 import com.codecamp.repositories.UserRepository;
@@ -15,7 +17,9 @@ import java.time.LocalDate;
 import java.util.Optional;
 import java.util.Set;
 
+import static com.codecamp.testhelper.TestAddressHelper.addressUser1;
 import static com.codecamp.testhelper.TestAuthorityHelper.learner;
+import static com.codecamp.testhelper.TestContactHelper.contactUser1;
 import static com.codecamp.testhelper.TestUserHelper.user1;
 import static com.codecamp.utils.ObjectMapping.userResponseMapping;
 import static org.junit.jupiter.api.Assertions.*;
@@ -64,6 +68,21 @@ public class AdminUserServiceTest {
     @Test
     void updateUser_return_updated_User() {
         // GIVEN
+        Contact contactUpdated = new Contact(
+                null,
+                "+1-401-145-6325",
+                "change@mail.com"
+        );
+
+        Address addressUpdated = new Address(
+                null,
+                "1212 Main st",
+                "apt 515",
+                "Orlando",
+                "FL",
+                "32835"
+        );
+
         UserResponseDto updatedUser = userResponseMapping(
                 new User(
                         1L,
@@ -71,13 +90,10 @@ public class AdminUserServiceTest {
                         "John",
                         "Doe",
                         "user1",
-                        "new-password",     // change of password
-                        "1212 Main st",     // change of address
-                        "apt 515",          // change of address
-                        "Orlando",
-                        "FL",
-                        "32835",
+                        "new-password",
                         Set.of(learner()),
+                        contactUpdated,
+                        addressUpdated,
                         true,
                         true,
                         true,
@@ -91,13 +107,10 @@ public class AdminUserServiceTest {
                 null,
                 null,
                 null,
-                "new-password",
-                "1212 Main st",     // change of address
-                "apt 515",          // change of address
                 null,
                 null,
-                null,
-                null,
+                contactUpdated,
+                addressUpdated,
                 true,
                 true,
                 true,
@@ -110,10 +123,9 @@ public class AdminUserServiceTest {
         UserResponseDto result = adminUserService.updateUser(user1().getUsername(), userUpdate);
 
         // THEN
-        assertEquals(updatedUser.getId(), result.getId());
         assertEquals(updatedUser.getUsername(), result.getUsername());
+        assertEquals(updatedUser.getContact(), result.getContact());
         assertEquals(updatedUser.getAddress(), result.getAddress());
-        assertEquals(updatedUser.getAddress2(), result.getAddress2());
     }
 
     @Test
@@ -127,12 +139,9 @@ public class AdminUserServiceTest {
                         "Doe",
                         "user1",
                         "password",
-                        "123 Main st",
-                        "password",
-                        "Orlando",
-                        "FL",
-                        "32835",
                         Set.of(learner()),
+                        contactUser1(),
+                        addressUser1(),
                         true,
                         true,
                         true,
@@ -141,10 +150,7 @@ public class AdminUserServiceTest {
         );
 
         User userUpdate = new User(
-                null,
-                null,
-                null,
-                null,
+                1L,
                 null,
                 null,
                 null,
@@ -165,10 +171,7 @@ public class AdminUserServiceTest {
         UserResponseDto result = adminUserService.updateUserSettings(user1().getUsername(), userUpdate);
 
         // THEN
-        assertEquals(updatedUser.getId(), result.getId());
         assertEquals(updatedUser.getUsername(), result.getUsername());
-        assertEquals(updatedUser.getAddress(), result.getAddress());
-        assertEquals(updatedUser.getAddress2(), result.getAddress2());
         assertEquals(updatedUser.isEnabled(), result.isEnabled());
     }
 
@@ -182,9 +185,6 @@ public class AdminUserServiceTest {
                 null,
                 null,
                 null,
-                "new-password",
-                "1212 Main st",     // change of address
-                "apt 515",          // change of address
                 null,
                 null,
                 null,

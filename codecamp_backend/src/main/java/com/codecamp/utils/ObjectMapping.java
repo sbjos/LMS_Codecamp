@@ -68,11 +68,8 @@ public class ObjectMapping {
         dto.setLastname(user.getLastname());
         dto.setUsername(user.getUsername());
         dto.setAuthorities(new HashSet<>(user.getAuthorities()));
+        dto.setContact(user.getContact());
         dto.setAddress(user.getAddress());
-        dto.setAddress2(user.getAddress2());
-        dto.setCity(user.getCity());
-        dto.setState(user.getState());
-        dto.setZipcode(user.getZipcode());
         dto.setAccountNonExpired(user.isAccountNonExpired());
         dto.setAccountNonLocked(user.isAccountNonLocked());
         dto.setCredentialsNonExpired(user.isCredentialsNonExpired());

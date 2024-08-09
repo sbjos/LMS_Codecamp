@@ -1,6 +1,8 @@
 package com.codecamp.services;
 
 import com.codecamp.dto.UserResponseDto;
+import com.codecamp.entities.Address;
+import com.codecamp.entities.Contact;
 import com.codecamp.entities.User;
 import com.codecamp.exceptions.UserNotFoundException;
 import com.codecamp.repositories.UserRepository;
@@ -64,6 +66,21 @@ public class UserServiceTest {
     @Test
     void updateUser_return_updated_User() {
         // GIVEN
+        Contact contactUpdated = new Contact(
+                null,
+                "+1-401-145-6325",
+                "change@mail.com"
+        );
+
+        Address addressUpdated = new Address(
+                null,
+                "1212 Main st",
+                "apt 515",
+                "Orlando",
+                "FL",
+                "32835"
+        );
+
         UserResponseDto updatedUser = userResponseMapping(
                 new User(
                         1L,
@@ -72,12 +89,9 @@ public class UserServiceTest {
                         "Doe",
                         "user1",
                         "new-password",     // change of password
-                        "1212 Main st",     // change of address
-                        "apt 515",          // change of address
-                        "Orlando",
-                        "FL",
-                        "32835",
                         Set.of(learner()),
+                        contactUpdated,
+                        addressUpdated,
                         true,
                         true,
                         true,
@@ -91,13 +105,10 @@ public class UserServiceTest {
                 null,
                 null,
                 null,
-                "new-password",
-                "1212 Main st",     // change of address
-                "apt 515",          // change of address
                 null,
                 null,
-                null,
-                null,
+                contactUpdated,
+                addressUpdated,
                 true,
                 true,
                 true,
@@ -112,13 +123,28 @@ public class UserServiceTest {
         // THEN
         assertEquals(updatedUser.getId(), result.getId());
         assertEquals(updatedUser.getUsername(), result.getUsername());
+        assertEquals(updatedUser.getContact(), result.getContact());
         assertEquals(updatedUser.getAddress(), result.getAddress());
-        assertEquals(updatedUser.getAddress2(), result.getAddress2());
     }
 
     @Test
     void updateUser_throws_UserNotFoundException() {
         // GIVEN
+        Contact contactUpdated = new Contact(
+                null,
+                "+1-401-145-6325",
+                "change@mail.com"
+        );
+
+        Address addressUpdated = new Address(
+                null,
+                "1212 Main st",
+                "apt 515",
+                "Orlando",
+                "FL",
+                "32835"
+        );
+
         Long userId = 0L;
         User userUpdate = new User(
                 null,
@@ -126,13 +152,10 @@ public class UserServiceTest {
                 null,
                 null,
                 null,
-                "new-password",
-                "1212 Main st",     // change of address
-                "apt 515",          // change of address
                 null,
                 null,
-                null,
-                null,
+                contactUpdated,
+                addressUpdated,
                 true,
                 true,
                 true,
