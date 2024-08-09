@@ -45,7 +45,7 @@ public class UserServiceTest {
         UserResponseDto result = userService.getUserById(user1().getId());
 
         // THEN
-        assertEquals(user.getUser().getUsername(), result.getUser().getUsername());
+        assertEquals(user.getUsername(), result.getUsername());
     }
 
     @Test
@@ -110,11 +110,10 @@ public class UserServiceTest {
         UserResponseDto result = userService.updateUser(user1().getId(), userUpdate);
 
         // THEN
-        assertEquals(updatedUser.getUser().getId(), result.getUser().getId());
-        assertEquals(updatedUser.getUser().getUsername(), result.getUser().getUsername());
-        assertNotNull(result.getUser().getPassword());
-        assertEquals(updatedUser.getUser().getAddress(), result.getUser().getAddress());
-        assertEquals(updatedUser.getUser().getAddress2(), result.getUser().getAddress2());
+        assertEquals(updatedUser.getId(), result.getId());
+        assertEquals(updatedUser.getUsername(), result.getUsername());
+        assertEquals(updatedUser.getAddress(), result.getAddress());
+        assertEquals(updatedUser.getAddress2(), result.getAddress2());
     }
 
     @Test

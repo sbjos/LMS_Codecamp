@@ -46,7 +46,6 @@ public class AdminUserService {
         Optional.ofNullable(update.getFirstname()).ifPresent(user::setFirstname);
         Optional.ofNullable(update.getLastname()).ifPresent(user::setLastname);
         Optional.ofNullable(update.getUsername()).ifPresent(user::setUsername);
-        Optional.ofNullable(update.getPassword()).ifPresent(user::setEncodedPassword);
         Optional.ofNullable(update.getAddress()).ifPresent(user::setAddress);
         Optional.ofNullable(update.getAddress2()).ifPresent(user::setAddress2);
         Optional.ofNullable(update.getCity()).ifPresent(user::setCity);
@@ -63,7 +62,7 @@ public class AdminUserService {
      * @param username a user's username
      * @param userAccessUpdate user access update
      */
-    public void updateUserSettings(String username, User userAccessUpdate) {
+    public UserResponseDto updateUserSettings(String username, User userAccessUpdate) {
         User user = userLookup(username).get();
 
         Optional.of(userAccessUpdate.isAccountNonExpired()).ifPresent(user::setAccountNonExpired);
@@ -72,6 +71,8 @@ public class AdminUserService {
         Optional.of(userAccessUpdate.isEnabled()).ifPresent(user::setEnabled);
 
         userRepository.save(user);
+
+        return userResponseMapping(user);
     }
 
     /**

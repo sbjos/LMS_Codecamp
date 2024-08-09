@@ -60,6 +60,24 @@ public class ObjectMapping {
      * @return a DTO object
      */
     public static UserResponseDto userResponseMapping(User user) {
-        return new UserResponseDto(user);
+        UserResponseDto dto = new UserResponseDto();
+
+        dto.setId(user.getId());
+        dto.setCohortStartDate(user.getCohortStartDate());
+        dto.setFirstname(user.getFirstname());
+        dto.setLastname(user.getLastname());
+        dto.setUsername(user.getUsername());
+        dto.setAuthorities(new HashSet<>(user.getAuthorities()));
+        dto.setAddress(user.getAddress());
+        dto.setAddress2(user.getAddress2());
+        dto.setCity(user.getCity());
+        dto.setState(user.getState());
+        dto.setZipcode(user.getZipcode());
+        dto.setAccountNonExpired(user.isAccountNonExpired());
+        dto.setAccountNonLocked(user.isAccountNonLocked());
+        dto.setCredentialsNonExpired(user.isCredentialsNonExpired());
+        dto.setEnabled(user.isEnabled());
+
+        return dto;
     }
 }

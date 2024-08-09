@@ -45,7 +45,7 @@ public class AdminUserServiceTest {
         UserResponseDto result = adminUserService.getUserByUsername(user1().getUsername());
 
         // THEN
-        assertEquals(user.getUser().getUsername(), result.getUser().getUsername());
+        assertEquals(user.getUsername(), result.getUsername());
     }
 
     @Test
@@ -110,15 +110,14 @@ public class AdminUserServiceTest {
         UserResponseDto result = adminUserService.updateUser(user1().getUsername(), userUpdate);
 
         // THEN
-        assertEquals(updatedUser.getUser().getId(), result.getUser().getId());
-        assertEquals(updatedUser.getUser().getUsername(), result.getUser().getUsername());
-        assertNotNull(result.getUser().getPassword());
-        assertEquals(updatedUser.getUser().getAddress(), result.getUser().getAddress());
-        assertEquals(updatedUser.getUser().getAddress2(), result.getUser().getAddress2());
+        assertEquals(updatedUser.getId(), result.getId());
+        assertEquals(updatedUser.getUsername(), result.getUsername());
+        assertEquals(updatedUser.getAddress(), result.getAddress());
+        assertEquals(updatedUser.getAddress2(), result.getAddress2());
     }
 
     @Test
-    void updateUser_set_Account_to_Disabled_return_updated_User() {
+    void updateUserSettings_set_Account_to_Disabled_return_updated_User() {
         // GIVEN
         UserResponseDto updatedUser = userResponseMapping(
                 new User(
@@ -127,9 +126,9 @@ public class AdminUserServiceTest {
                         "John",
                         "Doe",
                         "user1",
-                        "new-password",     // change of password
-                        "1212 Main st",     // change of address
-                        "apt 515",          // change of address
+                        "password",
+                        "123 Main st",
+                        "password",
                         "Orlando",
                         "FL",
                         "32835",
@@ -147,9 +146,9 @@ public class AdminUserServiceTest {
                 null,
                 null,
                 null,
-                "new-password",
-                "1212 Main st",     // change of address
-                "apt 515",          // change of address
+                null,
+                null,
+                null,
                 null,
                 null,
                 null,
@@ -163,15 +162,14 @@ public class AdminUserServiceTest {
         when(userRepository.findByUsername(user1().getUsername())).thenReturn(Optional.of(user1()));
 
         // WHEN
-        UserResponseDto result = adminUserService.updateUser(user1().getUsername(), userUpdate);
+        UserResponseDto result = adminUserService.updateUserSettings(user1().getUsername(), userUpdate);
 
         // THEN
-        assertEquals(updatedUser.getUser().getId(), result.getUser().getId());
-        assertEquals(updatedUser.getUser().getUsername(), result.getUser().getUsername());
-        assertNotNull(result.getUser().getPassword());
-        assertEquals(updatedUser.getUser().getAddress(), result.getUser().getAddress());
-        assertEquals(updatedUser.getUser().getAddress2(), result.getUser().getAddress2());
-        assertEquals(updatedUser.getUser().isEnabled(), result.getUser().isEnabled());
+        assertEquals(updatedUser.getId(), result.getId());
+        assertEquals(updatedUser.getUsername(), result.getUsername());
+        assertEquals(updatedUser.getAddress(), result.getAddress());
+        assertEquals(updatedUser.getAddress2(), result.getAddress2());
+        assertEquals(updatedUser.isEnabled(), result.isEnabled());
     }
 
     @Test

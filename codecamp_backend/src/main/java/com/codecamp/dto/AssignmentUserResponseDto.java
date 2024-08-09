@@ -11,7 +11,7 @@ public class AssignmentUserResponseDto {
     private LocalDate cohortStartDate;
     private String firstname;
     private String lastname;
-    private String username; // Holds the email address
+    private String username;
     private Set<GrantedAuthority> authorities;
 
     public AssignmentUserResponseDto() {}
