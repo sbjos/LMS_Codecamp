@@ -191,15 +191,46 @@
           }
 
           .card-title-custom {
-            margin-bottom: 0px;
+            font-size: 15px;
+            margin: auto;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+          }
+
+          .card-list-group-custom {
+            flex-wrap: nowrap !important;
+            word-wrap: break-word !important;
+          }
+
+          .list-group-item-custom {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
           }
 
           .card-text-custom,
           .list-group-item-custom-branch {
-            display: none;
+            display: none !important;
           }
 
-          .list-group-item-custom,
+          .list-group-item-custom {
+            flex-wrap: nowrap !important;
+            word-wrap: break-word !important;
+          }
+          .list-group-item-custom {
+            flex-wrap: nowrap !important;
+            word-wrap: break-word !important;
+          }
+          .list-group-item-custom {
+            flex-wrap: nowrap !important;
+            word-wrap: break-word !important;
+          }
+          .list-group-item-custom {
+            flex-wrap: nowrap !important;
+            word-wrap: break-word !important;
+          }
+
           .card-body-link-custom {
             padding: 4px 15.2px;
             display: flex;

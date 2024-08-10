@@ -45,10 +45,10 @@ function LearnerMapping(assignments) {
                 Github link
               </a>
             </li>
-            <li className="list-group-item list-group-item-custom-branch">
+            <li className="list-group-item list-group-item-custom list-group-item-custom-branch">
               {assignment.branch}
             </li>
-            <li className="list-group-item list-group-item-custom">
+            <li className="list-group-item list-group-item-custom list-group-item-custom-reviewer">
               {assignment.codeReviewer
                 ? assignment.codeReviewer.firstname +
                   " " +
