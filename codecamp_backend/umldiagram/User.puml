@@ -1,0 +1,94 @@
+@startuml
+
+left to right direction
+'skinparam linetype polyline
+'skinparam linetype ortho
+
+package config {
+    class SecurityConfig {
+        - userDetailServiceImpl: UserDetailServiceImpl
+        - customPasswordEncoder: CustomPasswordEncoder
+    }
+}
+
+package controllers {
+    class AssignmentResponseDto
+    class AuthCredentialRequest
+}
+
+package entities {
+    class Authority {
+        - id: long
+        - authority: String
+        - user: User
+    }
+
+    class User {
+        - id: long
+        - cohortStartDate: Date
+        - username: String
+        - password: String
+        - authorities: List<Authority>
+    }
+
+    class Assignment {
+        - id: long
+        - status: String
+        - number: int
+        - githubUrl: String
+        - branch: String
+        - reviewVideoUrl: String
+        - user: User
+        - codeReviewer: User
+    }
+}
+
+package enums {
+    enum AssignmentEnum {
+        CREATE
+        EDIT
+        VIEW
+        CLAIM
+        REVIEW
+        COMPLETE
+        REJECTED
+        RECLAIM
+    }
+
+    enum AssignmentStatusEnum {
+        IN_REVIEW
+        REVISION
+        COMPLETED
+    }
+
+    enum AuthorityEnum {
+        STUDENT
+        INSTRUCTOR
+    }
+}
+
+package exceptions {
+    class ResourceNotFoundException
+}
+
+package repositories {
+        interface AssignmentRepository
+        interface AuthorityRepository
+        interface UserRepository
+}
+
+package services {
+    class UserDetailServiceImpl {
+        - passwordEncoder: CustomPasswordEncoder
+    }
+}
+
+package utils {
+    class CustomPasswordEncoder {
+        - passwordEncoder: PasswordEncoder
+    }
+
+    class JWTUtils
+}
+
+@enduml

@@ -1,0 +1,60 @@
+.profile-root {
+  display: grid;
+  grid-template-rows: repeat(3);
+}
+
+.profile-section-1 {
+  display: grid;
+  grid-template-rows: 50px;
+}
+
+.profile-section-2 {
+  display: grid;
+  grid-template-rows: repeat(4);
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-areas:
+    "a b c"
+    "d e f"
+    "g h i"
+    "j k l";
+  gap: 20px;
+  padding: 55px 0;
+  background: var(--background-color-3);
+
+  .profile-label p {
+    margin: 10px 15px;
+  }
+
+  .separation-line {
+    color: white;
+    width: 75%;
+  }
+
+  .label-container {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid rgb(228, 227, 227);
+    margin-bottom: 10px;
+
+    p {
+        padding: 5px;
+    }
+  }
+
+  .profile-personal {
+    grid-area: b;
+  }
+
+  .profile-address {
+    grid-area: e;
+  }
+
+  .profile-contact {
+    grid-area: h;
+  }
+}
+
+.profile-section-3 {
+  display: grid;
+  grid-template-rows: 50px;
+}

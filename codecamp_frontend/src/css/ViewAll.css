@@ -1,0 +1,138 @@
+.viewall-root {
+  display: grid;
+  grid-template-rows: repeat(3);
+}
+
+.viewall-section-1 {
+  display: grid;
+  grid-template-rows: 53px;
+}
+
+.viewall-section-2 {
+  display: grid;
+  grid-template-columns: repeat(3);
+  grid-template-rows: 65px 67.79vh;
+  grid-template-areas:
+    "a b c"
+    "d e f";
+  background: var(--background-color-2);
+
+  .title {
+    padding: 15px;
+    grid-area: b;
+    font-size: 1.5em;
+  }
+
+  .assignment-table {
+    grid-area: e;
+    width: 100%;
+    border-collapse: collapse;
+    border-radius: 5px;
+    height: min-content;
+
+    .viewall-name-desktop {
+      font-weight: 600;
+    }
+
+    .viewall-name-mobile {
+      display: none;
+    }
+
+    .viewall-feedback {
+      padding: 0;
+
+      a {
+        padding: 0;
+      }
+    }
+
+    th,
+    td {
+      padding: 10px 20px;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .assignment-table-submitted {
+      background-color: var(--submitted-card-color);
+      color: white;
+    }
+
+    .assignment-table-inreview {
+      background-color: var(--inreview-card-color);
+      color: white;
+    }
+
+    .assignment-table-needswork {
+      background-color: var(--needswork-card-color);
+      color: white;
+    }
+
+    .assignment-table-completed {
+      background-color: var(--completed-card-color);
+      color: white;
+    }
+
+    tbody {
+      font-family: Optimist, Helvetica Neue, Helvetica, Arial, sans-serif;
+    }
+  }
+}
+
+.viewall-section-3 {
+  display: grid;
+  grid-template-rows: 53px;
+}
+
+@media screen and (max-width: 991px) {
+  .viewall-description {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 679px) {
+  .assignment-table {
+    grid-area: b;
+  }
+
+  .viewall-reviewer {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 619px) {
+  .title {
+    text-align: center;
+  }
+
+  .viewall-branch {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 449px) {
+  .viewall-section-2 {
+    .viewall-github,
+    .viewall-feedback,
+    .viewall-name-desktop {
+      display: none;
+    }
+
+    .assignment-table {
+      .viewall-name-mobile {
+        display: flex;
+        font-weight: 600;
+      }
+    }
+  }
+
+  .viewall-button {
+    padding: 0 !important;
+    height: 42.8px;
+
+    .btn-viewall {
+      padding: 0 10px;
+      font-size: 0.85em !important;
+      text-decoration: none !important;
+    }
+  }
+}

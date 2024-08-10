@@ -1,0 +1,56 @@
+.modal-content-custom {
+  padding: 15px 15px 25px;
+
+  .modal-header-custom {
+    display: inline-block;
+
+    .modal-title-custom {
+      font-size: 1.45em;
+      margin-bottom: 10px;
+      font-weight: 600;
+      color: var(--text-color);
+    }
+
+    .modal-label-description {
+      font-size: 1.05em;
+      margin-bottom: 30px;
+      font-weight: 400;
+    }
+
+    .modal-label-status {
+      font-size: 1.1em;
+      margin: 0;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+
+    .modal-description-custom {
+      color: var(--text-color);
+    }
+  }
+
+  .btn-custom {
+    width: 100%;
+    font-size: 1.05em;
+  }
+}
+
+.input-text-video-url-custom {
+  background: #e9ecef !important;
+  box-shadow: none !important;
+}
+
+.modal-form-input-custom {
+  ::placeholder {
+    color: black !important;
+  }
+}
+
+.form-label-custom {
+  display: inline-flex;
+  font-weight: 500;
+
+  .modal-click-here-dithuburl {
+    font-weight: 1.05em;
+  }
+}
