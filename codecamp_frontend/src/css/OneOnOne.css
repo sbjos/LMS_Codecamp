@@ -11,12 +11,12 @@
 
 .oneonone-section-2 {
   display: grid;
-  grid-template-columns: minmax(100px, 500px) minmax(100px, 500px);
+  grid-template-columns: minmax(100px, 450px) minmax(100px, 500px);
   grid-template-areas: "a b";
   justify-content: center;
-  padding: 50px 5%;
+  padding: 60px 5%;
   gap: 5%;
-  background-color: var(--background-color);
+  background: var(--background-color-1);
 
   .oneonone-form-control-timezone-dropdown-mobile {
     display: none;
@@ -25,18 +25,20 @@
   .oneonone-banner-section {
     grid-area: a;
     margin: 55px auto;
+    color: white;
 
     .oneonone-banner-header {
       margin-bottom: 2.5em;
 
       .oneonone-header {
         font-size: 2.5em;
+        font-weight: 500;
       }
     }
 
     .oneonone-banner-body {
       p {
-        padding: 10px 0;
+        padding: 5px 0;
       }
     }
   }
@@ -46,7 +48,7 @@
     margin: auto;
     padding: 40px 30px;
     border-radius: 15px;
-    background-color: hsla(0, 0%, 100%, 0.918);
+    background: white;
 
     .oneonone-form-header {
       margin-bottom: 2em;
@@ -74,7 +76,7 @@
   }
 }
 
-.section-3 {
+.oneonone-section-3 {
   display: grid;
   grid-template-rows: 70px;
 }

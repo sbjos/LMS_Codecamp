@@ -99,6 +99,7 @@ function LearnerViewAllCompleted() {
             </tbody>
           </table>
         </section>
+        <section className="viewall-section-3"></section>
       </div>
     </>
   );

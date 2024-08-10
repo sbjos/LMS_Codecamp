@@ -69,13 +69,11 @@ public class AdminUserServiceTest {
     void updateUser_return_updated_User() {
         // GIVEN
         Contact contactUpdated = new Contact(
-                null,
                 "+1-401-145-6325",
                 "change@mail.com"
         );
 
         Address addressUpdated = new Address(
-                null,
                 "1212 Main st",
                 "apt 515",
                 "Orlando",
@@ -85,7 +83,6 @@ public class AdminUserServiceTest {
 
         UserResponseDto updatedUser = userResponseMapping(
                 new User(
-                        1L,
                         LocalDate.of(2023, 11, 20),
                         "John",
                         "Doe",
@@ -102,7 +99,6 @@ public class AdminUserServiceTest {
         );
 
         User userUpdate = new User(
-                null,
                 null,
                 null,
                 null,
@@ -133,7 +129,6 @@ public class AdminUserServiceTest {
         // GIVEN
         UserResponseDto updatedUser = userResponseMapping(
                 new User(
-                        1L,
                         LocalDate.of(2023, 11, 20),
                         "John",
                         "Doe",
@@ -150,7 +145,6 @@ public class AdminUserServiceTest {
         );
 
         User userUpdate = new User(
-                1L,
                 null,
                 null,
                 null,
@@ -180,7 +174,6 @@ public class AdminUserServiceTest {
         // GIVEN
         String username = "non-existent";
         User userUpdate = new User(
-                null,
                 null,
                 null,
                 null,

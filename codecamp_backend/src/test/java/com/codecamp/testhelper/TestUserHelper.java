@@ -17,7 +17,6 @@ public final class TestUserHelper {
 
     public static User user1() {
         return new User(
-                1L,
                 LocalDate.of(2023, 11, 20),
                 "John",
                 "Doe",
@@ -36,7 +35,6 @@ public final class TestUserHelper {
 
     public static User user2() {
         return new User(
-                2L,
                 LocalDate.of(2023, 7, 4),
                 "Jane",
                 "Smith",
@@ -54,7 +52,6 @@ public final class TestUserHelper {
 
     public static User user3() {
         return new User(
-                3L,
                 LocalDate.of(2024, 7, 14),
                 "Jean Claude",
                 "Vann Damme",
@@ -72,7 +69,6 @@ public final class TestUserHelper {
 
     public static User reviewer1() {
         return new User(
-                4L,
                 null,
                 "Jane",
                 "Scott",

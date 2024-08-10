@@ -20,19 +20,32 @@ function LearnerRequestOneOnOne() {
             </div>
             <div className="oneonone-banner-body">
               <p>
-                Ask an instructor. Sharpen your skills, discuss an assignment,
-                or peek their brain on a coding subject.
+                Welcome to the need help section of your dashboard where support
+                is provided to help you understand coding techniques, subjects
+                and developing your projects.
               </p>
+              <ul>
+                <li>
+                  <p>
+                    Ask an instructor. Sharpen your skills, discuss an
+                    assignment, or peek their brain on a coding subject.
+                  </p>
+                </li>
 
-              <p>
-                After submission, an instructor will reach out to you within 24
-                hours with their availability.
-              </p>
+                <li>
+                  <p>
+                    After submission, an instructor will reach out to you within
+                    24 hours with their availability.
+                  </p>
+                </li>
 
-              <p>
-                After confirmation, a meeting link will be sent to you via
-                email.
-              </p>
+                <li>
+                  <p>
+                    Let them know if you can or can't make it, Once a date is
+                    confirmed a meeting link will be sent to you via email.
+                  </p>
+                </li>
+              </ul>
             </div>
           </div>
           <form className="oneonone-form" action="">
@@ -42,7 +55,7 @@ function LearnerRequestOneOnOne() {
             <div className="row oneonone-row">
               <div className="mb-3 col">
                 <label
-                  for="exampleFormControlInput1"
+                  htmlFor="exampleFormControlInput1"
                   className="form-label oneonone-form-label"
                 >
                   First name<span className="form-required">*</span>
@@ -56,7 +69,7 @@ function LearnerRequestOneOnOne() {
               </div>
               <div className="mb-3 col">
                 <label
-                  for="exampleFormControlInput1"
+                  htmlFor="exampleFormControlInput1"
                   className="form-label oneonone-form-label"
                 >
                   Last name<span className="form-required">*</span>
@@ -72,7 +85,7 @@ function LearnerRequestOneOnOne() {
             </div>
             <div className="mb-3">
               <label
-                for="exampleFormControlInput1"
+                htmlFor="exampleFormControlInput1"
                 className="form-label oneonone-form-label"
               >
                 Email address<span className="form-required">*</span>
@@ -86,16 +99,16 @@ function LearnerRequestOneOnOne() {
             </div>
             <div className="mb-3">
               <label
-                for="exampleFormControlInput1"
+                htmlFor="exampleFormControlInput1"
                 className="form-label oneonone-form-label"
               >
                 Time zone<span className="form-required">*</span>
               </label>
-              <Timezone/>
+              <Timezone />
             </div>
             <div className="mb-4">
               <label
-                for="exampleFormControlTextarea1"
+                htmlFor="exampleFormControlTextarea1"
                 className="form-label oneonone-form-label"
               >
                 What do you need help with?
@@ -113,7 +126,7 @@ function LearnerRequestOneOnOne() {
             </div>
           </form>
         </section>
-        <section className="section-3"></section>
+        <section className="oneonone-section-3"></section>
       </div>
     </>
   );

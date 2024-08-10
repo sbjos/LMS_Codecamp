@@ -6,6 +6,7 @@ import {
 } from "react-router-dom";
 import PublicHomepage from "./pages/PublicHomepage.jsx";
 import Login from "./pages/Login.jsx";
+import Profile from "./pages/Profile.jsx"
 import LearnerRootOutlet from "./components/LearnerRootOutlet.jsx";
 import LearnerDashboard from "./pages/LearnerDashboard.jsx";
 import LearnerViewAllCompleted from "./pages/LearnerViewAllCompleted.jsx";
@@ -28,15 +29,17 @@ const router = createBrowserRouter(
 
       {/* Learner routes */}
       <Route
-        path="/codecamp/dashboard/:learnerName"
+        path="/codecamp/:learnerName"
         element={<LearnerRootOutlet />}
       >
-        <Route index element={<LearnerDashboard />} />
+        <Route path="dashboard" element={<LearnerDashboard />} />
         <Route path="submitted" element={<LearnerViewAllSubmitted />} />
         <Route path="inreview" element={<LearnerViewAllInReview />} />
         <Route path="needswork" element={<LearnerViewAllNeedsWork />} />
         <Route path="completed" element={<LearnerViewAllCompleted />} />
         <Route path="request1on1" element={<LearnerRequestOneOnOne />} />
+        <Route path="profile" element={<Profile />} />
+
       </Route>
 
       {/* Reviewer routes */}

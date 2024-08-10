@@ -1,7 +1,6 @@
 package com.codecamp.entities;
 
 import jakarta.persistence.*;
-import org.springframework.data.relational.core.mapping.Table;
 import java.util.Objects;
 
 @Entity

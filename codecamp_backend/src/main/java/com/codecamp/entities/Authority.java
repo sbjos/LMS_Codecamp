@@ -3,7 +3,6 @@ package com.codecamp.entities;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import org.springframework.security.core.GrantedAuthority;
 import jakarta.persistence.*;
-import org.springframework.data.relational.core.mapping.Table;
 import java.util.Objects;
 
 @Entity
@@ -13,6 +12,7 @@ public class Authority implements GrantedAuthority {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column
     private String authority;
 
     @ManyToOne
@@ -21,11 +21,6 @@ public class Authority implements GrantedAuthority {
     private User user;
 
     public Authority() {}
-
-    public Authority(Long id, String authority) {
-        this.id = id;
-        this.authority = authority;
-    }
 
     public Authority(String authority) {
         this.authority = authority;
@@ -38,10 +33,6 @@ public class Authority implements GrantedAuthority {
     @Override
     public String getAuthority() {
         return authority;
-    }
-
-    public User getUser() {
-        return user;
     }
 
     @Override

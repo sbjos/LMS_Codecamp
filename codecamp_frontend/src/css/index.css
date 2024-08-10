@@ -11,7 +11,7 @@ body {
 }
 
 main {
-  min-height: 87.4vh;
+  min-height: 87.21vh;
   height: auto;
 }
 
@@ -29,26 +29,30 @@ main {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-  --label-text-color: hwb(210 13% 84% / 0.749);
-  --background-color: hsla(0, 0%, 89%, 0.452);
-  --text-color: hsla(210, 5%, 8%, 0.767);
-  --button-link-color: hsl(203, 92%, 24%);
-  --button-link-color-hover: hsl(216, 81%, 46%);
-  --placeholder-color: hsl(0, 0%, 71%);
+  --label-text-color: #22262abf;
+  --background-color-2: #e3e3e373;
+  --background-color-3: #f3f2ef;
+  --background-color-1: #0a8bd6ef;
+  --text-color: #131415c4;
+  --button-link-color: #054a76;
+  --button-link-color-hover: #1662d4;
+  --placeholder-color: #b5b5b5;
+  --border-color: #6d767e;
 
   /* --submitted-card-color: linear-gradient(45deg, #096aa7, #0f77ff); */
+  /* --submitted-card-color: linear-gradient(#267ccc, #346085); */
   /* --submitted-card-color: #096aa7; */
   /* --submitted-card-color: #0f77ff; */
-  --submitted-card-color: #1073f5;
+  --submitted-card-color: #60879a;
   /* --inreview-card-color: linear-gradient(45deg, #ac4205e5, #fc630be5); */
   /* --inreview-card-color: #ac4205e5; */
-  --inreview-card-color: #fc630be5;
+  --inreview-card-color: #fd650de5;
   /* --needswork-card-color: linear-gradient(45deg, #9b232f, #dc3545); */
   /* --needswork-card-color: #9b232f; */
-  --needswork-card-color: #dc3545;
+  --needswork-card-color: #dc3848;
   /* --completed-card-color: linear-gradient(45deg, #10633c, #198754); */
   /* --completed-card-color: #10633c; */
-  --completed-card-color: #198754;
+  --completed-card-color: #198653;
 
   ::placeholder {
     color: var(--placeholder-color);
@@ -56,12 +60,12 @@ main {
 }
 
 .inputText {
-  color: rgb(60, 95, 124);
+  color: #3c5f7c;
   text-decoration: underline;
 }
 
 #error {
-  color: rgb(223, 26, 26);
+  color: #df1a1a;
   margin-top: 15px;
   margin-bottom: 5px;
   height: 28px;
@@ -104,6 +108,16 @@ p {
 
 .form-label-custom {
   color: var(--label-text-color);
+  font-family: Optimist, Helvetica Neue, Helvetica, Arial, sans-serif;
+}
+
+/* borders input */
+.form-control {
+  border-color: var(--border-color) !important;
+
+  &:focus {
+    box-shadow: none !important;
+  }
 }
 
 .btn-custom {

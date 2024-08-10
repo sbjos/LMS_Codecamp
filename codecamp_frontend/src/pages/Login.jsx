@@ -32,7 +32,7 @@ function Login() {
       const urlPathVariable = authorityArray[1] + authorityArray[2];
 
       if (authorityArray[4] === "[LEARNER]") {
-        navigate("/codecamp/dashboard/" + urlPathVariable);
+        navigate("/codecamp/" + urlPathVariable + "/dashboard/");
       }
       if (authorityArray[4] === "[REVIEWER]") {
         navigate("/codecamp/reviewerdashboard/" + urlPathVariable);

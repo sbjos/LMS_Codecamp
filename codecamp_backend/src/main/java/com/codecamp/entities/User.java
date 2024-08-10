@@ -3,7 +3,6 @@ package com.codecamp.entities;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.codecamp.config.CustomPasswordEncoder;
 import jakarta.persistence.*;
-import org.springframework.data.relational.core.mapping.Table;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
@@ -27,7 +26,7 @@ public class User implements UserDetails {
     @Column(name = "last_name")
     private String lastname;
 
-    @Column(name = "user_name", unique = true)
+    @Column(unique = true, name = "user_name")
     private String username;
 
     @Column
@@ -37,11 +36,11 @@ public class User implements UserDetails {
     @JsonManagedReference
      private Set<Authority> authorities;
 
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @OneToOne(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JsonManagedReference
      private Contact contact;
 
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @OneToOne(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JsonManagedReference
      private Address address;
 
@@ -59,10 +58,9 @@ public class User implements UserDetails {
 
     public User() {}
 
-    public User(Long id, LocalDate cohortStartDate, String firstname, String lastname, String username,
+    public User(LocalDate cohortStartDate, String firstname, String lastname, String username,
                 String password, Set<Authority> authorities, Contact contact, Address address,
                 boolean accountNonExpired, boolean accountNonLocked, boolean credentialsNonExpired, boolean enabled) {
-        this.id = id;
         this.cohortStartDate = cohortStartDate;
         this.firstname = firstname;
         this.lastname = lastname;
@@ -113,25 +111,17 @@ public class User implements UserDetails {
         this.password = new CustomPasswordEncoder().getPasswordEncoder().encode(password);
     }
 
-    public void setAuthorities(Set<Authority> authorities) {
-        this.authorities = authorities;
-    }
-
     public Contact getContact() {
         return contact;
     }
 
-    public void setContact(Contact contact) {
-        this.contact = contact;
-    }
+    public void setContact(Contact contact) {this.contact  = contact;}
 
     public Address getAddress() {
         return address;
     }
 
-    public void setAddress(Address address) {
-        this.address = address;
-    }
+    public void setAddress(Address address) {this.address  = address;}
 
     public void setAccountNonExpired(boolean accountNonExpired) {
         this.accountNonExpired = accountNonExpired;

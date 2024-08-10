@@ -2,7 +2,6 @@ package com.codecamp.entities;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
-import org.springframework.data.relational.core.mapping.Table;
 
 import java.util.Objects;
 
@@ -20,18 +19,17 @@ public class Contact {
     @Column
     private String phone;
 
-    @Column
+    @Column(unique = true)
     private String email;
 
-    @ManyToOne
+    @OneToOne
     @JoinColumn(name = "user_id")
     @JsonBackReference
     private User user;
 
     public Contact() {}
 
-    public Contact(Long id, String phone, String email) {
-        this.id = id;
+    public Contact(String phone, String email) {
         this.phone = phone;
         this.email = email;
     }
@@ -54,10 +52,6 @@ public class Contact {
 
     public void setEmail(String email) {
         this.email = emailPattern(email);
-    }
-
-    public User getUser() {
-        return user;
     }
 
     @Override

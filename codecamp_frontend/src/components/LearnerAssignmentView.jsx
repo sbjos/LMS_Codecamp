@@ -15,7 +15,7 @@ function LearnerAssignmentView(assignments) {
           </label>
           <input
             type="text"
-            className="form-control border border-secondary p-2 mb-2 border-opacity-75 input-box-shadow"
+            className="form-control border p-2 mb-2 border-opacity-75 input-box-shadow"
             id="exampleFormControlInput1"
             value={
               assignment.codeReviewer

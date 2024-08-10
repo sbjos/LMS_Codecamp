@@ -19,7 +19,7 @@ function LearnerRootOutlet() {
         <div className="container-fluid">
           <a
             className="navbar-brand fw-semibold ms-2 fs-5 text-dark-emphasis navbar-brand-custom"
-            href={RedirectUrl.learnerDashboard}
+            href={RedirectUrl.learnerdashboard}
           >
             {"codeCamp/>"}
           </a>
@@ -43,7 +43,7 @@ function LearnerRootOutlet() {
                 <a
                   className="nav-link active mx-3 text-light-emphasis fw-medium"
                   aria-current="page"
-                  href={RedirectUrl.learnerDashboard}
+                  href={RedirectUrl.learnerdashboard}
                 >
                   Dashboard
                 </a>
@@ -121,7 +121,7 @@ function LearnerRootOutlet() {
                   <a
                     className="dropdown-item navbar-dropdown-menu-item"
                     aria-current="false"
-                    href="#"
+                    href={RedirectUrl.Profile}
                   >
                     Profile
                   </a>

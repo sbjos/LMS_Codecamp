@@ -20,14 +20,19 @@ public class AdminUserService {
     @Autowired
     private UserRepository userRepository;
 
-    public List<UserResponseDto> getAllUsers(String username) {
+    /**
+     * Gets a list of all users from the admin portal.
+     * @return A list of all users
+     */
+    // TODO: Look in to paginating this baby
+    public List<UserResponseDto> getAllUsers() {
         return userRepository.findAll().stream()
                 .map(ObjectMapping::userResponseMapping)
                 .collect(Collectors.toList());
     }
 
     /**
-     * Gets a user by username
+     * Gets a user by username from the admin portal.
      * @param username user's username
      * @return a user
      */
@@ -36,7 +41,7 @@ public class AdminUserService {
     }
 
     /**
-     * Updates an existing user.
+     * Updates an existing user from the admin portal.
      * @param update updated user details
      * @return the updated assignment
      */
@@ -46,8 +51,15 @@ public class AdminUserService {
         Optional.ofNullable(update.getFirstname()).ifPresent(user::setFirstname);
         Optional.ofNullable(update.getLastname()).ifPresent(user::setLastname);
         Optional.ofNullable(update.getUsername()).ifPresent(user::setUsername);
-        Optional.ofNullable(update.getContact()).ifPresent(user::setContact);
-        Optional.ofNullable(update.getAddress()).ifPresent(user::setAddress);
+
+        Optional.ofNullable(update.getContact().getPhone()).ifPresent(email -> user.getContact().setPhone(email));
+        Optional.ofNullable(update.getContact().getEmail()).ifPresent(email -> user.getContact().setEmail(email));
+
+        Optional.ofNullable(update.getAddress().getAddress()).ifPresent(address -> user.getAddress().setAddress(address));
+        Optional.ofNullable(update.getAddress().getAddress2()).ifPresent(address2 -> user.getAddress().setAddress2(address2));
+        Optional.ofNullable(update.getAddress().getCity()).ifPresent(city -> user.getAddress().setCity(city));
+        Optional.ofNullable(update.getAddress().getState()).ifPresent(state -> user.getAddress().setState(state));
+        Optional.ofNullable(update.getAddress().getZipcode()).ifPresent(zipcode -> user.getAddress().setZipcode(zipcode));
 
         userRepository.save(user);
 
@@ -55,7 +67,7 @@ public class AdminUserService {
     }
 
     /**
-     * Updates a user's access to the application
+     * Updates a user's access to the application from the admin portal.
      * @param username a user's username
      * @param userAccessUpdate user access update
      */

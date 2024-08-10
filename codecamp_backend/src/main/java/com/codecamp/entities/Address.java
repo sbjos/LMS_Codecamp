@@ -2,7 +2,6 @@ package com.codecamp.entities;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
-import org.springframework.data.relational.core.mapping.Table;
 
 import java.util.Objects;
 
@@ -31,7 +30,7 @@ public class Address {
     @Column
     private String zipcode;
 
-    @ManyToOne
+    @OneToOne
     @JoinColumn(name = "user_id")
     @JsonBackReference
     private User user;
@@ -39,9 +38,8 @@ public class Address {
     public Address() {
     }
 
-    public Address(Long id, String address, String address2,
+    public Address(String address, String address2,
                    String city, String state, String zipcode) {
-        this.id = id;
         this.address = address;
         this.address2 = address2;
         this.city = city;
@@ -91,10 +89,6 @@ public class Address {
 
     public void setZipcode(String zipcode) {
         this.zipcode = zipcodePattern(zipcode);
-    }
-
-    public User getUser() {
-        return user;
     }
 
     @Override

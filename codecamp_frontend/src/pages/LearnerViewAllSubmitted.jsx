@@ -57,9 +57,7 @@ function LearnerViewAllSubmitted() {
             <tbody>
               {submittedAssignments.map((assignment) => (
                 <tr key={assignment.id}>
-                  <td className="viewall-name-desktop">
-                    {assignment.name}
-                    </td>
+                  <td className="viewall-name-desktop">{assignment.name}</td>
 
                   {/* mobile */}
                   <td className="viewall-name-mobile">
@@ -89,6 +87,7 @@ function LearnerViewAllSubmitted() {
             </tbody>
           </table>
         </section>
+        <section className="viewall-section-3"></section>
       </div>
     </>
   );

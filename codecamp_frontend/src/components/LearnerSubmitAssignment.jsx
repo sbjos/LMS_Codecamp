@@ -64,7 +64,7 @@ function LearnerSubmitAssignment() {
           <div className="mb-3 assignment-input">
             <label
               htmlFor="exampleFormControlInput1"
-              className="form-label text-body-secondary form-label-custom"
+              className="form-label form-label-custom"
             >
               Project name<span className="form-required">*</span>
             </label>
@@ -83,7 +83,7 @@ function LearnerSubmitAssignment() {
           <div className="mb-3 assignment-input">
             <label
               htmlFor="exampleFormControlInput1"
-              className="form-label text-body-secondary form-label-custom"
+              className="form-label form-label-custom"
             >
               Project description<span className="form-required">*</span>
             </label>
@@ -106,7 +106,7 @@ function LearnerSubmitAssignment() {
           <div className="mb-3 assignment-input">
             <label
               htmlFor="exampleFormControlInput1"
-              className="form-label text-body-secondary form-label-custom"
+              className="form-label form-label-custom"
             >
               Github url<span className="form-required">*</span>
             </label>
@@ -125,7 +125,7 @@ function LearnerSubmitAssignment() {
           <div className="mb-4 assignment-input">
             <label
               htmlFor="exampleFormControlTextarea1"
-              className="form-label text-body-secondary form-label-custom"
+              className="form-label form-label-custom"
             >
               Branch<span className="form-required">*</span>
             </label>

@@ -6,7 +6,7 @@ import java.util.regex.PatternSyntaxException;
 
 public class PatternValidation {
     private final static Pattern phonePattern = Pattern.compile("^\\+\\d{1}-\\d{3}-\\d{3}-\\d{4}$");
-    private final static Pattern emailPattern = Pattern.compile("^\\+\\d{1}\\s{1}\\(\\d{3}\\)\\s{1}\\d{3}-\\d{4}$");
+    private final static Pattern emailPattern = Pattern.compile("^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+$");
     private final static Pattern zipCodePattern = Pattern.compile("^\\d{5}$");
 
     public static String phonePattern(String phoneNumber) {

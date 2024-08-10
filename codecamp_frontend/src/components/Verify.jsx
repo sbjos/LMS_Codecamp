@@ -12,7 +12,7 @@ function Verify() {
       const userNamePathVariable = authority[1] + authority[2];
 
       if (authority[4] === "[LEARNER]") {
-        navigate("/codecamp/dashboard/" + userNamePathVariable);
+        navigate("/codecamp/" + urlPathVariable + "dashboard/");
       }
       if (authority[4] === "[REVIEWER]") {
         navigate("/codecamp/reviewer/dashboard/" + userNamePathVariable);

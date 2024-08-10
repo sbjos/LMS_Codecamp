@@ -67,13 +67,11 @@ public class UserServiceTest {
     void updateUser_return_updated_User() {
         // GIVEN
         Contact contactUpdated = new Contact(
-                null,
                 "+1-401-145-6325",
                 "change@mail.com"
         );
 
         Address addressUpdated = new Address(
-                null,
                 "1212 Main st",
                 "apt 515",
                 "Orlando",
@@ -83,7 +81,6 @@ public class UserServiceTest {
 
         UserResponseDto updatedUser = userResponseMapping(
                 new User(
-                        1L,
                         LocalDate.of(2023, 11, 20),
                         "John",
                         "Doe",
@@ -106,7 +103,6 @@ public class UserServiceTest {
                 null,
                 null,
                 null,
-                null,
                 contactUpdated,
                 addressUpdated,
                 true,
@@ -119,7 +115,6 @@ public class UserServiceTest {
 
         // WHEN
         UserResponseDto result = userService.updateUser(user1().getId(), userUpdate);
-
         // THEN
         assertEquals(updatedUser.getId(), result.getId());
         assertEquals(updatedUser.getUsername(), result.getUsername());
@@ -131,13 +126,11 @@ public class UserServiceTest {
     void updateUser_throws_UserNotFoundException() {
         // GIVEN
         Contact contactUpdated = new Contact(
-                null,
                 "+1-401-145-6325",
                 "change@mail.com"
         );
 
         Address addressUpdated = new Address(
-                null,
                 "1212 Main st",
                 "apt 515",
                 "Orlando",
@@ -147,7 +140,6 @@ public class UserServiceTest {
 
         Long userId = 0L;
         User userUpdate = new User(
-                null,
                 null,
                 null,
                 null,

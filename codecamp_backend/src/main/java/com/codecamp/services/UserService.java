@@ -38,8 +38,19 @@ public class UserService {
         Optional.ofNullable(update.getLastname()).ifPresent(user::setLastname);
         Optional.ofNullable(update.getUsername()).ifPresent(user::setUsername);
         Optional.ofNullable(update.getPassword()).ifPresent(user::setEncodedPassword);
-        Optional.ofNullable(update.getContact()).ifPresent(user::setContact);
-        Optional.ofNullable(update.getAddress()).ifPresent(user::setAddress);
+
+        if (Optional.ofNullable(update.getContact()).isPresent()) {
+            Optional.ofNullable(update.getContact().getPhone()).ifPresent(phone -> user.getContact().setPhone(phone));
+            Optional.ofNullable(update.getContact().getEmail()).ifPresent(email -> user.getContact().setEmail(email));
+        }
+
+        if (Optional.ofNullable(update.getAddress()).isPresent()) {
+            Optional.ofNullable(update.getAddress().getAddress()).ifPresent(address -> user.getAddress().setAddress(address));
+            Optional.ofNullable(update.getAddress().getAddress2()).ifPresent(address2 -> user.getAddress().setAddress2(address2));
+            Optional.ofNullable(update.getAddress().getCity()).ifPresent(city -> user.getAddress().setCity(city));
+            Optional.ofNullable(update.getAddress().getState()).ifPresent(state -> user.getAddress().setState(state));
+            Optional.ofNullable(update.getAddress().getZipcode()).ifPresent(zipcode -> user.getAddress().setZipcode(zipcode));
+        }
 
         userRepository.save(user);
 

@@ -5,10 +5,10 @@ function Timezone() {
     return (
       <>
         <select
-          class="form-select oneonone-form-control oneonone-form-control-timezone-dropdown"
+          className="form-select oneonone-form-control oneonone-form-control-timezone-dropdown"
           aria-label="Default select example"
         >
-          <option value="+00:00" selected="selected">
+          <option value="+00:00" defaultValue="selected">
             Choose your timezone
           </option>
           <option value="-12:00">(GMT -12:00) Eniwetok, Kwajalein</option>
@@ -96,7 +96,7 @@ function Timezone() {
     <>
       {timezoneList()}
       {/* <select
-        class="form-select oneonone-form-control oneonone-form-control-timezone-dropdown"
+        className="form-select oneonone-form-control oneonone-form-control-timezone-dropdown"
         aria-label="Default select example"
       >
         <option value="+00:00" selected="selected">
@@ -105,13 +105,13 @@ function Timezone() {
       {timezoneList()}
       </select> */}
 
-      {/* <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+      {/* <button type="button" className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
   Launch demo modal
 </button> 
 
       <button
         type="button"
-        class="form-select oneonone-form-control oneonone-form-control-timezone-dropdown-mobile"
+        className="form-select oneonone-form-control oneonone-form-control-timezone-dropdown-mobile"
         data-bs-toggle="modal"
         data-bs-target="#exampleModal"
         aria-label="Default select example"

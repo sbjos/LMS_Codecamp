@@ -39,7 +39,7 @@ public class UserController {
         return new ResponseEntity<>(updatedUser, HttpStatus.OK);
     }
 
-    @PostMapping("/api/user")
+    @PostMapping("/api/create/user")
     public ResponseEntity<?> createUser(@RequestBody User newUser) {
         try {
             userService.createUser(newUser);

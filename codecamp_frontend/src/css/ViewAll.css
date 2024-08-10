@@ -11,10 +11,11 @@
 .viewall-section-2 {
   display: grid;
   grid-template-columns: repeat(3);
-  grid-template-rows: repeat(2);
-  grid-template:
+  grid-template-rows: 65px 67.79vh;
+  grid-template-areas:
     "a b c"
     "d e f";
+  background: var(--background-color-2);
 
   .title {
     padding: 15px;
@@ -27,6 +28,7 @@
     width: 100%;
     border-collapse: collapse;
     border-radius: 5px;
+    height: min-content;
 
     .viewall-name-desktop {
       font-weight: 600;
@@ -69,11 +71,16 @@
       background-color: var(--completed-card-color);
       color: white;
     }
-    
+
     tbody {
       font-family: Optimist, Helvetica Neue, Helvetica, Arial, sans-serif;
     }
   }
+}
+
+.viewall-section-3 {
+  display: grid;
+  grid-template-rows: 53px;
 }
 
 @media screen and (max-width: 991px) {
