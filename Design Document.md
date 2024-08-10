@@ -28,7 +28,8 @@ get them reviewed.
 
 ### Backend Handling:
 - For assignments that are in `Submited` status, the backend handles the status change on the learner's side.
-- For assignments that are being reviewed by the reviewer, the status change is handled by the frontend based on if the assignment needs to be in a `Completed` or `In review` status. 
+- For assignments that are being reviewed by the reviewer, the status change is handled by the frontend based on if the assignment needs to be in a `Completed` or `In review` status.
+- For user creation, the backend automatically set account settings to true to allow the user to access their profile.
 
 ## Technology Stack
 - **Frontend:** React JS
@@ -45,6 +46,21 @@ get them reviewed.
 - username: String
 - password: String
 - authorities: List<Authority>
+- contact: Contact
+- address: Address
+
+### contact
+- id : Long
+- phone: String
+- email: String
+
+### address
+- id : Long
+- address: String
+- address2: String
+- city: String
+- state: String
+- zipcode: String
 
 ### Authority
 - id: Long
@@ -106,14 +122,22 @@ get them reviewed.
 - **Refresh the token**         - *Get method* - `/api/auth/validate`
 
 ### Assignments
-- **Get Assignments**           - *Get method* - `/api/assignments`
+- **Get user's Assignments**    - *Get method* - `/api/assignments`
 - **Get Assignment by id**      - *Get method* - `/api/assignments/{id}`
 - **Update Assignment by id**   - *Put method* - `/api/assignments/{id}`
 - **Create Assignment**         - *Post Method* - `/api/assignments`
 
 ### Users
-- **Get user by username**      - *Get method* - `/api/user/{username}`
-- **Create user**               - *Post method* - `/api/user`
+- **Get user by id**             - *Get method* - `/api/user`
+- **updateUser**                 - *Put method* - `/api/user`
+- **Create user**                - *Post method* - `/api/create/user`
+
+### Admin user control
+- **getAllUsers**                - *Get method* - `/api/admin/user`
+- **get user by username**       - *Get method* - `/api/admin/user/{username}`
+- **Update user**                - *Put method* - `/api/create/admin/user/{username}`
+- **Update user settings**       - *Put method* - `/api/create/admin/user/{username}`
+- **Create user**                - *Post method* - `/api/create/admin/user/{username}`
 
 ## Wireframes
 ### Home Page (Public)

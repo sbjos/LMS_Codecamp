@@ -5,7 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bce22d46-2df9-4ec0-9fca-3f26b0329700" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../Design Document.md" beforeDir="false" afterPath="$PROJECT_DIR$/../Design Document.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/codecamp/controllers/AdminUserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/codecamp/controllers/AdminUserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/codecamp/services/AdminUserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/codecamp/services/AdminUserService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -71,7 +75,7 @@
     "Gradle.codecamp_backend [:BackendApplication.main()].executor": "Debug",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "Cherry-picking in main",
+    "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/sebas/dev-projects/java-Projects/LMS/LMS_Codecamp/README.md",
     "project.structure.last.edited": "Modules",

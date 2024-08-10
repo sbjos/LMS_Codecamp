@@ -67,7 +67,7 @@ public class AdminUserService {
     }
 
     /**
-     * Updates a user's access to the application from the admin portal.
+     * Updates a user settings for access to the application from the admin portal.
      * @param username a user's username
      * @param userAccessUpdate user access update
      */

@@ -47,4 +47,19 @@ public class AdminUserController {
 
         return new ResponseEntity<>(updatedUser, HttpStatus.OK);
     }
+
+    @PutMapping("/api/admin/user/{username}")
+    public ResponseEntity<UserResponseDto> updateUserSettings(@PathVariable String username, @RequestBody User update) {
+        UserResponseDto updatedUser;
+
+        try {
+            updatedUser = adminUserService.updateUserSettings(username, update);
+
+        } catch (IllegalArgumentException e) {
+            log.warn(e, new IllegalArgumentException());
+            return new ResponseEntity<>(HttpStatus.FORBIDDEN);
+        }
+
+        return new ResponseEntity<>(updatedUser, HttpStatus.OK);
+    }
 }

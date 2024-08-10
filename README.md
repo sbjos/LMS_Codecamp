@@ -53,27 +53,47 @@ each submission.
 
 ## N.B.
 - This application is still under construction.
-- Signup page coming soon. 
+- Signup page coming soon.
   - User creation is not yet setup on the frontend side. At the moment, curl commands or applications like postman can be used 
     to create learners and reviewers.
 - Below is a model to create a learner and a reviewer user.
 
 ### for learners
-        {
+    {
         "cohortStartDate": "2021-10-05",
         "firstname": "Steven",
         "lastname": "Seagal",
         "username": "learner1@domain.com",
         "password": "password",
-        "authorities": ["LEARNER"]
+        "authorities": ["LEARNER"],
+        "address" : {
+            "address": "123 main st",
+            "city": "Auburndale",
+            "state": "FL",
+            "zipcode": "33823"
+        },
+        "contact": {
+            "phone": "+1-012-325-8521",
+            "email": "johndoe@mail.com"
         }
+    }
 
 
 ### for reviewers
-        {
+    {
         "firstname": "Jean-Claude",
         "lastname": "Van Damme",
         "username": "reviewer1@domain.com",
         "password": "password",
-        "authorities": ["REVIEWER"]
+        "authorities": ["REVIEWER"],
+        "address" : {
+            "address": "123 main st",
+            "city": "Auburndale",
+            "state": "FL",
+            "zipcode": "33823"
+        },
+        "contact": {
+            "phone": "+1-012-325-8521",
+            "email": "johndoe@mail.com"
         }
+    }
