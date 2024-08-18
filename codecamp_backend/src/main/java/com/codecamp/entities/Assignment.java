@@ -4,7 +4,7 @@ import jakarta.persistence.*;
 import java.util.Objects;
 
 @Entity
-@Table(name = "assignments")
+@Table(name = "assignment")
 public class Assignment {
 
     @Id

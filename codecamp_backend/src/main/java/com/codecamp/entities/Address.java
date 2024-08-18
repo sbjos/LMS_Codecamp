@@ -2,7 +2,6 @@ package com.codecamp.entities;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
-
 import java.util.Objects;
 
 import static com.codecamp.utils.PatternValidation.zipcodePattern;
@@ -16,10 +15,10 @@ public class Address {
     private Long id;
 
     @Column
-    private String address;
+    private String street;
 
     @Column
-    private String address2;
+    private String number;
 
     @Column
     private String city;
@@ -35,13 +34,11 @@ public class Address {
     @JsonBackReference
     private User user;
 
-    public Address() {
-    }
+    public Address() {}
 
-    public Address(String address, String address2,
-                   String city, String state, String zipcode) {
-        this.address = address;
-        this.address2 = address2;
+    public Address(String address, String number, String city, String state, String zipcode) {
+        this.street = address;
+        this.number = number;
         this.city = city;
         this.state = state;
         this.zipcode = zipcode;
@@ -51,20 +48,20 @@ public class Address {
         return id;
     }
 
-    public String getAddress() {
-        return address;
+    public String getStreet() {
+        return street;
     }
 
-    public void setAddress(String address) {
-        this.address = address;
+    public void setStreet(String street) {
+        this.street = street;
     }
 
-    public String getAddress2() {
-        return address2;
+    public String getNumber() {
+        return number;
     }
 
-    public void setAddress2(String address2) {
-        this.address2 = address2;
+    public void setNumber(String number) {
+        this.number = number;
     }
 
     public String getCity() {

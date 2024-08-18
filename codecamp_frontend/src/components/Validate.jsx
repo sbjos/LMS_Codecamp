@@ -2,7 +2,9 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-function Validate(token, userAuthority) {
+function Validate() {
+  const token = localStorage.getItem("lmsusertoken");
+  const userAuthority = localStorage.getItem("lmsuserauthorities");
   const navigate = useNavigate();
   const [status, setStatus] = useState();
 

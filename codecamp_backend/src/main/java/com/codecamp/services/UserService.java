@@ -4,12 +4,14 @@ import com.codecamp.dto.UserResponseDto;
 import com.codecamp.entities.User;
 import com.codecamp.exceptions.UserNotFoundException;
 import com.codecamp.repositories.UserRepository;
+import com.codecamp.utils.TimeZoneConverter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 
 import static com.codecamp.utils.ObjectMapping.userResponseMapping;
+import static com.codecamp.utils.PatternValidation.*;
 
 @Service
 public class UserService {
@@ -34,22 +36,22 @@ public class UserService {
     public UserResponseDto updateUser(Long id, User update) {
         User user = userLookup(id).get();
 
-        Optional.ofNullable(update.getFirstname()).ifPresent(user::setFirstname);
-        Optional.ofNullable(update.getLastname()).ifPresent(user::setLastname);
-        Optional.ofNullable(update.getUsername()).ifPresent(user::setUsername);
-        Optional.ofNullable(update.getPassword()).ifPresent(user::setEncodedPassword);
+        Optional.ofNullable(update.getFirstname()).ifPresent(firstname -> user.setFirstname(firstname.trim()));
+        Optional.ofNullable(update.getLastname()).ifPresent(lastname -> user.setLastname(lastname.trim()));
+        Optional.ofNullable(update.getUsername()).ifPresent(username -> user.setUsername(username.trim()));
+        Optional.ofNullable(update.getPassword()).ifPresent(password -> user.setEncodedPassword(password.trim()));
 
         if (Optional.ofNullable(update.getContact()).isPresent()) {
-            Optional.ofNullable(update.getContact().getPhone()).ifPresent(phone -> user.getContact().setPhone(phone));
-            Optional.ofNullable(update.getContact().getEmail()).ifPresent(email -> user.getContact().setEmail(email));
+            Optional.ofNullable(update.getContact().getPhone()).ifPresent(phone -> user.getContact().setPhone(phone.trim()));
+            Optional.ofNullable(update.getContact().getEmail()).ifPresent(email -> user.getContact().setEmail(email.trim()));
         }
 
         if (Optional.ofNullable(update.getAddress()).isPresent()) {
-            Optional.ofNullable(update.getAddress().getAddress()).ifPresent(address -> user.getAddress().setAddress(address));
-            Optional.ofNullable(update.getAddress().getAddress2()).ifPresent(address2 -> user.getAddress().setAddress2(address2));
-            Optional.ofNullable(update.getAddress().getCity()).ifPresent(city -> user.getAddress().setCity(city));
-            Optional.ofNullable(update.getAddress().getState()).ifPresent(state -> user.getAddress().setState(state));
-            Optional.ofNullable(update.getAddress().getZipcode()).ifPresent(zipcode -> user.getAddress().setZipcode(zipcode));
+            Optional.ofNullable(update.getAddress().getNumber()).ifPresent(address2 -> user.getAddress().setNumber(address2.trim()));
+            Optional.ofNullable(update.getAddress().getStreet()).ifPresent(address -> user.getAddress().setStreet(address.trim()));
+            Optional.ofNullable(update.getAddress().getCity()).ifPresent(city -> user.getAddress().setCity(city.trim()));
+            Optional.ofNullable(update.getAddress().getState()).ifPresent(state -> user.getAddress().setState(state.trim()));
+            Optional.ofNullable(update.getAddress().getZipcode()).ifPresent(zipcode -> user.getAddress().setZipcode(zipcode.trim()));
         }
 
         userRepository.save(user);
@@ -62,7 +64,18 @@ public class UserService {
      * @param newUser the user information to create the new user
      */
     public void createUser(User newUser) {
-        newUser.setEncodedPassword(newUser.getPassword());
+        newUser.setCohortStartDate(TimeZoneConverter.convertLocalTimeToUTC());
+        newUser.setFirstname(newUser.getFirstname().trim());
+        newUser.setLastname(newUser.getLastname().trim());
+        newUser.setUsername(UsernamePattern(newUser.getUsername().trim()));
+        newUser.setEncodedPassword(passwordPattern(newUser.getPassword().trim()));
+        newUser.getContact().setPhone(phonePattern(newUser.getContact().getPhone().trim()));
+        newUser.getContact().setEmail(emailPattern(newUser.getContact().getEmail().trim()));
+        newUser.getAddress().setStreet(newUser.getAddress().getStreet().trim());
+        newUser.getAddress().setNumber(newUser.getAddress().getNumber().trim());
+        newUser.getAddress().setCity(newUser.getAddress().getCity().trim());
+        newUser.getAddress().setState(newUser.getAddress().getState().trim());
+        newUser.getAddress().setZipcode(zipcodePattern(newUser.getAddress().getZipcode().trim()));
         newUser.setAccountNonExpired(true);
         newUser.setAccountNonLocked(true);
         newUser.setCredentialsNonExpired(true);

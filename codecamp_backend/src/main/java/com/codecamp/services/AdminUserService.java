@@ -55,8 +55,8 @@ public class AdminUserService {
         Optional.ofNullable(update.getContact().getPhone()).ifPresent(email -> user.getContact().setPhone(email));
         Optional.ofNullable(update.getContact().getEmail()).ifPresent(email -> user.getContact().setEmail(email));
 
-        Optional.ofNullable(update.getAddress().getAddress()).ifPresent(address -> user.getAddress().setAddress(address));
-        Optional.ofNullable(update.getAddress().getAddress2()).ifPresent(address2 -> user.getAddress().setAddress2(address2));
+        Optional.ofNullable(update.getAddress().getStreet()).ifPresent(address -> user.getAddress().setStreet(address));
+        Optional.ofNullable(update.getAddress().getNumber()).ifPresent(address2 -> user.getAddress().setNumber(address2));
         Optional.ofNullable(update.getAddress().getCity()).ifPresent(city -> user.getAddress().setCity(city));
         Optional.ofNullable(update.getAddress().getState()).ifPresent(state -> user.getAddress().setState(state));
         Optional.ofNullable(update.getAddress().getZipcode()).ifPresent(zipcode -> user.getAddress().setZipcode(zipcode));

@@ -191,7 +191,7 @@
           }
 
           .card-title-custom {
-            font-size: 15px;
+            font-size: 16px;
             margin: auto;
             justify-content: center;
             align-items: center;
@@ -209,26 +209,8 @@
             text-overflow: ellipsis;
           }
 
-          .card-text-custom,
-          .list-group-item-custom-branch {
+          .card-text-custom {
             display: none !important;
-          }
-
-          .list-group-item-custom {
-            flex-wrap: nowrap !important;
-            word-wrap: break-word !important;
-          }
-          .list-group-item-custom {
-            flex-wrap: nowrap !important;
-            word-wrap: break-word !important;
-          }
-          .list-group-item-custom {
-            flex-wrap: nowrap !important;
-            word-wrap: break-word !important;
-          }
-          .list-group-item-custom {
-            flex-wrap: nowrap !important;
-            word-wrap: break-word !important;
           }
 
           .card-body-link-custom {

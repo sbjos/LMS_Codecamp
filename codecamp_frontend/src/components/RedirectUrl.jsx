@@ -1,26 +1,26 @@
-const userAuthority = localStorage.getItem("lmsuserauthorities");
-const authorityArray = userAuthority ? userAuthority.split(", ") : "";
-const urlPathVariable = authorityArray[1] + authorityArray[2];
-const learnerRootUrl = "/codecamp/" + urlPathVariable;
-const reviewerRootUrl = "/codecamp/reviewerdashboard/" + urlPathVariable;
-const adminRootUrl = "/codecamp/admindashboard/" + urlPathVariable;
+const RootUrl = "/codecamp";
+const Profile = RootUrl + "/profile";
 
 const RedirectUrl = {
-  // Learner url  
-  learnerdashboard: learnerRootUrl + "/dashboard",
-  learnerSubmittedAssignments: learnerRootUrl + "/submitted",
-  learnerInReviewAssignments: learnerRootUrl + "/inreview",
-  learnerNeedsWorkAssignments: learnerRootUrl + "/needswork",
-  learnerCompletedAssignments: learnerRootUrl + "/completed",
-  LearnerRequestOneOnOne: learnerRootUrl + "/request1on1",
-  Profile: learnerRootUrl + "/profile",
+  // Learner url
+  Register: RootUrl + "/register",
+  Login: RootUrl + "/login",
+  learnerdashboard: RootUrl + "/mydashboard",
+  learnerSubmittedAssignments: RootUrl + "/submitted",
+  learnerInReviewAssignments: RootUrl + "/inreview",
+  learnerNeedsWorkAssignments: RootUrl + "/needswork",
+  learnerCompletedAssignments: RootUrl + "/completed",
+  LearnerRequestOneOnOne: RootUrl + "/request1on1",
+  Profile: Profile + "/basic-info",
+  ProfileBasicInfo: Profile + "/basic-info",
+  ProfileSecurity: Profile + "/security",
 
   // Reviewer url
-  reviewerDashboard: reviewerRootUrl + "/dashboard",
-  reviewerAssignmentView: reviewerRootUrl + "/assignment/",
+  reviewerDashboard: RootUrl + "/myreviewerdashboard",
+  reviewerAssignmentView: RootUrl + "/assignment/",
 
   // Admin url
-  adminDashboard: adminRootUrl + "/dashboard",
+  adminDashboard: RootUrl + "/admin",
 };
 
 export default RedirectUrl;

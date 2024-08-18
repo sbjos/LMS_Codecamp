@@ -5,46 +5,97 @@ import java.util.regex.Pattern;
 import java.util.regex.PatternSyntaxException;
 
 public class PatternValidation {
-    private final static Pattern phonePattern = Pattern.compile("^\\+\\d{1}-\\d{3}-\\d{3}-\\d{4}$");
-    private final static Pattern emailPattern = Pattern.compile("^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+$");
-    private final static Pattern zipCodePattern = Pattern.compile("^\\d{5}$");
+    private final static Pattern usernameRegex = Pattern.compile("^[a-zA-Z][a-zA-Z0-9-_]{3,23}&");
+    private final static Pattern passwordRegex = Pattern.compile("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%&]).{8,24}$");
+    private final static Pattern phoneRegex = Pattern.compile("^\\+[1]\\s[(]\\d{3}[)]\\s\\d{3}-\\d{4}$");
+    private final static Pattern emailRegex = Pattern.compile("^[a-zA-Z][a-zA-Z0-9_.-]+@[a-z0A-Z-9_.-]+\\.[a-z]+$");
+    private final static Pattern zipCodeRegex = Pattern.compile("^\\d{5}$");
 
-    public static String phonePattern(String phoneNumber) {
-        String validNumber = null;
-        Matcher matcher = phonePattern.matcher(phoneNumber);
+    public static String UsernamePattern(String userName) {
+        String validUsername;
+        Matcher matcher = usernameRegex.matcher(userName);
 
         if (matcher.find()) {
-            validNumber = phoneNumber;
+            validUsername = userName;
         } else {
-            throw new  PatternSyntaxException("Wrong phone number pattern", null, -1);
+            throw new  PatternSyntaxException("Wrong phone number format", null, -1);
         }
 
-        return validNumber;
+        return validUsername;
+    }
+
+    public static String passwordPattern(String phoneNumber) {
+        String validPassword;
+        Matcher matcher = passwordRegex.matcher(phoneNumber);
+
+        if (matcher.find()) {
+            validPassword = phoneNumber;
+        } else {
+            throw new  PatternSyntaxException("Wrong phone number format", null, -1);
+        }
+
+        return validPassword;
+    }
+
+    public static String phonePattern(String phoneNumber) {
+        String validPhoneNumber;
+        String formattedPhoneNumber;
+
+        if (phoneNumber.length() == 10) {
+            formattedPhoneNumber = phoneNumberFormatting(phoneNumber);
+
+        } else {
+            throw new PatternSyntaxException("Wrong phone number format", null, -1);
+        }
+
+        Matcher matcher = phoneRegex.matcher(formattedPhoneNumber);
+        if (matcher.find()) {
+            validPhoneNumber = formattedPhoneNumber;
+
+        } else {
+            throw new PatternSyntaxException("Wrong phone number format", null, -1);
+        }
+
+        return validPhoneNumber;
     }
 
     public static String emailPattern(String email) {
-        String validNumber = null;
-        Matcher matcher = emailPattern.matcher(email);
+        String validEmail;
+        Matcher matcher = emailRegex.matcher(email);
 
         if (matcher.find()) {
-            validNumber = email;
+            validEmail = email;
         } else {
-            throw new  PatternSyntaxException("Wrong email pattern", null, -1);
+            throw new  PatternSyntaxException("Wrong email format", null, -1);
         }
 
-        return validNumber;
+        return validEmail;
     }
 
     public static String zipcodePattern(String zipcode) {
-        String validNumber = null;
-        Matcher matcher = zipCodePattern.matcher(zipcode);
+        String validZipcode;
+        Matcher matcher = zipCodeRegex.matcher(zipcode);
 
         if (matcher.find()) {
-            validNumber = zipcode;
+            validZipcode = zipcode;
         } else {
-            throw new  PatternSyntaxException("Wrong zipcode pattern", null, -1);
+            throw new  PatternSyntaxException("Wrong zipcode format", null, -1);
         }
 
-        return validNumber;
+        return validZipcode;
+    }
+
+    private static String phoneNumberFormatting(String phoneNumber) {
+        String formattedPhoneNumber;
+        StringBuilder builder = new StringBuilder(phoneNumber.trim());
+
+        String a = builder.substring(0, 3);
+        String b = builder.substring(3, 6);
+        String c = builder.substring(6, 10);
+
+        formattedPhoneNumber = String.format("+1 (%s) %s-%s", a, b, c);
+
+        return formattedPhoneNumber;
     }
 }
+

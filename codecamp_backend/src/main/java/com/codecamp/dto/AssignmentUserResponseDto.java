@@ -2,13 +2,13 @@ package com.codecamp.dto;
 
 import org.springframework.security.core.GrantedAuthority;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Objects;
 import java.util.Set;
 
 public class AssignmentUserResponseDto {
     private Long id;
-    private LocalDate cohortStartDate;
+    private LocalDateTime cohortStartDate;
     private String firstname;
     private String lastname;
     private String username;
@@ -24,11 +24,11 @@ public class AssignmentUserResponseDto {
         this.id = id;
     }
 
-    public LocalDate getCohortStartDate() {
+    public LocalDateTime getCohortStartDate() {
         return cohortStartDate;
     }
 
-    public void setCohortStartDate(LocalDate cohortStartDate) {
+    public void setCohortStartDate(LocalDateTime cohortStartDate) {
         this.cohortStartDate = cohortStartDate;
     }
 

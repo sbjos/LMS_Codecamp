@@ -1,60 +1,173 @@
 .profile-root {
   display: grid;
   grid-template-rows: repeat(3);
+  justify-content: center;
 }
 
 .profile-section-1 {
   display: grid;
-  grid-template-rows: 50px;
+  grid-template-rows: 60px;
 }
 
 .profile-section-2 {
   display: grid;
-  grid-template-rows: repeat(4);
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-areas:
-    "a b c"
-    "d e f"
-    "g h i"
-    "j k l";
-  gap: 20px;
-  padding: 55px 0;
-  background: var(--background-color-3);
+  grid-template-columns: 130px 550px;
+  grid-template-areas: "a b";
+  justify-content: center;
+  gap: 25px;
 
-  .profile-label p {
-    margin: 10px 15px;
-  }
+  .profile-nav-item {
+    grid-area: a;
+    display: grid;
+    grid-template-rows: repeat(3, 30px);
+    grid-template-areas:
+      "a"
+      "b"
+      "c";
+    padding: 50px 0;
+    gap: 5px;
 
-  .separation-line {
-    color: white;
-    width: 75%;
-  }
+    .nav-item-info {
+      grid-area: a;
+    }
 
-  .label-container {
-    display: flex;
-    justify-content: space-between;
-    border-bottom: 1px solid rgb(228, 227, 227);
-    margin-bottom: 10px;
+    .nav-item-security {
+      grid-area: b;
+    }
 
-    p {
-        padding: 5px;
+    .nav-item-preference {
+      grid-area: c;
     }
   }
 
-  .profile-personal {
+  .profile-option-window {
     grid-area: b;
+    display: grid;
+    gap: 20px;
+    padding: 40px 30px;
+    min-height: 50px;
+
+    .profile-header h5 {
+      font-size: 1.5em;
+      height: 33px;
+    }
+
+    /* basic info */
+    .profile-street-container {
+      width: 80.2%;
+    }
+
+    .profile-number-container {
+      width: 19.8%;
+    }
+
+    .profile-city-container {
+      width: 56.75%;
+    }
+
+    .profile-zip-container {
+      width: 18.2%;
+    }
+
+    /* security */
+    .profile-username-container {
+      width: 100%;
+      margin-bottom: 15px;
+    }
+
+    .profile-button {
+      width: 100%;
+      height: 35.8px;
+      margin: 0;
+      font-size: 1em !important;
+    }
+
+    .profile-username-container-imput-button {
+      display: flex;
+      gap: 15px;
+    }
+
+    .profile-password-container {
+      display: inline-block !important;
+      width: 100%;
+
+      .profile-password-button {
+        width: 100%;
+        padding: 0;
+        font-size: 1em !important;
+        text-wrap: nowrap;
+      }
+    }
   }
 
-  .profile-address {
-    grid-area: e;
+  .profile-section-3 {
+    display: grid;
+    grid-template-rows: 60px;
   }
 
-  .profile-contact {
-    grid-area: h;
+  .profile-nav-btn {
+    width: 130px;
+    height: 30px;
+    padding: 2px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+  }
+
+  .profile-button-security {
+    width: 130px !important;
+  }
+
+  .profile-btn-focus {
+    width: 130px;
+    height: 30px;
+    padding: 2px 15px;
+    border-radius: 5px;
+    color: white !important;
+    text-decoration: none;
+    background-color: rgb(62, 103, 150);
   }
 }
 
-.profile-section-3 {
-  display: grid;
-  grid-template-rows: 50px;
+@media screen and (max-width: 764px) {
+  .profile-section-2 {
+    grid-template-columns: 100px minmax(100px, 550px);
+    gap: 20px;
+  }
+
+  .nav-item {
+    width: 100px;
+  }
+
+  .profile-street-container,
+  .profile-app-container,
+  .profile-city-container,
+  .profile-zip-container {
+    width: 100% !important;
+  }
+
+  .profile-username-container-imput-button {
+    display: block !important;
+
+    .profile-form-control-username {
+      margin-bottom: 15px;
+    }
+
+    .profile-button-security {
+      width: 100% !important;
+    }
+  }
+}
+
+@media screen and (max-width: 359px) {
+  .profile-header h5 {
+    font-size: 1.4em !important;
+    height: 33px;
+  }
+}
+
+@media screen and (max-width: 355px) {
+  .profile-password-container a {
+    padding-left: 5px;
+    padding-right: 5px;
+  }
 }

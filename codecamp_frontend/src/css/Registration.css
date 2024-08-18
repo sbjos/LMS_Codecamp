@@ -1,0 +1,105 @@
+.registration-root {
+  display: grid;
+  grid-template-rows: repeat(3);
+  background: var(--background-color-2);
+}
+
+.registration-root-success {
+    height: 100vh;
+    background: var(--background-color-2);
+}
+
+.registration-section-1 {
+  display: grid;
+  grid-template-rows: 80px;
+}
+
+.registration-section-2 {
+  display: grid;
+  grid-template-columns: 1fr minmax(100px, 765px) 1fr;
+  grid-template-areas:
+    "a b c"
+    "d e f";
+  justify-content: center;
+
+  .registration-success {
+    grid-area: b;
+    display: grid;
+    justify-content: center;
+    gap: 15px;
+    margin: 15%;
+    padding: 25px;
+    border: 1px solid none;
+    border-radius: 15px;
+    /* background-color: white; */
+
+    h2 {
+      color: var(--text-color) !important;
+    }
+
+    .registration-btn {
+      float: right;
+      width: 30%;
+      font-size: 1em !important;
+      font-weight: 600;
+      margin-top: 15px;
+    }
+  }
+
+  .registration-form {
+    grid-area: e;
+    padding: 40px 50px;
+    border-radius: 15px;
+    background: white;
+
+    .registration-header {
+      grid-area: b;
+      margin-bottom: 30px;
+      display: inline-flex !important;
+    }
+
+    .registration-container-header-exception h5 {
+      margin-bottom: 0;
+    }
+
+    .registration-container-header {
+      margin-top: 35px;
+
+      h5 {
+        margin-bottom: 0;
+      }
+    }
+
+    .registration-container-header-error {
+      margin-top: 28px;
+    }
+
+    .registration-field-container-error {
+      margin: 15.2px 0 0;
+    }
+
+    .registration-firstname-container,
+    .registration-lastname-container {
+      width: 50%;
+    }
+
+    .registration-street-container {
+      width: 80.2%;
+    }
+
+    .registration-number-container {
+      width: 19.8%;
+    }
+  }
+}
+
+.registration-section-3 {
+  display: grid;
+  grid-template-rows: 80px;
+}
+
+@media screen and (max-width: 544px) {
+  .registration-field-container {
+    width: 100% !important;
+  }
+}

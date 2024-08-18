@@ -13,7 +13,7 @@ import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Optional;
 import java.util.Set;
 
@@ -67,7 +67,7 @@ public class UserServiceTest {
     void updateUser_return_updated_User() {
         // GIVEN
         Contact contactUpdated = new Contact(
-                "+1-401-145-6325",
+                "4011456325",
                 "change@mail.com"
         );
 
@@ -81,7 +81,7 @@ public class UserServiceTest {
 
         UserResponseDto updatedUser = userResponseMapping(
                 new User(
-                        LocalDate.of(2023, 11, 20),
+                        LocalDateTime.of(2023, 11, 20, 17, 52, 51),
                         "John",
                         "Doe",
                         "user1",
