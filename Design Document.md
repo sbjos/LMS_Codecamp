@@ -26,9 +26,14 @@ get them reviewed.
 - As a Reviewer I want to be able to see the 4 most recent `Submitted` assignments and click on `view all` for a list of all-of-the submitted assignments.
 - As a Reviewer I cannot have more than 10 assignments that are `In review`.
 
-### Backend Handling:
+## Handling:
+### Assignment handling
 - For assignments that are in `Submited` status, the backend handles the status change on the learner's side.
-- For assignments that are being reviewed by the reviewer, the status change is handled by the frontend based on if the assignment needs to be in a `Completed` or `In review` status. 
+- For assignments that are being reviewed by the reviewer, the status change is handled by the frontend based on if the assignment needs to be in a `Completed` or `In review` status.
+
+### Time management
+- The backend converts the Local time to UTC and saved to the database. 
+- The frontend will receive that time in UTC and convert it to the user's local time.
 
 ## Technology Stack
 - **Frontend:** React JS
@@ -76,7 +81,9 @@ get them reviewed.
 ## Database Tables
 - users
 - authorities
-- assignments
+- contact
+- address
+- assignment
 
 ### users
 - id : number
@@ -91,6 +98,21 @@ get them reviewed.
 - authority: varchar
 - user_id: number
 
+### contact
+- id: number
+- phone: varchar 
+- email: varchar
+- user_id: number
+
+### address
+- id: number
+- street: varchar
+- number: varchar
+- city: varchar
+- state: varchar
+- zipcode: varchar
+- user_id: number
+
 ### assignments
 - id: number
 - number: number
@@ -102,18 +124,27 @@ get them reviewed.
 
 ## Restful Endpoints
 ### Authentication and verification
-- **Login**                     - *Post method* - `/api/auth/login`
-- **Refresh the token**         - *Get method* - `/api/auth/validate`
+
+| Endpoints  | Method                | CRUD | Mapping                       | 
+|:-----------|:----------------------|:----:|:------------------------------|
+| user       | attemptAuthentication | Post | `/api/auth/login`             |
+| user       | createUser            | Post | `/api/create/user`            |
+| user       | validate              | Get  | `/api/auth/validate`          |
+| user       | Get user              | Get  | `/api/user/`                  |   
+| user       | updateUser            | Get  | `/api/user/`                  |  
+| admin      | getAllUsers           | Get  | `/api/user/{username}`        |
+| admin      | getUserByUsername     | Get  | `/api/user/{username}`        |
+| admin      | updateUser            | Put  | `/api/admin/user/{username}`  |
+| Assignment | getUserAssignmentList | Get  | `/api/assignments`            |
+| Assignment | getAssignment         | Get  | `/api/assignments/{id}`       |
+| Assignment | updateAssignment      | Put  | `/api/assignments/{id}`       |
+| Assignment | createAssignment      | Post | `/api/assignments`            |
+
+
+
 
 ### Assignments
-- **Get Assignments**           - *Get method* - `/api/assignments`
-- **Get Assignment by id**      - *Get method* - `/api/assignments/{id}`
-- **Update Assignment by id**   - *Put method* - `/api/assignments/{id}`
-- **Create Assignment**         - *Post Method* - `/api/assignments`
 
-### Users
-- **Get user by username**      - *Get method* - `/api/user/{username}`
-- **Create user**               - *Post method* - `/api/user`
 
 ## Wireframes
 ### Home Page (Public)

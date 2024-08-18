@@ -114,7 +114,7 @@ public class UserServiceTest {
         when(userRepository.findById(user1().getId())).thenReturn(Optional.of(user1()));
 
         // WHEN
-        UserResponseDto result = userService.updateUser(user1().getId(), userUpdate);
+        UserResponseDto result = userService.updateUserById(user1().getId(), userUpdate);
         // THEN
         assertEquals(updatedUser.getId(), result.getId());
         assertEquals(updatedUser.getUsername(), result.getUsername());
@@ -158,7 +158,7 @@ public class UserServiceTest {
 
         // WHEN - THEN
         assertThrows(UserNotFoundException.class, () ->
-                        userService.updateUser(userId, userUpdate),
+                        userService.updateUserById(userId, userUpdate),
                 String.format("user %s not found.", userId)
         );
     }

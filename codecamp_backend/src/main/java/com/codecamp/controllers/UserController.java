@@ -19,7 +19,7 @@ public class UserController {
     private UserService userService;
 
     @GetMapping("/api/user")
-    public ResponseEntity<UserResponseDto> getUserById(@AuthenticationPrincipal User user) {
+    public ResponseEntity<UserResponseDto> getUser(@AuthenticationPrincipal User user) {
         return new ResponseEntity<>(userService.getUserById(user.getId()), HttpStatus.OK);
     }
 
@@ -29,7 +29,7 @@ public class UserController {
         UserResponseDto updatedUser;
 
         try {
-            updatedUser = userService.updateUser(user.getId(),update);
+            updatedUser = userService.updateUserById(user.getId(),update);
 
         } catch (IllegalArgumentException e) {
             log.warn(e, new IllegalArgumentException());

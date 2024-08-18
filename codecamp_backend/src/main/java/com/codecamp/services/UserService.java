@@ -33,7 +33,7 @@ public class UserService {
      * @param update updated user details
      * @return the updated assignment
      */
-    public UserResponseDto updateUser(Long id, User update) {
+    public UserResponseDto updateUserById(Long id, User update) {
         User user = userLookup(id).get();
 
         Optional.ofNullable(update.getFirstname()).ifPresent(firstname -> user.setFirstname(firstname.trim()));

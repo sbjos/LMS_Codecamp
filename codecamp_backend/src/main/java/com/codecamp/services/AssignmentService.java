@@ -69,7 +69,7 @@ public class AssignmentService {
      * @return an updated assignment
      * @throws AssignmentNotFoundException assignment not found
      */
-    public AssignmentResponseDto updateAssignment(Long assignmentId, Assignment update, User user) {
+    public AssignmentResponseDto updateAssignmentById(Long assignmentId, Assignment update, User user) {
         if (hasReachedLimit(assignmentId, update, user)) throw new IllegalArgumentException("Limit reached");
 
         Assignment userAssignment;

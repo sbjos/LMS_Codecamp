@@ -20,6 +20,8 @@ each submission.
 
     
 #### application-dev.properties file:
+Feel free to modify
+
         postgresql properties
             spring.datasource.url=jdbc:postgresql://localhost:5550/codecampDB
             spring.datasource.username=codecamp123
@@ -37,26 +39,21 @@ each submission.
   - https://docs.npmjs.com/cli/v10/commands/npm-install
 
 
-- Fully operational learners site:
+- **Fully operational learners site**:
   - homepage
   - view all
   - edit and view button on cards
   - new assignment
-- Partially operational:
+- **Partially operational**:
   - Request one on one (Page is active but does not submit the request form to the backend yet)
-- Non-operational:
+- **Non-operational**:
   - Inbox
   - Calendar
   - Reminders
   - Profile
   - Settings
 
-## N.B.
-- This application is still under construction.
-- Signup page coming soon. 
-  - User creation is not yet setup on the frontend side. At the moment, curl commands or applications like postman can be used 
-    to create learners and reviewers.
-- Below is a model to create a learner and a reviewer user.
+### Below is a model to create a learner and a reviewer user.
 
 ### for learners
         {
@@ -77,3 +74,9 @@ each submission.
         "password": "password",
         "authorities": ["REVIEWER"]
         }
+
+## N.B.
+- This application is still under construction.
+- Signup page coming soon.
+  - User creation is not yet setup on the frontend side. At the moment, curl commands or applications like postman can be used
+    to create learners and reviewers.

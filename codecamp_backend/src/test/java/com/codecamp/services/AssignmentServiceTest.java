@@ -176,7 +176,7 @@ public class AssignmentServiceTest {
         when(assignmentRepository.save(any())).thenReturn(null);
 
         // GIVEN
-        AssignmentResponseDto result = assignmentService.updateAssignment(
+        AssignmentResponseDto result = assignmentService.updateAssignmentById(
                 assignment1().getId(), assignmentUpdate, user1()
         );
 
@@ -220,7 +220,7 @@ public class AssignmentServiceTest {
         when(assignmentRepository.save(any())).thenReturn(null);
 
         // GIVEN
-        AssignmentResponseDto result = assignmentService.updateAssignment(
+        AssignmentResponseDto result = assignmentService.updateAssignmentById(
                 assignment1().getId(), assignmentUpdate, user1()
         );
 
@@ -275,7 +275,7 @@ public class AssignmentServiceTest {
         when(assignmentRepository.save(any())).thenReturn(null);
 
         // GIVEN
-        AssignmentResponseDto result = assignmentService.updateAssignment(
+        AssignmentResponseDto result = assignmentService.updateAssignmentById(
                 assignment1().getId(), assignmentUpdate, reviewer1()
         );
 

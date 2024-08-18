@@ -27,7 +27,7 @@ public class AssignmentController {
     }
 
     @GetMapping(value = "/api/assignments/{id}")
-    public ResponseEntity<AssignmentResponseDto> getAssignmentById(@PathVariable("id") Long assignmentId) {
+    public ResponseEntity<AssignmentResponseDto> getAssignment(@PathVariable("id") Long assignmentId) {
         return new ResponseEntity<>(assignmentService.getAssignmentById(assignmentId), HttpStatus.OK);
     }
 
@@ -38,7 +38,7 @@ public class AssignmentController {
         AssignmentResponseDto assignmentDto;
 
         try {
-            assignmentDto = assignmentService.updateAssignment(assignmentId, update, user);
+            assignmentDto = assignmentService.updateAssignmentById(assignmentId, update, user);
 
         } catch (IllegalArgumentException e) {
             log.warn(e, new IllegalArgumentException());
