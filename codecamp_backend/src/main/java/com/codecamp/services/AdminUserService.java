@@ -4,7 +4,7 @@ import com.codecamp.dto.UserResponseDto;
 import com.codecamp.entities.User;
 import com.codecamp.exceptions.UserNotFoundException;
 import com.codecamp.repositories.UserRepository;
-import com.codecamp.utils.ObjectMapping;
+import com.codecamp.utils.ObjectMappingUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
-import static com.codecamp.utils.ObjectMapping.userResponseMapping;
+import static com.codecamp.utils.ObjectMappingUtils.userResponseMapping;
 
 @Service
 public class AdminUserService {
@@ -27,7 +27,7 @@ public class AdminUserService {
     // TODO: Look in to paginating this baby
     public List<UserResponseDto> getAllUsers() {
         return userRepository.findAll().stream()
-                .map(ObjectMapping::userResponseMapping)
+                .map(ObjectMappingUtils::userResponseMapping)
                 .collect(Collectors.toList());
     }
 

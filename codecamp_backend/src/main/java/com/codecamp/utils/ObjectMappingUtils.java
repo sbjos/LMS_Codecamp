@@ -11,7 +11,7 @@ import java.util.HashSet;
 import java.util.Optional;
 
 @Component
-public class ObjectMapping {
+public class ObjectMappingUtils {
 
     /**
      * Converts Assignment objects to a DTO

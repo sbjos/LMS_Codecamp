@@ -19,7 +19,7 @@ import java.util.Set;
 
 import static com.codecamp.testhelper.TestAuthorityHelper.learner;
 import static com.codecamp.testhelper.TestUserHelper.*;
-import static com.codecamp.utils.ObjectMapping.userResponseMapping;
+import static com.codecamp.utils.ObjectMappingUtils.userResponseMapping;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.when;
 

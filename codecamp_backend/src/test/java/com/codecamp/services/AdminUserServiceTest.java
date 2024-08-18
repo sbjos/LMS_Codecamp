@@ -21,7 +21,7 @@ import static com.codecamp.testhelper.TestAddressHelper.addressUser1;
 import static com.codecamp.testhelper.TestAuthorityHelper.learner;
 import static com.codecamp.testhelper.TestContactHelper.contactUser1;
 import static com.codecamp.testhelper.TestUserHelper.user1;
-import static com.codecamp.utils.ObjectMapping.userResponseMapping;
+import static com.codecamp.utils.ObjectMappingUtils.userResponseMapping;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.when;
 

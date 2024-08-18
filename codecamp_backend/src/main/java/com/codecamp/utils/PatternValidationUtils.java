@@ -4,7 +4,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.regex.PatternSyntaxException;
 
-public class PatternValidation {
+public class PatternValidationUtils {
     private final static Pattern usernameRegex = Pattern.compile("^[a-zA-Z][a-zA-Z0-9-_]{3,23}&");
     private final static Pattern passwordRegex = Pattern.compile("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%&]).{8,24}$");
     private final static Pattern phoneRegex = Pattern.compile("^\\+[1]\\s[(]\\d{3}[)]\\s\\d{3}-\\d{4}$");

@@ -5,7 +5,7 @@ import com.codecamp.entities.Assignment;
 import com.codecamp.entities.User;
 import com.codecamp.exceptions.AssignmentNotFoundException;
 import com.codecamp.repositories.AssignmentRepository;
-import com.codecamp.utils.ObjectMapping;
+import com.codecamp.utils.ObjectMappingUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.stereotype.Service;
@@ -15,7 +15,7 @@ import java.util.stream.Collectors;
 
 import static com.codecamp.enums.AssignmentStatusEnum.*;
 import static com.codecamp.enums.AuthorityEnum.*;
-import static com.codecamp.utils.ObjectMapping.assignmentMapping;
+import static com.codecamp.utils.ObjectMappingUtils.assignmentMapping;
 
 @Service
 public class AssignmentService {
@@ -45,7 +45,7 @@ public class AssignmentService {
             throw new AssignmentNotFoundException("Assignment list not found");
 
         return assignmentsPage.stream()
-                .map(ObjectMapping::assignmentMapping)
+                .map(ObjectMappingUtils::assignmentMapping)
                 .collect(Collectors.toList());
     }
 

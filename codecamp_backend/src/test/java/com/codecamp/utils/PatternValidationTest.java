@@ -15,7 +15,7 @@ public class PatternValidationTest {
         String formattedPhoneNumber = "+1 (252) 000-5365";
 
         // WHEN
-        String result = PatternValidation.phonePattern(phoneNumber);
+        String result = PatternValidationUtils.phonePattern(phoneNumber);
 
         // THEN
         assertEquals(formattedPhoneNumber, result);
@@ -28,7 +28,7 @@ public class PatternValidationTest {
 
         // WHEN - THEN
         assertThrows(PatternSyntaxException.class,
-                () -> PatternValidation.phonePattern(phoneNumber),
+                () -> PatternValidationUtils.phonePattern(phoneNumber),
                 "Wrong phone number format"
         );
     }
@@ -39,7 +39,7 @@ public class PatternValidationTest {
         String email = "usernae@domain.com";
 
         // WHEN
-        String result = PatternValidation.emailPattern(email);
+        String result = PatternValidationUtils.emailPattern(email);
 
         // THEN
         assertEquals(email, result);
@@ -51,7 +51,7 @@ public class PatternValidationTest {
         String email = "usernae@domain.subdomain.com";
 
         // WHEN
-        String result = PatternValidation.emailPattern(email);
+        String result = PatternValidationUtils.emailPattern(email);
 
         // THEN
         assertEquals(email, result);
@@ -64,7 +64,7 @@ public class PatternValidationTest {
 
         // WHEN - THEN
         assertThrows(PatternSyntaxException.class,
-                () -> PatternValidation.emailPattern(phoneNumber),
+                () -> PatternValidationUtils.emailPattern(phoneNumber),
                 "Wrong phone number format"
         );
     }
@@ -75,7 +75,7 @@ public class PatternValidationTest {
         String zipcode = "33058";
 
         // WHEN
-        String result = PatternValidation.zipcodePattern(zipcode);
+        String result = PatternValidationUtils.zipcodePattern(zipcode);
 
         // THEN
         assertEquals(zipcode, result);
@@ -88,7 +88,7 @@ public class PatternValidationTest {
 
         // WHEN - THEN
         assertThrows(PatternSyntaxException.class,
-                () -> PatternValidation.zipcodePattern(zipcode),
+                () -> PatternValidationUtils.zipcodePattern(zipcode),
                 "Wrong phone number format"
         );
     }

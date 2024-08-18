@@ -5,8 +5,8 @@ import jakarta.persistence.*;
 
 import java.util.Objects;
 
-import static com.codecamp.utils.PatternValidation.emailPattern;
-import static com.codecamp.utils.PatternValidation.phonePattern;
+import static com.codecamp.utils.PatternValidationUtils.emailPattern;
+import static com.codecamp.utils.PatternValidationUtils.phonePattern;
 
 @Entity
 @Table(name = "contact")

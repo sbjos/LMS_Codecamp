@@ -4,7 +4,7 @@ import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import java.util.Objects;
 
-import static com.codecamp.utils.PatternValidation.zipcodePattern;
+import static com.codecamp.utils.PatternValidationUtils.zipcodePattern;
 
 @Entity
 @Table(name = "address")

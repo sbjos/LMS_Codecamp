@@ -4,14 +4,15 @@ import com.codecamp.dto.UserResponseDto;
 import com.codecamp.entities.User;
 import com.codecamp.exceptions.UserNotFoundException;
 import com.codecamp.repositories.UserRepository;
-import com.codecamp.utils.TimeZoneConverter;
+import com.codecamp.utils.TimeZoneConverterUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 
-import static com.codecamp.utils.ObjectMapping.userResponseMapping;
-import static com.codecamp.utils.PatternValidation.*;
+import static com.codecamp.utils.NameFormatTingUtils.capitalizeFirstChar;
+import static com.codecamp.utils.ObjectMappingUtils.userResponseMapping;
+import static com.codecamp.utils.PatternValidationUtils.*;
 
 @Service
 public class UserService {
@@ -64,16 +65,16 @@ public class UserService {
      * @param newUser the user information to create the new user
      */
     public void createUser(User newUser) {
-        newUser.setCohortStartDate(TimeZoneConverter.convertLocalTimeToUTC());
-        newUser.setFirstname(newUser.getFirstname().trim());
-        newUser.setLastname(newUser.getLastname().trim());
+        newUser.setCohortStartDate(TimeZoneConverterUtils.convertLocalTimeToUTC());
+        newUser.setFirstname(capitalizeFirstChar(newUser.getFirstname()));
+        newUser.setLastname(capitalizeFirstChar(newUser.getLastname()));
         newUser.setUsername(UsernamePattern(newUser.getUsername().trim()));
         newUser.setEncodedPassword(passwordPattern(newUser.getPassword().trim()));
         newUser.getContact().setPhone(phonePattern(newUser.getContact().getPhone().trim()));
         newUser.getContact().setEmail(emailPattern(newUser.getContact().getEmail().trim()));
-        newUser.getAddress().setStreet(newUser.getAddress().getStreet().trim());
+        newUser.getAddress().setStreet(capitalizeFirstChar(newUser.getAddress().getStreet()));
         newUser.getAddress().setNumber(newUser.getAddress().getNumber().trim());
-        newUser.getAddress().setCity(newUser.getAddress().getCity().trim());
+        newUser.getAddress().setCity(capitalizeFirstChar(newUser.getAddress().getCity()));
         newUser.getAddress().setState(newUser.getAddress().getState().trim());
         newUser.getAddress().setZipcode(zipcodePattern(newUser.getAddress().getZipcode().trim()));
         newUser.setAccountNonExpired(true);

@@ -2,7 +2,7 @@ package com.codecamp.utils;
 
 import java.time.*;
 
-public class TimeZoneConverter {
+public class TimeZoneConverterUtils {
 
     /**
      * Convert the actual  local system time to UTC.
