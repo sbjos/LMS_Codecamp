@@ -26,20 +26,11 @@ get them reviewed.
 - As a Reviewer I want to be able to see the 4 most recent `Submitted` assignments and click on `view all` for a list of all-of-the submitted assignments.
 - As a Reviewer I cannot have more than 10 assignments that are `In review`.
 
-## Handling:
-### Assignment handling
-- For assignments that are in `Submited` status, the backend handles the status change on the learner's side.
-- For assignments that are being reviewed by the reviewer, the status change is handled by the frontend based on if the assignment needs to be in a `Completed` or `In review` status.
-
-### Time management
-- The backend converts the Local time to UTC and saved to the database. 
-- The frontend will receive that time in UTC and convert it to the user's local time.
-
 ## Technology Stack
-- **Frontend:** React JS
-- **Backend API:** Spring Boot with Spring Data JPA with Hibernate and the PostgreSQL Driver
-- **Security and Auth:** Spring Security using JWT for user persistence
-- **Database:** PostgreSQL server for a relational database
+- **Frontend:** `React JS`
+- **Backend API:** `Spring Boot with Spring Data JPA with Hibernate and the PostgreSQL Driver`
+- **Security and Auth:** `Spring Security using JWT for user persistence`
+- **Database:** `PostgreSQL server for a relational database`
 
 ## Domain Objects (Entities / DTO / ENUM)
 ### User
@@ -123,8 +114,6 @@ get them reviewed.
 - code_reviewer_id: number
 
 ## Restful Endpoints
-### Authentication and verification
-
 | Endpoints  | Method                | CRUD | Mapping                       | 
 |:-----------|:----------------------|:----:|:------------------------------|
 | user       | attemptAuthentication | Post | `/api/auth/login`             |
@@ -140,21 +129,77 @@ get them reviewed.
 | Assignment | updateAssignment      | Put  | `/api/assignments/{id}`       |
 | Assignment | createAssignment      | Post | `/api/assignments`            |
 
+## Models
+### Create learner
+        {
+        "firstname": "Charles",
+        "lastname": "Bronson",
+        "username": "learner1",
+        "password": "@Password1",
+        "authorities": ["LEARNER"],
+        "address" : {
+            "address": "123 main st",
+            "city": "Auburndale",
+            "state": "FL",
+            "zipcode": "33823"
+            },
+        "contact": {
+            "phone": "0123258521",
+            "email": "cbronson@mailDomain.com"
+            }
+        }
+
+### Create reviewer
+        {
+        "firstname": "Jean-Claude",
+        "lastname": "Van Damme",
+        "username": "reviewer1",
+        "password": "@Password1",
+        "authorities": ["REVIEWER"],
+        "address" : {
+            "address": "123 main st",
+            "city": "Auburndale",
+            "state": "FL",
+            "zipcode": "33823"
+            },
+        "contact": {
+            "phone": "0123258521",
+            "email": "jcvd@mailDomain.com"
+            }
+        }
+
+### Create assignment
+        {
+        "name": "Project name",
+        "description": "Project description",
+        "githubUrl": "https://projectGithubUrl.com/",
+        "branch": "Branch name"
+        }
 
 
+## Handlings:
+### Assignment handling
+#### Assignment status
+- For assignments that are in `Submited` status, the backend handles the status change on the learner's side.
+- For assignments that are being reviewed by the reviewer, the status change is handled by the frontend based on if the assignment needs to be in a `Completed` or `In review` status.
 
-### Assignments
+#### Edit assignment
+- A user can only edit the Github Url and the branch of an assignment
+- A reviewer can only edit the reviewer video url of an assignment
 
+#### Cohort start date/time management
+- The backend converts the Local time to UTC and saved to the database.
+- The frontend will receive that time in UTC and convert it to the user's local time.
 
 ## Wireframes
 ### Home Page (Public)
 ![Home Page (Public)](./documents/images/home_page_public.jpg)
 
-### Home Page (Authenticated)
-![Home Page (Authenticated)](./documents/images/home_page_authenticated.jpg)
-
 ### Login Page
 ![Login Page](./documents/images/login_page.jpg)
+
+### Home Page (Authenticated)
+![Home Page (Authenticated)](./documents/images/home_page_authenticated.jpg)
 
 ### Learner Dashboard
 ![Learner Dashboard](./documents/images/learner_dashboard.jpg)
