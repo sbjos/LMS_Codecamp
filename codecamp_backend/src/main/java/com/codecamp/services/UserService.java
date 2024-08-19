@@ -68,7 +68,7 @@ public class UserService {
         newUser.setCohortStartDate(TimeZoneConverterUtils.convertLocalTimeToUTC());
         newUser.setFirstname(capitalizeFirstChar(newUser.getFirstname()));
         newUser.setLastname(capitalizeFirstChar(newUser.getLastname()));
-        newUser.setUsername(UsernamePattern(newUser.getUsername().trim()));
+        newUser.setUsername(usernamePattern(newUser.getUsername().trim()));
         newUser.setEncodedPassword(passwordPattern(newUser.getPassword().trim()));
         newUser.getContact().setPhone(phonePattern(newUser.getContact().getPhone().trim()));
         newUser.getContact().setEmail(emailPattern(newUser.getContact().getEmail().trim()));

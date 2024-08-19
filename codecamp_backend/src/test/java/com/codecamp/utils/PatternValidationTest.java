@@ -9,6 +9,92 @@ import static org.junit.jupiter.api.Assertions.*;
 public class PatternValidationTest {
 
     @Test
+    void usernamePattern_returns_correct_format() {
+        // GIVEN
+        String username = "user1";
+        String formattedUsername = "user1";
+
+        // WHEN
+        String result = PatternValidationUtils.usernamePattern(username);
+
+        // THEN
+        assertEquals(formattedUsername, result);
+    }
+
+    @Test
+    void usernamePattern_with_invalid_character_throws_PatternSyntaxException() {
+        // GIVEN
+        String username = "@user1";
+
+        // WHEN - THEN
+        assertThrows(PatternSyntaxException.class,
+                () -> PatternValidationUtils.phonePattern(username),
+                "Wrong username format"
+        );
+    }
+
+    @Test
+    void usernamePattern_with_invalid_format_length_throws_PatternSyntaxException() {
+        // GIVEN
+        String username = "us";
+
+        // WHEN - THEN
+        assertThrows(PatternSyntaxException.class,
+                () -> PatternValidationUtils.usernamePattern(username),
+                "Wrong username format"
+        );
+    }
+
+    @Test
+    void passwordPattern_returns_correct_format() {
+        // GIVEN
+        String password = "@Passw0rd";
+        String formattedPassword = "@Passw0rd";
+
+        // WHEN
+        String result = PatternValidationUtils.passwordPattern(password);
+
+        // THEN
+        assertEquals(formattedPassword, result);
+    }
+
+    @Test
+    void passwordPattern_with_incorrect_format_throws_PatternSyntaxException() {
+        // GIVEN
+        String phoneNumber = "password123";
+
+        // WHEN - THEN
+        assertThrows(PatternSyntaxException.class,
+                () -> PatternValidationUtils.passwordPattern(phoneNumber),
+                "Wrong password format"
+        );
+    }
+
+    @Test
+    void passwordPattern_with_incorrect_format_length_throws_PatternSyntaxException() {
+        // GIVEN
+        String phoneNumber = "pass";
+
+        // WHEN - THEN
+        assertThrows(PatternSyntaxException.class,
+                () -> PatternValidationUtils.passwordPattern(phoneNumber),
+                "Wrong password format"
+        );
+    }
+
+    @Test
+    void passwordPattern_with_invalid_character_throws_PatternSyntaxException() {
+        // GIVEN
+        String phoneNumber = "(@Passw0rd";
+
+        // WHEN - THEN
+        assertThrows(PatternSyntaxException.class,
+                () -> PatternValidationUtils.passwordPattern(phoneNumber),
+                "Wrong password format"
+        );
+    }
+
+    @Test
     void phonePattern_returns_correct_format() {
         // GIVEN
         String phoneNumber = "2520005365";
@@ -25,6 +111,18 @@ public class PatternValidationTest {
     void phonePattern_with_incorrect_format_throws_PatternSyntaxException() {
         // GIVEN
         String phoneNumber = "+1 252 000-5365";
+
+        // WHEN - THEN
+        assertThrows(PatternSyntaxException.class,
+                () -> PatternValidationUtils.phonePattern(phoneNumber),
+                "Wrong phone number format"
+        );
+    }
+
+    @Test
+    void phonePattern_with_incorrect_format_length_throws_PatternSyntaxException() {
+        // GIVEN
+        String phoneNumber = "252569874";
 
         // WHEN - THEN
         assertThrows(PatternSyntaxException.class,
@@ -65,7 +163,7 @@ public class PatternValidationTest {
         // WHEN - THEN
         assertThrows(PatternSyntaxException.class,
                 () -> PatternValidationUtils.emailPattern(phoneNumber),
-                "Wrong phone number format"
+                "Wrong email format"
         );
     }
 
@@ -89,7 +187,7 @@ public class PatternValidationTest {
         // WHEN - THEN
         assertThrows(PatternSyntaxException.class,
                 () -> PatternValidationUtils.zipcodePattern(zipcode),
-                "Wrong phone number format"
+                "Wrong zipcode format"
         );
     }
 }

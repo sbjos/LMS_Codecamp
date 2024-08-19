@@ -5,20 +5,20 @@ import java.util.regex.Pattern;
 import java.util.regex.PatternSyntaxException;
 
 public class PatternValidationUtils {
-    private final static Pattern usernameRegex = Pattern.compile("^[a-zA-Z][a-zA-Z0-9-_]{3,23}&");
-    private final static Pattern passwordRegex = Pattern.compile("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%&]).{8,24}$");
+    private final static Pattern usernameRegex = Pattern.compile("^[a-zA-Z][a-zA-Z0-9-_]{3,23}$");
+    private final static Pattern passwordRegex = Pattern.compile("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%&])[a-zA-Z0-9!@#$%&]{8,24}$");
     private final static Pattern phoneRegex = Pattern.compile("^\\+[1]\\s[(]\\d{3}[)]\\s\\d{3}-\\d{4}$");
     private final static Pattern emailRegex = Pattern.compile("^[a-zA-Z][a-zA-Z0-9_.-]+@[a-z0A-Z-9_.-]+\\.[a-z]+$");
     private final static Pattern zipCodeRegex = Pattern.compile("^\\d{5}$");
 
-    public static String UsernamePattern(String userName) {
+    public static String usernamePattern(String userName) {
         String validUsername;
         Matcher matcher = usernameRegex.matcher(userName);
 
         if (matcher.find()) {
             validUsername = userName;
         } else {
-            throw new  PatternSyntaxException("Wrong phone number format", null, -1);
+            throw new  PatternSyntaxException("Wrong username format", null, -1);
         }
 
         return validUsername;
@@ -31,7 +31,7 @@ public class PatternValidationUtils {
         if (matcher.find()) {
             validPassword = phoneNumber;
         } else {
-            throw new  PatternSyntaxException("Wrong phone number format", null, -1);
+            throw new  PatternSyntaxException("Wrong password format", null, -1);
         }
 
         return validPassword;
