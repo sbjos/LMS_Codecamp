@@ -7,7 +7,7 @@ import "../../css/Login.css";
 function Login() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const [error, setError] = useState(null);
+  const [error, setError] = useState(false);
   const navigate = useNavigate("");
 
   // Sumbit a request to login to application.
@@ -45,7 +45,7 @@ function Login() {
         console.error("No Server Response");
       } else {
         console.error(err);
-        setError("Login failed");
+        setError(true);
       }
     }
   };

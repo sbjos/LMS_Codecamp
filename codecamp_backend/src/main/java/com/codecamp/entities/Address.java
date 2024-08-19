@@ -4,8 +4,6 @@ import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import java.util.Objects;
 
-import static com.codecamp.utils.PatternValidationUtils.zipcodePattern;
-
 @Entity
 @Table(name = "address")
 public class Address {
@@ -85,7 +83,7 @@ public class Address {
     }
 
     public void setZipcode(String zipcode) {
-        this.zipcode = zipcodePattern(zipcode);
+        this.zipcode = zipcode;
     }
 
     @Override

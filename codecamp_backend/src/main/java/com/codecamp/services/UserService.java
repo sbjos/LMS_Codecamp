@@ -77,6 +77,7 @@ public class UserService {
         newUser.getAddress().setCity(capitalizeFirstChar(newUser.getAddress().getCity()));
         newUser.getAddress().setState(newUser.getAddress().getState().trim());
         newUser.getAddress().setZipcode(zipcodePattern(newUser.getAddress().getZipcode().trim()));
+        newUser.getAuthorities();
         newUser.setAccountNonExpired(true);
         newUser.setAccountNonLocked(true);
         newUser.setCredentialsNonExpired(true);

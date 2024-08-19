@@ -47,7 +47,7 @@ public class SecurityConfig {
                 }))
                 .authorizeHttpRequests(authRequest -> authRequest
                 .requestMatchers("/api/auth/**").permitAll()
-                .requestMatchers("/api/create/user/**").permitAll()
+                .requestMatchers("/api/create/**").permitAll()
                 .requestMatchers("/api/admin/user/**").permitAll() // permitAll() For testing purposes
 //                        .hasAuthority(ADMIN.name())
                 .anyRequest().authenticated());

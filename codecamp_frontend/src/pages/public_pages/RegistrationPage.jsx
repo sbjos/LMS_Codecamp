@@ -1,10 +1,10 @@
 import { useRef, useState } from "react";
-import axios from "axios";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faInfoCircle } from "@fortawesome/free-solid-svg-icons";
+import axios from "axios";
 import StateComponent from "../../components/select/StateComponent";
-import "../../css/Registration.css";
 import RedirectUrl from "../../components/RedirectUrl";
+import "../../css/Registration.css";
 
 function RegistrationPage() {
   // regex
@@ -78,6 +78,7 @@ function RegistrationPage() {
       try {
         const contact = { email, phone };
         const address = { street, number, city, state, zipcode };
+        const authorities = "LEARNER";
         const updateUser = {
           firstname,
           lastname,
@@ -85,9 +86,10 @@ function RegistrationPage() {
           password,
           contact,
           address,
+          authorities,
         };
         const response = await axios.post(
-          "http://localhost:8080/api/create/user",
+          "http://localhost:8080/api/create/learner/user",
           updateUser
         );
         if (response.status === 201) {

@@ -39,14 +39,7 @@ public class PatternValidationUtils {
 
     public static String phonePattern(String phoneNumber) {
         String validPhoneNumber;
-        String formattedPhoneNumber;
-
-        if (phoneNumber.length() == 10) {
-            formattedPhoneNumber = phoneNumberFormatting(phoneNumber);
-
-        } else {
-            throw new PatternSyntaxException("Wrong phone number format", null, -1);
-        }
+        String formattedPhoneNumber = phoneNumberFormatting(phoneNumber);
 
         Matcher matcher = phoneRegex.matcher(formattedPhoneNumber);
         if (matcher.find()) {
@@ -87,13 +80,19 @@ public class PatternValidationUtils {
 
     private static String phoneNumberFormatting(String phoneNumber) {
         String formattedPhoneNumber;
-        StringBuilder builder = new StringBuilder(phoneNumber.trim());
+        int phoneNumberlength = phoneNumber.length();
 
-        String a = builder.substring(0, 3);
-        String b = builder.substring(3, 6);
-        String c = builder.substring(6, 10);
+        if (phoneNumber.length() == 10) {
+            StringBuilder builder = new StringBuilder(phoneNumber.trim());
+            String a = builder.substring(0, 3);
+            String b = builder.substring(3, 6);
+            String c = builder.substring(6, 10);
 
-        formattedPhoneNumber = String.format("+1 (%s) %s-%s", a, b, c);
+            formattedPhoneNumber = String.format("+1 (%s) %s-%s", a, b, c);
+
+        } else {
+            throw new PatternSyntaxException("Phone number length invalid", null, -1);
+        }
 
         return formattedPhoneNumber;
     }
