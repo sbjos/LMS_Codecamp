@@ -39,6 +39,7 @@ main {
   --button-link-color-hover: #1662d4;
   --placeholder-color: #b5b5b5;
   --border-color: #6d767e;
+  --border-focus-color: #02459c;
   --submitted-card-color: #60879a;
   --inreview-card-color: #fd650de5;
   --needswork-card-color: #dc3848;
@@ -92,7 +93,16 @@ p {
   border-color: var(--border-color) !important;
 
   &:focus {
-    box-shadow: none !important;
+    box-shadow: none;
+  }
+}
+
+.form-check-input {
+  font-size: .9em;
+  border-color: var(--border-color) !important;
+  
+  &:focus {
+    box-shadow: none;
   }
 }
 
@@ -101,6 +111,10 @@ p {
   font-size: 1.2em !important;
   font-weight: 600;
   margin-top: 10px;
+
+  &:focus {
+    box-shadow: none;
+  }
 }
 
 /* input Error */
@@ -148,11 +162,11 @@ p {
 .hidden {
   display: none;
   /* position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  border: 0; */
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0; */
 }

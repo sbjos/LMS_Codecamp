@@ -1,7 +1,7 @@
 import { Outlet, useNavigate } from "react-router-dom";
 import RedirectUrl from "../RedirectUrl";
-import "../../css/NavbarandFooter.css";
 import Validate from "../Validate";
+import "../../css/NavbarandFooter.css";
 
 function LearnerRootOutlet() {
   Validate();
@@ -23,6 +23,7 @@ function LearnerRootOutlet() {
             className="navbar-brand fw-semibold ms-2 fs-5 text-dark-emphasis navbar-brand-custom"
             href={RedirectUrl.learnerdashboard}
           >
+            {/* <Logo /> */}
             {"codeCamp/>"}
           </a>
           <button

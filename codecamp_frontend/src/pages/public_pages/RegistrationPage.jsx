@@ -4,13 +4,14 @@ import { faInfoCircle } from "@fortawesome/free-solid-svg-icons";
 import axios from "axios";
 import StateComponent from "../../components/select/StateComponent";
 import RedirectUrl from "../../components/RedirectUrl";
+import Logo from "../../components/Logo";
 import "../../css/Registration.css";
 
 function RegistrationPage() {
   // regex
   const USERNAME_REGEX = /^[A-z][A-z0-9-_]{3,13}$/;
   const PASSWORD_REGEX =
-    /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%&]).{8,24}$/;
+    /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%&])[a-zA-Z0-9!@#$%&]{8,24}$/;
   const PHONE_REGEX = /^\d{10}$/;
   const EMAIL_REGEX = /^[a-zA-Z][a-zA-Z0-9_.-]+@[a-z0A-Z-9_.-]+\.[a-z]+$/;
   const ZIPCODE_REGEX = /^\d{5}$/;
@@ -89,7 +90,7 @@ function RegistrationPage() {
           authorities,
         };
         const response = await axios.post(
-          "http://localhost:8080/api/create/learner/user",
+          "http://localhost:8080/api/create/user",
           updateUser
         );
         if (response.status === 201) {
@@ -146,6 +147,8 @@ function RegistrationPage() {
     }
   }
 
+  const showPassword = () => {};
+
   return success ? (
     <>
       <div className="registration-root-success">
@@ -172,10 +175,31 @@ function RegistrationPage() {
       <div className="registration-root">
         <section className="registration-section-1"></section>
         <section className="registration-section-2">
+          <div className="registration-logo">
+            <Logo />
+          </div>
+          <div className="registration-header">
+            <h1>User Registration</h1>
+            <br className="space" />
+            <h5>Welcome to codeCamp.</h5>
+
+            <div className="registration-patagraph">
+                <p>Ready for the next step?</p>
+                <p>
+                  codeCamp provides an easy, straight forward way to submit your
+                  assignments.
+                </p>
+                <p>
+                  With a feedback video, your instructor can easily put the
+                  focus on needs work assignments.
+                </p>
+                <p>
+                  Let's get started. Complete the registration form and sign in
+                  to your account.
+                </p>
+              </div>
+          </div>
           <form className="row g-3 registration-form" onSubmit={handleSubmit}>
-            <div className="registration-header">
-              <h1>User Registration</h1>
-            </div>
             <div className="registration-container-header-exception">
               <h5>Personal info</h5>
             </div>
@@ -257,12 +281,25 @@ function RegistrationPage() {
                 onChange={handleChange(setPassword)}
                 required
               />
+              <div></div>
+
               <div
                 className={isValidPassword ? "hidden" : "error-text"}
                 id="errUsernameInput"
               >
                 <FontAwesomeIcon className="error-icon" icon={faInfoCircle} />
                 {PasswordError(password.length, isValidPassword, null)}
+              </div>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  value=""
+                  id="flexCheckDefault"
+                />
+                <label class="form-check-label" for="flexCheckDefault">
+                  Show password
+                </label>
               </div>
             </div>
             <div
@@ -299,6 +336,7 @@ function RegistrationPage() {
               </div>
             </div>
 
+            <hr className="registration-line" />
             <div className="registration-container-header">
               <h5>Contact</h5>
             </div>
@@ -360,6 +398,7 @@ function RegistrationPage() {
                 <p>Phone number should only be numerical. Try again.</p>
               </div>
             </div>
+            <hr className="registration-line" />
             <div className="registration-container-header">
               <h5>Address</h5>
             </div>
@@ -416,8 +455,6 @@ function RegistrationPage() {
                   Choose a state
                 </option>
                 {StateComponent(state)}
-                {/* onChange={handleChange(setState)}
-                required */}
               </select>
             </div>
             <div
@@ -450,7 +487,7 @@ function RegistrationPage() {
             </div>
             <div className="col-12">
               <button
-                className="btn btn-primary btn-custom"
+                className="btn btn-primary btn-custom registration-btn"
                 type="submit"
                 // disabled={!isDirty}
               >
