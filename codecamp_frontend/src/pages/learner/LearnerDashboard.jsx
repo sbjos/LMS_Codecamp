@@ -73,7 +73,7 @@ function LearnerDashboard() {
         {/* section-3 */}
         <section className="dashboard-section-3">
           <div className="card-container" id="submitted-container">
-            {/* desktop */}
+            {/* submitted desktop version */}
             <div className="card-container-label-desktop" id="submitted-label">
               <label
                 className="label-status"
@@ -90,7 +90,21 @@ function LearnerDashboard() {
               </a>
             </div>
 
-            {/* mobile */}
+            <ul
+              className={
+                submitted.length > 0
+                  ? "card-list card-list-submitted"
+                  : "no-card-list"
+              }
+            >
+              {submitted.length > 0 ? (
+                LearnerMapping(submitted.slice(-4))
+              ) : (
+                <p className="no-assignment">No assignments</p>
+              )}
+            </ul>
+
+            {/* submitted mobile version */}
             <div
               className="card-container-label-mobile"
               id="submitted-label-mobile"
@@ -103,14 +117,10 @@ function LearnerDashboard() {
                 View submitted assignments
               </a>
             </div>
-
-            <ul className="card-list card-list-submitted">
-              {LearnerMapping(submitted.slice(-4))}
-            </ul>
           </div>
 
           <div className="card-container" id="inreview-container">
-            {/* desktop */}
+            {/* in review desktop */}
             <div className="card-container-label-desktop" id="inreview-label">
               <label className="label-status">Assignments in review</label>
               <a
@@ -122,7 +132,21 @@ function LearnerDashboard() {
               </a>
             </div>
 
-            {/* mobile */}
+            <ul
+              className={
+                inReview.length > 0
+                  ? "card-list card-list-inreview"
+                  : "no-card-list"
+              }
+            >
+              {inReview.length > 0 ? (
+                LearnerMapping(inReview.slice(-4))
+              ) : (
+                <p className="no-assignment">No assignments</p>
+              )}
+            </ul>
+
+            {/* in review mobile */}
             <div
               className="card-container-label-mobile"
               id="submitted-label-mobile"
@@ -135,14 +159,10 @@ function LearnerDashboard() {
                 View assignments in review
               </a>
             </div>
-
-            <ul className="card-list card-list-inreview">
-              {LearnerMapping(inReview.slice(-4))}
-            </ul>
           </div>
 
           <div className="card-container" id="needswork-container">
-            {/* desktop */}
+            {/* needs work desktop */}
             <div className="card-container-label-desktop" id="needswork-label">
               <label className="label-status">Assignments needs work</label>
               <a
@@ -153,8 +173,21 @@ function LearnerDashboard() {
                 View all
               </a>
             </div>
+            <ul
+              className={
+                needsWwork.length > 0
+                  ? "card-list card-list-needswork"
+                  : "no-card-list"
+              }
+            >
+              {needsWwork.length > 0 ? (
+                LearnerMapping(needsWwork.slice(-4))
+              ) : (
+                <p className="no-assignment">No assignments</p>
+              )}
+            </ul>
 
-            {/* mobile */}
+            {/* needs work mobile */}
             <div
               className="card-container-label-mobile"
               id="submitted-label-mobile"
@@ -167,10 +200,6 @@ function LearnerDashboard() {
                 View assignments that needs work
               </a>
             </div>
-
-            <ul className="card-list card-list-needswork">
-              {LearnerMapping(needsWwork.slice(-4))}
-            </ul>
           </div>
 
           <div className="card-container" id="completed-container">
@@ -185,6 +214,19 @@ function LearnerDashboard() {
                 View all
               </a>
             </div>
+            <ul
+              className={
+                completed.length > 0
+                  ? "card-list card-list-completed"
+                  : "no-card-list"
+              }
+            >
+              {completed.length > 0 ? (
+                LearnerMapping(completed.slice(-4))
+              ) : (
+                <p className="no-assignment">No assignments</p>
+              )}
+            </ul>
 
             {/* mobile */}
             <div
@@ -199,10 +241,6 @@ function LearnerDashboard() {
                 View completed assignments
               </a>
             </div>
-
-            <ul className="card-list card-list-completed">
-              {LearnerMapping(completed.slice(-4))}
-            </ul>
           </div>
           <div className="showall"></div>
         </section>

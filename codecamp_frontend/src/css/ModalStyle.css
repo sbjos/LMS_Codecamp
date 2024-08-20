@@ -1,3 +1,7 @@
+.modal-root {
+  width: 100vh;
+}
+
 .modal-content-custom {
   padding: 15px 15px 25px;
 

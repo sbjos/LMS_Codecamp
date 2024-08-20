@@ -90,6 +90,27 @@
       }
     }
 
+    .no-card-list {
+      display: grid;
+      grid-template: 330px / repeat(4, minmax(181px, 250px));
+      grid-template-areas: "a b b c";
+      padding: 20px;
+      margin: 0;
+      grid-gap: 1.5rem;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      border-top: 0.5px solid rgb(228, 227, 227);
+      border-bottom: 0.5px solid rgb(228, 227, 227);
+      font-family: Optimist, Helvetica Neue, Helvetica, Arial, sans-serif;
+
+      .no-assignment {
+        grid-area: b;
+        font-size: 3em;
+        color: rgb(199, 193, 193);
+      }
+    }
+
     .card-list {
       display: grid;
       grid-template: 330px / repeat(4, minmax(181px, 250px));
@@ -228,6 +249,10 @@
   .dashboard-section-3 {
     margin: auto;
     grid-gap: 60px;
+
+    .no-card-list {
+      display: none !important;
+    }
 
     .card-container {
       .card-list {
