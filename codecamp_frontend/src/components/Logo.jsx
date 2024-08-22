@@ -1,9 +1,9 @@
-function Logo() {
+function Logo(href) {
   return (
     <>
-      <h5 className="navbar-brand fw-semibold ms-2 fs-5 text-dark-emphasis navbar-brand-custom">
+      <a className="brand" href={href}>
         {"codeCamp/>"}
-      </h5>
+      </a>
     </>
   );
 }

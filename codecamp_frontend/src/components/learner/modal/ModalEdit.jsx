@@ -15,7 +15,7 @@ function ModalEdit(assignment, buttonClass, buttonName) {
         {buttonName}
       </a>
       <div
-        className="modal fade"
+        className="modal fade modal-fade"
         id={`edit-assignment-modal-${id}`}
         tabIndex="-1"
         aria-labelledby={`edit-assignment-modal-label-"${id}`}

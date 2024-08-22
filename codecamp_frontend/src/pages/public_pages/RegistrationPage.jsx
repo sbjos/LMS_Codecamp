@@ -1,6 +1,6 @@
-import { useRef, useState } from "react";
+import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faInfoCircle } from "@fortawesome/free-solid-svg-icons";
+import { faInfoCircle, faL } from "@fortawesome/free-solid-svg-icons";
 import axios from "axios";
 import StateComponent from "../../components/select/StateComponent";
 import RedirectUrl from "../../components/RedirectUrl";
@@ -16,14 +16,9 @@ function RegistrationPage() {
   const EMAIL_REGEX = /^[a-zA-Z][a-zA-Z0-9_.-]+@[a-z0A-Z-9_.-]+\.[a-z]+$/;
   const ZIPCODE_REGEX = /^\d{5}$/;
 
-  // States for registration
-  // const [isDirty, setDirty] = useState(false);
-
-  const userRef = useRef();
-  const errRef = useRef();
-
-  const [error, setError] = useState(false);
+  const [type, setType] = useState("password");
   const [success, setSuccess] = useState(false);
+  const [isAvailable, setAvailable] = useState(true);
 
   const [firstname, setFirstname] = useState("");
   const [lastname, setLastname] = useState("");
@@ -79,7 +74,7 @@ function RegistrationPage() {
       try {
         const contact = { email, phone };
         const address = { street, number, city, state, zipcode };
-        const authorities = "LEARNER";
+        const authorities = ["LEARNER"];
         const updateUser = {
           firstname,
           lastname,
@@ -100,16 +95,31 @@ function RegistrationPage() {
         if (!err) {
           console.error("No Server Response");
         } else {
-          console.error(err);
-          alert("Registration failed");
+          if (err.response.status === 409) {
+            console.error("err", err);
+            setAvailable(false);
+            } else {
+            console.error(err);
+            alert("Registration failed");
+          }
         }
       }
     }
   };
 
+  console.log("isAvailable", isAvailable)
+
   const handleChange = (setter) => (e) => {
     setter(e.target.value);
     // setDirty(true);
+  };
+
+  const handleToggle = (value) => {
+    if (type === "password") {
+      setType("text");
+    } else {
+      setType("password");
+    }
   };
 
   // Showing success message
@@ -126,7 +136,25 @@ function RegistrationPage() {
     );
   };
 
-  function PasswordError(passwordLength, isValidPassword, isPasswordMatch) {
+  function usernameError(validUsername, isAvailable) {
+    if (validUsername === false) {
+      return (
+        <>
+          <p>Only letters, numbers and (. _ -) are allowed.</p>
+        </>
+      );
+    } 
+
+    if (isAvailable === false) {
+      return (
+        <>
+          <p>This username is already taken. Try another one.</p>
+        </>
+      );
+    }
+  }
+
+  function PasswordError(passwordLength, isValidPassword) {
     if (passwordLength <= 7 || passwordLength > 23) {
       return (
         <>
@@ -147,7 +175,12 @@ function RegistrationPage() {
     }
   }
 
-  const showPassword = () => {};
+  const element = <FontAwesomeIcon icon="fa-solid fa-house" />;
+
+  const showPassword = () => {
+    if (condition) {
+    }
+  };
 
   return success ? (
     <>
@@ -175,29 +208,27 @@ function RegistrationPage() {
       <div className="registration-root">
         <section className="registration-section-1"></section>
         <section className="registration-section-2">
-          <div className="registration-logo">
-            <Logo />
-          </div>
+          <div className="registration-logo">{Logo(RedirectUrl.Homepage)}</div>
           <div className="registration-header">
             <h1>User Registration</h1>
             <br className="space" />
             <h5>Welcome to codeCamp.</h5>
 
             <div className="registration-patagraph">
-                <p>Ready for the next step?</p>
-                <p>
-                  codeCamp provides an easy, straight forward way to submit your
-                  assignments.
-                </p>
-                <p>
-                  With a feedback video, your instructor can easily put the
-                  focus on needs work assignments.
-                </p>
-                <p>
-                  Let's get started. Complete the registration form and sign in
-                  to your account.
-                </p>
-              </div>
+              <p>Ready for the next step?</p>
+              <p>
+                codeCamp provides an easy, straight forward way to submit your
+                assignments.
+              </p>
+              <p>
+                With a feedback video, your instructor can easily put the focus
+                on needs work assignments.
+              </p>
+              <p>
+                Let's get started. Complete the registration form and sign in to
+                your account.
+              </p>
+            </div>
           </div>
           <form className="row g-3 registration-form" onSubmit={handleSubmit}>
             <div className="registration-container-header-exception">
@@ -231,7 +262,7 @@ function RegistrationPage() {
             </div>
             <div
               className={
-                isValidUsername
+                isValidUsername && isAvailable
                   ? "col-md-4 registration-field-container registration-username-container "
                   : "col-md-4 registration-field-container registration-username-container error"
               }
@@ -251,16 +282,16 @@ function RegistrationPage() {
                 required
               />
               <div
-                className={isValidUsername ? "hidden" : "error-text"}
+                className={isValidUsername && isAvailable ? "hidden" : "error-text"}
                 id="errUsernameInput"
               >
                 <FontAwesomeIcon className="error-icon" icon={faInfoCircle} />
-                <p>Only letters, numbers and (. _ -) are allowed.</p>
+                {usernameError(isValidUsername, isAvailable)}
               </div>
             </div>
             <div
               className={
-                isValidPassword || !isPasswordMatch
+                isValidPassword
                   ? "col-md-4 registration-field-container registration-password-container"
                   : "col-md-4 registration-field-container registration-password-container error"
               }
@@ -272,7 +303,7 @@ function RegistrationPage() {
                 Password<span className="form-required">*</span>
               </label>
               <input
-                type="password"
+                type={type}
                 className="form-control registration-form-control"
                 id="validationDefaultPasssword-Test"
                 aria-invalid={isValidPassword}
@@ -288,23 +319,27 @@ function RegistrationPage() {
                 id="errUsernameInput"
               >
                 <FontAwesomeIcon className="error-icon" icon={faInfoCircle} />
-                {PasswordError(password.length, isValidPassword, null)}
+                {PasswordError(password.length, isValidPassword)}
               </div>
-              <div class="form-check">
+              <div className="form-check registration-form-checkbox">
                 <input
-                  class="form-check-input"
+                  className="form-check-input"
                   type="checkbox"
                   value=""
                   id="flexCheckDefault"
+                  onClick={handleToggle}
                 />
-                <label class="form-check-label" for="flexCheckDefault">
+                <label
+                  className="form-check-label registration-form-checkbox-label"
+                  htmlFor="flexCheckDefault"
+                >
                   Show password
                 </label>
               </div>
             </div>
             <div
               className={
-                isValidPassword && isPasswordMatch
+                isPasswordMatch
                   ? "col-md-4 registration-field-container registration-password-match-container"
                   : "col-md-4 registration-field-container registration-password-match-container error"
               }
@@ -316,7 +351,7 @@ function RegistrationPage() {
                 Confirm password<span className="form-required">*</span>
               </label>
               <input
-                type="password"
+                type={type}
                 className="form-control registration-form-control"
                 id="validationDefaultUConfirmPassword-Test"
                 aria-invalid={isPasswordMatch}
@@ -326,9 +361,7 @@ function RegistrationPage() {
                 required
               />
               <div
-                className={
-                  isValidPassword && isPasswordMatch ? "hidden" : "error-text"
-                }
+                className={isPasswordMatch ? "hidden" : "error-text"}
                 id="errConfirmaPasswordInput"
               >
                 <FontAwesomeIcon className="error-icon" icon={faInfoCircle} />
@@ -395,7 +428,10 @@ function RegistrationPage() {
                 id="errorPhoneInput"
               >
                 <FontAwesomeIcon className="error-icon" icon={faInfoCircle} />
-                <p>Phone number should only be numerical. Try again.</p>
+                <p>
+                  Phone number should be 10 digits and only numerical. Try
+                  again.
+                </p>
               </div>
             </div>
             <hr className="registration-line" />

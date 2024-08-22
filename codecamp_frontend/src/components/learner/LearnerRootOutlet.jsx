@@ -156,7 +156,7 @@ function LearnerRootOutlet() {
         </div>
       </nav>
 
-      <main>
+      <main className="main">
         <Outlet />
       </main>
 

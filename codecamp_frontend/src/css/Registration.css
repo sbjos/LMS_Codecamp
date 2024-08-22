@@ -1,8 +1,8 @@
 .registration-root {
   display: grid;
   grid-template-rows: repeat(3);
+  height: 100%;
   min-height: 100vh;
-  max-height: min-content;
   background: var(--background-color-2);
 }
 
@@ -19,6 +19,7 @@
 .registration-section-2 {
   display: grid;
   grid-template-columns: minmax(100px, 550px) minmax(100px, 700px);
+  grid-template-rows: 25px 708px;
   grid-template-areas:
     "a a"
     "b c";
@@ -28,6 +29,7 @@
 
   .registration-logo {
     grid-area: a;
+    font-size: 1.5em;
     margin-bottom: 25px;
   }
 
@@ -132,6 +134,18 @@
 .registration-section-3 {
   display: grid;
   grid-template-rows: 10px;
+}
+
+.registration-form-checkbox {
+  padding-left: 26px;
+}
+
+.form-check-input {
+  margin: 6px;
+}
+
+.registration-form-checkbox-label {
+  font-size: 0.9em;
 }
 
 @media screen and (max-width: 1250px) {

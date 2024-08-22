@@ -100,7 +100,9 @@ function LearnerDashboard() {
               {submitted.length > 0 ? (
                 LearnerMapping(submitted.slice(-4))
               ) : (
-                <p className="no-assignment">No assignments</p>
+                
+                  <p className="no-assignment">No assignments</p>
+                
               )}
             </ul>
 
@@ -142,7 +144,9 @@ function LearnerDashboard() {
               {inReview.length > 0 ? (
                 LearnerMapping(inReview.slice(-4))
               ) : (
-                <p className="no-assignment">No assignments</p>
+                
+                  <p className="no-assignment">No assignments</p>
+                
               )}
             </ul>
 
@@ -183,7 +187,9 @@ function LearnerDashboard() {
               {needsWwork.length > 0 ? (
                 LearnerMapping(needsWwork.slice(-4))
               ) : (
-                <p className="no-assignment">No assignments</p>
+                
+                  <p className="no-assignment">No assignments</p>
+                
               )}
             </ul>
 
@@ -224,7 +230,9 @@ function LearnerDashboard() {
               {completed.length > 0 ? (
                 LearnerMapping(completed.slice(-4))
               ) : (
-                <p className="no-assignment">No assignments</p>
+                
+                  <p className="no-assignment">No assignments</p>
+                
               )}
             </ul>
 

@@ -2,7 +2,8 @@ const RootUrl = "/codecamp";
 const Profile = RootUrl + "/profile";
 
 const RedirectUrl = {
-  // Learner url
+  // Learner
+  Homepage: RootUrl,
   Register: RootUrl + "/register",
   Login: RootUrl + "/login",
   learnerdashboard: RootUrl + "/mydashboard",
