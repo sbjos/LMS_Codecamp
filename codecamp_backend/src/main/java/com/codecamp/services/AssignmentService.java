@@ -5,6 +5,7 @@ import com.codecamp.entities.Assignment;
 import com.codecamp.entities.User;
 import com.codecamp.exceptions.AssignmentNotFoundException;
 import com.codecamp.repositories.AssignmentRepository;
+import com.codecamp.utils.NameFormattingUtils;
 import com.codecamp.utils.ObjectMappingUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
@@ -71,6 +72,7 @@ public class AssignmentService {
      */
     public AssignmentResponseDto updateAssignmentById(Long assignmentId, Assignment update, User user) {
         if (hasReachedLimit(assignmentId, update, user)) throw new IllegalArgumentException("Limit reached");
+
 
         Assignment userAssignment;
         GrantedAuthority userAuthority = user.getAuthorities().stream().findFirst().get();

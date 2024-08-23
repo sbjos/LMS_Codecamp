@@ -37,7 +37,8 @@ Feel free to modify
 - To start the React.js application, run in the cli `npm dev run` for development.
   - https://docs.npmjs.com/cli/v10/commands/npm-install
 
-#### Fully operational learners site:
+#### complete:
+  - Learner registration page   
   - Homepage
   - Login
   - Learner's pages
@@ -45,12 +46,12 @@ Feel free to modify
     - Create assignment
     - edit and view buttons on cards
 
-#### Partially operational:
+#### Partially complete:
   - Request one on one (_Accessible, not submitting any changes_)
   - Profile (_Accessible, not submitting any changes_)
   - Register (_Accessible, not submitting any changes_)
 
-#### Non-operational:
+#### offline:
   - Inbox
   - Calendar
   - Reminders
@@ -59,6 +60,5 @@ Feel free to modify
 
 ## N.B.
 - This application is still under construction.
-- Registration page coming soon.
-  - User creation is not yet setup on the frontend side. At the moment, curl commands or applications like postman can be used
-    to create learners and reviewers.
+  - Reviewer creation is not yet setup on the frontend side. At the moment, curl commands or applications like postman can be used
+    to create reviewers.

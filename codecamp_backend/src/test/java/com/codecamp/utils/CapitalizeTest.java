@@ -13,7 +13,7 @@ public class CapitalizeTest {
         String capitalizedFirstName = "Alonzo Mourning";
 
         // WHEN
-        String result = NameFormatTingUtils.capitalizeFirstChar(firstname);
+        String result = NameFormattingUtils.capitalizeFirstChar(firstname);
 
         // THEN
         assertEquals(capitalizedFirstName, result);

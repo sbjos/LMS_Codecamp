@@ -1,6 +1,6 @@
 package com.codecamp.utils;
 
-public class NameFormatTingUtils {
+public class NameFormattingUtils {
 
     public static String capitalizeFirstChar(String name) {
         char[] chars = name.toLowerCase().toCharArray();

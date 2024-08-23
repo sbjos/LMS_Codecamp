@@ -3,19 +3,25 @@ package com.codecamp.services;
 import com.codecamp.dto.UserResponseDto;
 import com.codecamp.entities.User;
 import com.codecamp.exceptions.UserNotFoundException;
+import com.codecamp.exceptions.UsernameAlreadyExistException;
 import com.codecamp.repositories.UserRepository;
 import com.codecamp.utils.TimeZoneConverterUtils;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 
-import static com.codecamp.utils.NameFormatTingUtils.capitalizeFirstChar;
+import static com.codecamp.utils.NameFormattingUtils.capitalizeFirstChar;
 import static com.codecamp.utils.ObjectMappingUtils.userResponseMapping;
 import static com.codecamp.utils.PatternValidationUtils.*;
 
 @Service
 public class UserService {
+
+    private final Logger log = LogManager.getLogger(UserService.class);
 
     @Autowired
     private UserRepository userRepository;
@@ -65,25 +71,33 @@ public class UserService {
      * @param newUser the user information to create the new user
      */
     public void createUser(User newUser) {
-        newUser.setCohortStartDate(TimeZoneConverterUtils.convertLocalTimeToUTC());
-        newUser.setFirstname(capitalizeFirstChar(newUser.getFirstname()));
-        newUser.setLastname(capitalizeFirstChar(newUser.getLastname()));
-        newUser.setUsername(usernamePattern(newUser.getUsername().trim()));
-        newUser.setEncodedPassword(passwordPattern(newUser.getPassword().trim()));
-        newUser.getContact().setPhone(phonePattern(newUser.getContact().getPhone().trim()));
-        newUser.getContact().setEmail(emailPattern(newUser.getContact().getEmail().trim()));
-        newUser.getAddress().setStreet(capitalizeFirstChar(newUser.getAddress().getStreet()));
-        newUser.getAddress().setNumber(newUser.getAddress().getNumber().trim());
-        newUser.getAddress().setCity(capitalizeFirstChar(newUser.getAddress().getCity()));
-        newUser.getAddress().setState(newUser.getAddress().getState().trim());
-        newUser.getAddress().setZipcode(zipcodePattern(newUser.getAddress().getZipcode().trim()));
-        newUser.getAuthorities();
-        newUser.setAccountNonExpired(true);
-        newUser.setAccountNonLocked(true);
-        newUser.setCredentialsNonExpired(true);
-        newUser.setEnabled(true);
+        try {
+            newUser.setCohortStartDate(TimeZoneConverterUtils.convertLocalTimeToUTC());
+            newUser.setFirstname(capitalizeFirstChar(newUser.getFirstname()));
+            newUser.setLastname(capitalizeFirstChar(newUser.getLastname()));
+            newUser.setUsername(usernamePattern(newUser.getUsername().trim()));
+            newUser.setEncodedPassword(passwordPattern(newUser.getPassword().trim()));
+            newUser.getContact().setPhone(phonePattern(newUser.getContact().getPhone().trim()));
+            newUser.getContact().setEmail(emailPattern(newUser.getContact().getEmail().trim()));
+            newUser.getAddress().setStreet(capitalizeFirstChar(newUser.getAddress().getStreet()));
+            newUser.getAddress().setNumber(newUser.getAddress().getNumber().trim());
+            newUser.getAddress().setCity(capitalizeFirstChar(newUser.getAddress().getCity()));
+            newUser.getAddress().setState(newUser.getAddress().getState().trim());
+            newUser.getAddress().setZipcode(zipcodePattern(newUser.getAddress().getZipcode().trim()));
+            newUser.getAuthorities();
+            newUser.setAccountNonExpired(true);
+            newUser.setAccountNonLocked(true);
+            newUser.setCredentialsNonExpired(true);
+            newUser.setEnabled(true);
 
-        userRepository.save(newUser);
+            userRepository.save(newUser);
+
+        } catch (DataIntegrityViolationException e) {
+            log.warn(e, new DataIntegrityViolationException(""));
+            throw new UsernameAlreadyExistException(
+                    String.format("Username $s already exist", newUser.getUsername())
+            );
+        }
     }
 
     /**
