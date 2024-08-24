@@ -1,4 +1,4 @@
-const RootUrl = "/codecamp";
+const RootUrl = "/codecamp.com";
 const Profile = RootUrl + "/profile";
 
 const RedirectUrl = {

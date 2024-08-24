@@ -56,7 +56,7 @@
   text-align: center;
   min-height: 30px;
   padding: 20px 100px;
-  font-size: .95em;
+  font-size: 0.95em;
   font-weight: 200;
 
   /* Colors */
@@ -70,6 +70,7 @@
       padding: 0;
       margin: 0;
       li {
+        padding: 0 15px;
         display: inline-block;
 
         a {

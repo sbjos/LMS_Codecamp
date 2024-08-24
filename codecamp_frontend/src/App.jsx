@@ -26,13 +26,13 @@ import SigninInfo from "./pages/profile/SigninInfo.jsx";
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route>
-      <Route path="/codecamp" element={<PublicHomepage />} />
-      <Route path="/codecamp/register" element={<RegistrationPage />} />
-      <Route path="/codecamp/auth" element={<WhitePage />} />
-      <Route path="/codecamp/login" element={<Login />} />
+      <Route path="/codecamp.com" element={<PublicHomepage />} />
+      <Route path="/codecamp.com/register" element={<RegistrationPage />} />
+      <Route path="/codecamp.com/auth" element={<WhitePage />} />
+      <Route path="/codecamp.com/login" element={<Login />} />
 
       {/* Learner routes */}
-      <Route path="/codecamp" element={<LearnerRootOutlet />}>
+      <Route path="/codecamp.com" element={<LearnerRootOutlet />}>
         <Route path="mydashboard" element={<LearnerDashboard />} />
         <Route path="submitted" element={<LearnerViewAllSubmitted />} />
         <Route path="inreview" element={<LearnerViewAllInReview />} />
@@ -46,7 +46,7 @@ const router = createBrowserRouter(
       </Route>
       {/* Reviewer routes */}
       <Route
-        path="/codecamp/reviewerdashboard/:reviewerName"
+        path="/codecamp.com/reviewerdashboard/:reviewerName"
         element={<LearnerRootOutlet />}
       >
         <Route index element={<ReviewerDashboard />} />

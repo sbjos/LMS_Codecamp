@@ -1,5 +1,5 @@
 * {
-  max-width: 1920px;
+  /* max-width: 1920px; */
   /* border: 1px solid blueviolet; */
 }
 
@@ -30,14 +30,21 @@ main {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
+  --layout-content-width: 1440px;
+  --layout-content-padding: 24px;
+  --layout-content-padding-large: 52px;
+  --layout-content-padding-small: 18px;
   --label-text-color: #22262abf;
+  --text-color: #131415c4;
   --background-color-1: #0a8bd6ef;
   --background-color-2: #e3e3e373;
   --background-color-3: #f3f2ef;
-  --background-color-4: #f0f4f9;
-  --text-color: #131415c4;
+  --background-color-4: #ebf3fa;  
   --button-link-color: #054a76;
   --button-link-color-hover: #1662d4;
+  --button-color-blue: #0050c7;
+  --button-color-red: #c7006d;
+  --button-color-green: #0b7c47;
   --placeholder-color: #b5b5b5;
   --border-color: #6d767e;
   --border-focus-color: #02459c;
@@ -45,8 +52,8 @@ main {
   --inreview-card-color: #fd650de5;
   --needswork-card-color: #dc3848;
   --completed-card-color: #198653;
-  --error-color: #b3261e;
   --brand-color: #495057;
+  --error-color: #b3261e;
 
   ::placeholder {
     color: var(--placeholder-color);
