@@ -3,7 +3,7 @@ package com.codecamp.testhelper;
 import com.codecamp.entities.User;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Set;
 
 import static com.codecamp.testhelper.TestAddressHelper.*;
@@ -17,7 +17,7 @@ public final class TestUserHelper {
 
     public static User user1() {
         return new User(
-                LocalDate.of(2023, 11, 20),
+                LocalDateTime.of(2023, 11, 20, 17, 52, 51),
                 "John",
                 "Doe",
                 "user1",
@@ -35,7 +35,7 @@ public final class TestUserHelper {
 
     public static User user2() {
         return new User(
-                LocalDate.of(2023, 7, 4),
+                LocalDateTime.of(2023, 7, 4,  3, 5, 10),
                 "Jane",
                 "Smith",
                 "user2",
@@ -52,7 +52,7 @@ public final class TestUserHelper {
 
     public static User user3() {
         return new User(
-                LocalDate.of(2024, 7, 14),
+                LocalDateTime.of(2024, 7, 14, 7, 43, 19),
                 "Jean Claude",
                 "Vann Damme",
                 "user3",

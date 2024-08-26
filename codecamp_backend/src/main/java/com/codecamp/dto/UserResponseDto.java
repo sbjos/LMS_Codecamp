@@ -4,13 +4,13 @@ import com.codecamp.entities.Address;
 import com.codecamp.entities.Contact;
 import org.springframework.security.core.GrantedAuthority;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Objects;
 import java.util.Set;
 
 public class UserResponseDto {
     private Long id;
-    private LocalDate cohortStartDate;
+    private LocalDateTime cohortStartDate;
     private String firstname;
     private String lastname;
     private String username;
@@ -24,7 +24,7 @@ public class UserResponseDto {
 
     public UserResponseDto() {}
 
-    public UserResponseDto(Long id, LocalDate cohortStartDate, String firstname, String lastname,
+    public UserResponseDto(Long id, LocalDateTime cohortStartDate, String firstname, String lastname,
                            String username, Set<GrantedAuthority> authorities, Contact contact, Address address,
                            boolean accountNonExpired, boolean accountNonLocked, boolean credentialsNonExpired, boolean enabled) {
         this.id = id;
@@ -49,11 +49,11 @@ public class UserResponseDto {
         this.id = id;
     }
 
-    public LocalDate getCohortStartDate() {
+    public LocalDateTime getCohortStartDate() {
         return cohortStartDate;
     }
 
-    public void setCohortStartDate(LocalDate cohortStartDate) {
+    public void setCohortStartDate(LocalDateTime cohortStartDate) {
         this.cohortStartDate = cohortStartDate;
     }
 

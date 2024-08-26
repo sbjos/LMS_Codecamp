@@ -6,7 +6,7 @@ import jakarta.persistence.*;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.*;
 
 @Entity
@@ -18,7 +18,7 @@ public class User implements UserDetails {
     private Long id;
 
     @Column(name = "cohort_start_date")
-    private LocalDate cohortStartDate;
+    private LocalDateTime cohortStartDate;
 
     @Column(name = "first_name")
     private String firstname;
@@ -58,7 +58,7 @@ public class User implements UserDetails {
 
     public User() {}
 
-    public User(LocalDate cohortStartDate, String firstname, String lastname, String username,
+    public User(LocalDateTime cohortStartDate, String firstname, String lastname, String username,
                 String password, Set<Authority> authorities, Contact contact, Address address,
                 boolean accountNonExpired, boolean accountNonLocked, boolean credentialsNonExpired, boolean enabled) {
         this.cohortStartDate = cohortStartDate;
@@ -79,11 +79,11 @@ public class User implements UserDetails {
         return id;
     }
 
-    public LocalDate getCohortStartDate() {
+    public LocalDateTime getCohortStartDate() {
         return cohortStartDate;
     }
 
-    public void setCohortStartDate(LocalDate cohortStartDate) {
+    public void setCohortStartDate(LocalDateTime cohortStartDate) {
         this.cohortStartDate = cohortStartDate;
     }
 
@@ -115,13 +115,9 @@ public class User implements UserDetails {
         return contact;
     }
 
-    public void setContact(Contact contact) {this.contact  = contact;}
-
     public Address getAddress() {
         return address;
     }
-
-    public void setAddress(Address address) {this.address  = address;}
 
     public void setAccountNonExpired(boolean accountNonExpired) {
         this.accountNonExpired = accountNonExpired;

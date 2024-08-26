@@ -13,7 +13,7 @@ import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import org.springframework.web.bind.annotation.*;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Optional;
 import java.util.Set;
 
@@ -21,7 +21,7 @@ import static com.codecamp.testhelper.TestAddressHelper.addressUser1;
 import static com.codecamp.testhelper.TestAuthorityHelper.learner;
 import static com.codecamp.testhelper.TestContactHelper.contactUser1;
 import static com.codecamp.testhelper.TestUserHelper.user1;
-import static com.codecamp.utils.ObjectMapping.userResponseMapping;
+import static com.codecamp.utils.ObjectMappingUtils.userResponseMapping;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.when;
 
@@ -69,7 +69,7 @@ public class AdminUserServiceTest {
     void updateUser_return_updated_User() {
         // GIVEN
         Contact contactUpdated = new Contact(
-                "+1-401-145-6325",
+                "4011456325",
                 "change@mail.com"
         );
 
@@ -83,7 +83,7 @@ public class AdminUserServiceTest {
 
         UserResponseDto updatedUser = userResponseMapping(
                 new User(
-                        LocalDate.of(2023, 11, 20),
+                        LocalDateTime.of(2023, 11, 20, 17, 52, 51),
                         "John",
                         "Doe",
                         "user1",
@@ -129,7 +129,7 @@ public class AdminUserServiceTest {
         // GIVEN
         UserResponseDto updatedUser = userResponseMapping(
                 new User(
-                        LocalDate.of(2023, 11, 20),
+                        LocalDateTime.of(2023, 11, 20, 17, 52, 51),
                         "John",
                         "Doe",
                         "user1",

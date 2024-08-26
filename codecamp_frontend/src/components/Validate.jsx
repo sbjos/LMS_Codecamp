@@ -1,14 +1,17 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import RedirectUrl from "./RedirectUrl";
 
-function Validate(token, userAuthority) {
+function Validate() {
+  const token = localStorage.getItem("lmsusertoken");
+  const userAuthority = localStorage.getItem("lmsuserauthorities");
   const navigate = useNavigate();
   const [status, setStatus] = useState();
 
   useEffect(() => {
     if (!token || !userAuthority) {
-      navigate("/codecamp/login");
+      navigate(RedirectUrl.Login);
       localStorage.clear();
     } else {
       const fetchData = async () => {
@@ -26,11 +29,11 @@ function Validate(token, userAuthority) {
         } catch (err) {
           localStorage.clear();
           if (!err) {
-            navigate("login");
+            navigate(RedirectUrl.Login);
             console.error("No Server Response");
           } else {
             console.error(err);
-            navigate("/codecamp/login");
+            navigate(RedirectUrl.Login);
           }
         }
       };

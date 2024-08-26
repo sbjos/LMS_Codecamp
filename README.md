@@ -1,13 +1,13 @@
 # Codecamp
 
-A learning management system application where learners can submit an assignment and reviewers can claim and review 
+A learning management system application where learners can submit an assignment and reviewers can claim and review
 each submission.
 
 ## Technology Stack
-- **Frontend:** React JS
-- **Backend API:** Spring Boot with Spring Data JPA with Hibernate and the Postgress Driver
-- **Security and Auth:** Spring Security using JWT for user persistence
-- **Database:** PostgreSQL server for a relational database
+#### Frontend:  `React.JS, Bootstrap`
+#### Backend API: `Spring Boot, Spring Data JPA with Hibernate and the Postgress Driver`
+#### Security and Auth: `Spring Security using JWT for user persistence`
+#### Database: `PostgreSQL server for a relational database`
 
 ## Run this application on dev:
 
@@ -18,8 +18,9 @@ each submission.
 - Once created, run the docker compose command to get the postgreSQL image. The pgadmin image is optional.
     - https://docs.docker.com/reference/cli/docker/compose/up/
 
-    
 #### application-dev.properties file:
+Feel free to modify
+
         postgresql properties
             spring.datasource.url=jdbc:postgresql://localhost:5550/codecampDB
             spring.datasource.username=codecamp123
@@ -33,67 +34,31 @@ each submission.
             spring.jpa.hibernate.ddl-auto=update
 
 ### Frontend
-- To start the react.js frontend, run npm dev run for development.
-  - https://docs.npmjs.com/cli/v10/commands/npm-install
+- To start the React.js application, run in the cli `npm dev run` for development.
+    - https://docs.npmjs.com/cli/v10/commands/npm-install
 
+#### complete:
+- Learner registration page
+- Homepage
+- Login
+- Learner's pages
+    - view all (_Submitted, In review, Needs work, Completed_)
+    - Create assignment
+    - edit and view buttons on cards
 
-- Fully operational learners site:
-  - homepage
-  - view all
-  - edit and view button on cards
-  - new assignment
-- Partially operational:
-  - Request one on one (Page is active but does not submit the request form to the backend yet)
-- Non-operational:
-  - Inbox
-  - Calendar
-  - Reminders
-  - Profile
-  - Settings
+#### Partially complete:
+- Request one on one (_Accessible, not submitting any changes_)
+- Profile (_Accessible, not submitting any changes_)
+- Register (_Accessible, not submitting any changes_)
+
+#### offline:
+- Inbox
+- Calendar
+- Reminders
+- Settings
+- Reviewer's pages
 
 ## N.B.
 - This application is still under construction.
-- Signup page coming soon.
-  - User creation is not yet setup on the frontend side. At the moment, curl commands or applications like postman can be used 
-    to create learners and reviewers.
-- Below is a model to create a learner and a reviewer user.
-
-### for learners
-    {
-        "cohortStartDate": "2021-10-05",
-        "firstname": "Steven",
-        "lastname": "Seagal",
-        "username": "learner1@domain.com",
-        "password": "password",
-        "authorities": ["LEARNER"],
-        "address" : {
-            "address": "123 main st",
-            "city": "Auburndale",
-            "state": "FL",
-            "zipcode": "33823"
-        },
-        "contact": {
-            "phone": "+1-012-325-8521",
-            "email": "johndoe@mail.com"
-        }
-    }
-
-
-### for reviewers
-    {
-        "firstname": "Jean-Claude",
-        "lastname": "Van Damme",
-        "username": "reviewer1@domain.com",
-        "password": "password",
-        "authorities": ["REVIEWER"],
-        "address" : {
-            "address": "123 main st",
-            "city": "Auburndale",
-            "state": "FL",
-            "zipcode": "33823"
-        },
-        "contact": {
-            "phone": "+1-012-325-8521",
-            "email": "johndoe@mail.com"
-        }
-    }
+    - Reviewer creation is not yet setup on the frontend side. At the moment, curl commands or applications like postman can be used
+      to create reviewers.

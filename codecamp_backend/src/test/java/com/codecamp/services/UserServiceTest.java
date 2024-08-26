@@ -13,13 +13,13 @@ import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Optional;
 import java.util.Set;
 
 import static com.codecamp.testhelper.TestAuthorityHelper.learner;
 import static com.codecamp.testhelper.TestUserHelper.*;
-import static com.codecamp.utils.ObjectMapping.userResponseMapping;
+import static com.codecamp.utils.ObjectMappingUtils.userResponseMapping;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.when;
 
@@ -67,7 +67,7 @@ public class UserServiceTest {
     void updateUser_return_updated_User() {
         // GIVEN
         Contact contactUpdated = new Contact(
-                "+1-401-145-6325",
+                "4011456325",
                 "change@mail.com"
         );
 
@@ -81,7 +81,7 @@ public class UserServiceTest {
 
         UserResponseDto updatedUser = userResponseMapping(
                 new User(
-                        LocalDate.of(2023, 11, 20),
+                        LocalDateTime.of(2023, 11, 20, 17, 52, 51),
                         "John",
                         "Doe",
                         "user1",
@@ -114,7 +114,7 @@ public class UserServiceTest {
         when(userRepository.findById(user1().getId())).thenReturn(Optional.of(user1()));
 
         // WHEN
-        UserResponseDto result = userService.updateUser(user1().getId(), userUpdate);
+        UserResponseDto result = userService.updateUserById(user1().getId(), userUpdate);
         // THEN
         assertEquals(updatedUser.getId(), result.getId());
         assertEquals(updatedUser.getUsername(), result.getUsername());
@@ -158,8 +158,20 @@ public class UserServiceTest {
 
         // WHEN - THEN
         assertThrows(UserNotFoundException.class, () ->
-                        userService.updateUser(userId, userUpdate),
+                        userService.updateUserById(userId, userUpdate),
                 String.format("user %s not found.", userId)
         );
+    }
+
+    void createUser_throws_UsernameAlreadyExistException() {
+        // GIVEN
+
+
+         // WHEN
+
+    }
+
+    void createUser_throws_EmailAlreadyExistException() {
+
     }
 }

@@ -3,6 +3,7 @@ package com.codecamp.controllers;
 import com.codecamp.dto.AssignmentResponseDto;
 import com.codecamp.entities.Assignment;
 import com.codecamp.entities.User;
+import com.codecamp.exceptions.AssignmentNotFoundException;
 import com.codecamp.services.AssignmentService;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -23,29 +24,66 @@ public class AssignmentController {
 
     @GetMapping(value = "/api/assignments")
     public ResponseEntity<List<AssignmentResponseDto>> getUserAssignmentList(@AuthenticationPrincipal User user) {
-        return new ResponseEntity<>(assignmentService.getUserAssignmentList(user), HttpStatus.OK);
+        List<AssignmentResponseDto> assignmentResponse;
+
+        try {
+            assignmentResponse = assignmentService.getUserAssignmentList(user);
+
+        } catch (AssignmentNotFoundException e) {
+            log.warn(e, new AssignmentNotFoundException());
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+
+        } catch (Exception e) {
+            log.warn(e);
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
+
+        return new ResponseEntity<>(assignmentResponse, HttpStatus.OK);
     }
 
     @GetMapping(value = "/api/assignments/{id}")
-    public ResponseEntity<AssignmentResponseDto> getAssignmentById(@PathVariable("id") Long assignmentId) {
-        return new ResponseEntity<>(assignmentService.getAssignmentById(assignmentId), HttpStatus.OK);
+    public ResponseEntity<AssignmentResponseDto> getAssignment(@PathVariable("id") Long assignmentId) {
+        AssignmentResponseDto assignmentResponse;
+
+        try {
+            assignmentResponse = assignmentService.getAssignmentById(assignmentId);
+
+        } catch (AssignmentNotFoundException e) {
+            log.warn(e, new AssignmentNotFoundException());
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+
+        } catch (Exception e) {
+            log.warn(e);
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
+
+        return new ResponseEntity<>(assignmentResponse, HttpStatus.OK);
     }
 
     @PutMapping(value = "/api/assignments/{id}")
     public ResponseEntity<AssignmentResponseDto> updateAssignment(@PathVariable("id") Long assignmentId,
                                                                       @RequestBody Assignment update,
                                                                       @AuthenticationPrincipal User user) {
-        AssignmentResponseDto assignmentDto;
+        AssignmentResponseDto assignment;
 
         try {
-            assignmentDto = assignmentService.updateAssignment(assignmentId, update, user);
+            assignment = assignmentService.updateAssignmentById(assignmentId, update, user);
+
+
+        } catch (AssignmentNotFoundException e) {
+            log.warn(e.getMessage(), new AssignmentNotFoundException());
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 
         } catch (IllegalArgumentException e) {
             log.warn(e, new IllegalArgumentException());
             return new ResponseEntity<>(HttpStatus.FORBIDDEN);
+
+        } catch (Exception e) {
+            log.warn(e);
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
 
-        return new ResponseEntity<>(assignmentDto, HttpStatus.OK);
+        return new ResponseEntity<>(assignment, HttpStatus.OK);
     }
 
     @PostMapping(value = "/api/assignments")
@@ -57,6 +95,10 @@ public class AssignmentController {
         } catch (IllegalArgumentException e) {
             log.warn(e, new IllegalArgumentException());
             return new ResponseEntity<>(HttpStatus.FORBIDDEN);
+
+        } catch (Exception e) {
+            log.warn(e);
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
 
         return new ResponseEntity<>(HttpStatus.CREATED);

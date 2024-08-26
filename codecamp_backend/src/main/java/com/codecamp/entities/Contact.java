@@ -5,9 +5,6 @@ import jakarta.persistence.*;
 
 import java.util.Objects;
 
-import static com.codecamp.utils.PatternValidation.emailPattern;
-import static com.codecamp.utils.PatternValidation.phonePattern;
-
 @Entity
 @Table(name = "contact")
 public class Contact {
@@ -43,7 +40,7 @@ public class Contact {
     }
 
     public void setPhone(String phone) {
-        this.phone = phonePattern(phone);
+        this.phone = phone;
     }
 
     public String getEmail() {
@@ -51,7 +48,7 @@ public class Contact {
     }
 
     public void setEmail(String email) {
-        this.email = emailPattern(email);
+        this.email = email;
     }
 
     @Override

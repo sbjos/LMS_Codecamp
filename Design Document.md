@@ -1,12 +1,13 @@
 # Codecamp
 
 ## Synopsis
-A learning Management System to keep track of learners assignments. This is a solutions for a learner to submit assignments and 
+A learning Management System to keep track of learners assignments. This is a solutions for a learner to submit assignments and
 get them reviewed.
 
 ## User Stories
 ### Learner User Stories
-- As a Learner I want to be able to log in to the app and be presented with a dashboard
+- As a Learner I want to be able to register to the application.
+- As a Learner I want to be able to log in to the app and be presented with a dashboard.
 - As a learner I want a dashboard that shows all of my currently working on, submitted, rejected, and completed assignments.
 - As a Learner I want to be able to click on a `Create Assignment` button on my dashboard and be presented with a form to allow me to submit an assignment with room for my GitHub url and the branch I am working on.
 - As a Learner I want to be able to click on an `Edit` button on one of the assignments on my dashboard to edit and resubmit it if it was returned unfinished.
@@ -17,6 +18,7 @@ get them reviewed.
 - As a Learner I cannot have more than 10 assignments that `Needs work` at a time.
 
 ### Reviewer User Stories
+- As a Reviewer I want to be able to receive a registration link to register as a reviewer.
 - As a Reviewer I want to be able to log in to the app and be presented with a dashboard.
 - As a Reviewer I want to be able to see any submitted assignments on my dashboard ready to claim.
 - As a Reviewer I want to be able to click on a `claim` button on an assignment with `Submitted` status in my dashboard to claim it ready for review.
@@ -26,16 +28,23 @@ get them reviewed.
 - As a Reviewer I want to be able to see the 4 most recent `Submitted` assignments and click on `view all` for a list of all-of-the submitted assignments.
 - As a Reviewer I cannot have more than 10 assignments that are `In review`.
 
-### Backend Handling:
-- For assignments that are in `Submited` status, the backend handles the status change on the learner's side.
-- For assignments that are being reviewed by the reviewer, the status change is handled by the frontend based on if the assignment needs to be in a `Completed` or `In review` status.
-- For user creation, the backend automatically set account settings to true to allow the user to access their profile.
+### Admin User Stories
+- As an admin I want to be able to receive a registration link to register as an admin.
+- As an admin I want to be able to access an admin portal.
+- As an admin I want to be able to get a list of all users in the system.
+- As an admin I want to be able to edit a user's information from the admin portal.
+- As an admin I want to be able to change a user's permissions.
+- As an admin I want to be able to disable a user's access.
+- As an admin I want to be able to get a list of all assignments.
+- As an admin I want to be able to edit an assignment.
+- As an admin I want to be abe to view a quick summary of a learner's progress.
+- As an admin I want to be abe to view a quick summary of a reviewer's progress.
 
 ## Technology Stack
-- **Frontend:** React JS
-- **Backend API:** Spring Boot with Spring Data JPA with Hibernate and the PostgreSQL Driver
-- **Security and Auth:** Spring Security using JWT for user persistence
-- **Database:** PostgreSQL server for a relational database
+- **Frontend:** `React JS`
+- **Backend API:** `Spring Boot with Spring Data JPA with Hibernate and the PostgreSQL Driver`
+- **Security and Auth:** `Spring Security using JWT for user persistence`
+- **Database:** `PostgreSQL server for a relational database`
 
 ## Domain Objects (Entities / DTO / ENUM)
 ### User
@@ -46,21 +55,6 @@ get them reviewed.
 - username: String
 - password: String
 - authorities: List<Authority>
-- contact: Contact
-- address: Address
-
-### contact
-- id : Long
-- phone: String
-- email: String
-
-### address
-- id : Long
-- address: String
-- address2: String
-- city: String
-- state: String
-- zipcode: String
 
 ### Authority
 - id: Long
@@ -92,7 +86,9 @@ get them reviewed.
 ## Database Tables
 - users
 - authorities
-- assignments
+- contact
+- address
+- assignment
 
 ### users
 - id : number
@@ -107,6 +103,21 @@ get them reviewed.
 - authority: varchar
 - user_id: number
 
+### contact
+- id: number
+- phone: varchar
+- email: varchar
+- user_id: number
+
+### address
+- id: number
+- street: varchar
+- number: varchar
+- city: varchar
+- state: varchar
+- zipcode: varchar
+- user_id: number
+
 ### assignments
 - id: number
 - number: number
@@ -117,37 +128,100 @@ get them reviewed.
 - code_reviewer_id: number
 
 ## Restful Endpoints
-### Authentication and verification
-- **Login**                     - *Post method* - `/api/auth/login`
-- **Refresh the token**         - *Get method* - `/api/auth/validate`
+| Endpoints  | Method                | CRUD | Mapping                       | 
+|:-----------|:----------------------|:----:|:------------------------------|
+| user       | attemptAuthentication | Post | `/api/auth/login`             |
+| user       | createUser            | Post | `/api/create/user`            |
+| user       | validate              | Get  | `/api/auth/validate`          |
+| user       | Get user              | Get  | `/api/user/`                  |   
+| user       | updateUser            | Get  | `/api/user/`                  |  
+| admin      | getAllUsers           | Get  | `/api/user/{username}`        |
+| admin      | getUserByUsername     | Get  | `/api/user/{username}`        |
+| admin      | updateUser            | Put  | `/api/admin/user/{username}`  |
+| Assignment | getUserAssignmentList | Get  | `/api/assignments`            |
+| Assignment | getAssignment         | Get  | `/api/assignments/{id}`       |
+| Assignment | updateAssignment      | Put  | `/api/assignments/{id}`       |
+| Assignment | createAssignment      | Post | `/api/assignments`            |
 
-### Assignments
-- **Get user's Assignments**    - *Get method* - `/api/assignments`
-- **Get Assignment by id**      - *Get method* - `/api/assignments/{id}`
-- **Update Assignment by id**   - *Put method* - `/api/assignments/{id}`
-- **Create Assignment**         - *Post Method* - `/api/assignments`
+## Models
+### Create learner
+        {
+        "firstname": "Charles",
+        "lastname": "Bronson",
+        "username": "learner2",
+        "password": "@Password1",
+        "authorities": ["LEARNER"],
+        "address" : {
+            "street": "123 main st",
+            "number": "",
+            "city": "Atlanta",
+            "state": "GA",
+            "zipcode": "30033"
+            },
+        "contact": {
+            "phone": "0123258521",
 
-### Users
-- **Get user by id**             - *Get method* - `/api/user`
-- **updateUser**                 - *Put method* - `/api/user`
-- **Create user**                - *Post method* - `/api/create/user`
+            "email": "cbronson@mailDomain.com"
+            }
+        }
 
-### Admin user control
-- **getAllUsers**                - *Get method* - `/api/admin/user`
-- **get user by username**       - *Get method* - `/api/admin/user/{username}`
-- **Update user**                - *Put method* - `/api/create/admin/user/{username}`
-- **Update user settings**       - *Put method* - `/api/create/admin/user/{username}`
-- **Create user**                - *Post method* - `/api/create/admin/user/{username}`
+### Create reviewer
+        {
+        "firstname": "Jean-Claude",
+        "lastname": "Van Damme",
+        "username": "reviewer1",
+        "password": "@Password1",
+        "authorities": ["REVIEWER"],
+        "address" : {
+            "street": "123 main st",
+            "number": "12",
+            "city": "Orlando",
+            "state": "FL",
+            "zipcode": "32835"
+            },
+        "contact": {
+            "phone": "0123258521",
+            "email": "jcvd@mailDomain.com"
+            }
+        }
+
+### Create assignment
+        {
+        "name": "Project name",
+        "description": "Project description",
+        "githubUrl": "https://projectGithubUrl.com/",
+        "branch": "Branch name"
+        }
+
+
+## Handling:
+### Assignment
+#### Assignment status
+- For assignments that are in `Submited` status, the backend handles the status change on the learner's side.
+- For assignments that are being reviewed by the reviewer, the status change is handled by the frontend based on if the assignment needs to be in a `Completed` or `In review` status.
+
+#### Edit assignment
+- A user can only edit the Github Url and the branch of an assignment
+- A reviewer can only edit the reviewer video url of an assignment
+
+#### Cohort start date/time management
+- The backend converts the Local time to UTC and saved to the database.
+- The frontend will receive that time in UTC and convert it to the user's local time.
+
+### User
+#### User registration
+- For User registration, authorities are handled by the frontend. a different page is set for reviewer registration.
+  - Authorities are defined as `LEARNER` `REVIEWER` `ADMIN`
 
 ## Wireframes
 ### Home Page (Public)
 ![Home Page (Public)](./documents/images/home_page_public.jpg)
 
-### Home Page (Authenticated)
-![Home Page (Authenticated)](./documents/images/home_page_authenticated.jpg)
-
 ### Login Page
 ![Login Page](./documents/images/login_page.jpg)
+
+### Home Page (Authenticated)
+![Home Page (Authenticated)](./documents/images/home_page_authenticated.jpg)
 
 ### Learner Dashboard
 ![Learner Dashboard](./documents/images/learner_dashboard.jpg)

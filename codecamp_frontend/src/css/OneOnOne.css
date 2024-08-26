@@ -1,6 +1,8 @@
 .oneonone-root {
   display: grid;
   grid-template-rows: repeat(2);
+  min-height: 100vh;
+  max-height: min-content;
   color: var(--text-color);
 }
 
@@ -24,15 +26,17 @@
 
   .oneonone-banner-section {
     grid-area: a;
-    margin: 55px auto;
+    padding: 55px 0;
     color: white;
 
     .oneonone-banner-header {
       margin-bottom: 2.5em;
+      
 
       .oneonone-header {
-        font-size: 2.5em;
+        font-size: 3.5em;
         font-weight: 500;
+        color: white;
       }
     }
 
@@ -57,7 +61,7 @@
       align-items: center;
 
       h1 {
-        font-size: 1.55em;
+        font-size: 1.85em;
         font-weight: 600;
       }
     }
@@ -82,19 +86,14 @@
 }
 
 @media screen and (max-width: 991px) {
-  .oneonone-section-1 {
-    grid-template-rows: 40px;
-  }
-
   .oneonone-section-2 {
-    display: grid;
-    grid-template-columns: minmax(100px, 1000px);
-    grid-template-areas:
-      "a"
-      "b";
-    justify-content: center;
+    display: block;
     padding: 50px 5%;
     gap: 1%;
+
+    /* .oneonone-banner-body {
+      display: none !important;
+    } */
   }
 
   .oneonone-banner-section {
@@ -147,7 +146,7 @@
   }
 }
 
-@media screen and (max-width: 459px) {
+@media screen and (max-width: 585px) {
   .oneonone-section-2 {
     .oneonone-row {
       display: block;

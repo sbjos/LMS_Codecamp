@@ -4,7 +4,7 @@ import com.codecamp.dto.AssignmentResponseDto;
 import com.codecamp.entities.Assignment;
 import com.codecamp.exceptions.AssignmentNotFoundException;
 import com.codecamp.repositories.AssignmentRepository;
-import com.codecamp.utils.ObjectMapping;
+import com.codecamp.utils.ObjectMappingUtils;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
@@ -38,8 +38,8 @@ public class AssignmentServiceTest {
     void getUserAssignmentList_Returns_Assignments() {
         // GIVEN
         List<AssignmentResponseDto> assignmentList = List.of(
-                ObjectMapping.assignmentMapping(assignment2()),
-                ObjectMapping.assignmentMapping(assignment3())
+                ObjectMappingUtils.assignmentMapping(assignment2()),
+                ObjectMappingUtils.assignmentMapping(assignment3())
         );
         when(assignmentRepository.findByUser(user2()))
                 .thenReturn(List.of(assignment2(), assignment3()));
@@ -66,9 +66,9 @@ public class AssignmentServiceTest {
     void getUserAssignmentList_fromReviewer_Returns_Assignments() {
         // GIVEN
         List<AssignmentResponseDto> assignmentList = List.of(
-                ObjectMapping.assignmentMapping(assignment1()),
-                ObjectMapping.assignmentMapping(assignment2()),
-                ObjectMapping.assignmentMapping(assignment3())
+                ObjectMappingUtils.assignmentMapping(assignment1()),
+                ObjectMappingUtils.assignmentMapping(assignment2()),
+                ObjectMappingUtils.assignmentMapping(assignment3())
         );
         when(assignmentRepository.findByStatus("Submitted")).thenReturn(List.of(assignment1()));
         when(assignmentRepository.findByCodeReviewer(assignment2().getCodeReviewer()))
@@ -96,7 +96,7 @@ public class AssignmentServiceTest {
     @Test
     void getAssignmentById_Returns_Assignment() {
         // GIVEN
-        AssignmentResponseDto assignment = ObjectMapping.assignmentMapping(assignment1());
+        AssignmentResponseDto assignment = ObjectMappingUtils.assignmentMapping(assignment1());
         when(assignmentRepository.findById(assignment1().getId())).thenReturn(Optional.of(assignment1()));
 
         // WHEN
@@ -120,7 +120,7 @@ public class AssignmentServiceTest {
     @Test
     void getAssignmentById_fromCodeReviewer_Returns_Assignment() {
         // GIVEN
-        AssignmentResponseDto assignment = ObjectMapping.assignmentMapping(assignment1());
+        AssignmentResponseDto assignment = ObjectMappingUtils.assignmentMapping(assignment1());
         when(assignmentRepository.findById(assignment1().getId())).thenReturn(Optional.of(assignment1()));
 
         // WHEN
@@ -144,7 +144,7 @@ public class AssignmentServiceTest {
     @Test
     void updateAssignment_with_Submitted_status_returns_UpdatedAssignment() {
         // GIVEN
-        AssignmentResponseDto updatedAssignment = ObjectMapping.assignmentMapping(
+        AssignmentResponseDto updatedAssignment = ObjectMappingUtils.assignmentMapping(
                         new Assignment(
                                 1L,
                                 11,
@@ -176,7 +176,7 @@ public class AssignmentServiceTest {
         when(assignmentRepository.save(any())).thenReturn(null);
 
         // GIVEN
-        AssignmentResponseDto result = assignmentService.updateAssignment(
+        AssignmentResponseDto result = assignmentService.updateAssignmentById(
                 assignment1().getId(), assignmentUpdate, user1()
         );
 
@@ -188,7 +188,7 @@ public class AssignmentServiceTest {
     @Test
     void updateAssignment_returns_with_NeedsWork_Status_UpdatedAssignment() {
         // GIVEN
-        AssignmentResponseDto updatedAssignment = ObjectMapping.assignmentMapping(
+        AssignmentResponseDto updatedAssignment = ObjectMappingUtils.assignmentMapping(
                 new Assignment(
                         3L,
                         33,
@@ -220,7 +220,7 @@ public class AssignmentServiceTest {
         when(assignmentRepository.save(any())).thenReturn(null);
 
         // GIVEN
-        AssignmentResponseDto result = assignmentService.updateAssignment(
+        AssignmentResponseDto result = assignmentService.updateAssignmentById(
                 assignment1().getId(), assignmentUpdate, user1()
         );
 
@@ -243,7 +243,7 @@ public class AssignmentServiceTest {
     @Test
     void updateAssignment_fromReviewer_returns_UpdatedAssignment() {
         // GIVEN
-        AssignmentResponseDto updatedAssignment = ObjectMapping.assignmentMapping(
+        AssignmentResponseDto updatedAssignment = ObjectMappingUtils.assignmentMapping(
                 new Assignment(
                         1L,
                         11,
@@ -275,7 +275,7 @@ public class AssignmentServiceTest {
         when(assignmentRepository.save(any())).thenReturn(null);
 
         // GIVEN
-        AssignmentResponseDto result = assignmentService.updateAssignment(
+        AssignmentResponseDto result = assignmentService.updateAssignmentById(
                 assignment1().getId(), assignmentUpdate, reviewer1()
         );
 

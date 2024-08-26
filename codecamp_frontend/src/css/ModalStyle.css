@@ -1,4 +1,11 @@
+.modal-root {
+  
+}
+
 .modal-content-custom {
+  display: flex;
+  justify-content: center;
+  
   padding: 15px 15px 25px;
 
   .modal-header-custom {
