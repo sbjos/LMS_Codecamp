@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import RedirectUrl from "./RedirectUrl";
 
 function Validate() {
   const token = localStorage.getItem("lmsusertoken");
@@ -10,7 +11,7 @@ function Validate() {
 
   useEffect(() => {
     if (!token || !userAuthority) {
-      navigate("/codecamp/login");
+      navigate(RedirectUrl.Login);
       localStorage.clear();
     } else {
       const fetchData = async () => {
@@ -28,11 +29,11 @@ function Validate() {
         } catch (err) {
           localStorage.clear();
           if (!err) {
-            navigate("login");
+            navigate(RedirectUrl.Login);
             console.error("No Server Response");
           } else {
             console.error(err);
-            navigate("/codecamp/login");
+            navigate(RedirectUrl.Login);
           }
         }
       };

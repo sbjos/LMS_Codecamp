@@ -100,9 +100,11 @@
 
     .registration-btn {
       float: right;
-      width: 30%;
-      font-size: 1em !important;
+      width: 20%;
+      font-size: 1.2em;
       margin-top: 20px;
+      border: 1px solid var(--button-color-red);
+      background: var(--button-color-red);
     }
   }
 }

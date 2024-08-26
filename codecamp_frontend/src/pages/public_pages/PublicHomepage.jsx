@@ -3,7 +3,6 @@ import RedirectUrl from "../../components/RedirectUrl";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faCheck,
-  faCircleCheck,
   faCircleQuestion,
   faList,
   faMagnifyingGlass,
@@ -48,7 +47,14 @@ function PublicHomepage() {
         </section>
         <section className="public-section-2">
           <div className="public-section-2-container">
-            <h1>Welcome to the assignment review app</h1>
+            <div className="public-header">
+              <h1 className="public-header-welcome">
+                Welcome to <span>{Logo()}</span>
+              </h1>
+              <p className="public-header-description">
+                Your assignment review app
+              </p>
+            </div>
           </div>
         </section>
         <section className="public-section-3">
@@ -57,10 +63,7 @@ function PublicHomepage() {
               <ul class="card-group public-card-group">
                 <li class="card public-card">
                   <div className="public-icon-container">
-                    <FontAwesomeIcon
-                      className="public-icon"
-                      icon={faList}
-                    />
+                    <FontAwesomeIcon className="public-icon" icon={faList} />
                   </div>
                   <div class="card-body public-card-body">
                     <h5 class="card-title public-card-title">Easy to use</h5>
@@ -95,7 +98,7 @@ function PublicHomepage() {
                     />
                   </div>
                   <div class="card-body public-card-body">
-                    <h5 class="card-title public-card-title">Need help</h5>
+                    <h5 class="card-title public-card-title">Need help ?</h5>
                     <p class="card-text public-card-text">
                       Support is just a few click away. Never feel lost or
                       overwhelmed in your work.
@@ -119,21 +122,21 @@ function PublicHomepage() {
               <ul className="public-info-text-List">
                 <li className="public-info-text">
                   <FontAwesomeIcon
-                    className="public-icon"
+                    className="public-icon-check"
                     icon={faCheck}
                   />{" "}
                   A simple, and easy assignment card.
                 </li>
                 <li className="public-info-text">
                   <FontAwesomeIcon
-                    className="public-icon"
+                    className="public-icon-check"
                     icon={faCheck}
                   />{" "}
-                  Information available up ront.
+                  Information available up front.
                 </li>
                 <li className="public-info-text">
                   <FontAwesomeIcon
-                    className="public-icon"
+                    className="public-icon-check"
                     icon={faCheck}
                   />{" "}
                   View or edit options righ from the card.
@@ -143,28 +146,31 @@ function PublicHomepage() {
           </div>
         </section>
         <section className="public-section-5">
-        <footer className="footer text-dark-emphasis">
-        <div className="rightreserved-text">
-          &copy; 2024 <b className="navbar-brand-custom">{"codeCamp/>"}</b>{" "}
-          &nbsp; All rights reserved.
-        </div>
-        <div className="option-list">
-          <ul>
-            <li>
-              <a href="">Privacy</a>
-            </li>
-            <li>
-              <a href="">Terms</a>
-            </li>
-            <li>
-              <a href="">Feedback</a>
-            </li>
-            <li>
-              <a href="">Support</a>
-            </li>
-          </ul>
-        </div>
-      </footer>
+          <div className="public-section-5-container">
+            <footer className="footer text-dark-emphasis">
+              <div className="rightreserved-text">
+                &copy; 2024{" "}
+                <b className="navbar-brand-custom">{"codeCamp/>"}</b> &nbsp; All
+                rights reserved.
+              </div>
+              <div className="option-list">
+                <ul>
+                  <li>
+                    <a href="">Privacy</a>
+                  </li>
+                  <li>
+                    <a href="">Terms</a>
+                  </li>
+                  <li>
+                    <a href="">Feedback</a>
+                  </li>
+                  <li>
+                    <a href="">Support</a>
+                  </li>
+                </ul>
+              </div>
+            </footer>
+          </div>
         </section>
       </div>
     </>

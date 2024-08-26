@@ -2,6 +2,7 @@ package com.codecamp.controllers;
 
 import com.codecamp.dto.UserResponseDto;
 import com.codecamp.entities.User;
+import com.codecamp.exceptions.EmailAlreadyExistException;
 import com.codecamp.exceptions.UserNotFoundException;
 import com.codecamp.exceptions.UsernameAlreadyExistException;
 import com.codecamp.services.UserService;
@@ -70,7 +71,11 @@ public class UserController {
 
         } catch (UsernameAlreadyExistException e) {
             log.warn(e, new UsernameAlreadyExistException());
-            return new ResponseEntity<>(HttpStatus.CONFLICT);
+            return new ResponseEntity<>(e.getMessage(), HttpStatus.CONFLICT);
+
+        } catch (EmailAlreadyExistException e) {
+            log.warn(e, new EmailAlreadyExistException());
+            return new ResponseEntity<>(e.getMessage(), HttpStatus.CONFLICT);
 
         } catch (IllegalArgumentException e) {
             log.warn(e, new IllegalArgumentException());

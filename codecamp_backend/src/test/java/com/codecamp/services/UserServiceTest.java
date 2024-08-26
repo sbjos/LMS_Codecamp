@@ -162,4 +162,16 @@ public class UserServiceTest {
                 String.format("user %s not found.", userId)
         );
     }
+
+    void createUser_throws_UsernameAlreadyExistException() {
+        // GIVEN
+
+
+         // WHEN
+
+    }
+
+    void createUser_throws_EmailAlreadyExistException() {
+
+    }
 }

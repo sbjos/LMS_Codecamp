@@ -160,6 +160,7 @@ get them reviewed.
             },
         "contact": {
             "phone": "0123258521",
+
             "email": "cbronson@mailDomain.com"
             }
         }
