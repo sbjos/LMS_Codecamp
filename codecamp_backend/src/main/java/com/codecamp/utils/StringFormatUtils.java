@@ -1,6 +1,6 @@
 package com.codecamp.utils;
 
-public class NameFormattingUtils {
+public class StringFormatUtils {
 
     public static String capitalizeFirstChar(String name) {
         char[] chars = name.toLowerCase().toCharArray();
@@ -19,5 +19,18 @@ public class NameFormattingUtils {
         }
 
         return String.valueOf(chars).trim();
+    }
+
+    public static String createUserFormatErrorMessage(String input) {
+        String result = null;
+
+        if (input.contains("Detail")) {
+            int start = input.indexOf("Detail");
+            int end = input.indexOf("]");
+
+            result = input.substring(start, end);
+        }
+
+        return result;
     }
 }

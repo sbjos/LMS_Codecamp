@@ -2,9 +2,11 @@ package com.codecamp.services;
 
 import com.codecamp.dto.UserResponseDto;
 import com.codecamp.entities.User;
+import com.codecamp.exceptions.EmailAlreadyExistException;
 import com.codecamp.exceptions.UserNotFoundException;
 import com.codecamp.exceptions.UsernameAlreadyExistException;
 import com.codecamp.repositories.UserRepository;
+import com.codecamp.utils.StringFormatUtils;
 import com.codecamp.utils.TimeZoneConverterUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -14,7 +16,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 
-import static com.codecamp.utils.NameFormattingUtils.capitalizeFirstChar;
+import static com.codecamp.utils.StringFormatUtils.capitalizeFirstChar;
 import static com.codecamp.utils.ObjectMappingUtils.userResponseMapping;
 import static com.codecamp.utils.PatternValidationUtils.*;
 
@@ -94,9 +96,15 @@ public class UserService {
 
         } catch (DataIntegrityViolationException e) {
             log.warn(e, new DataIntegrityViolationException(""));
-            throw new UsernameAlreadyExistException(
-                    String.format("Username $s already exist", newUser.getUsername())
-            );
+
+            String error = StringFormatUtils.createUserFormatErrorMessage(e.getMessage());
+
+            if (error.contains("username")) {
+                throw new UsernameAlreadyExistException(error);
+
+            } else if (error.contains("email")) {
+                throw new EmailAlreadyExistException(error);
+            }
         }
     }
 
