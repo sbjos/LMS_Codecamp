@@ -175,4 +175,13 @@
   .registration-field-container {
     width: 100% !important;
   }
+
+  .registration-btn-container {
+    display: flex !important;
+    justify-content: center !important;
+
+    .registration-btn {
+      width: 100% !important;
+    }
+  }
 }

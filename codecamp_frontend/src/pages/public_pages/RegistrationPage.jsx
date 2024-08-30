@@ -556,7 +556,7 @@ function RegistrationPage() {
                 <p>The zipcode should be a 5 digit number.</p>
               </div>
             </div>
-            <div className="col-12">
+            <div className="registration-btn-container col-12">
               <button
                 className="btn btn-primary btn-custom registration-btn"
                 type="submit"
