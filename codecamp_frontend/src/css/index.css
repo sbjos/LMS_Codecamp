@@ -30,6 +30,8 @@ main {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
+  --header-content-width: 1920px;
+  --footer-content-width: 1920px;
   --layout-content-width: 1440px;
   --layout-content-padding: 24px;
   --layout-content-padding-large: 52px;

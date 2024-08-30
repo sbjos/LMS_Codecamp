@@ -1,6 +1,8 @@
+import RedirectUrl from "./RedirectUrl";
+
 function Logout() {
   localStorage.clear();
-  navigate("/codecamp/login");
+  navigate(RedirectUrl.Login);
 }
 
 export default Logout;

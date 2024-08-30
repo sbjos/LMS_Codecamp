@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faInfoCircle, faL } from "@fortawesome/free-solid-svg-icons";
+import { faInfoCircle } from "@fortawesome/free-solid-svg-icons";
 import axios from "axios";
 import StateComponent from "../../components/select/StateComponent";
 import RedirectUrl from "../../components/RedirectUrl";
@@ -9,7 +9,7 @@ import "../../css/Registration.css";
 
 function RegistrationPage() {
   // regex
-  const USERNAME_REGEX = /^[A-z][A-z0-9-_]{3,13}$/;
+  const USERNAME_REGEX = /^[A-z][A-z0-9-_]{2,13}$/;
   const PASSWORD_REGEX =
     /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%&])[a-zA-Z0-9!@#$%&]{8,24}$/;
   const PHONE_REGEX = /^\d{10}$/;
@@ -18,7 +18,8 @@ function RegistrationPage() {
 
   const [type, setType] = useState("password");
   const [success, setSuccess] = useState(false);
-  const [isAvailable, setAvailable] = useState(true);
+  const [isUsernameAvailable, setUsernameAvailable] = useState(true);
+  const [isEnmailAvailable, setEmailAvailable] = useState(true);
 
   const [firstname, setFirstname] = useState("");
   const [lastname, setLastname] = useState("");
@@ -48,6 +49,12 @@ function RegistrationPage() {
   // Handling the form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    setUsernameAvailable(true);
+    setEmailAvailable(true);
+    setValidUsername(true);
+    setValidPassword(true);
+    setPasswordMatch(true);
 
     const validUsername = USERNAME_REGEX.test(username);
     const validPassword = PASSWORD_REGEX.test(password);
@@ -92,22 +99,30 @@ function RegistrationPage() {
           setSuccess(true);
         }
       } catch (err) {
-        if (!err) {
+        if (!err.response) {
           console.error("No Server Response");
-        } else {
-          if (err.response.status === 409) {
-            console.error("err", err);
-            setAvailable(false);
-            } else {
-            console.error(err);
-            alert("Registration failed");
+          alert("No Server Response");
+        }
+        if (err.response.status === 409) {
+          const data = err.response.data.detail;
+          data;
+          switch (data) {
+            case "Detail: Key (user_name)=(" + username + ") already exists.":
+              console.error("err", err);
+              setUsernameAvailable(false);
+              break;
+            case "email":
+            case "Detail: Key (email)=(" + email + ") already exists.":
+              setEmailAvailable(false);
+              break;
           }
+        } else {
+          console.error("err", err);
+          alert("Registration failed");
         }
       }
     }
   };
-
-  console.log("isAvailable", isAvailable)
 
   const handleChange = (setter) => (e) => {
     setter(e.target.value);
@@ -136,16 +151,19 @@ function RegistrationPage() {
     );
   };
 
-  function usernameError(validUsername, isAvailable) {
-    if (validUsername === false) {
+  function usernameError(valid, available) {
+    if (!valid) {
       return (
         <>
-          <p>Only letters, numbers and (. _ -) are allowed.</p>
+          <p>
+            Username must be between 3 and 13 characters long with letters,
+            numbers and (. _ -).
+          </p>
         </>
       );
-    } 
+    }
 
-    if (isAvailable === false) {
+    if (!available) {
       return (
         <>
           <p>This username is already taken. Try another one.</p>
@@ -154,16 +172,16 @@ function RegistrationPage() {
     }
   }
 
-  function PasswordError(passwordLength, isValidPassword) {
-    if (passwordLength <= 7 || passwordLength > 23) {
+  function PasswordError(passwordLength, valid) {
+    if (passwordLength < 7 || passwordLength > 23) {
       return (
         <>
-          <p>"Your password must contain 8 to 24 characters"</p>
+          <p>"Your password must be between 8 to 24 characters."</p>
         </>
       );
     }
 
-    if (passwordLength > 8 || (passwordLength < 23 && !isValidPassword)) {
+    if (passwordLength > 8 || (passwordLength < 23 && !valid)) {
       return (
         <>
           <p>
@@ -175,12 +193,23 @@ function RegistrationPage() {
     }
   }
 
-  const element = <FontAwesomeIcon icon="fa-solid fa-house" />;
-
-  const showPassword = () => {
-    if (condition) {
+  function emailError(valid, Available) {
+    if (!valid) {
+      return (
+        <>
+          <p>Please verify your email format and try again.</p>
+        </>
+      );
     }
-  };
+
+    if (!Available) {
+      return (
+        <>
+          <p>This email address already exist. Try another one.</p>
+        </>
+      );
+    }
+  }
 
   return success ? (
     <>
@@ -192,7 +221,7 @@ function RegistrationPage() {
             <p>
               <a
                 type="button"
-                className="btn btn-primary registration-btn"
+                className="btn btn-primary logo-btn"
                 href={RedirectUrl.Login}
               >
                 Login
@@ -262,7 +291,7 @@ function RegistrationPage() {
             </div>
             <div
               className={
-                isValidUsername && isAvailable
+                isValidUsername && isUsernameAvailable
                   ? "col-md-4 registration-field-container registration-username-container "
                   : "col-md-4 registration-field-container registration-username-container error"
               }
@@ -282,11 +311,15 @@ function RegistrationPage() {
                 required
               />
               <div
-                className={isValidUsername && isAvailable ? "hidden" : "error-text"}
+                className={
+                  isValidUsername && isUsernameAvailable
+                    ? "hidden"
+                    : "error-text"
+                }
                 id="errUsernameInput"
               >
                 <FontAwesomeIcon className="error-icon" icon={faInfoCircle} />
-                {usernameError(isValidUsername, isAvailable)}
+                {usernameError(isValidUsername, isUsernameAvailable)}
               </div>
             </div>
             <div
@@ -375,7 +408,7 @@ function RegistrationPage() {
             </div>
             <div
               className={
-                isValidEmail
+                isValidEmail && isEnmailAvailable
                   ? "col-md-4 registration-field-container registration-email-container"
                   : "col-md-4 registration-field-container registration-email-container error"
               }
@@ -395,11 +428,13 @@ function RegistrationPage() {
                 required
               />
               <div
-                className={isValidEmail ? "hidden" : "error-text"}
+                className={
+                  isValidEmail && isEnmailAvailable ? "hidden" : "error-text"
+                }
                 id="errorEmailInput"
               >
                 <FontAwesomeIcon className="error-icon" icon={faInfoCircle} />
-                <p>Please verify your email format and try again.</p>
+                {emailError(isValidEmail, isEnmailAvailable)}
               </div>
             </div>
             <div
@@ -525,7 +560,6 @@ function RegistrationPage() {
               <button
                 className="btn btn-primary btn-custom registration-btn"
                 type="submit"
-                // disabled={!isDirty}
               >
                 Submit
               </button>
