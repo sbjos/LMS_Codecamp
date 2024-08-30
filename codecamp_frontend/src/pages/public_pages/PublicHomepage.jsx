@@ -120,24 +120,30 @@ function PublicHomepage() {
               <div className="public-text-container">
                 <ul className="public-info-text-List">
                   <li className="public-info-text">
-                    <FontAwesomeIcon
-                      className="public-icon-check"
-                      icon={faCheck}
-                    />{" "}
+                    <div>
+                      <FontAwesomeIcon
+                        className="public-icon-check"
+                        icon={faCheck}
+                      />
+                    </div>
                     Simple, and easy ways to review assignments.
                   </li>
                   <li className="public-info-text">
-                    <FontAwesomeIcon
-                      className="public-icon-check"
-                      icon={faCheck}
-                    />{" "}
+                    <div>
+                      <FontAwesomeIcon
+                        className="public-icon-check"
+                        icon={faCheck}
+                      />
+                    </div>
                     Most recent assignments available up front in cards.
                   </li>
                   <li className="public-info-text">
-                    <FontAwesomeIcon
-                      className="public-icon-check"
-                      icon={faCheck}
-                    />{" "}
+                    <div>
+                      <FontAwesomeIcon
+                        className="public-icon-check"
+                        icon={faCheck}
+                      />
+                    </div>
                     View or edit options righ from the card.
                   </li>
                 </ul>
@@ -149,9 +155,11 @@ function PublicHomepage() {
           <div className="public-section-5-container">
             <footer className="footer text-dark-emphasis">
               <div className="rightreserved-text">
-                &copy; 2024{" "}
-                <b className="navbar-brand-custom">{"codeCamp/>"}</b> &nbsp; All
-                rights reserved.
+                <div className="copyright">
+                  &copy; 2024{" "}
+                  <b className="navbar-brand-custom">{"codeCamp/>"}</b> &nbsp;
+                </div>
+                  All rights reserved.
               </div>
               <div className="option-list">
                 <ul>

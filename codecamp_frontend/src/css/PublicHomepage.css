@@ -2,9 +2,11 @@
   display: grid;
   grid-template-rows: repeat(3);
 
-  --public-layout-section-padding: 70px 0;
+  --public-layout-section-padding-vertical: 80px 0;
+  --public-layout-section-padding-horizontal: 0 55px;
   --public-headeer-section-padding: 0 100px 5px;
   --public-footer-section-padding: 70px 0;
+  --public-layout-section-margin-vertical: 10px 0;
 
   .public-section-1 {
     justify-content: center;
@@ -51,7 +53,8 @@
   .public-section-2 {
     display: flex;
     margin: 0 auto;
-    padding: var(--public-layout-section-padding);
+    padding: var(--public-layout-section-padding-vertical);
+    margin: var(--public-layout-section-margin-vertical);
     text-align: center;
     justify-content: center;
 
@@ -77,7 +80,8 @@
   .public-section-3 {
     display: inline-flex;
     justify-content: center;
-    padding: var(--public-layout-section-padding);
+    padding: var(--public-layout-section-padding-vertical);
+    margin: var(--public-layout-section-margin-vertical);
     background-color: var(--background-color-4);
 
     .public-section-3-container {
@@ -91,7 +95,7 @@
           column-gap: 100px;
           list-style: none;
           margin: 0;
-          padding: 0 55px;
+          padding: var(--public-layout-section-padding-horizontal);
 
           .public-card {
             background: transparent;
@@ -115,18 +119,19 @@
   .public-section-4 {
     display: inline-flex;
     justify-content: center;
-    padding: var(--public-layout-section-padding);
+    padding: var(--public-layout-section-padding-vertical);
+    margin: var(--public-layout-section-margin-vertical);
 
     .public-section-4-container {
       width: min(var(--layout-content-width), 100%);
 
       .public-section-4-content-container {
         display: grid;
-        grid-template-columns: repeat(2, minmax(100px, max-content));
+        grid-template-columns: max-content minmax(100px, 700px);
         justify-content: center;
-        /* align-items: center; */
-        grid-gap: 5em;
+        grid-gap: 5em !important;
         margin: 25px auto;
+        padding: var(--public-layout-section-padding-horizontal);
 
         .public-image-container {
           .public-img {
@@ -142,12 +147,18 @@
           font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
             Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
             sans-serif;
-            padding-top: 15px;
+          padding-top: 15px;
 
-          .public-info-text {
-            font-size: 1.3em;
-            margin-bottom: 40px;
-            list-style: none;
+          .public-info-text-List {
+            padding: 0;
+
+            .public-info-text {
+              display: inline-flex;
+              gap: 10px;
+              font-size: 1.3em;
+              margin-bottom: 40px;
+              list-style: none;
+            }
           }
         }
       }
@@ -158,9 +169,11 @@
   .public-section-5 {
     padding: 25px 100px;
     background: var(--background-color-2);
+    text-wrap: nowrap;
 
     .public-section-5-container {
       margin: 0 auto;
+      text-align: center;
       width: min(var(--footer-content-width), 100%);
 
       .footer {
@@ -174,16 +187,17 @@
 
         .rightreserved-text {
           grid-area: a;
+          display: flex;
+          flex-wrap: nowrap;
           color: #5b6269;
         }
 
         .option-list {
           grid-area: d;
           ul {
-            margin: 0;
-            li {
-              display: inline-block;
+            display: inline-flex;
 
+            li {
               a {
                 align-items: center;
                 text-decoration: none;
@@ -212,6 +226,7 @@
     color: var(--button-color-red);
   }
 
+  /* responsive */
   @media screen and (max-width: 1199px) {
     .public-section-3 {
       .public-section-3-container {
@@ -310,19 +325,100 @@
 
   .public-section-4 {
     .public-section-4-container {
-      display: flex !important;
+      .public-section-4-content-container {
+        display: flex !important;
 
-      .public-image-container {
-        display: none;
-      }
+        .public-image-container {
+          display: none !important;
+        }
 
-      .public-text-container {
-        .public-info-text {
-          font-size: 1.8em !important;
-          justify-content: center !important;
-          align-items: center !important;
+        .public-text-container {
+          padding: var(--public-layout-section-padding-horizontal);
+          .public-info-text {
+            justify-content: center !important;
+            align-items: center !important;
+          }
         }
       }
+    }
+  }
+
+  .public-section-5 {
+    .public-section-5-container {
+      .footer {
+        display: inline-block !important;
+
+        .rightreserved-text {
+          flex-wrap: wrap;
+          padding-bottom: 25px;
+        }
+
+        .option-list {
+          ul {
+            display: inline-block !important;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .public-section-1 {
+    .public-section-1-container {
+      display: inline-block !important;
+
+      .public-logo {
+        text-align: center;
+      }
+
+      .public-buttons {
+        justify-content: center;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 520px) {
+  .public-section-1 {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+
+  .public-section-2 {
+    padding: 50px 0 !important;
+  }
+
+  .public-section-3 {
+    padding: 0 !important;
+    .public-section-3-container {
+      .public-card-group {
+        padding: 50px 20px !important;
+      }
+    }
+  }
+
+  .public-section-4 {
+    padding: 0 !important;
+    .public-section-4-container {
+
+      .public-section-4-content-container {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+
+        .public-text-container {
+          font-size: 0.8em;
+          padding: 50px 20px !important;
+        }
+      }
+    }
+  }
+
+  .public-section-5 {
+    padding: 0 !important;
+
+    .public-section-5-container {
+      padding: 0 !important;
     }
   }
 }
