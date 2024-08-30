@@ -157,10 +157,6 @@
     gap: 1%;
   }
 
-  .registration-field-container {
-    /* min-width: 100% !important; */
-  }
-
   .registration-header {
     grid-area: c;
     margin-top: 50px;
