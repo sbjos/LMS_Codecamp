@@ -50,6 +50,12 @@ function RegistrationPage() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    setUsernameAvailable(true);
+    setEmailAvailable(true);
+    setValidUsername(true);
+    setValidPassword(true);
+    setPasswordMatch(true);
+
     const validUsername = USERNAME_REGEX.test(username);
     const validPassword = PASSWORD_REGEX.test(password);
     const passwordMatch = password === confirmPassword;
@@ -93,23 +99,26 @@ function RegistrationPage() {
           setSuccess(true);
         }
       } catch (err) {
-        if (!err) {
+        if (!err.response) {
           console.error("No Server Response");
-        } else {
-          while (err.response.status === 409) {
-            if (err.response.data.includes("username")) {
+          alert("No Server Response");
+        }
+        if (err.response.status === 409) {
+          const data = err.response.data.detail;
+          data;
+          switch (data) {
+            case "Detail: Key (user_name)=(" + username + ") already exists.":
               console.error("err", err);
               setUsernameAvailable(false);
-            }
-            if (err.response.data.includes("email")) {
-              console.error("err", err);
+              break;
+            case "email":
+            case "Detail: Key (email)=(" + email + ") already exists.":
               setEmailAvailable(false);
-            } else {
-              console.error(err);
-              alert("Registration failed");
-            }
-            break;
+              break;
           }
+        } else {
+          console.error("err", err);
+          alert("Registration failed");
         }
       }
     }
@@ -196,7 +205,7 @@ function RegistrationPage() {
     if (!Available) {
       return (
         <>
-          <p>This email already exist. Try another one.</p>
+          <p>This email address already exist. Try another one.</p>
         </>
       );
     }

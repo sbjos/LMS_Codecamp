@@ -66,6 +66,7 @@ public class UserController {
 
     @PostMapping("/api/create/user")
     public ResponseEntity<?> createUser(@RequestBody User newUser) {
+<<<<<<< HEAD
         try {
             userService.createUser(newUser);
 
@@ -86,6 +87,9 @@ public class UserController {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
 
+=======
+        userService.createUser(newUser);
+>>>>>>> lab
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
 }

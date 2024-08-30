@@ -60,5 +60,10 @@ Feel free to modify
 
 ## N.B.
 - This application is still under construction.
+<<<<<<< HEAD
     - Reviewer creation is not yet setup on the frontend side. At the moment, curl commands or applications like postman can be used
       to create reviewers.
+=======
+  - Create reviewer is not yet setup on the frontend side. At the moment, curl commands or applications like postman can be used
+    to create reviewers.
+>>>>>>> lab

@@ -51,57 +51,55 @@ function PublicHomepage() {
               <h1 className="public-header-welcome">
                 Welcome to <span>{Logo()}</span>
               </h1>
-              <p className="public-header-description">
+              <h5 className="public-header-description">
                 Your assignment review app
-              </p>
+              </h5>
             </div>
           </div>
         </section>
         <section className="public-section-3">
           <div className="public-section-3-container">
             <div className="public-cards">
-              <ul class="card-group public-card-group">
-                <li class="card public-card">
+              <ul className="public-card-group">
+                <li className="public-card public-card-1">
                   <div className="public-icon-container">
                     <FontAwesomeIcon className="public-icon" icon={faList} />
                   </div>
-                  <div class="card-body public-card-body">
-                    <h5 class="card-title public-card-title">Easy to use</h5>
-                    <p class="card-text public-card-text">
+                  <div className="public-card-body">
+                    <h5 className="public-card-title">Easy to use</h5>
+                    <p className="public-card-text">
                       Straight forward assignment submission and navigation.
-                      Never get lost looking for something.
+                      Never feel lost in your dashboard.
                     </p>
                   </div>
                 </li>
-                <li class="card public-card">
+                <li className="public-card public-card-2">
                   <div className="public-icon-container">
                     <FontAwesomeIcon
                       className="public-icon"
                       icon={faMagnifyingGlass}
                     />
                   </div>
-                  <div class="card-body public-card-body">
-                    <h5 class="card-title public-card-title">
-                      Feedback matters
-                    </h5>
-                    <p class="card-text public-card-text">
-                      You get clear review trough videos and notes of your
-                      projects. Get better at codibg.
+                  <div className="public-card-body">
+                    <h5 className="public-card-title">Feedback matters</h5>
+                    <p className="public-card-text">
+                      Get clear feedbacks trough videos and notes from your
+                      instructor to help you get better at your task.
                     </p>
                   </div>
                 </li>
-                <li class="card public-card">
+                <li className="public-card public-card-3">
                   <div className="public-icon-container">
                     <FontAwesomeIcon
                       className="public-icon"
                       icon={faCircleQuestion}
                     />
                   </div>
-                  <div class="card-body public-card-body">
-                    <h5 class="card-title public-card-title">Need help ?</h5>
-                    <p class="card-text public-card-text">
-                      Support is just a few click away. Never feel lost or
-                      overwhelmed in your work.
+                  <div className="public-card-body">
+                    <h5 className="public-card-title">Need help ?</h5>
+                    <p className="public-card-text">
+                      Support is just a few click away for your assignments, or
+                      to explore different subjects.
                     </p>
                   </div>
                 </li>
@@ -111,37 +109,45 @@ function PublicHomepage() {
         </section>
         <section className="public-section-4">
           <div className="public-section-4-container">
-            <div className="public-image-container">
-              <img
-                src="src\assets\images\card-screenshot.png"
-                class="public-img"
-                alt="Learner's dashboard"
-              />
-            </div>
-            <div className="public-text-container">
-              <ul className="public-info-text-List">
-                <li className="public-info-text">
-                  <FontAwesomeIcon
-                    className="public-icon-check"
-                    icon={faCheck}
-                  />{" "}
-                  A simple, and easy assignment card.
-                </li>
-                <li className="public-info-text">
-                  <FontAwesomeIcon
-                    className="public-icon-check"
-                    icon={faCheck}
-                  />{" "}
-                  Information available up front.
-                </li>
-                <li className="public-info-text">
-                  <FontAwesomeIcon
-                    className="public-icon-check"
-                    icon={faCheck}
-                  />{" "}
-                  View or edit options righ from the card.
-                </li>
-              </ul>
+            <div className="public-section-4-content-container">
+              <div className="public-image-container">
+                <img
+                  src="src\assets\images\card-screenshot.png"
+                  className="public-img"
+                  alt="Learner's dashboard"
+                />
+              </div>
+              <div className="public-text-container">
+                <ul className="public-info-text-List">
+                  <li className="public-info-text">
+                    <div>
+                      <FontAwesomeIcon
+                        className="public-icon-check"
+                        icon={faCheck}
+                      />
+                    </div>
+                    Simple, and easy ways to review assignments.
+                  </li>
+                  <li className="public-info-text">
+                    <div>
+                      <FontAwesomeIcon
+                        className="public-icon-check"
+                        icon={faCheck}
+                      />
+                    </div>
+                    Most recent assignments available up front in cards.
+                  </li>
+                  <li className="public-info-text">
+                    <div>
+                      <FontAwesomeIcon
+                        className="public-icon-check"
+                        icon={faCheck}
+                      />
+                    </div>
+                    View or edit options righ from the card.
+                  </li>
+                </ul>
+              </div>
             </div>
           </div>
         </section>
@@ -149,9 +155,11 @@ function PublicHomepage() {
           <div className="public-section-5-container">
             <footer className="footer text-dark-emphasis">
               <div className="rightreserved-text">
-                &copy; 2024{" "}
-                <b className="navbar-brand-custom">{"codeCamp/>"}</b> &nbsp; All
-                rights reserved.
+                <div className="copyright">
+                  &copy; 2024{" "}
+                  <b className="navbar-brand-custom">{"codeCamp/>"}</b> &nbsp;
+                </div>
+                  All rights reserved.
               </div>
               <div className="option-list">
                 <ul>

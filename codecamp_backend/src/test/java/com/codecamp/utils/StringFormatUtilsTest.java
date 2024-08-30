@@ -27,7 +27,11 @@ public class StringFormatUtilsTest {
                 "[insert into users (account_non_expired,account_non_locked,cohort_start_date,credentials_non_expired," +
                 "enabled,first_name,last_name,password,user_name) values (?,?,?,?,?,?,?,?,?) returning id]\"";
 
+<<<<<<< HEAD
         String formattedString = "Detail: Key (user_name)=(learner1) already exists";
+=======
+        String formattedString = "Detail: Key (user_name)=(learner1) already exists.";
+>>>>>>> lab
 
         // WHEN
         String result = StringFormatUtils.createUserFormatErrorMessage(message);
