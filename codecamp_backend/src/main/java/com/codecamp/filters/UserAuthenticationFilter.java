@@ -105,7 +105,7 @@ public class UserAuthenticationFilter extends UsernamePasswordAuthenticationFilt
         response.addHeader("Authority", List.of(
                 user.getId(),
                 user.getFirstname(),
-                user.getLastname(),
+//                user.getLastname(),
                 user.getUsername(),
                 user.getAuthorities()).toString()
         );

@@ -65,22 +65,7 @@ public class UserController {
 
     @PostMapping("/api/create/user")
     public ResponseEntity<?> createUser(@RequestBody User newUser) {
-        try {
-            userService.createUser(newUser);
-
-        } catch (UsernameAlreadyExistException e) {
-            log.warn(e, new UsernameAlreadyExistException());
-            return new ResponseEntity<>(HttpStatus.CONFLICT);
-
-        } catch (IllegalArgumentException e) {
-            log.warn(e, new IllegalArgumentException());
-            return new ResponseEntity<>(HttpStatus.FORBIDDEN);
-
-        } catch (Exception e) {
-            log.warn(e);
-            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
-        }
-
+        userService.createUser(newUser);
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
 }
