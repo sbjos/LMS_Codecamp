@@ -1,12 +1,17 @@
 package com.codecamp.services;
 
+import com.codecamp.controllers.AssignmentController;
 import com.codecamp.dto.AssignmentResponseDto;
 import com.codecamp.entities.Assignment;
 import com.codecamp.entities.User;
 import com.codecamp.exceptions.AssignmentNotFoundException;
 import com.codecamp.repositories.AssignmentRepository;
 import com.codecamp.utils.ObjectMappingUtils;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.stereotype.Service;
 
@@ -21,6 +26,8 @@ import static com.codecamp.utils.ObjectMappingUtils.assignmentMapping;
 public class AssignmentService {
     @Autowired
     private AssignmentRepository assignmentRepository;
+
+    private final Logger log = LogManager.getLogger(AssignmentService.class);
 
     /**
      * For learners, this will pull all of their submitted assignments.
@@ -41,8 +48,10 @@ public class AssignmentService {
 
         }
 
-        if (assignmentsPage.isEmpty())
+        if (assignmentsPage.isEmpty()) {
+            log.warn(new AssignmentNotFoundException("Assignment list not found"));
             throw new AssignmentNotFoundException("Assignment list not found");
+        }
 
         return assignmentsPage.stream()
                 .map(ObjectMappingUtils::assignmentMapping)
@@ -72,32 +81,37 @@ public class AssignmentService {
     public AssignmentResponseDto updateAssignmentById(Long assignmentId, Assignment update, User user) {
         if (hasReachedLimit(assignmentId, update, user)) throw new IllegalArgumentException("Limit reached");
 
+        try {
+            Assignment userAssignment;
+            GrantedAuthority userAuthority = user.getAuthorities().stream().findFirst().get();
 
-        Assignment userAssignment;
-        GrantedAuthority userAuthority = user.getAuthorities().stream().findFirst().get();
+            if (userAuthority.toString().equals(REVIEWER.name())) {
+                userAssignment = assignmentLookup(assignmentId);
 
-        if (userAuthority.toString().equals(REVIEWER.name())) {
-            userAssignment = assignmentLookup(assignmentId);
+                Optional.of(user).ifPresent(userAssignment::setCodeReviewer);
+                Optional.ofNullable(update.getReviewVideoUrl()).ifPresent(userAssignment::setReviewVideoUrl);
+                userAssignment.setStatus(update.getStatus());
 
-            Optional.of(user).ifPresent(userAssignment::setCodeReviewer);
-            Optional.ofNullable(update.getReviewVideoUrl()).ifPresent(userAssignment::setReviewVideoUrl);
-            userAssignment.setStatus(update.getStatus());
+            } else {
+                userAssignment = assignmentLookup(assignmentId);
 
-        } else {
-            userAssignment = assignmentLookup(assignmentId);
+                Optional.ofNullable(update.getGithubUrl()).ifPresent(userAssignment::setGithubUrl);
+                Optional.ofNullable(update.getBranch()).ifPresent(userAssignment::setBranch);
+                Optional.ofNullable(update.getCodeReviewer()).ifPresent(userAssignment::setCodeReviewer);
 
-            Optional.ofNullable(update.getGithubUrl()).ifPresent(userAssignment::setGithubUrl);
-            Optional.ofNullable(update.getBranch()).ifPresent(userAssignment::setBranch);
-            Optional.ofNullable(update.getCodeReviewer()).ifPresent(userAssignment::setCodeReviewer);
-
-            if (userAssignment.getStatus().equals(NEEDS_WORK.getStatus())) {
-                userAssignment.setStatus(IN_REVIEW.getStatus());
+                if (userAssignment.getStatus().equals(NEEDS_WORK.getStatus())) {
+                    userAssignment.setStatus(IN_REVIEW.getStatus());
+                }
             }
+
+            assignmentRepository.save(userAssignment);
+
+            return assignmentMapping(userAssignment);
+
+        } catch (IllegalArgumentException e) {
+            log.warn(e, new IllegalArgumentException());
+            throw new IllegalArgumentException(e);
         }
-
-        assignmentRepository.save(userAssignment);
-
-        return assignmentMapping(userAssignment);
     }
 
     /**
@@ -125,11 +139,17 @@ public class AssignmentService {
 
             } while (isDuplicate);
 
-            newAssignment.setNumber(random);
-            newAssignment.setUser(user);
-            newAssignment.setStatus(SUBMITTED.getStatus());
+            try {
+                newAssignment.setNumber(random);
+                newAssignment.setUser(user);
+                newAssignment.setStatus(SUBMITTED.getStatus());
 
-            assignmentRepository.save(newAssignment);
+                assignmentRepository.save(newAssignment);
+
+            } catch (IllegalArgumentException e) {
+                log.warn(e, new IllegalArgumentException());
+                throw new IllegalArgumentException(e);
+            }
         }
     }
 

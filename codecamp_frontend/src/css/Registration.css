@@ -4,147 +4,127 @@
   height: 100%;
   min-height: 100vh;
   background: var(--background-color-2);
-}
 
-.registration-root-success {
-  height: 100vh;
-  background: var(--background-color-2);
-}
-
-.registration-section-1 {
-  display: grid;
-  grid-template-rows: 10px;
-}
-
-.registration-section-2 {
-  display: grid;
-  grid-template-columns: minmax(100px, 550px) minmax(100px, 700px);
-  grid-template-rows: 25px 708px;
-  grid-template-areas:
-    "a a"
-    "b c";
-  justify-content: center;
-  padding: 60px 5%;
-  gap: 5%;
-
-  .registration-logo {
-    grid-area: a;
-    font-size: 1.5em;
-    margin-bottom: 25px;
+  .registration-section-1 {
+    display: grid;
+    grid-template-rows: 10px;
   }
 
-  .registration-header {
-    grid-area: b;
-    margin-top: 50px;
+  .registration-section-2 {
+    display: grid;
+    grid-template-columns: minmax(100px, 550px) minmax(100px, 700px);
+    grid-template-rows: 25px 708px;
+    grid-template-areas:
+      "a a"
+      "b c";
+    justify-content: center;
+    padding: 60px 5%;
+    gap: 5%;
 
-    h1 {
-      margin-bottom: 20px;
+    .registration-logo {
+      grid-area: a;
+      font-size: 1.5em;
+      margin-bottom: 25px;
     }
 
-    h5 {
-      margin-bottom: 20px;
-    }
-  }
+    .registration-header {
+      grid-area: b;
+      margin-top: 50px;
 
-  .registration-form {
-    margin: auto;
-    padding: 40px 30px;
-    border-radius: 15px;
-    background: white;
+      h1 {
+        margin-bottom: 20px;
+      }
 
-    .registration-line {
-      margin: 30px 0;
-      display: none;
-    }
-
-    .registration-container-header-exception h5 {
-      margin-bottom: 0;
-    }
-
-    .registration-container-header {
-      margin-top: 30px;
-
-      h5 {
-        margin-bottom: 0;
+      h4 {
+        margin-bottom: 20px;
+        color: var(--button-color-red) !important;
       }
     }
 
-    .registration-field-container {
-      height: max-content;
-      margin-top: 8px;
-    }
+    .registration-form {
+      margin: auto;
+      padding: 40px 30px;
+      border-radius: 15px;
+      background: white;
 
-    .registration-container-header-error {
-      margin-top: 28px;
-    }
+      .registration-form-control {
+        &:focus-within {
+          border-color: var(--button-color-red) !important;
+        }
+      }
 
-    .registration-field-container-error {
-      margin: 15.2px 0 0;
-    }
+      .registration-line {
+        margin: 30px 0;
+        display: none;
+      }
 
-    .registration-firstname-container,
-    .registration-lastname-container {
-      width: 50%;
-    }
+      .registration-container-header-exception h5 {
+        margin-bottom: 0;
+        color: var(--button-color-red) !important;
+      }
 
-    .registration-street-container {
-      width: 80.2%;
-    }
+      .registration-container-header {
+        margin-top: 30px;
 
-    .registration-number-container {
-      width: 19.8%;
-    }
+        h5 {
+          margin-bottom: 0;
+          color: var(--button-color-red) !important;
+        }
+      }
 
-    .registration-btn {
-      float: right;
-      width: 20%;
-      font-size: 1.2em;
-      margin-top: 20px;
-      border: 1px solid var(--button-color-red);
-      background: var(--button-color-red);
+      .registration-field-container {
+        height: max-content;
+        margin-top: 8px;
+      }
+
+      .registration-container-header-error {
+        margin-top: 28px;
+      }
+
+      .registration-field-container-error {
+        margin: 15.2px 0 0;
+      }
+
+      .registration-firstname-container,
+      .registration-lastname-container {
+        width: 50%;
+      }
+
+      .registration-street-container {
+        width: 80.2%;
+      }
+
+      .registration-number-container {
+        width: 19.8%;
+      }
+
+      .registration-btn {
+        float: right;
+        width: 20%;
+        font-size: 1.2em;
+        margin-top: 20px;
+        border: 1px solid var(--button-color-red);
+        background: var(--button-color-red);
+      }
     }
   }
-}
 
-.registration-success {
-  grid-area: b;
-  display: grid;
-  justify-content: center;
-  gap: 15px;
-  margin: 15%;
-  padding: 25px;
-  border: 1px solid none;
-  border-radius: 15px;
-  /* background-color: white; */
-
-  h2 {
-    color: var(--text-color) !important;
+  .registration-section-3 {
+    display: grid;
+    grid-template-rows: 10px;
   }
 
-  .registration-btn {
-    float: right;
-    width: 30%;
-    font-size: 1em !important;
-    font-weight: 600;
-    margin-top: 15px;
+  .registration-form-checkbox {
+    padding-left: 26px;
   }
-}
 
-.registration-section-3 {
-  display: grid;
-  grid-template-rows: 10px;
-}
+  .form-check-input {
+    margin: 6px;
+  }
 
-.registration-form-checkbox {
-  padding-left: 26px;
-}
-
-.form-check-input {
-  margin: 6px;
-}
-
-.registration-form-checkbox-label {
-  font-size: 0.9em;
+  .registration-form-checkbox-label {
+    font-size: 0.9em;
+  }
 }
 
 @media screen and (max-width: 1250px) {
@@ -175,6 +155,73 @@
 
     .registration-btn {
       width: 100% !important;
+    }
+  }
+}
+
+.registration-root-success {
+  display: grid;
+  grid-template: 1000% / repeat(8, 1fr);
+  grid-template-areas: "a b c c c c d e";
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  text-align: center;
+
+  .registration-success-container {
+    grid-area: c;
+    margin-top: 25%;
+
+    .registration-success-text-container {
+      opacity: 0;
+      padding: 25px;
+      transition: opacity 0.5s ease-in;
+
+      h1 {
+        font-size: 3em;
+      }
+    }
+
+    .confetti-container {
+      grid-area: d;
+      display: flex;
+      justify-content: center;
+      margin: 0;
+      padding: 0;
+    }
+
+    .registration-success-btn-container {
+      display: flex;
+      opacity: 0;
+      justify-content: center;
+      margin-top: 25px;
+      transition: opacity 1s ease-in;
+
+      .registration-success-btn {
+        min-width: min-content;
+        width: 150px;
+        font-size: 1.5em;
+        font-weight: 600;
+        color: white;
+        border: 1px solid var(--button-color-red);
+        background: var(--button-color-red);
+      }
+    }
+  }
+}
+
+.registration-root-success {
+  .registration-success-container {
+    .registration-success-text-container.show {
+      opacity: 1;
+    }
+  }
+}
+
+.registration-root-success {
+  .registration-success-container {
+    .registration-success-btn-container.show {
+      opacity: 1;
     }
   }
 }

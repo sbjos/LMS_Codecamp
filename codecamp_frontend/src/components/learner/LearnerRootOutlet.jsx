@@ -18,7 +18,7 @@ function LearnerRootOutlet() {
   return (
     <>
       <nav className="navbar navbar-expand-lg navbar-custom ">
-        <div className="container-fluid">
+        <div className="container-fluid navbar-container">
           <a
             className="navbar-brand fw-semibold ms-2 fs-5 text-dark-emphasis navbar-brand-custom"
             href={RedirectUrl.learnerdashboard}
@@ -94,7 +94,7 @@ function LearnerRootOutlet() {
               </li>
             </ul>
             {/* dropdown menu */}
-            <div className="dropdown-center me-4">
+            <div className="dropdown-center me-4 dropdown-center-custom">
               <button
                 className="btn navbar-btn-custom dropdown w-auto"
                 type="button"
@@ -163,8 +163,10 @@ function LearnerRootOutlet() {
       {/* Footer */}
       <footer className="footer text-dark-emphasis">
         <div className="rightreserved-text">
-          &copy; 2024 <b className="navbar-brand-custom">{"codeCamp/>"}</b>{" "}
-          &nbsp; All rights reserved.
+          <div className="copyright">
+            &copy; 2024 <b className="navbar-brand-custom">{"codeCamp/>"}</b>
+          </div>
+          <div className="rights-reserved">&nbsp; All rights reserved.</div>
         </div>
         <div className="option-list">
           <ul>

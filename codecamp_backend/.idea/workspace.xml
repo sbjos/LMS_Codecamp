@@ -5,104 +5,47 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bce22d46-2df9-4ec0-9fca-3f26b0329700" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/data/pg/base/16384/16413" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/pg/base/16384/16421" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/pg/base/16384/16423" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/pg/base/16384/16427" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/pg/base/16384/16429" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/codecamp/utils/GlobalExceptionHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/pg/base/1/2619" beforeDir="false" afterPath="$PROJECT_DIR$/data/pg/base/1/2619" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/pg/base/1/2619_fsm" beforeDir="false" afterPath="$PROJECT_DIR$/data/pg/base/1/2619_fsm" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/pg/base/1/2619_vm" beforeDir="false" afterPath="$PROJECT_DIR$/data/pg/base/1/2619_vm" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/pg/base/1/2696" beforeDir="false" afterPath="$PROJECT_DIR$/data/pg/base/1/2696" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/pg/base/1/2840" beforeDir="false" afterPath="$PROJECT_DIR$/data/pg/base/1/2840" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/pg/base/1/2840_fsm" beforeDir="false" afterPath="$PROJECT_DIR$/data/pg/base/1/2840_fsm" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/pg/base/1/2841" beforeDir="false" afterPath="$PROJECT_DIR$/data/pg/base/1/2841" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/pg/base/1/pg_internal.init" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/pg/base/16384/1247" beforeDir="false" afterPath="$PROJECT_DIR$/data/pg/base/16384/1247" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data/pg/base/16384/1249" beforeDir="false" afterPath="$PROJECT_DIR$/data/pg/base/16384/1249" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/pg/base/16384/1249_fsm" beforeDir="false" afterPath="$PROJECT_DIR$/data/pg/base/16384/1249_fsm" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data/pg/base/16384/1259" beforeDir="false" afterPath="$PROJECT_DIR$/data/pg/base/16384/1259" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/pg/base/16384/1259_vm" beforeDir="false" afterPath="$PROJECT_DIR$/data/pg/base/16384/1259_vm" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data/pg/base/16384/16385" beforeDir="false" afterPath="$PROJECT_DIR$/data/pg/base/16384/16385" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/pg/base/16384/16388" beforeDir="false" afterPath="$PROJECT_DIR$/data/pg/base/16384/16399" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/pg/base/16384/16389" beforeDir="false" afterPath="$PROJECT_DIR$/data/pg/base/16384/16389" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/pg/base/16384/16390" beforeDir="false" afterPath="$PROJECT_DIR$/data/pg/base/16384/16390" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/pg/base/16384/16386" beforeDir="false" afterPath="$PROJECT_DIR$/data/pg/base/16384/16386" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data/pg/base/16384/16391" beforeDir="false" afterPath="$PROJECT_DIR$/data/pg/base/16384/16391" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/pg/base/16384/16392" beforeDir="false" afterPath="$PROJECT_DIR$/data/pg/base/16384/16386" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/pg/base/16384/16393" beforeDir="false" afterPath="$PROJECT_DIR$/data/pg/base/16384/16393" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/pg/base/16384/16394" beforeDir="false" afterPath="$PROJECT_DIR$/data/pg/base/16384/16394" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/pg/base/16384/16396" beforeDir="false" afterPath="$PROJECT_DIR$/data/pg/base/16384/16405" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/pg/base/16384/16397" beforeDir="false" afterPath="$PROJECT_DIR$/data/pg/base/16384/16397" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/pg/base/16384/16400" beforeDir="false" afterPath="$PROJECT_DIR$/data/pg/base/16384/16408" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data/pg/base/16384/16401" beforeDir="false" afterPath="$PROJECT_DIR$/data/pg/base/16384/16401" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data/pg/base/16384/16402" beforeDir="false" afterPath="$PROJECT_DIR$/data/pg/base/16384/16402" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/pg/base/16384/16405" beforeDir="false" afterPath="$PROJECT_DIR$/data/pg/base/16384/16405" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data/pg/base/16384/16407" beforeDir="false" afterPath="$PROJECT_DIR$/data/pg/base/16384/16407" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/pg/base/16384/16410" beforeDir="false" afterPath="$PROJECT_DIR$/data/pg/base/16384/16412" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/pg/base/16384/16411" beforeDir="false" afterPath="$PROJECT_DIR$/data/pg/base/16384/16411" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/pg/base/16384/16414" beforeDir="false" afterPath="$PROJECT_DIR$/data/pg/base/16384/16419" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/pg/base/16384/16408" beforeDir="false" afterPath="$PROJECT_DIR$/data/pg/base/16384/16408" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/pg/base/16384/16413" beforeDir="false" afterPath="$PROJECT_DIR$/data/pg/base/16384/16413" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data/pg/base/16384/16415" beforeDir="false" afterPath="$PROJECT_DIR$/data/pg/base/16384/16415" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data/pg/base/16384/16416" beforeDir="false" afterPath="$PROJECT_DIR$/data/pg/base/16384/16416" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/pg/base/16384/16418" beforeDir="false" afterPath="$PROJECT_DIR$/data/pg/base/16384/16418" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/pg/base/16384/16420" beforeDir="false" afterPath="$PROJECT_DIR$/data/pg/base/16384/16420" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/pg/base/16384/16422" beforeDir="false" afterPath="$PROJECT_DIR$/data/pg/base/16384/16422" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/pg/base/16384/16424" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/pg/base/16384/16421" beforeDir="false" afterPath="$PROJECT_DIR$/data/pg/base/16384/16421" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/pg/base/16384/16423" beforeDir="false" afterPath="$PROJECT_DIR$/data/pg/base/16384/16423" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data/pg/base/16384/16425" beforeDir="false" afterPath="$PROJECT_DIR$/data/pg/base/16384/16425" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/pg/base/16384/16428" beforeDir="false" afterPath="$PROJECT_DIR$/data/pg/base/16384/16428" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/pg/base/16384/16430" beforeDir="false" afterPath="$PROJECT_DIR$/data/pg/base/16384/16430" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/pg/base/16384/16465" beforeDir="false" afterPath="$PROJECT_DIR$/data/pg/base/16384/16465" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/pg/base/16384/16468" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/pg/base/16384/16469" beforeDir="false" afterPath="$PROJECT_DIR$/data/pg/base/16384/16398" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/pg/base/16384/16470" beforeDir="false" afterPath="$PROJECT_DIR$/data/pg/base/16384/16470" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/pg/base/16384/16471" beforeDir="false" afterPath="$PROJECT_DIR$/data/pg/base/16384/16471" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/pg/base/16384/16427" beforeDir="false" afterPath="$PROJECT_DIR$/data/pg/base/16384/16427" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/pg/base/16384/16429" beforeDir="false" afterPath="$PROJECT_DIR$/data/pg/base/16384/16429" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data/pg/base/16384/2224" beforeDir="false" afterPath="$PROJECT_DIR$/data/pg/base/16384/2224" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/pg/base/16384/2579" beforeDir="false" afterPath="$PROJECT_DIR$/data/pg/base/16384/2579" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data/pg/base/16384/2606" beforeDir="false" afterPath="$PROJECT_DIR$/data/pg/base/16384/2606" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data/pg/base/16384/2608" beforeDir="false" afterPath="$PROJECT_DIR$/data/pg/base/16384/2608" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/pg/base/16384/2608_fsm" beforeDir="false" afterPath="$PROJECT_DIR$/data/pg/base/16384/2608_fsm" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data/pg/base/16384/2610" beforeDir="false" afterPath="$PROJECT_DIR$/data/pg/base/16384/2610" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/pg/base/16384/2610_fsm" beforeDir="false" afterPath="$PROJECT_DIR$/data/pg/base/16384/2610_fsm" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data/pg/base/16384/2620" beforeDir="false" afterPath="$PROJECT_DIR$/data/pg/base/16384/2620" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/pg/base/16384/2658" beforeDir="false" afterPath="$PROJECT_DIR$/data/pg/base/16384/2658" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/pg/base/16384/2659" beforeDir="false" afterPath="$PROJECT_DIR$/data/pg/base/16384/2659" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/pg/base/16384/2662" beforeDir="false" afterPath="$PROJECT_DIR$/data/pg/base/16384/2662" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/pg/base/16384/2663" beforeDir="false" afterPath="$PROJECT_DIR$/data/pg/base/16384/2663" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/pg/base/16384/2664" beforeDir="false" afterPath="$PROJECT_DIR$/data/pg/base/16384/2664" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/pg/base/16384/2665" beforeDir="false" afterPath="$PROJECT_DIR$/data/pg/base/16384/2665" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/pg/base/16384/2666" beforeDir="false" afterPath="$PROJECT_DIR$/data/pg/base/16384/2666" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/pg/base/16384/2667" beforeDir="false" afterPath="$PROJECT_DIR$/data/pg/base/16384/2667" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/pg/base/16384/2673" beforeDir="false" afterPath="$PROJECT_DIR$/data/pg/base/16384/2673" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/pg/base/16384/2674" beforeDir="false" afterPath="$PROJECT_DIR$/data/pg/base/16384/2674" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/pg/base/16384/2678" beforeDir="false" afterPath="$PROJECT_DIR$/data/pg/base/16384/2678" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/pg/base/16384/2679" beforeDir="false" afterPath="$PROJECT_DIR$/data/pg/base/16384/2679" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/pg/base/16384/2699" beforeDir="false" afterPath="$PROJECT_DIR$/data/pg/base/16384/2699" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/pg/base/16384/2701" beforeDir="false" afterPath="$PROJECT_DIR$/data/pg/base/16384/2701" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/pg/base/16384/2702" beforeDir="false" afterPath="$PROJECT_DIR$/data/pg/base/16384/2702" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/pg/base/16384/2703" beforeDir="false" afterPath="$PROJECT_DIR$/data/pg/base/16384/2703" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/pg/base/16384/2704" beforeDir="false" afterPath="$PROJECT_DIR$/data/pg/base/16384/2704" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/pg/base/16384/3455" beforeDir="false" afterPath="$PROJECT_DIR$/data/pg/base/16384/3455" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/pg/base/16384/5002" beforeDir="false" afterPath="$PROJECT_DIR$/data/pg/base/16384/5002" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/pg/base/16384/pg_internal.init" beforeDir="false" afterPath="$PROJECT_DIR$/data/pg/base/16384/pg_internal.init" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/pg/base/5/pg_internal.init" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/pg/global/1260" beforeDir="false" afterPath="$PROJECT_DIR$/data/pg/global/1260" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data/pg/global/1262" beforeDir="false" afterPath="$PROJECT_DIR$/data/pg/global/1262" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data/pg/global/pg_control" beforeDir="false" afterPath="$PROJECT_DIR$/data/pg/global/pg_control" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/pg/global/pg_internal.init" beforeDir="false" afterPath="$PROJECT_DIR$/data/pg/global/pg_internal.init" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data/pg/pg_wal/000000010000000000000001" beforeDir="false" afterPath="$PROJECT_DIR$/data/pg/pg_wal/000000010000000000000001" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data/pg/pg_xact/0000" beforeDir="false" afterPath="$PROJECT_DIR$/data/pg/pg_xact/0000" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/pg/postmaster.pid" beforeDir="false" afterPath="$PROJECT_DIR$/data/pg/postmaster.pid" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/codecamp/controllers/AdminUserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/codecamp/controllers/AdminUserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/codecamp/controllers/AssignmentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/codecamp/controllers/AssignmentController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/codecamp/controllers/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/codecamp/controllers/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/codecamp/exceptions/EmailAlreadyExistException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/codecamp/exceptions/EmailAlreadyExistException.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/codecamp/filters/UserAuthenticationFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/codecamp/filters/UserAuthenticationFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/codecamp/services/AdminUserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/codecamp/services/AdminUserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/codecamp/services/AssignmentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/codecamp/services/AssignmentService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/codecamp/services/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/codecamp/services/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/codecamp/utils/CapitalizeTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/codecamp/utils/CapitalizeTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/codecamp/utils/GlobalExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/codecamp/utils/GlobalExceptionHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/com/codecamp/utils/StringFormatUtilsTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/codecamp/utils/StringFormatUtilsTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../codecamp_frontend/src/css/PublicHomepage.css" beforeDir="false" afterPath="$PROJECT_DIR$/../codecamp_frontend/src/css/PublicHomepage.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../codecamp_frontend/src/css/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/../codecamp_frontend/src/css/index.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../codecamp_frontend/src/pages/public_pages/PublicHomepage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../codecamp_frontend/src/pages/public_pages/PublicHomepage.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../codecamp_frontend/src/pages/public_pages/RegistrationPage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../codecamp_frontend/src/pages/public_pages/RegistrationPage.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../codecamp_frontend/src/App.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../codecamp_frontend/src/App.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../codecamp_frontend/src/components/RedirectUrl.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../codecamp_frontend/src/components/RedirectUrl.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../codecamp_frontend/src/css/Login.css" beforeDir="false" afterPath="$PROJECT_DIR$/../codecamp_frontend/src/css/Login.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../codecamp_frontend/src/pages/public_pages/Login.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../codecamp_frontend/src/pages/public_pages/Login.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -147,6 +90,9 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 4
 }</component>
@@ -158,25 +104,25 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.BackendApplication.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.Build backend.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.Build codecamp_backend.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.Tests in 'codecamp.test'.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.backend [:BackendApplication.main()].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.codecamp_backend [:BackendApplication.main()].executor&quot;: &quot;Debug&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;Merging main&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/sebas/dev-projects/java-Projects/LMS/LMS_Codecamp/README.md&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.25747126&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.BackendApplication.executor": "Debug",
+    "Gradle.Build backend.executor": "Run",
+    "Gradle.Build codecamp_backend.executor": "Run",
+    "Gradle.Tests in 'codecamp.test'.executor": "Run",
+    "Gradle.backend [:BackendApplication.main()].executor": "Run",
+    "Gradle.codecamp_backend [:BackendApplication.main()].executor": "Debug",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "lab",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/sebas/dev-projects/java-Projects/LMS/LMS_Codecamp/README.md",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.25747126",
+    "settings.editor.selected.configurable": "preferences.pluginManager"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\sebas\dev-projects\java-Projects\CodeCamp\backend\src\main\resources" />
@@ -187,7 +133,7 @@
       <recent name="C:\Users\sebas\dev-projects\java-Projects\CodeCamp\backend\docker\pg" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.BackendApplication">
+  <component name="RunManager" selected="Application.com.codecamp.BackendApplication">
     <configuration name="BackendApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="ALTERNATIVE_JRE_PATH" value="temurin-17" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
@@ -196,6 +142,19 @@
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="com.hcc.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="com.codecamp.BackendApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.codecamp.BackendApplication" />
+      <module name="codecamp.main" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.codecamp.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -227,6 +186,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.com.codecamp.BackendApplication" />
         <item itemvalue="Gradle.Tests in 'codecamp.test'" />
         <item itemvalue="Application.BackendApplication" />
       </list>
@@ -246,5 +206,16 @@
   <component name="UnknownFeatures">
     <option featureType="com.intellij.fileTypeFactory" implementationName="*.conf" />
     <option featureType="com.intellij.fileTypeFactory" implementationName="docker-compose.yml" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/codecamp/services/AssignmentService.java</url>
+          <line>41</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

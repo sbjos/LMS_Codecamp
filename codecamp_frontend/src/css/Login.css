@@ -24,11 +24,9 @@
     background-color: #888484;
     color: #423e35;
   }
+}
 
-  #error {
-    color: rgb(223, 26, 26);
-    /* margin-top: 15px; */
-    /* margin-bottom: 5px; */
-    /* height: 28px; */
-  }
+.login-error {
+  color: rgb(223, 26, 26);
+  margin-bottom: 16px;
 }

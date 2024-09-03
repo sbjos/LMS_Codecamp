@@ -6,7 +6,7 @@ const RedirectUrl = {
   Homepage: RootUrl,
   Register: RootUrl + "/register",
   Login: RootUrl + "/login",
-  learnerdashboard: RootUrl + "/mydashboard",
+  learnerdashboard: RootUrl + "/dashboard",
   learnerSubmittedAssignments: RootUrl + "/submitted",
   learnerInReviewAssignments: RootUrl + "/inreview",
   learnerNeedsWorkAssignments: RootUrl + "/needswork",

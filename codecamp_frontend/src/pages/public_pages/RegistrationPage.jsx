@@ -1,6 +1,8 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faInfoCircle } from "@fortawesome/free-solid-svg-icons";
+import Confetti from "react-confetti";
+import ConfettiExplosion from "react-confetti-explosion";
 import axios from "axios";
 import StateComponent from "../../components/select/StateComponent";
 import RedirectUrl from "../../components/RedirectUrl";
@@ -16,6 +18,8 @@ function RegistrationPage() {
   const EMAIL_REGEX = /^[a-zA-Z][a-zA-Z0-9_.-]+@[a-z0A-Z-9_.-]+\.[a-z]+$/;
   const ZIPCODE_REGEX = /^\d{5}$/;
 
+  const [textContainer, setTextContainer] = useState(false);
+  const [btnContainer, setBtnContainer] = useState(false);
   const [type, setType] = useState("password");
   const [success, setSuccess] = useState(false);
   const [isUsernameAvailable, setUsernameAvailable] = useState(true);
@@ -211,26 +215,51 @@ function RegistrationPage() {
     }
   }
 
+  if (success) {
+    setTimeout(() => {
+      setTextContainer(true);
+    }, 100);
+
+    setTimeout(() => {
+      setBtnContainer(true);
+    }, 3000);
+  }
+
   return success ? (
     <>
       <div className="registration-root-success">
-        <section className="registration-section-1"></section>
-        <section className="registration-section-2">
-          <div className="registration-success">
-            <h2>You are now registered</h2>
-            <p>
-              <a
-                type="button"
-                className="btn btn-primary logo-btn"
-                href={RedirectUrl.Login}
-              >
-                Login
-              </a>
-            </p>
+        <div className="registration-success-container">
+          <div
+            className={`registration-success-text-container ${
+              textContainer ? "show" : ""
+            }`}
+          >
+            <h1>Registration successful</h1>
           </div>
-        </section>
-        <section className="registration-section-3"></section>
+          <div className="confetti-container">
+            <ConfettiExplosion
+              force={0.8}
+              duration={5000}
+              particleCount={500}
+              width={5000}
+            />
+          </div>
+          <div
+            className={`registration-success-btn-container ${
+              btnContainer ? "show" : ""
+            }`}
+          >
+            <a
+              type="button"
+              className="btn btn- registration-success-btn"
+              href={RedirectUrl.Login}
+            >
+              Login
+            </a>
+          </div>
+        </div>
       </div>
+      ;
     </>
   ) : (
     <>
@@ -241,7 +270,7 @@ function RegistrationPage() {
           <div className="registration-header">
             <h1>User Registration</h1>
             <br className="space" />
-            <h5>Welcome to codeCamp.</h5>
+            <h4>Welcome to codeCamp.</h4>
 
             <div className="registration-patagraph">
               <p>Ready for the next step?</p>

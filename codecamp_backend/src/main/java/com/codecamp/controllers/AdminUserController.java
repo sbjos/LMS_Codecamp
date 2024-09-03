@@ -3,8 +3,6 @@ package com.codecamp.controllers;
 import com.codecamp.dto.UserResponseDto;
 import com.codecamp.entities.User;
 import com.codecamp.services.AdminUserService;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.hibernate.bytecode.enhance.internal.tracker.SortedFieldTracker;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
@@ -14,8 +12,6 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class AdminUserController {
-
-    private final Logger log = LogManager.getLogger(AssignmentController.class);
 
     @Autowired
     private AdminUserService adminUserService;
@@ -35,31 +31,12 @@ public class AdminUserController {
 
     @PutMapping("/api/admin/user/{username}")
     public ResponseEntity<UserResponseDto> updateUser(@PathVariable String username, @RequestBody User update) {
-        UserResponseDto updatedUser;
-
-        try {
-            updatedUser = adminUserService.updateUser(username, update);
-
-        } catch (IllegalArgumentException e) {
-            log.warn(e, new IllegalArgumentException());
-            return new ResponseEntity<>(HttpStatus.FORBIDDEN);
-        }
-
-        return new ResponseEntity<>(updatedUser, HttpStatus.OK);
+        return new ResponseEntity<>(adminUserService.updateUser(username, update), HttpStatus.OK);
     }
 
-    @PutMapping("/api/admin/user/{username}")
+    @PutMapping("/api/admin/user/settings/{username}")
     public ResponseEntity<UserResponseDto> updateUserSettings(@PathVariable String username, @RequestBody User update) {
         UserResponseDto updatedUser;
-
-        try {
-            updatedUser = adminUserService.updateUserSettings(username, update);
-
-        } catch (IllegalArgumentException e) {
-            log.warn(e, new IllegalArgumentException());
-            return new ResponseEntity<>(HttpStatus.FORBIDDEN);
-        }
-
-        return new ResponseEntity<>(updatedUser, HttpStatus.OK);
+        return new ResponseEntity<>(adminUserService.updateUserSettings(username, update), HttpStatus.OK);
     }
 }

@@ -1,11 +1,16 @@
 package com.codecamp.services;
 
+import com.codecamp.controllers.AssignmentController;
 import com.codecamp.dto.UserResponseDto;
 import com.codecamp.entities.User;
 import com.codecamp.exceptions.UserNotFoundException;
 import com.codecamp.repositories.UserRepository;
 import com.codecamp.utils.ObjectMappingUtils;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -16,6 +21,8 @@ import static com.codecamp.utils.ObjectMappingUtils.userResponseMapping;
 
 @Service
 public class AdminUserService {
+
+    private final Logger log = LogManager.getLogger(AssignmentController.class);
 
     @Autowired
     private UserRepository userRepository;
@@ -48,22 +55,29 @@ public class AdminUserService {
     public UserResponseDto updateUser(String username, User update) {
         User user = userLookup(username).get();
 
-        Optional.ofNullable(update.getFirstname()).ifPresent(user::setFirstname);
-        Optional.ofNullable(update.getLastname()).ifPresent(user::setLastname);
-        Optional.ofNullable(update.getUsername()).ifPresent(user::setUsername);
+        try {
+            Optional.ofNullable(update.getFirstname()).ifPresent(user::setFirstname);
+            Optional.ofNullable(update.getLastname()).ifPresent(user::setLastname);
+            Optional.ofNullable(update.getUsername()).ifPresent(user::setUsername);
 
-        Optional.ofNullable(update.getContact().getPhone()).ifPresent(email -> user.getContact().setPhone(email));
-        Optional.ofNullable(update.getContact().getEmail()).ifPresent(email -> user.getContact().setEmail(email));
+            Optional.ofNullable(update.getContact().getPhone()).ifPresent(email -> user.getContact().setPhone(email));
+            Optional.ofNullable(update.getContact().getEmail()).ifPresent(email -> user.getContact().setEmail(email));
 
-        Optional.ofNullable(update.getAddress().getStreet()).ifPresent(address -> user.getAddress().setStreet(address));
-        Optional.ofNullable(update.getAddress().getNumber()).ifPresent(address2 -> user.getAddress().setNumber(address2));
-        Optional.ofNullable(update.getAddress().getCity()).ifPresent(city -> user.getAddress().setCity(city));
-        Optional.ofNullable(update.getAddress().getState()).ifPresent(state -> user.getAddress().setState(state));
-        Optional.ofNullable(update.getAddress().getZipcode()).ifPresent(zipcode -> user.getAddress().setZipcode(zipcode));
+            Optional.ofNullable(update.getAddress().getStreet()).ifPresent(address -> user.getAddress().setStreet(address));
+            Optional.ofNullable(update.getAddress().getNumber()).ifPresent(address2 -> user.getAddress().setNumber(address2));
+            Optional.ofNullable(update.getAddress().getCity()).ifPresent(city -> user.getAddress().setCity(city));
+            Optional.ofNullable(update.getAddress().getState()).ifPresent(state -> user.getAddress().setState(state));
+            Optional.ofNullable(update.getAddress().getZipcode()).ifPresent(zipcode -> user.getAddress().setZipcode(zipcode));
 
-        userRepository.save(user);
+            userRepository.save(user);
 
-        return userResponseMapping(user);
+            return userResponseMapping(user);
+
+        } catch (IllegalArgumentException e) {
+            log.warn(e, new IllegalArgumentException());
+
+            throw new IllegalArgumentException(e);
+        }
     }
 
     /**

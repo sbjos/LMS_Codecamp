@@ -20,6 +20,7 @@ function Login() {
         { username, password }
       );
 
+      console.log("response", response)
       localStorage.setItem(
         "lmsusertoken",
         response.headers.authorization.split(" ")[1]
@@ -92,12 +93,8 @@ function Login() {
               required
             />
           </div>
-          {error ? <div id="error">Login failed</div> : null}
-          <button
-            disabled={!username || !password}
-            type="submit"
-            className="btn btn-success btn-login-custom"
-          >
+          {error ? <div className="error login-error">Login failed. Try again</div> : null}
+          <button type="submit" className="btn btn-success btn-login-custom">
             Login
           </button>
         </form>

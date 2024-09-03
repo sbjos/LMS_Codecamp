@@ -159,7 +159,7 @@ function PublicHomepage() {
                   &copy; 2024{" "}
                   <b className="navbar-brand-custom">{"codeCamp/>"}</b> &nbsp;
                 </div>
-                  All rights reserved.
+                <div className="rights-reserved">All rights reserved.</div>
               </div>
               <div className="option-list">
                 <ul>

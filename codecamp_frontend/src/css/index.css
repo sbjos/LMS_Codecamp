@@ -5,7 +5,7 @@
 
 html,
 body {
-  height: max-content;
+  height: 100vh;
   margin: auto;
   padding: 0;
   box-sizing: border-box;
@@ -15,9 +15,13 @@ main {
   height: max-content;
 }
 
+#root {
+  height: 100vh;
+}
+
 :root {
   position: relative;
-  height: max-content;
+  height: 100vh;
   line-height: 2;
   font-family: Optimist, Helvetica Neue, Helvetica, Arial, sans-serif !important;
   font-weight: 400;
@@ -39,7 +43,7 @@ main {
   --background-color-1: #0a8bd6ef;
   --background-color-2: #e3e3e373;
   --background-color-3: #f3f2ef;
-  --background-color-4: #ebf3fa;  
+  --background-color-4: #ebf3fa;
   --button-link-color: #054a76;
   --button-link-color-hover: #1662d4;
   --button-color-blue: #0050c7;

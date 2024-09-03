@@ -33,7 +33,7 @@ const router = createBrowserRouter(
 
       {/* Learner routes */}
       <Route path="/codecamp.com" element={<LearnerRootOutlet />}>
-        <Route path="mydashboard" element={<LearnerDashboard />} />
+        <Route path="dashboard" element={<LearnerDashboard />} />
         <Route path="submitted" element={<LearnerViewAllSubmitted />} />
         <Route path="inreview" element={<LearnerViewAllInReview />} />
         <Route path="needswork" element={<LearnerViewAllNeedsWork />} />
