@@ -1,27 +1,27 @@
 * {
-  /* max-width: 1920px; */
-  /* border: 1px solid blueviolet; */
+  border: 1px solid blueviolet;
 }
 
 html,
 body {
-  height: 100vh;
+  min-height: 100vh;
   margin: auto;
   padding: 0;
   box-sizing: border-box;
 }
 
-main {
-  height: max-content;
-}
-
 #root {
   height: 100vh;
+  /* border: 1px solid red; */
+}
+
+main {
+  /* border: 1px solid greenyellow; */
+  height: 100%;
 }
 
 :root {
   position: relative;
-  height: 100vh;
   line-height: 2;
   font-family: Optimist, Helvetica Neue, Helvetica, Arial, sans-serif !important;
   font-weight: 400;

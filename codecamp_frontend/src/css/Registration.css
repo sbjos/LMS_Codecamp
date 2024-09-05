@@ -1,8 +1,6 @@
 .registration-root {
   display: grid;
   grid-template-rows: repeat(3);
-  height: 100%;
-  min-height: 100vh;
   background: var(--background-color-2);
 
   .registration-section-1 {
@@ -13,7 +11,7 @@
   .registration-section-2 {
     display: grid;
     grid-template-columns: minmax(100px, 550px) minmax(100px, 700px);
-    grid-template-rows: 25px 708px;
+    grid-template-rows: max-content;
     grid-template-areas:
       "a a"
       "b c";
@@ -29,7 +27,7 @@
 
     .registration-header {
       grid-area: b;
-      margin-top: 50px;
+      padding: 55PX 0;
 
       h1 {
         margin-bottom: 20px;
@@ -37,7 +35,6 @@
 
       h4 {
         margin-bottom: 20px;
-        color: var(--button-color-red) !important;
       }
     }
 
@@ -60,7 +57,6 @@
 
       .registration-container-header-exception h5 {
         margin-bottom: 0;
-        color: var(--button-color-red) !important;
       }
 
       .registration-container-header {
@@ -68,7 +64,6 @@
 
         h5 {
           margin-bottom: 0;
-          color: var(--button-color-red) !important;
         }
       }
 
@@ -127,16 +122,21 @@
   }
 }
 
-@media screen and (max-width: 1250px) {
+@media screen and (max-width: 1271px) {
   .registration-section-2 {
-    display: block;
+    display: inline-block !important;
+    justify-content: center;
+    gap: 15%;
     padding: 40px 5%;
-    gap: 1%;
+
+    .registration-header {
+      margin-bottom: 50px !important;
+    }
   }
 
   .registration-header {
     grid-area: c;
-    margin-top: 50px;
+    margin: 50px 0 !important;
   }
 
   .registration-form {

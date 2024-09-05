@@ -8,6 +8,7 @@ import {
   faMagnifyingGlass,
 } from "@fortawesome/free-solid-svg-icons";
 import Logo from "../../components/Logo";
+import Footer from "../../components/Footer";
 import "../../css/PublicHomepage.css";
 
 function PublicHomepage() {
@@ -153,31 +154,9 @@ function PublicHomepage() {
         </section>
         <section className="public-section-5">
           <div className="public-section-5-container">
-            <footer className="footer text-dark-emphasis">
-              <div className="rightreserved-text">
-                <div className="copyright">
-                  &copy; 2024{" "}
-                  <b className="navbar-brand-custom">{"codeCamp/>"}</b> &nbsp;
-                </div>
-                <div className="rights-reserved">All rights reserved.</div>
-              </div>
-              <div className="option-list">
-                <ul>
-                  <li>
-                    <a href="">Privacy</a>
-                  </li>
-                  <li>
-                    <a href="">Terms</a>
-                  </li>
-                  <li>
-                    <a href="">Feedback</a>
-                  </li>
-                  <li>
-                    <a href="">Support</a>
-                  </li>
-                </ul>
-              </div>
-            </footer>
+            <div className="public-footer">
+              <Footer/>
+            </div>
           </div>
         </section>
       </div>

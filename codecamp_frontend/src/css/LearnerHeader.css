@@ -1,0 +1,73 @@
+.navbar-custom {
+    .navbar-container {
+      .navbar-brand-custom {
+        font-family: Consolas, Fira Code, and JetBrains Mono;
+        height: 37.99px;
+      }
+  
+      .navbar-collapse-custom {
+        .navbar-menu-custom {
+          margin: 0 auto;
+  
+          .d-flex-custom {
+            margin-right: 50px;
+  
+            .search-btn {
+              max-width: -moz-fit-content;
+              max-width: fit-content;
+            }
+          }
+        }
+  
+        .dropdown-center-custom {
+          .navbar-btn-custom {
+            background-color: transparent;
+            border: none;
+            box-shadow: none;
+          }
+          .navbar-dropdown-menu-custom {
+            padding: 15px;
+  
+            &:hover {
+              -webkit-transition: background-color 0.2s ease-out;
+              -moz-transition: background-color 0.2s ease-out;
+              -o-transition: background-color 0.2s ease-out;
+              transition: background-color 0.2s ease-out;
+            }
+  
+            .navbar-dropdown-name {
+              font-weight: 600;
+            }
+  
+            .navbar-dropdown-menu-item {
+              padding-left: 0;
+              padding-right: 0;
+              &:active {
+                color: black;
+                background-color: #f8f8f8 !important;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  @media screen and (max-width: 1099px) {
+    .navbar-menu-custom {
+      a {
+        margin: 0 !important;
+        text-align: center;
+      }
+  
+      .nav-item-custom {
+        width: 100px;
+      }
+    }
+  }
+  
+  @media screen and (max-width: 991px) {
+    .navbar-toggler-custom {
+      width: 72px;
+    }
+  }

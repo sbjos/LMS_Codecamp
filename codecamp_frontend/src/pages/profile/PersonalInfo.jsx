@@ -65,6 +65,7 @@ function PersonalInfo() {
 
   return (
     <>
+    <div className="profile-root">
       <div className="profile-header">
         <h5>Basic info</h5>
       </div>
@@ -200,6 +201,7 @@ function PersonalInfo() {
           </button>
         </div>
       </form>
+      </div>
     </>
   );
 }

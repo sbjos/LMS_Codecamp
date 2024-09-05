@@ -14,7 +14,7 @@
     padding: var(--public-headeer-section-padding);
     border-bottom: 0.5px solid #e9e9e9;
     box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.12), inset 0 -1px 0 0 #dadce0;
-
+    
     .public-section-1-container {
       display: flex;
       justify-content: space-between;
@@ -22,8 +22,9 @@
       align-items: center;
       margin: 0 auto;
       width: min(var(--header-content-width), 100%);
-      height: 61px;
-
+      min-height: 61px;
+      height: max-content;
+      
       .public-buttons {
         display: flex;
         gap: 15px;
@@ -166,48 +167,15 @@
     }
   }
 
-  /* Footer */
   .public-section-5 {
-    padding: 25px 100px;
-    background: var(--background-color-2);
-    text-wrap: nowrap;
-
     .public-section-5-container {
-      margin: 0 auto;
-      text-align: center;
-      width: min(var(--footer-content-width), 100%);
+      .public-footer {
+        background-color: rgb(49, 49, 49);
+        footer {
+          color: white !important;
 
-      .footer {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        grid-template-areas: "a b c d";
-        min-height: 30px;
-        padding: 0;
-        font-size: 0.95em;
-        font-weight: 200;
-
-        .rightreserved-text {
-          grid-area: a;
-          display: flex;
-          flex-wrap: nowrap;
-          color: #5b6269;
-        }
-
-        .option-list {
-          grid-area: d;
-          ul {
-            display: inline-flex;
-
-            li {
-              a {
-                align-items: center;
-                text-decoration: none;
-
-                &:hover {
-                  text-decoration: underline;
-                }
-              }
-            }
+          a {
+            color: white;
           }
         }
       }
@@ -343,25 +311,6 @@
       }
     }
   }
-
-  .public-section-5 {
-    .public-section-5-container {
-      .footer {
-        display: inline-block !important;
-
-        .rightreserved-text {
-          flex-wrap: wrap;
-          padding-bottom: 25px;
-        }
-
-        .option-list {
-          ul {
-            display: inline-block !important;
-          }
-        }
-      }
-    }
-  }
 }
 
 @media screen and (max-width: 650px) {
@@ -402,7 +351,6 @@
   .public-section-4 {
     padding: 0 !important;
     .public-section-4-container {
-
       .public-section-4-content-container {
         padding-left: 0 !important;
         padding-right: 0 !important;
@@ -412,14 +360,6 @@
           padding: 50px 20px !important;
         }
       }
-    }
-  }
-
-  .public-section-5 {
-    padding: 0 !important;
-
-    .public-section-5-container {
-      padding: 0 !important;
     }
   }
 }
