@@ -6,15 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="bce22d46-2df9-4ec0-9fca-3f26b0329700" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../codecamp_frontend/src/components/learner/LearnerRootOutlet.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../codecamp_frontend/src/components/learner/LearnerRootOutlet.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../codecamp_frontend/src/css/Login.css" beforeDir="false" afterPath="$PROJECT_DIR$/../codecamp_frontend/src/css/Login.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../codecamp_frontend/src/css/NavbarandFooter.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../codecamp_frontend/src/css/Profile.css" beforeDir="false" afterPath="$PROJECT_DIR$/../codecamp_frontend/src/css/Profile.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../codecamp_frontend/src/css/PublicHomepage.css" beforeDir="false" afterPath="$PROJECT_DIR$/../codecamp_frontend/src/css/PublicHomepage.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../codecamp_frontend/src/css/Registration.css" beforeDir="false" afterPath="$PROJECT_DIR$/../codecamp_frontend/src/css/Registration.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../codecamp_frontend/src/css/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/../codecamp_frontend/src/css/index.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../codecamp_frontend/src/pages/profile/PersonalInfo.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../codecamp_frontend/src/pages/profile/PersonalInfo.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../codecamp_frontend/src/pages/public_pages/PublicHomepage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../codecamp_frontend/src/pages/public_pages/PublicHomepage.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
