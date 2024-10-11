@@ -92,6 +92,7 @@ public class AssignmentService {
                 Optional.of(user).ifPresent(userAssignment::setCodeReviewer);
                 Optional.ofNullable(update.getReviewVideoUrl()).ifPresent(userAssignment::setReviewVideoUrl);
                 userAssignment.setStatus(update.getStatus());
+                userAssignment.setLastUpdated(TimeZoneConverterUtils.convertLocalTimeToUTC());
 
             } else {
                 userAssignment = assignmentLookup(assignmentId);
