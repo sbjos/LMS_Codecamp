@@ -70,6 +70,8 @@ get them reviewed.
 - githubUrl: String
 - branch: String
 - reviewVideoUrl: String
+- creationTime: LocalDateTime
+- lastUpdated: LocalDateTime
 - user: User
 - codeReviewer: User
 
