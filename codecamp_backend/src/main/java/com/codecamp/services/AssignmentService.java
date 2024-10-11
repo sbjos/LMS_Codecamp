@@ -7,6 +7,7 @@ import com.codecamp.entities.User;
 import com.codecamp.exceptions.AssignmentNotFoundException;
 import com.codecamp.repositories.AssignmentRepository;
 import com.codecamp.utils.ObjectMappingUtils;
+import com.codecamp.utils.TimeZoneConverterUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -142,6 +143,7 @@ public class AssignmentService {
             try {
                 newAssignment.setNumber(random);
                 newAssignment.setUser(user);
+                newAssignment.setCreationTime(TimeZoneConverterUtils.convertLocalTimeToUTC());
                 newAssignment.setStatus(SUBMITTED.getStatus());
 
                 assignmentRepository.save(newAssignment);

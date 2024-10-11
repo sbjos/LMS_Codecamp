@@ -22,6 +22,7 @@ public class TestAssignmentHelper {
                 "https://github.com/johndoe/project",
                 "main",
                 "",
+                LocalDateTime.of(2023, 12, 30, 17, 52, 51),
                 LocalDateTime.of(2024, 12, 20, 17, 52, 51),
                 user1(),
                 null
@@ -38,6 +39,7 @@ public class TestAssignmentHelper {
                 "https://github.com/janesmith/project",
                 "dev",
                 "https://vid.com/review2",
+                LocalDateTime.of(2023, 12, 30, 17, 52, 51),
                 LocalDateTime.of(2024, 1, 20, 17, 52, 51),
                 user2(),
                 reviewer1()
@@ -54,6 +56,7 @@ public class TestAssignmentHelper {
                 "https://github.com/janesmith/project",
                 "dev",
                 "https://vid.com/review24",
+                LocalDateTime.of(2023, 12, 30, 17, 52, 51),
                 LocalDateTime.of(2024, 3, 20, 17, 52, 51),
                 user2(),
                 reviewer1()

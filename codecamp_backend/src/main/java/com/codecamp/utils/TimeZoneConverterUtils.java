@@ -9,8 +9,6 @@ public class TimeZoneConverterUtils {
      * @return utc time
      */
     public static LocalDateTime convertLocalTimeToUTC() {
-         LocalDateTime a = OffsetDateTime.now(ZoneOffset.UTC).toLocalDateTime();
-
-        return a;
+         return OffsetDateTime.now(ZoneOffset.UTC).toLocalDateTime();
     }
 }

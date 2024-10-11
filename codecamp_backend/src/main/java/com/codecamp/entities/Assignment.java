@@ -34,6 +34,9 @@ public class Assignment {
     @Column(name = "code_review_video_url")
     private String reviewVideoUrl;
 
+    @Column(name = "creation_time")
+    private LocalDateTime creationTime;
+
     @Column(name = "last_updated")
     private LocalDateTime lastUpdated;
 
@@ -49,7 +52,7 @@ public class Assignment {
 
 
     public Assignment(Long id, Integer number, String name, String description, String status, String githubUrl, String branch,
-                      String reviewVideoUrl, LocalDateTime lastUpdated, User user, User codeReviewer) {
+                      String reviewVideoUrl, LocalDateTime creationTime, LocalDateTime lastUpdated, User user, User codeReviewer) {
         this.id = id;
         this.number = number;
         this.name = name;
@@ -58,6 +61,7 @@ public class Assignment {
         this.githubUrl = githubUrl;
         this.branch = branch;
         this.reviewVideoUrl = reviewVideoUrl;
+        this.creationTime = creationTime;
         this.lastUpdated = lastUpdated;
         this.user = user;
         this.codeReviewer = codeReviewer;
@@ -121,6 +125,22 @@ public class Assignment {
 
     public void setReviewVideoUrl(String reviewVideoUrl) {
         this.reviewVideoUrl = reviewVideoUrl;
+    }
+
+    public LocalDateTime getCreationTime() {
+        return creationTime;
+    }
+
+    public void setCreationTime(LocalDateTime creationTime) {
+        this.creationTime = creationTime;
+    }
+
+    public LocalDateTime getLastUpdated() {
+        return lastUpdated;
+    }
+
+    public void setLastUpdated(LocalDateTime lastUpdated) {
+        this.lastUpdated = lastUpdated;
     }
 
     public User getUser() {

@@ -155,6 +155,7 @@ public class AssignmentServiceTest {
                                 "https://github.com/johndoe/project/updated",
                                 "main",
                                 "",
+                                LocalDateTime.of(2023, 12, 30, 17, 52, 51),
                                 LocalDateTime.of(2023, 12, 20, 17, 52, 51),
                                 user1(),
                                 null
@@ -170,6 +171,7 @@ public class AssignmentServiceTest {
                 "https://github.com/johndoe/project/updated",
                 "main",
                 "",
+                LocalDateTime.of(2023, 12, 30, 17, 52, 51),
                 LocalDateTime.of(2023, 12, 20, 19, 52, 51),
                 user1(),
                 null
@@ -202,6 +204,7 @@ public class AssignmentServiceTest {
                         "dev",
                         "https://vid.com/review24",
                         LocalDateTime.of(2023, 12, 30, 17, 52, 51),
+                        LocalDateTime.of(2023, 12, 30, 17, 52, 51),
                         user2(),
                         reviewer1()
                 )
@@ -216,6 +219,7 @@ public class AssignmentServiceTest {
                 "https://github.com/janesmith/project/updated",
                 "dev",
                 "https://vid.com/review24",
+                LocalDateTime.of(2023, 12, 30, 17, 52, 51),
                 LocalDateTime.of(2023, 12, 20, 17, 52, 21),
                 user2(),
                 reviewer1()
@@ -258,6 +262,7 @@ public class AssignmentServiceTest {
                         "https://github.com/johndoe/project",
                         "main",
                         "",
+                        LocalDateTime.of(2023, 12, 30, 17, 52, 51),
                         LocalDateTime.of(2024, 12, 20, 17, 52, 51),
                         user1(),
                         reviewer1()
@@ -271,6 +276,7 @@ public class AssignmentServiceTest {
                 null,
                 IN_REVIEW.getStatus(),
                 "https://github.com/johndoe/project/updated",
+                null,
                 null,
                 null,
                 null,
