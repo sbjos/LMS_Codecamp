@@ -39,6 +39,8 @@ get them reviewed.
 - As an admin I want to be able to edit an assignment.
 - As an admin I want to be abe to view a quick summary of a learner's progress.
 - As an admin I want to be abe to view a quick summary of a reviewer's progress.
+- As an admin, I want to be able to pull assignments by updated time 
+- As an admin, I want to be able to pull assignments by created time.
 
 ## Technology Stack
 - **Frontend:** `React JS`

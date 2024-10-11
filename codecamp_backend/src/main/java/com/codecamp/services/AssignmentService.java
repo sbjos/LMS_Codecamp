@@ -92,7 +92,6 @@ public class AssignmentService {
                 Optional.of(user).ifPresent(userAssignment::setCodeReviewer);
                 Optional.ofNullable(update.getReviewVideoUrl()).ifPresent(userAssignment::setReviewVideoUrl);
                 userAssignment.setStatus(update.getStatus());
-                userAssignment.setLastUpdated(TimeZoneConverterUtils.convertLocalTimeToUTC());
 
             } else {
                 userAssignment = assignmentLookup(assignmentId);
@@ -100,6 +99,7 @@ public class AssignmentService {
                 Optional.ofNullable(update.getGithubUrl()).ifPresent(userAssignment::setGithubUrl);
                 Optional.ofNullable(update.getBranch()).ifPresent(userAssignment::setBranch);
                 Optional.ofNullable(update.getCodeReviewer()).ifPresent(userAssignment::setCodeReviewer);
+                userAssignment.setLastUpdated(TimeZoneConverterUtils.convertLocalTimeToUTC());
 
                 if (userAssignment.getStatus().equals(NEEDS_WORK.getStatus())) {
                     userAssignment.setStatus(IN_REVIEW.getStatus());

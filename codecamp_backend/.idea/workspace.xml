@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bce22d46-2df9-4ec0-9fca-3f26b0329700" name="Changes" comment="" />
+    <list default="true" id="bce22d46-2df9-4ec0-9fca-3f26b0329700" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/codecamp/services/AssignmentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/codecamp/services/AssignmentService.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -62,25 +65,25 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.BackendApplication.executor": "Debug",
-    "Gradle.Build backend.executor": "Run",
-    "Gradle.Build codecamp_backend.executor": "Run",
-    "Gradle.Tests in 'codecamp.test'.executor": "Run",
-    "Gradle.backend [:BackendApplication.main()].executor": "Run",
-    "Gradle.codecamp_backend [:BackendApplication.main()].executor": "Debug",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "lab",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/sebas/dev-projects/java-Projects/LMS/LMS_Codecamp/README.md",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.25747126",
-    "settings.editor.selected.configurable": "vcs.Git"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.BackendApplication.executor&quot;: &quot;Debug&quot;,
+    &quot;Gradle.Build backend.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.Build codecamp_backend.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.Tests in 'codecamp.test'.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.backend [:BackendApplication.main()].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.codecamp_backend [:BackendApplication.main()].executor&quot;: &quot;Debug&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;lab&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/sebas/dev-projects/java-Projects/LMS/LMS_Codecamp/README.md&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.25747126&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;vcs.Git&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\sebas\dev-projects\java-Projects\CodeCamp\backend\src\main\resources" />
