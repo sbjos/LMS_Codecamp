@@ -1,5 +1,5 @@
 * {
-  border: 1px solid blueviolet;
+  /* border: 1px solid blueviolet; */
 }
 
 html,
@@ -12,12 +12,6 @@ body {
 
 #root {
   height: 100vh;
-  /* border: 1px solid red; */
-}
-
-main {
-  /* border: 1px solid greenyellow; */
-  height: 100%;
 }
 
 :root {

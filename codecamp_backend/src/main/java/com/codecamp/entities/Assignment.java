@@ -1,6 +1,8 @@
 package com.codecamp.entities;
 
 import jakarta.persistence.*;
+
+import java.time.LocalDateTime;
 import java.util.Objects;
 
 @Entity
@@ -32,6 +34,9 @@ public class Assignment {
     @Column(name = "code_review_video_url")
     private String reviewVideoUrl;
 
+    @Column(name = "last_updated")
+    private LocalDateTime lastUpdated;
+
     @ManyToOne
     @JoinColumn(name = "user_id")
     private User user;
@@ -42,8 +47,9 @@ public class Assignment {
 
     public Assignment() {}
 
+
     public Assignment(Long id, Integer number, String name, String description, String status, String githubUrl, String branch,
-                      String reviewVideoUrl, User user, User codeReviewer) {
+                      String reviewVideoUrl, LocalDateTime lastUpdated, User user, User codeReviewer) {
         this.id = id;
         this.number = number;
         this.name = name;
@@ -52,6 +58,7 @@ public class Assignment {
         this.githubUrl = githubUrl;
         this.branch = branch;
         this.reviewVideoUrl = reviewVideoUrl;
+        this.lastUpdated = lastUpdated;
         this.user = user;
         this.codeReviewer = codeReviewer;
     }
