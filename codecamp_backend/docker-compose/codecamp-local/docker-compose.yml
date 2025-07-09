@@ -3,7 +3,7 @@ version: '3'
 services:
   codecamp-database:
     image: postgres
-    container_name: codecamp_server_01
+    container_name: codecamp_db_01
     ports:
       - '5550:5432'
     environment:
