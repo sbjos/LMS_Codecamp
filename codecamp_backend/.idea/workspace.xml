@@ -6,7 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="bce22d46-2df9-4ec0-9fca-3f26b0329700" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/codecamp/services/AssignmentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/codecamp/services/AssignmentService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../codecamp_frontend/src/css/Profile.css" beforeDir="false" afterPath="$PROJECT_DIR$/../codecamp_frontend/src/css/Profile.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../codecamp_frontend/src/css/Registration.css" beforeDir="false" afterPath="$PROJECT_DIR$/../codecamp_frontend/src/css/Registration.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../codecamp_frontend/src/pages/profile/PersonalInfo.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../codecamp_frontend/src/pages/profile/PersonalInfo.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,15 +76,17 @@
     &quot;Gradle.Tests in 'codecamp.test'.executor&quot;: &quot;Run&quot;,
     &quot;Gradle.backend [:BackendApplication.main()].executor&quot;: &quot;Run&quot;,
     &quot;Gradle.codecamp_backend [:BackendApplication.main()].executor&quot;: &quot;Debug&quot;,
+    &quot;Gradle.codecamp_backend [:com.codecamp.BackendApplication.main()].executor&quot;: &quot;Debug&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;lab&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/sebas/dev-projects/java-Projects/LMS/LMS_Codecamp/README.md&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Sebastien/dev-projects/java-projects/LMS/LMS_Codecamp/codecamp_backend&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.25747126&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;vcs.Git&quot;
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.project.gradle&quot;
   }
 }</component>
   <component name="RecentsManager">

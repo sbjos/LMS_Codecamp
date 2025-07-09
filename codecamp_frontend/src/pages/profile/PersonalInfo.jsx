@@ -67,7 +67,7 @@ function PersonalInfo() {
     <>
     <div className="profile-root">
       <div className="profile-header">
-        <h5>Basic info</h5>
+        <h5>Personal Information</h5>
       </div>
       <form className="row g-3 profile-form" onSubmit={handleSubmit}>
         <div className="col-md-6">

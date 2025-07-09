@@ -4,15 +4,17 @@
 
   .profile-section-1 {
     display: grid;
-    grid-template-rows: 60px;
+    grid-template-rows: 16vh;
   }
 
   .profile-section-2 {
     display: grid;
-    grid-template-columns: 130px 550px;
+    grid-template-columns: 130px 650px;
+    grid-template-rows: 498.53px;
     grid-template-areas: "a b";
     justify-content: center;
     gap: 25px;
+    padding: 5px 0;
 
     .profile-nav-item {
       grid-area: a;
@@ -38,7 +40,7 @@
       }
     }
 
-    .profile-main {
+    .profile-option-window {
       grid-area: b;
       display: grid;
       gap: 20px;
@@ -48,9 +50,10 @@
       .profile-header h5 {
         font-size: 1.5em;
         height: 33px;
+        /* margin-bottom: 50px; */
       }
 
-      /* basic info */
+      /* personal info */
       .profile-street-container {
         width: 80.2%;
       }
@@ -110,7 +113,7 @@
       width: 130px !important;
     }
   }
-  
+
   .profile-btn-focus {
     width: 130px;
     height: 30px;
@@ -124,7 +127,7 @@
 
 .profile-section-3 {
   display: grid;
-  grid-template-rows: 60px;
+  grid-template-rows: 22vh;
 }
 
 @media screen and (max-width: 764px) {

@@ -21,13 +21,13 @@
 
     .registration-logo {
       grid-area: a;
-      font-size: 1.5em;
+      font-size: 1.8em;
       margin-bottom: 25px;
     }
 
     .registration-header {
       grid-area: b;
-      padding: 55PX 0;
+      padding: 55px 0;
 
       h1 {
         margin-bottom: 20px;
