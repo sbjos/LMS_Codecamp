@@ -238,3 +238,14 @@ get them reviewed.
 
 ### Reviewer Assignment View
 ![Reviewer Assignment View](./documents/images/reviewer_assignment_view.jpg)
+
+
+---
+
+## Access the database using CLI:
+### Docker:
+```
+docker exec -it codecamp_db_01 psql -U codecamp123 -d codecampDB
+```
+
+
