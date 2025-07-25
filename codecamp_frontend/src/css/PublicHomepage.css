@@ -3,7 +3,7 @@
   grid-template-rows: repeat(3);
 
   /* // Layout Variables */
-  --button-color: #0d6efd;
+  --button-color: #0f69df;
   --public-layout-section-padding-vertical: 80px 0;
   --public-layout-section-padding-horizontal: 0 55px;
   --public-headeer-section-padding: 0 100px 5px;
@@ -33,7 +33,7 @@
         gap: 15px;
 
         .public-register-btn {
-          width: 150px;
+          width: 120px;
           margin-top: 5px;
           background-color: var(--button-color);
           color: white;
@@ -299,8 +299,8 @@
 
 @media screen and (max-width: 520px) {
   .public-section-1 {
-    padding-left: 0 !important;
-    padding-right: 0 !important;
+    padding-left: 20px !important;
+    padding-right: 20px !important;
   }
 
   .public-section-2 {

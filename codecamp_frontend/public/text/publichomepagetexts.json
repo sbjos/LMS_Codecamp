@@ -1,0 +1,33 @@
+{
+  "intro": {
+    "welcome": "Welcome to CodeCamp/>",
+    "welcomeDescription": "A smarter way to review, improve, and grow with every assignment."
+  },
+
+  "demo1": {
+    "header": "Easy to use",
+    "body": "Submitting assignments has never been easier. With a clean and intuitive dashboard, you’ll always know what to do next without feeling lost or overwhelmed."
+  },
+
+  "demo2": {
+    "header": "Feedback matters",
+    "body": "Receive meaningful feedback from your instructors with annotated notes and personalized walk-through videos, helping you understand exactly where to focus and improve."
+  },
+
+  "demo3": {
+    "header": "Need help?",
+    "body": "Stuck on something? Our support is just a click away — whether you need help with assignments, navigating the platform, or exploring new subjects."
+  },
+
+  "cardText1": {
+    "body": "Designed for simplicity — quickly review feedback and track your progress with ease."
+  },
+
+  "cardText2": {
+    "body": "Your most recent assignments are always front and center, making it easy to stay on top of your work."
+  },
+
+  "cardText3": {
+    "body": "Need to make changes? Edit or review assignments directly from the dashboard cards — no extra steps needed."
+  }
+}

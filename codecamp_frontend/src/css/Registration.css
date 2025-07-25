@@ -110,7 +110,7 @@
   }
 
   .registration-form-checkbox {
-    padding-left: 26px;
+    padding-left: 0;
   }
 
   .form-check-input {
@@ -130,7 +130,8 @@
     padding: 40px 5%;
 
     .registration-header {
-      margin-bottom: 50px !important;
+      margin: 0 !important;
+      padding-top: 15px !important;
     }
   }
 

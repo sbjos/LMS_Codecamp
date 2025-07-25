@@ -3,10 +3,10 @@ import { useEffect, useState } from "react";
 import "../css/Footer.css";
 
 function Footer() {
-  const [text, setText] = useState({});
+  const [text, setText] = useState("");
 
   useEffect(() => {
-    fetch("src/Text/footertexts.json")
+    fetch("public/text/footertexts.json")
       .then((res) => res.json())
       .then((data) => setText(data))
       .catch((err) => console.error("Failed to load text", err));

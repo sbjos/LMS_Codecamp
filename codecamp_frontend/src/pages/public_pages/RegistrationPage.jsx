@@ -50,6 +50,17 @@ function RegistrationPage() {
   const [zipcode, setZipcode] = useState("");
   const [isValidZipcode, setValidZipcode] = useState(true);
 
+  const [text, setText] = useState("");
+
+  useEffect(() => {
+    fetch("/text/registrationtext.json")
+      .then((res) => res.json())
+      .then((data) => setText(data))
+      .catch((err) => console.error("Failed to load text", err));
+  }, []);
+
+  if (!text) return null;
+
   // Handling the form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -270,22 +281,14 @@ function RegistrationPage() {
           <div className="registration-header">
             <h1>User Registration</h1>
             <br className="space" />
-            <h4>Welcome to codeCamp.</h4>
-
             <div className="registration-patagraph">
-              <p>Ready for the next step?</p>
-              <p>
-                codeCamp provides an easy, straight forward way to submit your
-                assignments.
-              </p>
-              <p>
-                With a feedback video, your instructor can easily put the focus
-                on needs work assignments.
-              </p>
-              <p>
-                Let's get started. Complete the registration form and sign in to
-                your account.
-              </p>
+              <p>{text.paragraph1.description}</p>
+              <p>{text.paragraph2.description}</p>
+              <p>{text.paragraph3.description}</p>
+              <p>{text.paragraph4.description}</p>
+              <p>{text.paragraph5.description}</p>
+              <p>{text.paragraph6.description}</p>
+              <p>{text.paragraph7.description}</p>
             </div>
           </div>
           <form className="row g-3 registration-form" onSubmit={handleSubmit}>

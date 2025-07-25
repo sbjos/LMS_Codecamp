@@ -17,14 +17,16 @@ function PublicHomepage() {
   const navigate = useNavigate();
   const token = localStorage.getItem("lmsusertoken");
   const userAuthority = localStorage.getItem("lmsuserauthorities");
-  const [text, setText] = useState({});
+  const [text, setText] = useState("");
 
   useEffect(() => {
-    fetch("src/Text/publichomepagetexts.json")
+    fetch("public/text/publichomepagetexts.json")
       .then((res) => res.json())
       .then((data) => setText(data))
       .catch((err) => console.error("Failed to load text", err));
   }, []);
+
+  if (!text) return null;
 
   const handleClick = () => {
     if (token && userAuthority) {
@@ -59,9 +61,9 @@ function PublicHomepage() {
         <section className="public-section-2">
           <div className="public-section-2-container">
             <div className="public-header">
-              <h1 className="public-header-welcome">{text.welcome}</h1>
+              <h1 className="public-header-welcome">{text.intro.welcome}</h1>
               <p className="public-header-description">
-                {text.welcomeDescription}
+                {text.intro.welcomeDescription}
               </p>
             </div>
           </div>
@@ -75,8 +77,8 @@ function PublicHomepage() {
                     <FontAwesomeIcon className="public-icon" icon={faList} />
                   </div>
                   <div className="public-card-body">
-                    <h5 className="public-card-title">{text.demo1}</h5>
-                    <p className="public-card-text">{text.demo1Description}</p>
+                    <h5 className="public-card-title">{text.demo1.header}</h5>
+                    <p className="public-card-text">{text.demo1.body}</p>
                   </div>
                 </li>
                 <li className="public-card public-card-2">
@@ -87,8 +89,8 @@ function PublicHomepage() {
                     />
                   </div>
                   <div className="public-card-body">
-                    <h5 className="public-card-title">{text.demo2}</h5>
-                    <p className="public-card-text">{text.demo2Description}</p>
+                    <h5 className="public-card-title">{text.demo2.header}</h5>
+                    <p className="public-card-text">{text.demo2.body}</p>
                   </div>
                 </li>
                 <li className="public-card public-card-3">
@@ -99,8 +101,8 @@ function PublicHomepage() {
                     />
                   </div>
                   <div className="public-card-body">
-                    <h5 className="public-card-title">{text.demo3}</h5>
-                    <p className="public-card-text">{text.demo3Description}</p>
+                    <h5 className="public-card-title">{text.demo3.header}</h5>
+                    <p className="public-card-text">{text.demo3.body}</p>
                   </div>
                 </li>
               </ul>
@@ -126,7 +128,7 @@ function PublicHomepage() {
                         icon={faCheck}
                       />
                     </div>
-                    {text.cardText1}
+                    {text.cardText1.body}
                   </li>
                   <li className="public-info-text">
                     <div>
@@ -135,7 +137,7 @@ function PublicHomepage() {
                         icon={faCheck}
                       />
                     </div>
-                    {text.cardText2}
+                    {text.cardText2.body}
                   </li>
                   <li className="public-info-text">
                     <div>
@@ -144,7 +146,7 @@ function PublicHomepage() {
                         icon={faCheck}
                       />
                     </div>
-                    {text.cardText3}
+                    {text.cardText3.body}
                   </li>
                 </ul>
               </div>
