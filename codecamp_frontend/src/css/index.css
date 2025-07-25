@@ -11,7 +11,7 @@ body {
 }
 
 #root {
-  height: 100vh;
+  /* height: 100vh; */
 }
 
 :root {
@@ -28,19 +28,23 @@ body {
 
   --header-content-width: 1920px;
   --footer-content-width: 1920px;
-  --layout-content-width: 1440px;
+  --layout-content-width: 1780px;
+  /* --layout-content-width: 1440px; */
   --layout-content-padding: 24px;
   --layout-content-padding-large: 52px;
   --layout-content-padding-small: 18px;
   --label-text-color: #22262abf;
-  --text-color: #131415c4;
+  --text-color: #080808ea;
+  /* --text-color: #131415c4; */
   --background-color-1: #0a8bd6ef;
   --background-color-2: #e3e3e373;
   --background-color-3: #f3f2ef;
   --background-color-4: #ebf3fa;
+  --background-color-5: #e0e1e2;
   --button-link-color: #054a76;
   --button-link-color-hover: #1662d4;
   --button-color-blue: #0050c7;
+  /* --button-color-red: #c7006d; */
   --button-color-red: #c7006d;
   --button-color-green: #0b7c47;
   --placeholder-color: #b5b5b5;
@@ -50,7 +54,7 @@ body {
   --inreview-card-color: #fd650de5;
   --needswork-card-color: #dc3848;
   --completed-card-color: #198653;
-  --brand-color: #495057;
+  --brand-color: #010911ea;
   --error-color: #b3261e;
 
   ::placeholder {

@@ -1,0 +1,15 @@
+{
+  "rights": {
+    "copyright": "Copyright © 2024",
+    "reserved": "All rights reserved.",
+    "text": "codeCamp is a subdivision and registered trademark of ABC Technology®."
+  },
+
+  "info": {
+    "accessibility": "Accessibility",
+    "privacy": "Privacy policy",
+    "terms": "Terms",
+    "feedback": "Feedback",
+    "support": "Support"
+  }
+}

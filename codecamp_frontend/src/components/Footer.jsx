@@ -1,31 +1,51 @@
+import { useEffect, useState } from "react";
+
 import "../css/Footer.css";
 
 function Footer() {
+  const [text, setText] = useState({});
+
+  useEffect(() => {
+    fetch("src/Text/footertexts.json")
+      .then((res) => res.json())
+      .then((data) => setText(data))
+      .catch((err) => console.error("Failed to load text", err));
+  }, []);
+
   return (
     <>
       <footer className="footer text-dark-emphasis">
         <div className="footer-container">
-          <div className="rightreserved-text">
-            <div className="copyright">
-              &copy; 2024 <b className="navbar-brand-custom">{"codeCamp/>"}</b>
+          <div className="option-list">
+            <div className="option-list-info">
+              <ul className="list">
+                <li>
+                  <a href="">{text.info?.accessibility}</a>
+                </li>
+                <li>
+                  <a href="">{text.info?.privacy}</a>
+                </li>
+                <li>
+                  <a href="">{text.info?.terms}</a>
+                </li>
+                <li>
+                  <a href="">{text.info?.feedback}</a>
+                </li>
+                <li>
+                  <a href="">{text.info?.support}</a>
+                </li>
+              </ul>
             </div>
-            <div className="rights-reserved">&nbsp; All rights reserved.</div>
           </div>
-          <div className="option-list-container">
-            <ul className="option-list">
-              <li>
-                <a href="">Privacy</a>
-              </li>
-              <li>
-                <a href="">Terms</a>
-              </li>
-              <li>
-                <a href="">Feedback</a>
-              </li>
-              <li>
-                <a href="">Support</a>
-              </li>
-            </ul>
+          <div className="footer-text">
+            <div className="rightreserved-text">
+              <div className="copyright">
+                {text.rights?.copyright}{" "}
+                <b className="navbar-brand-custom">{"codeCamp/>"}</b>{" "}
+                {text.rights?.reserved}
+              </div>
+            </div>
+            <div className="footer-Text"> {text.rights?.text}</div>
           </div>
         </div>
       </footer>

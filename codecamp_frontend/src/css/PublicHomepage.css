@@ -2,29 +2,32 @@
   display: grid;
   grid-template-rows: repeat(3);
 
+  /* // Layout Variables */
+  --button-color: #0d6efd;
   --public-layout-section-padding-vertical: 80px 0;
   --public-layout-section-padding-horizontal: 0 55px;
   --public-headeer-section-padding: 0 100px 5px;
   --public-footer-section-padding: 70px 0;
   --public-layout-section-margin-vertical: 10px 0;
+  --section-3-background-color: #f5f2f23f;
 
+  /* // Section 1 - Header */
   .public-section-1 {
+    display: flex;
     justify-content: center;
     width: 100%;
     padding: var(--public-headeer-section-padding);
-    border-bottom: 0.5px solid #e9e9e9;
-    box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.12), inset 0 -1px 0 0 #dadce0;
-    
+
     .public-section-1-container {
       display: flex;
       justify-content: space-between;
-      flex-wrap: nowrap;
       align-items: center;
+      flex-wrap: nowrap;
       margin: 0 auto;
       width: min(var(--header-content-width), 100%);
-      min-height: 61px;
-      height: max-content;
-      
+      min-height: 100px;
+      margin: 0 auto;
+
       .public-buttons {
         display: flex;
         gap: 15px;
@@ -32,59 +35,57 @@
         .public-register-btn {
           width: 150px;
           margin-top: 5px;
+          background-color: var(--button-color);
           color: white;
-          background-color: var(--button-color-red);
         }
 
         .public-login-btn {
-          width: 100px;
-          margin-top: 5px;
+          margin: 5px 5px;
           background-color: white;
-          color: var(--button-color-red);
-          border: 1px solid var(--button-color-red);
+          color: var(--button-color);
         }
       }
     }
 
     .public-logo {
-      align-content: center;
-      font-size: 1.3em;
+      font-size: 1.35em;
     }
   }
 
+  /* // Section 2 - Hero */
   .public-section-2 {
     display: flex;
-    margin: 0 auto;
-    padding: var(--public-layout-section-padding-vertical);
-    margin: var(--public-layout-section-margin-vertical);
-    text-align: center;
     justify-content: center;
+    align-items: center;
+    padding: 200px 0;
+    text-align: center;
+    border-top: 0.5px solid #e9e9e9;
+    border-bottom: 0.5px solid #e9e9e9;
 
     .public-section-2-container {
-      width: min(var(--layout-content-width), 100%);
-
       .public-header {
         .public-header-welcome {
           font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
             Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
             sans-serif;
+          font-size: 5em;
           margin-bottom: 30px;
+        }
 
-          span {
-            font-size: 0.8em;
-            color: var(--text-color);
-          }
+        .public-header-description {
+          font-size: 2em;
         }
       }
     }
   }
 
+  /* // Section 3 - Cards */
   .public-section-3 {
-    display: inline-flex;
+    display: flex;
     justify-content: center;
     padding: var(--public-layout-section-padding-vertical);
     margin: var(--public-layout-section-margin-vertical);
-    background-color: var(--background-color-4);
+    background-color: var(--section-3-background-color);
 
     .public-section-3-container {
       width: min(var(--layout-content-width), 100%);
@@ -93,20 +94,18 @@
         .public-card-group {
           display: grid;
           grid-template-columns: repeat(3, minmax(100px, max-content));
-          justify-content: center;
           column-gap: 100px;
           list-style: none;
-          margin: 0;
           padding: var(--public-layout-section-padding-horizontal);
+          margin: 0;
 
           .public-card {
             background: transparent;
             border: none;
 
             .public-card-title {
-              font-size: 1.5em;
-              margin-bottom: 15px;
-              margin-top: 15px;
+              font-size: 2.5em;
+              margin: 15px 0;
             }
 
             .public-list-icon-container {
@@ -118,6 +117,7 @@
     }
   }
 
+  /* // Section 4 - Info */
   .public-section-4 {
     display: inline-flex;
     justify-content: center;
@@ -128,37 +128,35 @@
       width: min(var(--layout-content-width), 100%);
 
       .public-section-4-content-container {
-        display: grid;
-        grid-template-columns: max-content minmax(100px, 700px);
+        display: inline-flex;
         justify-content: center;
-        grid-gap: 5em !important;
         margin: 25px auto;
         padding: var(--public-layout-section-padding-horizontal);
 
-        .public-image-container {
-          .public-img {
-            width: 250px;
-            border: 1px solid rgb(231, 231, 231);
-            border-radius: 15px;
-          }
+        .public-image-container .public-img {
+          width: 250px;
+          border: 1px solid #e7e7e7;
+          border-radius: 15px;
         }
 
         .public-text-container {
-          text-align: left;
-          letter-spacing: 3px;
-          font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
-            Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
-            sans-serif;
-          padding-top: 15px;
+          display: flex;
+          gap: 80px;
 
           .public-info-text-List {
+            /* letter-spacing: 0.5px; */
+            font-family: system-ui, sans-serif;
+            margin: auto;
             padding: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
 
             .public-info-text {
-              display: inline-flex;
-              gap: 10px;
+              display: flex;
+              gap: 5px;
               font-size: 1.3em;
-              margin-bottom: 40px;
+              /* margin-bottom: 40px; */
               list-style: none;
             }
           }
@@ -184,15 +182,15 @@
 
   /* General */
   .public-icon {
-    width: max-content;
+    /* width: max-content; */
     font-size: 35px;
-    color: var(--button-color-red);
+    color: var(--button-color);
   }
 
   .public-icon-check {
     width: 40px;
     font-size: 30px;
-    color: var(--button-color-red);
+    color: var(--button-color);
   }
 
   /* responsive */
@@ -206,46 +204,13 @@
         }
       }
     }
-
-    .public-section-4 {
-      display: inline-flex;
-      padding: var(--public-footer-section-padding);
-
-      .public-section-4-container {
-        .public-section-4-content-container {
-          grid-gap: 2em;
-
-          .public-image-container {
-            .public-img {
-              width: 250px;
-              border: 1px solid rgb(231, 231, 231);
-              border-radius: 15px;
-            }
-          }
-
-          .public-text-container {
-            text-align: left;
-            letter-spacing: 3px;
-            font-family: system-ui, -apple-system, BlinkMacSystemFont,
-              "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans",
-              "Helvetica Neue", sans-serif;
-
-            .public-info-text {
-              font-size: 1.3em;
-              margin-bottom: 40px;
-              list-style: none;
-            }
-          }
-        }
-      }
-    }
   }
 }
 
-@media screen and (max-width: 924px) {
+@media screen and (max-width: 1160px) {
   .public-section-3 {
     .public-section-3-container {
-      display: flex;
+      display: inline-flex;
       justify-content: center;
 
       .public-cards {
@@ -284,6 +249,7 @@
           .public-card-2 {
             grid-area: b;
           }
+
           .public-card-3 {
             grid-area: c;
           }
@@ -295,20 +261,22 @@
   .public-section-4 {
     .public-section-4-container {
       .public-section-4-content-container {
-        display: flex !important;
-
-        .public-image-container {
-          display: none !important;
-        }
+        display: inline-flex !important;
 
         .public-text-container {
           padding: var(--public-layout-section-padding-horizontal);
-          .public-info-text {
-            justify-content: center !important;
-            align-items: center !important;
-          }
         }
       }
+    }
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .public-section-4-container {
+    display: inline-flex !important;
+
+    .public-image-container {
+      display: none;
     }
   }
 }
@@ -336,7 +304,9 @@
   }
 
   .public-section-2 {
-    padding: 50px 0 !important;
+    font-size: 0.5rem;
+    padding-top: 80px !important;
+    padding-bottom: 80px !important;
   }
 
   .public-section-3 {

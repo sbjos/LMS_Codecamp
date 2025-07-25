@@ -1,0 +1,7 @@
+width: min(var(--layout-content-width), 100%);
+    If the container is wider than 800px, the element stays at 800px. If the container is narrower, the element shrinks to fit (but never exceeds 100%).
+    It can reduce the need for some @media
+
+/* box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.12), inset 0 -1px 0 0 #dadce0; */
+
+

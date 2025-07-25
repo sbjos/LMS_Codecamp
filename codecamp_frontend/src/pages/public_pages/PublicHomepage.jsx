@@ -1,6 +1,8 @@
 import { useNavigate } from "react-router-dom";
 import RedirectUrl from "../../components/RedirectUrl";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useEffect, useState } from "react";
+
 import {
   faCheck,
   faCircleQuestion,
@@ -15,6 +17,14 @@ function PublicHomepage() {
   const navigate = useNavigate();
   const token = localStorage.getItem("lmsusertoken");
   const userAuthority = localStorage.getItem("lmsuserauthorities");
+  const [text, setText] = useState({});
+
+  useEffect(() => {
+    fetch("src/Text/publichomepagetexts.json")
+      .then((res) => res.json())
+      .then((data) => setText(data))
+      .catch((err) => console.error("Failed to load text", err));
+  }, []);
 
   const handleClick = () => {
     if (token && userAuthority) {
@@ -49,12 +59,10 @@ function PublicHomepage() {
         <section className="public-section-2">
           <div className="public-section-2-container">
             <div className="public-header">
-              <h1 className="public-header-welcome">
-                Welcome to <span>{Logo()}</span>
-              </h1>
-              <h5 className="public-header-description">
-                Your assignment review app
-              </h5>
+              <h1 className="public-header-welcome">{text.welcome}</h1>
+              <p className="public-header-description">
+                {text.welcomeDescription}
+              </p>
             </div>
           </div>
         </section>
@@ -67,11 +75,8 @@ function PublicHomepage() {
                     <FontAwesomeIcon className="public-icon" icon={faList} />
                   </div>
                   <div className="public-card-body">
-                    <h5 className="public-card-title">Easy to use</h5>
-                    <p className="public-card-text">
-                      Straight forward assignment submission and navigation.
-                      Never feel lost in your dashboard.
-                    </p>
+                    <h5 className="public-card-title">{text.demo1}</h5>
+                    <p className="public-card-text">{text.demo1Description}</p>
                   </div>
                 </li>
                 <li className="public-card public-card-2">
@@ -82,11 +87,8 @@ function PublicHomepage() {
                     />
                   </div>
                   <div className="public-card-body">
-                    <h5 className="public-card-title">Feedback matters</h5>
-                    <p className="public-card-text">
-                      Get clear feedbacks trough videos and notes from your
-                      instructor to help you get better at your task.
-                    </p>
+                    <h5 className="public-card-title">{text.demo2}</h5>
+                    <p className="public-card-text">{text.demo2Description}</p>
                   </div>
                 </li>
                 <li className="public-card public-card-3">
@@ -97,11 +99,8 @@ function PublicHomepage() {
                     />
                   </div>
                   <div className="public-card-body">
-                    <h5 className="public-card-title">Need help ?</h5>
-                    <p className="public-card-text">
-                      Support is just a few click away for your assignments, or
-                      to explore different subjects.
-                    </p>
+                    <h5 className="public-card-title">{text.demo3}</h5>
+                    <p className="public-card-text">{text.demo3Description}</p>
                   </div>
                 </li>
               </ul>
@@ -111,14 +110,14 @@ function PublicHomepage() {
         <section className="public-section-4">
           <div className="public-section-4-container">
             <div className="public-section-4-content-container">
-              <div className="public-image-container">
-                <img
-                  src="src\assets\images\card-screenshot.png"
-                  className="public-img"
-                  alt="Learner's dashboard"
-                />
-              </div>
               <div className="public-text-container">
+                <div className="public-image-container">
+                  <img
+                    src="src\assets\images\card-screenshot.png"
+                    className="public-img"
+                    alt="Learner's dashboard"
+                  />
+                </div>
                 <ul className="public-info-text-List">
                   <li className="public-info-text">
                     <div>
@@ -127,7 +126,7 @@ function PublicHomepage() {
                         icon={faCheck}
                       />
                     </div>
-                    Simple, and easy ways to review assignments.
+                    {text.cardText1}
                   </li>
                   <li className="public-info-text">
                     <div>
@@ -136,7 +135,7 @@ function PublicHomepage() {
                         icon={faCheck}
                       />
                     </div>
-                    Most recent assignments available up front in cards.
+                    {text.cardText2}
                   </li>
                   <li className="public-info-text">
                     <div>
@@ -145,7 +144,7 @@ function PublicHomepage() {
                         icon={faCheck}
                       />
                     </div>
-                    View or edit options righ from the card.
+                    {text.cardText3}
                   </li>
                 </ul>
               </div>
@@ -155,7 +154,7 @@ function PublicHomepage() {
         <section className="public-section-5">
           <div className="public-section-5-container">
             <div className="public-footer">
-              <Footer/>
+              <Footer />
             </div>
           </div>
         </section>
