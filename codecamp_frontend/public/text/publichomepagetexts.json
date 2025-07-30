@@ -16,11 +16,11 @@
 
   "demo3": {
     "header": "Need help?",
-    "body": "Stuck on something? Our support is just a click away — whether you need help with assignments, navigating the platform, or exploring new subjects."
+    "body": "Stuck on something? Our support is just a click away whether you need help with assignments, navigating the platform, or exploring new subjects."
   },
 
   "cardText1": {
-    "body": "Designed for simplicity — quickly review feedback and track your progress with ease."
+    "body": "Designed for simplicity, quickly review feedback and track your progress with ease."
   },
 
   "cardText2": {
@@ -28,6 +28,6 @@
   },
 
   "cardText3": {
-    "body": "Need to make changes? Edit or review assignments directly from the dashboard cards — no extra steps needed."
+    "body": "Need to make changes? Edit or review assignments directly from the dashboard cards. No extra steps needed."
   }
 }

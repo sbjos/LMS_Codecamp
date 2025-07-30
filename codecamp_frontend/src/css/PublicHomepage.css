@@ -1,46 +1,92 @@
+li {
+  list-style: none;
+}
+
+.fade-in-1 {
+  animation: fade-in-1 1s ease-in-out forwards;
+  opacity: 0;
+  animation-delay: 1s;
+}
+
+.fade-in-2 {
+  animation: fade-in-2 3s ease-in-out forwards;
+  opacity: 0;
+  animation-delay: 2s;
+}
+
+.fade-in-3 {
+  animation: fade-in-3 2s ease-in-out forwards;
+  opacity: 0;
+}
+
+@keyframes fade-in-1 {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fade-in-2 {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fade-in-3 {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
 .public-root {
   display: grid;
   grid-template-rows: repeat(3);
 
   /* // Layout Variables */
   --button-color: #0f69df;
-  --public-layout-section-padding-vertical: 80px 0;
+  --public-layout-section-padding-vertical: 150px 0;
   --public-layout-section-padding-horizontal: 0 55px;
-  --public-headeer-section-padding: 0 100px 5px;
   --public-footer-section-padding: 70px 0;
-  --public-layout-section-margin-vertical: 10px 0;
-  --section-3-background-color: #f5f2f23f;
+  --section-3-background-color: #f5f2f2c2;
 
   /* // Section 1 - Header */
   .public-section-1 {
     display: flex;
     justify-content: center;
-    width: 100%;
-    padding: var(--public-headeer-section-padding);
+    padding: 0 100px 0 30px;
+    padding-top: 0;
+    padding-bottom: 0;
 
     .public-section-1-container {
       display: flex;
       justify-content: space-between;
       align-items: center;
       flex-wrap: nowrap;
-      margin: 0 auto;
       width: min(var(--header-content-width), 100%);
-      min-height: 100px;
-      margin: 0 auto;
 
       .public-buttons {
         display: flex;
         gap: 15px;
+        align-items: center;
+        padding: 10px 0;
 
         .public-register-btn {
+          margin: 0;
           width: 120px;
-          margin-top: 5px;
           background-color: var(--button-color);
           color: white;
         }
 
         .public-login-btn {
-          margin: 5px 5px;
+          margin: 0;
           background-color: white;
           color: var(--button-color);
         }
@@ -57,10 +103,14 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 200px 0;
+    padding: 400px 0;
     text-align: center;
     border-top: 0.5px solid #e9e9e9;
     border-bottom: 0.5px solid #e9e9e9;
+    background-image: url(../../public/images/student.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
 
     .public-section-2-container {
       .public-header {
@@ -70,10 +120,12 @@
             sans-serif;
           font-size: 5em;
           margin-bottom: 30px;
+          color: white;
         }
 
         .public-header-description {
           font-size: 2em;
+          color: white;
         }
       }
     }
@@ -84,7 +136,7 @@
     display: flex;
     justify-content: center;
     padding: var(--public-layout-section-padding-vertical);
-    margin: var(--public-layout-section-margin-vertical);
+    padding: var(--public-layout-section-padding-vertical);
     background-color: var(--section-3-background-color);
 
     .public-section-3-container {
@@ -119,18 +171,17 @@
 
   /* // Section 4 - Info */
   .public-section-4 {
-    display: inline-flex;
+    display: flex;
     justify-content: center;
     padding: var(--public-layout-section-padding-vertical);
-    margin: var(--public-layout-section-margin-vertical);
+    padding: var(--public-layout-section-padding-vertical);
 
     .public-section-4-container {
       width: min(var(--layout-content-width), 100%);
 
       .public-section-4-content-container {
-        display: inline-flex;
+        display: flex;
         justify-content: center;
-        margin: 25px auto;
         padding: var(--public-layout-section-padding-horizontal);
 
         .public-image-container .public-img {
@@ -141,16 +192,20 @@
 
         .public-text-container {
           display: flex;
-          gap: 80px;
+          gap: 200px;
 
           .public-info-text-List {
-            /* letter-spacing: 0.5px; */
             font-family: system-ui, sans-serif;
             margin: auto;
             padding: 0;
             display: flex;
             flex-direction: column;
-            gap: 25px;
+            gap: 40px;
+            max-width: 550px;
+
+            .public-card {
+              display: flex;
+            }
 
             .public-info-text {
               display: flex;

@@ -6,15 +6,15 @@
     width: 100%;
     height: 67px;
     padding: var(--public-headeer-section-padding);
-    border-bottom: 0.5px solid #e9e9e9;
-    box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.12), inset 0 -1px 0 0 #dadce0;
+    /* border-bottom: 0.5px solid #e9e9e9; */
+    /* box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.12), inset 0 -1px 0 0 #dadce0; */
 
     .login-section-1-container {
       display: flex;
       flex-wrap: nowrap;
       align-items: center;
       margin: 0 auto;
-      padding-left: 100px;
+      padding-left: 30px;
       width: min(var(--header-content-width), 100%);
       height: 61px;
 
