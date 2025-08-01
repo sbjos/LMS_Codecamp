@@ -32,13 +32,16 @@ function LearnerViewAllCompleted() {
   return (
     <>
       <div className="viewall-root">
-        <section className="viewall-section-1"></section>
-
-        <section className="viewall-section-2">
+        <section className="viewall-section-1 viewall-section-1-completed">
           <dir className="title-container">
             <h1 className="title">Completed assignments</h1>
             <hr className="title-line" />
           </dir>
+        </section>
+        <section className="viewall-section-2">
+          <div className="empty-section"></div>
+        </section>
+        <section className="viewall-section-3">
           <table className="assignment-table">
             <thead>
               <tr className="assignment-table-list assignment-table-list-completed">
@@ -97,14 +100,14 @@ function LearnerViewAllCompleted() {
                   </td>
                   <td className="viewall-branch">{assignment.branch}</td>
                   <td className="viewall-button">
-                    {ModalView(assignment, "btn-card-link", "Open")}
+                    {ModalView(assignment, "btn-card-link", "View")}
                   </td>
                 </tr>
               ))}
             </tbody>
           </table>
         </section>
-        <section className="viewall-section-3"></section>
+        <section className="viewall-section-4"></section>
       </div>
     </>
   );

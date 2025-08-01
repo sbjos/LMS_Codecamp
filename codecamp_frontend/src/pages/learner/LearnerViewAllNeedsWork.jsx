@@ -32,17 +32,20 @@ function LearnerViewAllNeedsWork() {
   return (
     <>
       <div className="viewall-root">
-        <section className="viewall-section-1"></section>
-
-        <section className="viewall-section-2">
+        <section className="viewall-section-1 viewall-section-1-needswork">
           <dir className="title-container">
             <h1 className="title">Assignments needs work</h1>
             <hr className="title-line" />
           </dir>
+        </section>
+        <section className="viewall-section-2">
+          <div className="empty-section"></div>
+        </section>
+        <section className="viewall-section-3">
           <table className="assignment-table">
             <thead>
               <tr className="assignment-table-list assignment-table-list-needswork">
-                <th className="viewall-name">App name</th>
+                <th className="viewall-name">Assignment name</th>
                 <th className="viewall-description">Description</th>
                 <th className="viewall-reviewer">Reviewer</th>
                 <th className="viewall-feedback">Feedback</th>
@@ -97,14 +100,14 @@ function LearnerViewAllNeedsWork() {
                   </td>
                   <td className="viewall-branch">{assignment.branch}</td>
                   <td className="viewall-button">
-                    {ModalEdit(assignment, "btn-card-link", "Update")}
+                    {ModalEdit(assignment, "btn-card-link", "Edit")}
                   </td>
                 </tr>
               ))}
             </tbody>
           </table>
         </section>
-        <section className="viewall-section-3"></section>
+        <section className="viewall-section-4"></section>
       </div>
     </>
   );

@@ -11,9 +11,8 @@
 
   .welcome-section-text-custom {
     max-width: 500px;
-
     grid-area: b;
-    color: rgb(245, 245, 245);
+    color: white;
 
     .welcome-section-text-head {
       p {
@@ -23,7 +22,7 @@
     }
     .welcome-section-text-body {
       p {
-        font-size: 1.6em;
+        font-size: 1.5em;
       }
     }
 
@@ -59,8 +58,8 @@
 
   .card-container {
     display: grid;
-    grid-template-rows: 36.22px;
     margin: auto;
+    height: fit-content;
 
     .card-container-label-mobile {
       display: none;
@@ -113,7 +112,7 @@
 
     .card-list {
       display: grid;
-      grid-template: 330px / repeat(4, minmax(181px, 250px));
+      grid-template: 330px / repeat(4, minmax(181px, 270px));
       padding: 20px;
       margin: 0;
       grid-gap: 1.5rem;
@@ -135,19 +134,20 @@
       }
 
       .card-custom {
+        height: 350px;
         overflow: hidden;
-        /* border-radius: 10px; */
       }
 
       .list-group-item-custom {
         border: none !important;
+        padding: 5px 15px;
       }
 
       .btn-card-link {
         font-weight: 600;
         text-decoration: underline;
         color: var(--button-link-color);
-        border: 1px solid #0050c7;
+        border: 1px solid var(--button-link-color);
         border-radius: 0.375em;
         padding: 5px 25px;
         text-decoration: none;
@@ -161,9 +161,11 @@
 
   .card-body-custom {
     height: 130.14px;
+    margin-bottom: 15px;
 
     .card-title-custom {
       margin: 3px 0 0;
+      font-size: 19.5px;
     }
   }
 

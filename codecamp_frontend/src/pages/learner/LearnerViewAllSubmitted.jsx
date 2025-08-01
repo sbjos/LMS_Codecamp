@@ -32,12 +32,16 @@ function LearnerViewAllSubmitted() {
   return (
     <>
       <div className="viewall-root">
-        <section className="viewall-section-1"></section>
-        <section className="viewall-section-2">
+        <section className="viewall-section-1 viewall-section-1-submitted">
           <dir className="title-container">
             <h1 className="title">Submitted assignments</h1>
             <hr className="title-line" />
           </dir>
+        </section>
+        <section className="viewall-section-2">
+          <div className="empty-section"></div>
+        </section>
+        <section className="viewall-section-3">
           <table className="assignment-table">
             <thead className="assignment-table-list assignment-table-list-submitted">
               <tr>
@@ -81,14 +85,14 @@ function LearnerViewAllSubmitted() {
                   </td>
                   <td className="viewall-branch">{assignment.branch}</td>
                   <td className="viewall-button">
-                    {ModalEdit(assignment, "btn-card-link", "Update")}
+                    {ModalEdit(assignment, "btn-card-link", "Edit")}
                   </td>
                 </tr>
               ))}
             </tbody>
           </table>
         </section>
-        <section className="viewall-section-3"></section>
+        <section className="viewall-section-4"></section>
       </div>
     </>
   );

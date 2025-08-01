@@ -29,15 +29,17 @@ body {
   --header-content-width: 1920px;
   --footer-content-width: 1920px;
   --layout-content-width: 1780px;
-  /* --layout-content-width: 1440px; */
   --layout-content-padding: 24px;
   --layout-content-padding-large: 52px;
   --layout-content-padding-small: 18px;
   --label-text-color: #22262abf;
   --text-color: #080808ea;
-  /* --text-color: #131415c4; */
-  /* --background-color-1: #0a8bd6ef; */
-  --background-color-1: linear-gradient(135deg, #3f7391ef, #0a8bd6ef, #1a6e9eef);
+  --background-color-1: linear-gradient(
+    135deg,
+    #3f7391ef,
+    #0a8bd6ef,
+    #1a6e9eef
+  );
   --background-color-2: #e3e3e373;
   --background-color-3: #f3f2ef;
   --background-color-4: #ebf3fa;
@@ -54,7 +56,7 @@ body {
   --submitted-card-color: linear-gradient(135deg, #165a72, #4298b4);
   --inreview-card-color: linear-gradient(135deg, #d66b2d, #ff944a);
   --needswork-card-color: linear-gradient(135deg, #83262f, #c92f3f);
-  --completed-card-color: linear-gradient(135deg, #147447, #17ad67); 
+  --completed-card-color: linear-gradient(135deg, #147447, #17ad67);
   --brand-color: #010911ea;
   --error-color: #b3261e;
 

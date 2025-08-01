@@ -5,45 +5,74 @@
 
 .viewall-section-1 {
   display: grid;
-  grid-template-rows: 53px;
-}
-
-.viewall-section-2 {
-  display: grid;
-  grid-template-columns: repeat(3);
-  grid-template-areas:
-    "a b c"
-    "d e f";
-  background: var(--background-color-2);
+  grid-template-areas: "a b c d";
+  padding: 50px;
 
   .title-container {
+    max-width: 500px;
     grid-area: b;
     padding: 0;
-    margin: 0 0 25px 0;
 
     .title {
       padding-top: 15px;
       margin: 0;
-      font-size: 1.5em;
+      font-size: 1.8em;
+      color: white !important;
     }
 
     .title-line {
       border: none;
       height: 1px;
+      height: 2px;
       background: linear-gradient(
         to right,
-        rgba(0, 0, 0, 0.45),
-        rgba(0, 0, 0, 0)
+        rgba(243, 240, 240, 0.45),
+        rgba(255, 254, 254, 0)
       );
     }
   }
+}
+
+.viewall-section-1-submitted {
+  background: var(--submitted-card-color);
+}
+
+.viewall-section-1-inreview {
+  background: var(--inreview-card-color);
+}
+
+.viewall-section-1-needswork {
+  background: var(--needswork-card-color);
+}
+
+.viewall-section-1-completed {
+  background: var(--completed-card-color);
+}
+
+tbody {
+  font-family: Optimist, Helvetica Neue, Helvetica, Arial, sans-serif;
+}
+
+.viewall-section-2 {
+  display: grid;
+  grid-template-rows: 53px;
+}
+
+.viewall-section-3 {
+  display: grid;
+  grid-template-columns: repeat(3);
+  grid-template-areas: "a b b c";
 
   .assignment-table {
-    grid-area: e;
-    width: 100%;
+    background: var(--background-color-2);
+    grid-area: b;
     border-collapse: collapse;
-    border-radius: 5px;
     height: min-content;
+
+    .assignment-table-list {
+      gap: 500px;
+      background: #3f3f3f4d;
+    }
 
     .viewall-name-desktop {
       font-weight: 600;
@@ -63,9 +92,12 @@
     }
 
     .assignment-link,
-    .viewall-button,
     .feedback-link {
       font-weight: 600;
+    }
+
+    .viewall-button {
+      padding: 8px 0;
     }
 
     th,
@@ -73,34 +105,24 @@
       padding: 10px 20px;
       border-bottom: 1px solid #ddd;
     }
-
-    .assignment-table-submitted {
-      background-color: var(--submitted-card-color);
-      color: white;
-    }
-
-    .assignment-table-inreview {
-      background-color: var(--inreview-card-color);
-      color: white;
-    }
-
-    .assignment-table-needswork {
-      background-color: var(--needswork-card-color);
-      color: white;
-    }
-
-    .assignment-table-completed {
-      background-color: var(--completed-card-color);
-      color: white;
-    }
-
-    tbody {
-      font-family: Optimist, Helvetica Neue, Helvetica, Arial, sans-serif;
-    }
   }
 }
 
-.viewall-section-3 {
+.btn-card-link {
+  font-weight: 600;
+  text-decoration: underline;
+  color: var(--button-link-color);
+  border: 1px solid var(--button-link-color);
+  border-radius: 0.375em;
+  padding: 5px 25px;
+  text-decoration: none;
+
+  &:hover {
+    color: var(-button-link-color-hover);
+  }
+}
+
+.viewall-section-4 {
   display: grid;
   grid-template-rows: 53px;
 }
