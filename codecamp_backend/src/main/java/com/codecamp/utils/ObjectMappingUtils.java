@@ -26,7 +26,7 @@ public class ObjectMappingUtils {
         dto.setStatus(assignment.getStatus());
         dto.setName(assignment.getName());
         dto.setDescription(assignment.getDescription());
-        dto.setGithubUrl(assignment.getGithubUrl());
+        dto.setAssignmentUrl(assignment.getAssignmentUrl());
         dto.setBranch(assignment.getBranch());
         dto.setReviewVideoUrl(assignment.getReviewVideoUrl());
         dto.setUser(userMapping(assignment.getUser()));

@@ -36,7 +36,8 @@ body {
   --label-text-color: #22262abf;
   --text-color: #080808ea;
   /* --text-color: #131415c4; */
-  --background-color-1: #0a8bd6ef;
+  /* --background-color-1: #0a8bd6ef; */
+  --background-color-1: linear-gradient(135deg, #3f7391ef, #0a8bd6ef, #1a6e9eef);
   --background-color-2: #e3e3e373;
   --background-color-3: #f3f2ef;
   --background-color-4: #ebf3fa;
@@ -50,10 +51,10 @@ body {
   --placeholder-color: #b5b5b5;
   --border-color: #6d767e;
   --border-focus-color: #02459c;
-  --submitted-card-color: #60879a;
-  --inreview-card-color: #fd650de5;
-  --needswork-card-color: #dc3848;
-  --completed-card-color: #198653;
+  --submitted-card-color: linear-gradient(135deg, #165a72, #4298b4);
+  --inreview-card-color: linear-gradient(135deg, #d66b2d, #ff944a);
+  --needswork-card-color: linear-gradient(135deg, #83262f, #c92f3f);
+  --completed-card-color: linear-gradient(135deg, #147447, #17ad67); 
   --brand-color: #010911ea;
   --error-color: #b3261e;
 
@@ -157,16 +158,6 @@ p {
 
   .error-border {
     border: 1px solid var(--error-color) !important;
-  }
-}
-
-.btn-card-link {
-  font-weight: 600;
-  text-decoration: underline;
-  color: var(--button-link-color);
-
-  &:hover {
-    color: var(-button-link-color-hover);
   }
 }
 

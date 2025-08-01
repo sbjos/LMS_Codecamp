@@ -187,7 +187,7 @@ public class AssignmentServiceTest {
 
         // THEN
         assertEquals(updatedAssignment.getStatus(), result.getStatus());
-        assertEquals(updatedAssignment.getGithubUrl(), result.getGithubUrl());
+        assertEquals(updatedAssignment.getAssignmentUrl(), result.getAssignmentUrl());
     }
 
     @Test
@@ -235,7 +235,7 @@ public class AssignmentServiceTest {
 
         // THEN
         assertEquals(updatedAssignment.getStatus(), result.getStatus());
-        assertEquals(updatedAssignment.getGithubUrl(), result.getGithubUrl());
+        assertEquals(updatedAssignment.getAssignmentUrl(), result.getAssignmentUrl());
     }
 
     @Test
@@ -294,7 +294,7 @@ public class AssignmentServiceTest {
 
         // THEN
         assertEquals(updatedAssignment.getStatus(), result.getStatus());
-        assertEquals(updatedAssignment.getGithubUrl(), result.getGithubUrl());
+        assertEquals(updatedAssignment.getAssignmentUrl(), result.getAssignmentUrl());
     }
 
     @Test

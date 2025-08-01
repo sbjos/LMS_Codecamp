@@ -25,8 +25,9 @@ public class Assignment {
     @Column
     private String status;
 
-    @Column(name = "github_url")
-    private String githubUrl;
+//    @Column(name = "github_url")
+    @Column(name = "assignment_url")
+    private String assignmentUrl;
 
     @Column
     private String branch;
@@ -51,14 +52,14 @@ public class Assignment {
     public Assignment() {}
 
 
-    public Assignment(Long id, Integer number, String name, String description, String status, String githubUrl, String branch,
+    public Assignment(Long id, Integer number, String name, String description, String status, String assignmentUrl, String branch,
                       String reviewVideoUrl, LocalDateTime creationTime, LocalDateTime lastUpdated, User user, User codeReviewer) {
         this.id = id;
         this.number = number;
         this.name = name;
         this.description = description;
         this.status = status;
-        this.githubUrl = githubUrl;
+        this.assignmentUrl = assignmentUrl;
         this.branch = branch;
         this.reviewVideoUrl = reviewVideoUrl;
         this.creationTime = creationTime;
@@ -103,12 +104,12 @@ public class Assignment {
         this.status = status;
     }
 
-    public String getGithubUrl() {
-        return githubUrl;
+    public String getAssignmentUrl() {
+        return assignmentUrl;
     }
 
-    public void setGithubUrl(String githubUrl) {
-        this.githubUrl = githubUrl;
+    public void setAssignmentUrl(String assignmentUrl) {
+        this.assignmentUrl = assignmentUrl;
     }
 
     public String getBranch() {
@@ -167,7 +168,7 @@ public class Assignment {
                 ", name='" + name + '\'' +
                 ", description='" + description + '\'' +
                 ", status='" + status + '\'' +
-                ", githubUrl='" + githubUrl + '\'' +
+                ", assignmentUrl='" + assignmentUrl + '\'' +
                 ", branch='" + branch + '\'' +
                 ", reviewVideoUrl='" + reviewVideoUrl + '\'' +
                 ", user=" + user +

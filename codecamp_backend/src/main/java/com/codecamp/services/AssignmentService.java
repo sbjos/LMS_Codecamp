@@ -1,6 +1,5 @@
 package com.codecamp.services;
 
-import com.codecamp.controllers.AssignmentController;
 import com.codecamp.dto.AssignmentResponseDto;
 import com.codecamp.entities.Assignment;
 import com.codecamp.entities.User;
@@ -11,8 +10,6 @@ import com.codecamp.utils.TimeZoneConverterUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.stereotype.Service;
 
@@ -96,7 +93,7 @@ public class AssignmentService {
             } else {
                 userAssignment = assignmentLookup(assignmentId);
 
-                Optional.ofNullable(update.getGithubUrl()).ifPresent(userAssignment::setGithubUrl);
+                Optional.ofNullable(update.getAssignmentUrl()).ifPresent(userAssignment::setAssignmentUrl);
                 Optional.ofNullable(update.getBranch()).ifPresent(userAssignment::setBranch);
                 Optional.ofNullable(update.getCodeReviewer()).ifPresent(userAssignment::setCodeReviewer);
                 userAssignment.setLastUpdated(TimeZoneConverterUtils.convertLocalTimeToUTC());

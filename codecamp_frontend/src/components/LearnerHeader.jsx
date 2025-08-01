@@ -44,7 +44,7 @@ function LearnerHeader() {
                   className="nav-link active mx-3 text-light-emphasis fw-medium"
                   href="#"
                 >
-                  Inbox
+                  Search Inbox
                 </a>
               </li>
               <li className="nav-item nav-item-custom">
@@ -69,7 +69,7 @@ function LearnerHeader() {
                   <input
                     className="form-control mx-2 search-input"
                     type="search"
-                    placeholder="Search"
+                    placeholder="Search a poject by name, link or branch"
                     aria-label="Search"
                   />
                   <button

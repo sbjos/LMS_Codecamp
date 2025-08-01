@@ -75,18 +75,14 @@ function LearnerDashboard() {
           <div className="card-container" id="submitted-container">
             {/* submitted desktop version */}
             <div className="card-container-label-desktop" id="submitted-label">
-              <label
-                className="label-status"
-                htmlFor="View Assignments submitted"
-              >
-                Assignments submitted
-              </label>
               <a
                 type="button"
-                className="btn btn-md btn-card-container-viewall"
+                className="label-status"
+                // className="btn btn-md btn-card-container-viewall"
+                htmlFor="View Assignments submitted"
                 href={RedirectUrl.learnerSubmittedAssignments}
               >
-                View all
+                Assignments submitted
               </a>
             </div>
 
@@ -100,12 +96,9 @@ function LearnerDashboard() {
               {submitted.length > 0 ? (
                 LearnerMapping(submitted.slice(-4))
               ) : (
-                
-                  <p className="no-assignment">No assignments</p>
-                
+                <p className="no-assignment">No assignments</p>
               )}
             </ul>
-
             {/* submitted mobile version */}
             <div
               className="card-container-label-mobile"
@@ -124,13 +117,13 @@ function LearnerDashboard() {
           <div className="card-container" id="inreview-container">
             {/* in review desktop */}
             <div className="card-container-label-desktop" id="inreview-label">
-              <label className="label-status">Assignments in review</label>
               <a
-                type="button"
-                className="btn btn-md btn-card-container-viewall"
                 href={RedirectUrl.learnerInReviewAssignments}
+                type="button"
+                className="label-status"
+                // className="btn btn-md btn-card-container-viewall"
               >
-                View all
+                Assignments in review
               </a>
             </div>
 
@@ -144,9 +137,7 @@ function LearnerDashboard() {
               {inReview.length > 0 ? (
                 LearnerMapping(inReview.slice(-4))
               ) : (
-                
-                  <p className="no-assignment">No assignments</p>
-                
+                <p className="no-assignment">No assignments</p>
               )}
             </ul>
 
@@ -168,13 +159,13 @@ function LearnerDashboard() {
           <div className="card-container" id="needswork-container">
             {/* needs work desktop */}
             <div className="card-container-label-desktop" id="needswork-label">
-              <label className="label-status">Assignments needs work</label>
               <a
+                className="label-status"
+                // className="btn btn-md btn-card-container-viewall"
                 type="button"
-                className="btn btn-md btn-card-container-viewall"
                 href={RedirectUrl.learnerNeedsWorkAssignments}
               >
-                View all
+                Assignments needs work
               </a>
             </div>
             <ul
@@ -187,9 +178,7 @@ function LearnerDashboard() {
               {needsWwork.length > 0 ? (
                 LearnerMapping(needsWwork.slice(-4))
               ) : (
-                
-                  <p className="no-assignment">No assignments</p>
-                
+                <p className="no-assignment">No assignments</p>
               )}
             </ul>
 
@@ -207,17 +196,16 @@ function LearnerDashboard() {
               </a>
             </div>
           </div>
-
           <div className="card-container" id="completed-container">
             {/* desktop */}
             <div className="card-container-label-desktop" id="completed-label">
-              <label className="label-status">Assignments completed</label>
               <a
+                className="label-status"
+                // className="btn btn-md btn-card-container-viewall"
                 type="button"
-                className="btn btn-md btn-card-container-viewall"
                 href={RedirectUrl.learnerCompletedAssignments}
               >
-                View all
+                Assignments completed
               </a>
             </div>
             <ul
@@ -230,9 +218,7 @@ function LearnerDashboard() {
               {completed.length > 0 ? (
                 LearnerMapping(completed.slice(-4))
               ) : (
-                
-                  <p className="no-assignment">No assignments</p>
-                
+                <p className="no-assignment">No assignments</p>
               )}
             </ul>
 

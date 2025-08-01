@@ -1,4 +1,5 @@
 import ModalEdit from "../../components/learner/modal/ModalEdit";
+import ModalView from "../../components/learner/modal/ModalView";
 import "../../css/LearnerDashboard.css";
 import "../../css/ModalStyle.css";
 
@@ -8,10 +9,8 @@ function LearnerMapping(assignments) {
    * @param {*} assignment
    * @returns the appropriate button for the card.
    */
-
   function renderButton(assignment) {
     const assignmentStatus = assignment.status;
-    const id = assignment.id;
 
     // filters by assignment status to assign the appropriate button on the assignment card
     if (assignmentStatus !== "Completed" && assignmentStatus !== "In review") {
@@ -38,10 +37,10 @@ function LearnerMapping(assignments) {
             <li className="list-group-item list-group-item-custom">
               <a
                 className="card-link"
-                href={assignment.githubUrl}
+                href={assignment.assignmentUrl}
                 target="blank"
               >
-                Github link
+                Assignment link
               </a>
             </li>
             <li className="list-group-item list-group-item-custom list-group-item-custom-branch">

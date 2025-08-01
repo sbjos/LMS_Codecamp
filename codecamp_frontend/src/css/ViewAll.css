@@ -11,16 +11,31 @@
 .viewall-section-2 {
   display: grid;
   grid-template-columns: repeat(3);
-  grid-template-rows: 65px 67.79vh;
   grid-template-areas:
     "a b c"
     "d e f";
   background: var(--background-color-2);
 
-  .title {
-    padding: 15px;
+  .title-container {
     grid-area: b;
-    font-size: 1.5em;
+    padding: 0;
+    margin: 0 0 25px 0;
+
+    .title {
+      padding-top: 15px;
+      margin: 0;
+      font-size: 1.5em;
+    }
+
+    .title-line {
+      border: none;
+      height: 1px;
+      background: linear-gradient(
+        to right,
+        rgba(0, 0, 0, 0.45),
+        rgba(0, 0, 0, 0)
+      );
+    }
   }
 
   .assignment-table {
@@ -32,6 +47,7 @@
 
     .viewall-name-desktop {
       font-weight: 600;
+      width: min-content;
     }
 
     .viewall-name-mobile {
@@ -44,6 +60,12 @@
       a {
         padding: 0;
       }
+    }
+
+    .assignment-link,
+    .viewall-button,
+    .feedback-link {
+      font-weight: 600;
     }
 
     th,
@@ -92,6 +114,9 @@
 @media screen and (max-width: 679px) {
   .assignment-table {
     grid-area: b;
+
+    .assignment-table-list {
+    }
   }
 
   .viewall-reviewer {
@@ -111,7 +136,7 @@
 
 @media screen and (max-width: 449px) {
   .viewall-section-2 {
-    .viewall-github,
+    .viewall-assignment,
     .viewall-feedback,
     .viewall-name-desktop {
       display: none;

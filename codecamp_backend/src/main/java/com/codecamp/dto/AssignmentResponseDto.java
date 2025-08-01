@@ -2,7 +2,6 @@ package com.codecamp.dto;
 
 import com.codecamp.enums.AssignmentEnum;
 import com.codecamp.enums.AssignmentStatusEnum;
-import jakarta.persistence.Column;
 
 import java.util.Arrays;
 import java.util.Objects;
@@ -13,7 +12,7 @@ public class AssignmentResponseDto {
     private String name;
     private String description;
     private String status;
-    private String githubUrl;
+    private String assignmentUrl;
     private String branch;
     private String reviewVideoUrl;
     private AssignmentUserResponseDto user;
@@ -65,12 +64,12 @@ public class AssignmentResponseDto {
         this.status = status;
     }
 
-    public String getGithubUrl() {
-        return githubUrl;
+    public String getAssignmentUrl() {
+        return assignmentUrl;
     }
 
-    public void setGithubUrl(String githubUrl) {
-        this.githubUrl = githubUrl;
+    public void setAssignmentUrl(String assignmentUrl) {
+        this.assignmentUrl = assignmentUrl;
     }
 
     public String getBranch() {
@@ -121,7 +120,7 @@ public class AssignmentResponseDto {
                 ", name='" + name + '\'' +
                 ", description='" + description + '\'' +
                 ", status='" + status + '\'' +
-                ", githubUrl='" + githubUrl + '\'' +
+                ", assignmentUrl='" + assignmentUrl + '\'' +
                 ", branch='" + branch + '\'' +
                 ", reviewVideoUrl='" + reviewVideoUrl + '\'' +
                 ", user=" + user +

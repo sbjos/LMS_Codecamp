@@ -7,7 +7,7 @@ function LearnerSubmitAssignment() {
   const formRef = useRef(null);
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
-  const [githubUrl, setGithubUrl] = useState("");
+  const [assignmentUrl, setassignmentUrl] = useState("");
   const [branch, setBranch] = useState("");
   const token = localStorage.getItem("lmsusertoken");
 
@@ -16,7 +16,7 @@ function LearnerSubmitAssignment() {
     e.preventDefault();
 
     try {
-      const assignment = { name, description, githubUrl, branch };
+      const assignment = { name, description, assignmentUrl, branch };
       const response = await axios.post(
         "http://localhost:8080/api/assignments",
         assignment,
@@ -103,16 +103,16 @@ function LearnerSubmitAssignment() {
               htmlFor="exampleFormControlInput1"
               className="form-label form-label-custom"
             >
-              Github url<span className="form-required">*</span>
+              Assignment url<span className="form-required">*</span>
             </label>
             <input
               type="url"
               className="form-control border border-secondary p-2 mb-2 border-opacity-75 input-box-shadow"
               id="exampleFormControlInput1"
               placeholder="https://www.github.com/..."
-              value={githubUrl}
+              value={assignmentUrl}
               onChange={(e) => {
-                setGithubUrl(e.target.value);
+                setassignmentUrll(e.target.value);
               }}
               required
             />

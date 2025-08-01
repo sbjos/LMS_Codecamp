@@ -35,15 +35,18 @@ function LearnerViewAllInReview() {
         <section className="viewall-section-1"></section>
 
         <section className="viewall-section-2">
-          <h1 className="title">Assignments in review</h1>
+          <dir className="title-container">
+            <h1 className="title">Assignments in review</h1>
+            <hr className="title-line" />
+          </dir>
           <table className="assignment-table">
             <thead>
-              <tr className="assignment-table-inreview">
+              <tr className="assignment-table-list assignment-table-list-inreview">
                 <th className="viewall-name">App name</th>
                 <th className="viewall-description">Description</th>
                 <th className="viewall-reviewer">Reviewer</th>
                 <th className="viewall-feedback">Feedback</th>
-                <th className="viewall-github">Github URL</th>
+                <th className="viewall-asssignment">Assignment URL</th>
                 <th className="viewall-branch">Branch</th>
                 <th></th>
               </tr>
@@ -57,7 +60,7 @@ function LearnerViewAllInReview() {
                   {/* mobile */}
                   <td className="viewall-name-mobile">
                     {
-                      <a href={assignment.githubUrl} target="blank">
+                      <a href={assignment.assignment} target="blank">
                         {assignment.name}
                       </a>
                     }
@@ -80,9 +83,13 @@ function LearnerViewAllInReview() {
                       "No feedback"
                     )}
                   </td>
-                  <td className="viewall-github">
-                    <a href={assignment.githubUrl} target="blank">
-                      <u>Open your github</u>
+                  <td className="viewall-asssignment">
+                    <a
+                      className="assignment-link"
+                      href={assignment.assignmentUrl}
+                      target="blank"
+                    >
+                      <u>Assignment link</u>
                     </a>
                   </td>
                   <td className="viewall-branch">{assignment.branch}</td>

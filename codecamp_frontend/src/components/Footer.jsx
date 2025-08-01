@@ -20,19 +20,19 @@ function Footer() {
             <div className="option-list-info">
               <ul className="list">
                 <li>
-                  <a href="">{text.info?.accessibility}</a>
+                  <a href="#">{text.info?.accessibility}</a>
                 </li>
                 <li>
-                  <a href="">{text.info?.privacy}</a>
+                  <a href="#">{text.info?.privacy}</a>
                 </li>
                 <li>
-                  <a href="">{text.info?.terms}</a>
+                  <a href="#">{text.info?.terms}</a>
                 </li>
                 <li>
-                  <a href="">{text.info?.feedback}</a>
+                  <a href="#">{text.info?.feedback}</a>
                 </li>
                 <li>
-                  <a href="">{text.info?.support}</a>
+                  <a href="#">{text.info?.support}</a>
                 </li>
               </ul>
             </div>
