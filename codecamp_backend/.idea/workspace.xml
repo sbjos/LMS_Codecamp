@@ -4,93 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="688d9f6e-aaf8-44fa-9ecd-92be7a964dfe" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../codecamp_frontend/public/text/learnerdashboard.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose/codecamp-local/data/pg/base/1/1259" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose/codecamp-local/data/pg/base/1/1259" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose/codecamp-local/data/pg/base/1/2619" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose/codecamp-local/data/pg/base/1/2619" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose/codecamp-local/data/pg/base/1/2619_vm" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose/codecamp-local/data/pg/base/1/2619_vm" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose/codecamp-local/data/pg/base/1/2696" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose/codecamp-local/data/pg/base/1/2696" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose/codecamp-local/data/pg/base/1/2840" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose/codecamp-local/data/pg/base/1/2840" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose/codecamp-local/data/pg/base/1/2841" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose/codecamp-local/data/pg/base/1/2841" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose/codecamp-local/data/pg/base/1/pg_internal.init" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose/codecamp-local/data/pg/base/1/pg_internal.init" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose/codecamp-local/data/pg/base/16384/1247" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose/codecamp-local/data/pg/base/16384/1247" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose/codecamp-local/data/pg/base/16384/1249" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose/codecamp-local/data/pg/base/16384/1249" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose/codecamp-local/data/pg/base/16384/1259" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose/codecamp-local/data/pg/base/16384/1259" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose/codecamp-local/data/pg/base/16384/16389" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose/codecamp-local/data/pg/base/16384/16389" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose/codecamp-local/data/pg/base/16384/16390" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose/codecamp-local/data/pg/base/16384/16390" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose/codecamp-local/data/pg/base/16384/16394" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose/codecamp-local/data/pg/base/16384/16394" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose/codecamp-local/data/pg/base/16384/16395" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose/codecamp-local/data/pg/base/16384/16395" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose/codecamp-local/data/pg/base/16384/16397" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose/codecamp-local/data/pg/base/16384/16397" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose/codecamp-local/data/pg/base/16384/16398" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose/codecamp-local/data/pg/base/16384/16398" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose/codecamp-local/data/pg/base/16384/16402" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose/codecamp-local/data/pg/base/16384/16402" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose/codecamp-local/data/pg/base/16384/16403" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose/codecamp-local/data/pg/base/16384/16403" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose/codecamp-local/data/pg/base/16384/16405" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose/codecamp-local/data/pg/base/16384/16405" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose/codecamp-local/data/pg/base/16384/16406" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose/codecamp-local/data/pg/base/16384/16406" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose/codecamp-local/data/pg/base/16384/16409" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose/codecamp-local/data/pg/base/16384/16409" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose/codecamp-local/data/pg/base/16384/16411" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose/codecamp-local/data/pg/base/16384/16411" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose/codecamp-local/data/pg/base/16384/16412" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose/codecamp-local/data/pg/base/16384/16412" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose/codecamp-local/data/pg/base/16384/16416" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose/codecamp-local/data/pg/base/16384/16416" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose/codecamp-local/data/pg/base/16384/16417" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose/codecamp-local/data/pg/base/16384/16417" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose/codecamp-local/data/pg/base/16384/16419" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose/codecamp-local/data/pg/base/16384/16419" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose/codecamp-local/data/pg/base/16384/16420" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose/codecamp-local/data/pg/base/16384/16420" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose/codecamp-local/data/pg/base/16384/16424" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose/codecamp-local/data/pg/base/16384/16424" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose/codecamp-local/data/pg/base/16384/16425" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose/codecamp-local/data/pg/base/16384/16425" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose/codecamp-local/data/pg/base/16384/16427" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose/codecamp-local/data/pg/base/16384/16427" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose/codecamp-local/data/pg/base/16384/16429" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose/codecamp-local/data/pg/base/16384/16429" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose/codecamp-local/data/pg/base/16384/16431" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose/codecamp-local/data/pg/base/16384/16431" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose/codecamp-local/data/pg/base/16384/16433" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose/codecamp-local/data/pg/base/16384/16433" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose/codecamp-local/data/pg/base/16384/2224" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose/codecamp-local/data/pg/base/16384/2224" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose/codecamp-local/data/pg/base/16384/2579" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose/codecamp-local/data/pg/base/16384/2579" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose/codecamp-local/data/pg/base/16384/2606" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose/codecamp-local/data/pg/base/16384/2606" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose/codecamp-local/data/pg/base/16384/2608" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose/codecamp-local/data/pg/base/16384/2608" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose/codecamp-local/data/pg/base/16384/2610" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose/codecamp-local/data/pg/base/16384/2610" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose/codecamp-local/data/pg/base/16384/2620" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose/codecamp-local/data/pg/base/16384/2620" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose/codecamp-local/data/pg/base/16384/2658" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose/codecamp-local/data/pg/base/16384/2658" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose/codecamp-local/data/pg/base/16384/2659" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose/codecamp-local/data/pg/base/16384/2659" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose/codecamp-local/data/pg/base/16384/2662" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose/codecamp-local/data/pg/base/16384/2662" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose/codecamp-local/data/pg/base/16384/2663" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose/codecamp-local/data/pg/base/16384/2663" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose/codecamp-local/data/pg/base/16384/2664" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose/codecamp-local/data/pg/base/16384/2664" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose/codecamp-local/data/pg/base/16384/2665" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose/codecamp-local/data/pg/base/16384/2665" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose/codecamp-local/data/pg/base/16384/2666" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose/codecamp-local/data/pg/base/16384/2666" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose/codecamp-local/data/pg/base/16384/2667" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose/codecamp-local/data/pg/base/16384/2667" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose/codecamp-local/data/pg/base/16384/2673" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose/codecamp-local/data/pg/base/16384/2673" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose/codecamp-local/data/pg/base/16384/2674" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose/codecamp-local/data/pg/base/16384/2674" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose/codecamp-local/data/pg/base/16384/2678" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose/codecamp-local/data/pg/base/16384/2678" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose/codecamp-local/data/pg/base/16384/2679" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose/codecamp-local/data/pg/base/16384/2679" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose/codecamp-local/data/pg/base/16384/2699" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose/codecamp-local/data/pg/base/16384/2699" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose/codecamp-local/data/pg/base/16384/2701" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose/codecamp-local/data/pg/base/16384/2701" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose/codecamp-local/data/pg/base/16384/2702" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose/codecamp-local/data/pg/base/16384/2702" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose/codecamp-local/data/pg/base/16384/2703" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose/codecamp-local/data/pg/base/16384/2703" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose/codecamp-local/data/pg/base/16384/2704" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose/codecamp-local/data/pg/base/16384/2704" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose/codecamp-local/data/pg/base/16384/3455" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose/codecamp-local/data/pg/base/16384/3455" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose/codecamp-local/data/pg/base/16384/5002" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose/codecamp-local/data/pg/base/16384/5002" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose/codecamp-local/data/pg/base/16384/pg_internal.init" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose/codecamp-local/data/pg/base/16384/pg_internal.init" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose/codecamp-local/data/pg/base/5/pg_internal.init" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose/codecamp-local/data/pg/base/5/pg_internal.init" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose/codecamp-local/data/pg/global/1260" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose/codecamp-local/data/pg/global/1260" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose/codecamp-local/data/pg/global/2396" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose/codecamp-local/data/pg/global/2396" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose/codecamp-local/data/pg/global/pg_control" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose/codecamp-local/data/pg/global/pg_control" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose/codecamp-local/data/pg/global/pg_internal.init" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose/codecamp-local/data/pg/global/pg_internal.init" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose/codecamp-local/data/pg/pg_wal/000000010000000000000001" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose/codecamp-local/data/pg/pg_wal/000000010000000000000001" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose/codecamp-local/data/pg/pg_xact/0000" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose/codecamp-local/data/pg/pg_xact/0000" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose/codecamp-local/data/pg/postmaster.pid" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose/codecamp-local/data/pg/postmaster.pid" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/codecamp/BackendApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/codecamp/BackendApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/codecamp/dto/AssignmentResponseDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/codecamp/dto/AssignmentResponseDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/codecamp/entities/Assignment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/codecamp/entities/Assignment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/codecamp/services/AssignmentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/codecamp/services/AssignmentService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/codecamp/utils/ObjectMappingUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/codecamp/utils/ObjectMappingUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/codecamp/services/AssignmentServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/codecamp/services/AssignmentServiceTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../codecamp_frontend/src/components/Footer.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../codecamp_frontend/src/components/Footer.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../codecamp_frontend/src/components/LearnerHeader.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../codecamp_frontend/src/components/LearnerHeader.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../codecamp_frontend/src/components/learner/LearnerMapping.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../codecamp_frontend/src/components/learner/LearnerMapping.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../codecamp_frontend/src/components/learner/LearnerSubmitAssignment.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../codecamp_frontend/src/components/learner/LearnerSubmitAssignment.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../codecamp_frontend/src/css/LearnerDashboard.css" beforeDir="false" afterPath="$PROJECT_DIR$/../codecamp_frontend/src/css/LearnerDashboard.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../codecamp_frontend/src/css/LearnerHeader.css" beforeDir="false" afterPath="$PROJECT_DIR$/../codecamp_frontend/src/css/LearnerHeader.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../codecamp_frontend/src/css/ModalStyle.css" beforeDir="false" afterPath="$PROJECT_DIR$/../codecamp_frontend/src/css/ModalStyle.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../codecamp_frontend/src/css/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/../codecamp_frontend/src/css/index.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../codecamp_frontend/src/pages/learner/LearnerDashboard.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../codecamp_frontend/src/pages/learner/LearnerDashboard.jsx" afterDir="false" />
-    </list>
+    <list default="true" id="2df01985-44e0-47a4-a015-167bcd416cd3" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -101,71 +15,50 @@
       <ProjectState />
     </projectState>
   </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="Class" />
-      </list>
-    </option>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <projects_view>
+          <tree_state>
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="codecamp" type="f1a62948:ProjectNode" />
+              </path>
+            </expand>
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
-  <component name="ProjectColorInfo">{
-  &quot;associatedIndex&quot;: 4
-}</component>
-  <component name="ProjectId" id="30VsdQ1jbrZ5eUEsb6ZYgXmbKbY" />
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 2
+}]]></component>
+  <component name="ProjectId" id="30sf61kKHgf8O3TSC74qyKz8BxC" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "Gradle.Build codecamp_backend.executor": "Run",
-    "Gradle.Download Sources.executor": "Run",
-    "Gradle.codecamp_backend [:com.codecamp.BackendApplication.main()].executor": "Debug",
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager": "true",
     "RunOnceActivity.git.unshallow": "true",
     "git-widget-placeholder": "lab",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0"
+    "last_opened_file_path": "/home/sebjos/jdk"
   }
 }]]></component>
-  <component name="RecentsManager">
-    <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="com.codecamp.entities" />
-    </key>
-  </component>
-  <component name="RunManager">
-    <configuration name="BackendApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.codecamp.BackendApplication" />
-      <module name="codecamp.main" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.codecamp.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <recent_temporary>
-      <list>
-        <item itemvalue="Application.BackendApplication" />
-      </list>
-    </recent_temporary>
-  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="688d9f6e-aaf8-44fa-9ecd-92be7a964dfe" name="Changes" comment="" />
-      <created>1753724161655</created>
+      <changelist id="2df01985-44e0-47a4-a015-167bcd416cd3" name="Changes" comment="" />
+      <created>1754421023673</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1753724161655</updated>
+      <updated>1754421023673</updated>
     </task>
     <servers />
   </component>
