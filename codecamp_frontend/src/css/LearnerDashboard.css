@@ -7,12 +7,13 @@
   display: grid;
   grid-template: "a b c d";
   padding: 50px;
-  background: var(--background-color-1);
+  height: 300px;
+  /* background: var(--background-color-1); */
+  background-image: url(/public/images/Background.jpeg);
 
   .welcome-section-text-custom {
-    max-width: 500px;
     grid-area: b;
-    color: white;
+    /* color: white; */
 
     .welcome-section-text-head {
       p {
@@ -20,6 +21,7 @@
         margin-bottom: 0;
       }
     }
+
     .welcome-section-text-body {
       p {
         font-size: 1.5em;
@@ -46,7 +48,7 @@
 
 .dashboard-section-2 {
   display: grid;
-  grid-template-rows: 53px;
+  grid-template-rows: 20px;
 }
 
 .dashboard-section-3 {
@@ -54,7 +56,7 @@
   grid-template-rows: repeat(4);
   grid-gap: 54px;
   padding: 40px 45px;
-  background-color: var(--background-color-2);
+  /* background-color: var(--background-color-2); */
 
   .card-container {
     display: grid;
@@ -91,7 +93,7 @@
 
     .no-card-list {
       display: grid;
-      grid-template: 330px / repeat(4, minmax(181px, 250px));
+      grid-template: auto / repeat(5, minmax(181px, 210px));
       grid-template-areas: "a b b c";
       padding: 20px;
       margin: 0;
@@ -105,14 +107,14 @@
 
       .no-assignment {
         grid-area: b;
-        font-size: 3em;
+        font-size: 1.75em;
         color: rgb(199, 193, 193);
       }
-    }e
+    }
 
     .card-list {
       display: grid;
-      grid-template: 330px / repeat(4, minmax(181px, 270px));
+      grid-template: auto / repeat(5, minmax(181px, 210px));
       padding: 20px;
       margin: 0;
       grid-gap: 1.5rem;
@@ -134,49 +136,60 @@
       }
 
       .card-custom {
-        height: 350px;
+        height: 300px;
         overflow: hidden;
+        border-radius: 5px;
       }
 
       .list-group-item-custom {
         border: none !important;
-        padding: 5px 15px;
+        padding: 4px 15px;
       }
 
-      .btn-card-link {
-        font-weight: 600;
-        text-decoration: underline;
-        color: var(--button-link-color);
-        border: 1px solid var(--button-link-color);
-        border-radius: 0.375em;
-        padding: 5px 25px;
-        text-decoration: none;
+      .card-body-link-custom {
+        margin: 15px 0;
 
-        &:hover {
-          color: var(-button-link-color-hover);
+        .btn-card-link {
+          font-weight: 600;
+          padding: 5px 25px;
+
+          &:hover {
+            color: var(-button-link-color-hover);
+          }
         }
       }
     }
   }
 
-  .card-body-custom {
-    height: 130.14px;
-    margin-bottom: 15px;
+  .card-title-custom {
+    height: 25px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
 
+  .card-body-custom {
+    min-height: 120px !important;
+    max-height: 120px !important;
+    margin-bottom: 8px;
+    
     .card-title-custom {
       margin: 3px 0 0;
       font-size: 19.5px;
     }
   }
 
-  .card-title-custom,
   .card-text-custom {
-    color: white;
+    max-height: 40px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
   }
 
   .separation-line {
-    color: white;
     width: 75%;
+    margin: 8px;
   }
 
   .card-list-submitted {
@@ -235,16 +248,16 @@
       grid-template-columns: minmax(50px, 824px);
 
       .card-list {
-        grid-template: 250px / repeat(4, minmax(50px, 187.47px));
+        grid-template: auto / repeat(4, minmax(50px, 187.47px));
         grid-gap: 3%;
 
         .card-custom {
           display: inline-flex;
           align-items: center;
+          height: 280px;
 
           .card-body-custom {
-            /* display: none; */
-            height: 30px;
+            min-height: 25px;
             width: 100%;
             padding-bottom: 50px;
             margin-bottom: 5px;
@@ -268,7 +281,7 @@
             overflow: hidden;
             text-overflow: ellipsis;
             border: none !important;
-            padding-top: 2.5px;
+            /* padding-top: 2.5px; */
           }
 
           .card-text-custom {
@@ -289,16 +302,31 @@
 
 @media screen and (max-width: 669px) {
   .dashboard-section-3 {
-    margin: auto;
-    grid-gap: 60px;
+    display: block;
 
     .no-card-list {
       display: none !important;
     }
 
     .card-container {
+      .card-container-label-desktop,
       .card-list {
         display: none;
+      }
+
+      .card-container-label-mobile {
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        align-items: center;
+        margin: 8px 0;
+
+        .btn-label-status-mobile {
+          font-size: 1.45em;
+          font-weight: 700;
+          color: rgb(98, 87, 116);
+          text-decoration: none;
+        }
       }
     }
   }
@@ -318,35 +346,11 @@
     flex-direction: column;
     gap: 10px;
   }
-
-  .dashboard-section-3 {
-    grid-gap: 30px;
-
-    .card-container {
-      .card-container-label-desktop {
-        display: none;
-      }
-
-      .card-container-label-mobile {
-        display: flex;
-        justify-content: center;
-        text-align: center;
-        align-items: center;
-
-        .btn-label-status-mobile {
-          font-size: 1.15em;
-          font-weight: 500;
-          color: rgb(98, 87, 116);
-        }
-      }
-    }
-  }
 }
 
 @media screen and (max-width: 399px) {
   .dashboard-section-3 {
     .card-container {
-      height: 58px;
       justify-content: center;
       text-align: center;
       align-items: center;

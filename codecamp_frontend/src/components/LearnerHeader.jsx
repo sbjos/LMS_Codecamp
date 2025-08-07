@@ -8,7 +8,7 @@ function LearnerHeader() {
       <nav className="navbar navbar-expand-lg navbar-custom ">
         <div className="container-fluid navbar-container">
           <a
-            className="navbar-brand fw-semibold ms-2 fs-5 text-dark-emphasis navbar-brand-custom"
+            className="navbar-brand brand fw-semibold ms-2 fs-5 text-dark-emphasis navbar-brand-custom"
             href={RedirectUrl.learnerdashboard}
           >
             {/* <Logo /> */}

@@ -7,7 +7,7 @@ function LearnerSubmitAssignment() {
   const formRef = useRef(null);
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
-  const [assignmentUrl, setassignmentUrl] = useState("");
+  const [assignmentUrl, setAssignmentUrl] = useState("");
   const [branch, setBranch] = useState("");
   const token = localStorage.getItem("lmsusertoken");
 
@@ -109,10 +109,10 @@ function LearnerSubmitAssignment() {
               type="url"
               className="form-control border border-secondary p-2 mb-2 border-opacity-75 input-box-shadow"
               id="exampleFormControlInput1"
-              placeholder="https://www.github.com/..."
+              placeholder="https://www.google.com/"
               value={assignmentUrl}
               onChange={(e) => {
-                setassignmentUrll(e.target.value);
+                setAssignmentUrl(e.target.value);
               }}
               required
             />

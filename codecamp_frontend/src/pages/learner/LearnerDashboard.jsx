@@ -82,7 +82,7 @@ function LearnerDashboard() {
                 htmlFor="View Assignments submitted"
                 href={RedirectUrl.learnerSubmittedAssignments}
               >
-                Assignments submitted
+                Submitted
               </a>
             </div>
 
@@ -94,7 +94,7 @@ function LearnerDashboard() {
               }
             >
               {submitted.length > 0 ? (
-                LearnerMapping(submitted.slice(-4))
+                LearnerMapping(submitted.slice(-5))
               ) : (
                 <p className="no-assignment">No assignments</p>
               )}
@@ -109,7 +109,7 @@ function LearnerDashboard() {
                 className="btn-label-status-mobile"
                 href={RedirectUrl.learnerSubmittedAssignments}
               >
-                View submitted assignments
+                Submitted
               </a>
             </div>
           </div>
@@ -123,7 +123,7 @@ function LearnerDashboard() {
                 className="label-status"
                 // className="btn btn-md btn-card-container-viewall"
               >
-                Assignments in review
+                In review
               </a>
             </div>
 
@@ -135,7 +135,7 @@ function LearnerDashboard() {
               }
             >
               {inReview.length > 0 ? (
-                LearnerMapping(inReview.slice(-4))
+                LearnerMapping(inReview.slice(-5))
               ) : (
                 <p className="no-assignment">No assignments</p>
               )}
@@ -151,7 +151,7 @@ function LearnerDashboard() {
                 className="btn-label-status-mobile"
                 href={RedirectUrl.learnerInReviewAssignments}
               >
-                View assignments in review
+                In review
               </a>
             </div>
           </div>
@@ -165,7 +165,7 @@ function LearnerDashboard() {
                 type="button"
                 href={RedirectUrl.learnerNeedsWorkAssignments}
               >
-                Assignments needs work
+                Need work
               </a>
             </div>
             <ul
@@ -176,7 +176,7 @@ function LearnerDashboard() {
               }
             >
               {needsWwork.length > 0 ? (
-                LearnerMapping(needsWwork.slice(-4))
+                LearnerMapping(needsWwork.slice(-5))
               ) : (
                 <p className="no-assignment">No assignments</p>
               )}
@@ -192,7 +192,7 @@ function LearnerDashboard() {
                 className="btn-label-status-mobile"
                 href={RedirectUrl.learnerNeedsWorkAssignments}
               >
-                View assignments that needs work
+                Need work
               </a>
             </div>
           </div>
@@ -205,7 +205,7 @@ function LearnerDashboard() {
                 type="button"
                 href={RedirectUrl.learnerCompletedAssignments}
               >
-                Assignments completed
+                Completed
               </a>
             </div>
             <ul
@@ -216,7 +216,7 @@ function LearnerDashboard() {
               }
             >
               {completed.length > 0 ? (
-                LearnerMapping(completed.slice(-4))
+                LearnerMapping(completed.slice(-5))
               ) : (
                 <p className="no-assignment">No assignments</p>
               )}
@@ -232,7 +232,7 @@ function LearnerDashboard() {
                 className="btn-label-status-mobile"
                 href={RedirectUrl.learnerCompletedAssignments}
               >
-                View completed assignments
+                Completed
               </a>
             </div>
           </div>

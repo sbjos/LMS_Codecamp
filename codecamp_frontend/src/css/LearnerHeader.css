@@ -1,8 +1,9 @@
 .navbar-custom {
+  height: 68px;
+
   .navbar-container {
     .navbar-brand-custom {
       font-family: Consolas, Fira Code, and JetBrains Mono;
-      height: 37.99px;
     }
 
     .navbar-collapse-custom {
@@ -25,6 +26,7 @@
           background-color: transparent;
           border: none;
           box-shadow: none;
+          flex-wrap: nowrap;
         }
         .navbar-dropdown-menu-custom {
           padding: 15px;
