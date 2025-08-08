@@ -7,7 +7,7 @@
   display: grid;
   grid-template: "a b c d";
   padding: 50px;
-  height: 300px;
+  height: 350px;
   /* background: var(--background-color-1); */
   background-image: url(/public/images/Background-Image.png);
   background-repeat: no-repeat;
