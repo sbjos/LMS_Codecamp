@@ -11,7 +11,7 @@ body {
 }
 
 #root {
-  /* height: 100vh; */
+  height: 100vh;
 }
 
 :root {
@@ -42,16 +42,16 @@ body {
   --button-link-color: #054a76;
   --button-link-color-hover: #1662d4;
   --button-color-blue: #0050c7;
-  /* --button-color-red: #c7006d; */
   --button-color-red: #c7006d;
   --button-color-green: #0b7c47;
   --placeholder-color: #b5b5b5;
   --border-color: #6d767e;
   --border-focus-color: #02459c;
-  --submitted-card-color: #bae5f3;
-  --inreview-card-color: #faab80;
-  --needswork-card-color: #dedede;
-  --completed-card-color: #6ed3f1;
+  --submitted-card-color: rgb(22, 111, 114);
+  --inreview-card-color: rgb(214, 107, 45);
+  --needswork-card-color: rgb(187, 38, 53);
+  --completed-card-color: rgb(14, 88, 54);
+
   --brand-color: #010911ea;
   --error-color: #b3261e;
 

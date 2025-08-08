@@ -51,7 +51,7 @@ function LearnerDashboard() {
                 <p>Welcome to your assignment dashboard!</p>
               </div>
             </div>
-            <hr className="separation-line" />
+            <hr className="separation-line" id="line-section-1" />
             <div className="welcome-section-text-btn">
               {ModalNewAssignment()}
               <a
@@ -77,8 +77,7 @@ function LearnerDashboard() {
             <div className="card-container-label-desktop" id="submitted-label">
               <a
                 type="button"
-                className="label-status"
-                // className="btn btn-md btn-card-container-viewall"
+                className="btn btn-md btn-card-container-viewall"
                 htmlFor="View Assignments submitted"
                 href={RedirectUrl.learnerSubmittedAssignments}
               >
@@ -94,7 +93,7 @@ function LearnerDashboard() {
               }
             >
               {submitted.length > 0 ? (
-                LearnerMapping(submitted.slice(-5))
+                LearnerMapping(submitted.slice(-4))
               ) : (
                 <p className="no-assignment">No assignments</p>
               )}
@@ -120,8 +119,7 @@ function LearnerDashboard() {
               <a
                 href={RedirectUrl.learnerInReviewAssignments}
                 type="button"
-                className="label-status"
-                // className="btn btn-md btn-card-container-viewall"
+                className="btn btn-md btn-card-container-viewall"
               >
                 In review
               </a>
@@ -135,7 +133,7 @@ function LearnerDashboard() {
               }
             >
               {inReview.length > 0 ? (
-                LearnerMapping(inReview.slice(-5))
+                LearnerMapping(inReview.slice(-4))
               ) : (
                 <p className="no-assignment">No assignments</p>
               )}
@@ -160,8 +158,7 @@ function LearnerDashboard() {
             {/* needs work desktop */}
             <div className="card-container-label-desktop" id="needswork-label">
               <a
-                className="label-status"
-                // className="btn btn-md btn-card-container-viewall"
+                className="btn btn-md btn-card-container-viewall"
                 type="button"
                 href={RedirectUrl.learnerNeedsWorkAssignments}
               >
@@ -176,7 +173,7 @@ function LearnerDashboard() {
               }
             >
               {needsWwork.length > 0 ? (
-                LearnerMapping(needsWwork.slice(-5))
+                LearnerMapping(needsWwork.slice(-4))
               ) : (
                 <p className="no-assignment">No assignments</p>
               )}
@@ -200,8 +197,7 @@ function LearnerDashboard() {
             {/* desktop */}
             <div className="card-container-label-desktop" id="completed-label">
               <a
-                className="label-status"
-                // className="btn btn-md btn-card-container-viewall"
+                className="btn btn-md btn-card-container-viewall"
                 type="button"
                 href={RedirectUrl.learnerCompletedAssignments}
               >
@@ -216,7 +212,7 @@ function LearnerDashboard() {
               }
             >
               {completed.length > 0 ? (
-                LearnerMapping(completed.slice(-5))
+                LearnerMapping(completed.slice(-4))
               ) : (
                 <p className="no-assignment">No assignments</p>
               )}
