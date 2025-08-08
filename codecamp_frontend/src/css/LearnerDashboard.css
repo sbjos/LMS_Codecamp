@@ -10,6 +10,9 @@
   height: 300px;
   /* background: var(--background-color-1); */
   background-image: url(/public/images/Background.jpeg);
+  background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
 
   .welcome-section-text-custom {
     grid-area: b;
