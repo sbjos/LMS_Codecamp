@@ -67,7 +67,44 @@ function LearnerDashboard() {
 
         {/* section-2 */}
         <section className="dashboard-section-2">
-          <div className="empty-section"></div>
+          {/* <div className="empty-section"></div> */}
+          <div className="assignment-count">
+            <ul className="assignment-count-list">
+              <li className="assignment-count-totalassignments">
+                <label
+                  className="assignment-count-label"
+                  htmlFor="Total assignemnts"
+                >
+                  Total assignemnts
+                </label>
+                : {assignments.length > 1 ? assignments.length : "-"}
+              </li>
+              <li className="assignment-count-submitted">
+                <label className="assignment-count-label" htmlFor="Submitted">
+                  Submitted
+                </label>
+                : {submitted.length > 1 ? submitted.length : "-"}
+              </li>
+              <li className="assignment-count-inreview">
+                <label className="assignment-count-label" htmlFor="In review">
+                  In review
+                </label>
+                : {inReview.length > 1 ? inReview.length : "-"}
+              </li>
+              <li className="assignment-count-needswork">
+                <label className="assignment-count-label" htmlFor="Needs work">
+                  Needs work
+                </label>
+                : {needsWwork.length > 1 ? needsWwork.length : "-"}
+              </li>
+              <li className="assignment-count-completed">
+                <label className="assignment-count-label" htmlFor="Completed">
+                  Completed
+                </label>
+                : {completed.length > 1 ? completed.length : "-"}
+              </li>
+            </ul>
+          </div>
         </section>
 
         {/* section-3 */}

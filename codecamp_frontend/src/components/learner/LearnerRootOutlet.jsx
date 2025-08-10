@@ -1,26 +1,11 @@
-import { Outlet, useNavigate } from "react-router-dom";
-import RedirectUrl from "../RedirectUrl";
-import Validate from "../Validate";
+import { Outlet } from "react-router-dom";
 import LearnerHeader from "../LearnerHeader";
 import Footer from "../Footer";
-import "../../css/Footer.css";
-import "../../css/LearnerHeader.css";
 
 function LearnerRootOutlet() {
-  Validate();
-  const navigate = useNavigate();
-  const userAuthority = localStorage.getItem("lmsuserauthorities");
-  const authorityArray = userAuthority ? userAuthority.split(", ") : "";
-  const name = authorityArray[1] + " " + authorityArray[2];
-
-  const Logout = () => {
-    localStorage.clear();
-    navigate("/codecamp/login");
-  };
-
   return (
     <>
-      <div>
+      <div className="dashboard-header">
         <LearnerHeader />
       </div>
       <main className="main">

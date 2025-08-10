@@ -9,7 +9,7 @@ function LearnerAssignmentEdit(assignments) {
   const id = assignment.id;
   const codeReviewer = assignment.codeReviewer;
   const feedback = assignment.reviewVideoUrl;
-  const [githubUrl, setGithubUrl] = useState(assignment.githubUrl);
+  const [assignmentUrl, setAssignmentUrl] = useState(assignment.assignmentUrl);
   const [branch, setBranch] = useState(assignment.branch);
   const token = localStorage.getItem("lmsusertoken");
 
@@ -28,7 +28,7 @@ function LearnerAssignmentEdit(assignments) {
     e.preventDefault();
 
     try {
-      const updateAssignment = { githubUrl, branch, codeReviewer };
+      const updateAssignment = { assignmentUrl, branch, codeReviewer };
       const response = await axios.put(
         "http://localhost:8080/api/assignments/" + id,
         updateAssignment,
@@ -111,14 +111,14 @@ function LearnerAssignmentEdit(assignments) {
               htmlFor="exampleFormControlInput1"
               className="form-label form-label-custom"
             >
-              Github url
+              Assignment
             </label>
             <input
               type="url"
               className="form-control border border-secondary p-2 mb-2 border-opacity-75 input-box-shadow"
               id="exampleFormControlInput1"
-              value={githubUrl}
-              onChange={handleChange(setGithubUrl)}
+              value={assignmentUrl}
+              onChange={handleChange(setAssignmentUrl)}
               required
             />
           </div>

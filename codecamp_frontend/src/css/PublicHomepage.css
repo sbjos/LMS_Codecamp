@@ -54,7 +54,6 @@ li {
   --button-color: #0f69df;
   --public-layout-section-padding-vertical: 150px 0;
   --public-layout-section-padding-horizontal: 0 55px;
-  --public-footer-section-padding: 70px 0;
   --section-3-background-color: #f5f2f2c2;
 
   /* // Section 1 - Header */
@@ -214,21 +213,6 @@ li {
               /* margin-bottom: 40px; */
               list-style: none;
             }
-          }
-        }
-      }
-    }
-  }
-
-  .public-section-5 {
-    .public-section-5-container {
-      .public-footer {
-        background-color: rgb(49, 49, 49);
-        footer {
-          color: white !important;
-
-          a {
-            color: white;
           }
         }
       }

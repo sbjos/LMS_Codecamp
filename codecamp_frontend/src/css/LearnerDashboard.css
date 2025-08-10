@@ -8,11 +8,7 @@
   grid-template: "a b c d";
   padding: 50px;
   height: 350px;
-  /* background: var(--background-color-1); */
-  background-image: url(/public/images/Background-Image.png);
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
+  background: linear-gradient(145deg, #69297c, #4185eb 40%);
   color: white;
 
   .welcome-section-text-custom {
@@ -51,22 +47,31 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        border: 1px solid #e4e4e4;
       }
     }
   }
 }
 
 .dashboard-section-2 {
-  display: grid;
-  grid-template-rows: 20px;
+  background-color: rgb(245, 245, 245);
+
+  .assignment-count-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2.5%;
+    padding: 20px;
+    margin: auto;
+    font-size: 1.01em;
+    font-weight: 500;
+  }
 }
 
 .dashboard-section-3 {
   display: grid;
   grid-template-rows: repeat(4);
   grid-gap: 54px;
-  padding: 40px 45px;
+  margin: 10px 0;
 
   .card-container {
     display: grid;
@@ -80,7 +85,7 @@
     .card-container-label-desktop {
       display: flex;
       justify-content: space-between;
-      padding: 0 8px 10px 5px;
+      padding: 0 8px 0 5px;
       font-size: 1.15em;
 
       .label-status {
@@ -310,7 +315,14 @@
   }
 }
 
-@media screen and (max-width: 669px) {
+@media screen and (max-width: 769px) {
+  .dashboard-section-2 {
+    .assignment-count-list li {
+      justify-content: center;
+      align-items: center;
+    }
+  }
+
   .dashboard-section-3 {
     display: block;
 

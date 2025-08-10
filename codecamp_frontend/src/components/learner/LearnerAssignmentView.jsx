@@ -60,17 +60,17 @@ function LearnerAssignmentView(assignments) {
             htmlFor="exampleFormControlInput1"
             className="form-label form-label-custom"
           >
-            Github url
+            Assignment
           </label>
 
           <a
             type="url"
             className="form-control border border-secondary p-2 mb-2 border-opacity-75 input-border-color input-box-shadow input-text-video-url-custom"
             id="exampleFormControlInput1"
-            href={assignment.githubUrl}
+            href={assignment.assignmentUrl}
             target="blank"
           >
-            {assignment.githubUrl}
+            {assignment.assignmentUrl}
           </a>
         </div>
         <div className="mb-4 assignment-input">

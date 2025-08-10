@@ -47,7 +47,7 @@ const router = createBrowserRouter(
       {/* Reviewer routes */}
       <Route
         path="/codecamp.com/reviewerdashboard/:reviewerName"
-        element={<LearnerRootOutlet />}
+        element={<reviewerRootOutlet />}
       >
         <Route index element={<ReviewerDashboard />} />
         <Route path="assignment/:id" element={<ReviewerAssignmentView />} />

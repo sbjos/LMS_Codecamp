@@ -23,7 +23,7 @@ function PublicHomepage() {
   const [body, setBody] = useState("");
 
   useEffect(() => {
-    fetch("public/text/publichomepagetexts.json")
+    fetch("/public/text/publichomepagetexts.json")
       .then((res) => res.json())
       .then((data) => setText(data))
       .catch((err) => console.error("Failed to load text", err));
