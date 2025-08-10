@@ -9,7 +9,9 @@ function LearnerRootOutlet() {
         <LearnerHeader />
       </div>
       <main className="main">
-        <Outlet />
+        <div className="learner-page-root">
+          <Outlet />
+        </div>
       </main>
       <div className="dashboard-footer">
         <Footer />

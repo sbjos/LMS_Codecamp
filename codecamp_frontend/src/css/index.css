@@ -1,17 +1,10 @@
+/* for troubleshooting */
 * {
   /* border: 1px solid blueviolet; */
 }
 
-html,
-body {
+.learner-page-root {
   min-height: 100vh;
-  margin: auto;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-#root {
-  height: 100vh;
 }
 
 :root {

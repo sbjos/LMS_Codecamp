@@ -3,6 +3,8 @@ import Validate from "../../components/Validate";
 import "../../css/OneOnOne.css";
 
 function LearnerRequestOneOnOne() {
+  Validate()
+
   return (
     <>
       <div className="oneonone-root">

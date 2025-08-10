@@ -1,9 +1,12 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import ModalEdit from "../../components/learner/modal/ModalEdit";
+import Validate from "../../components/Validate";
 import "../../css/ViewAll.css";
 
 function LearnerViewAllNeedsWork() {
+  Validate()
+
   const [assignmentsNeedsWork, setAssignmentsNeedsWork] = useState([]);
   const token = localStorage.getItem("lmsusertoken");
 

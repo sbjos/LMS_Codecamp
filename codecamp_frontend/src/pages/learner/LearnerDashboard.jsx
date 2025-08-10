@@ -3,17 +3,19 @@ import axios from "axios";
 import LearnerMapping from "../../components/learner/LearnerMapping";
 import RedirectUrl from "../../components/RedirectUrl";
 import ModalNewAssignment from "../../components/learner/modal/ModalNewAssignment";
+import Validate from "../../components/Validate";
 import "../../css/LearnerDashboard.css";
 
 function LearnerDashboard() {
+  // call to validate user token
+  Validate();
+
   const [assignments, setAssignments] = useState([]);
   const token = localStorage.getItem("lmsusertoken");
   const userAuthority = localStorage.getItem("lmsuserauthorities");
   const authorityArray = userAuthority ? userAuthority.split(", ") : "";
 
-  /**
-   * automatically fetches and loads assignments by user
-   */
+  // automatically fetches and loads user's assignments
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -37,6 +39,11 @@ function LearnerDashboard() {
   const inReview = assignments.filter((item) => item.status === "In review");
   const needsWwork = assignments.filter((item) => item.status === "Needs work");
   const completed = assignments.filter((item) => item.status === "Completed");
+
+  // const submitted = 0;
+  // const inReview = 0;
+  // const needsWwork = 0;
+  // const completed = 0;
 
   // Passes the data to the ReviewerMapping.jsx component to handle cards.
   return (
@@ -68,7 +75,7 @@ function LearnerDashboard() {
         {/* section-2 */}
         <section className="dashboard-section-2">
           {/* <div className="empty-section"></div> */}
-          <div className="assignment-count">
+          <div className="assignment-count-container">
             <ul className="assignment-count-list">
               <li className="assignment-count-totalassignments">
                 <label
@@ -77,31 +84,71 @@ function LearnerDashboard() {
                 >
                   Total assignemnts
                 </label>
-                : {assignments.length > 1 ? assignments.length : "-"}
+                <div className="assignment-count-group">
+                  <div className="assignment-count">
+                    {assignments.length > 1 ? assignments.length : "-"}
+                  </div>
+                </div>
               </li>
               <li className="assignment-count-submitted">
                 <label className="assignment-count-label" htmlFor="Submitted">
-                  Submitted
+                  Submitted assignment
                 </label>
-                : {submitted.length > 1 ? submitted.length : "-"}
+                <div className="assignment-count-group">
+                  <div className="assignment-count">
+                    {submitted.length > 1 ? submitted.length : "-"}
+                  </div>
+                  <div className="assignment-count-percentage">
+                    {submitted.length > 1
+                      ? `${Math.round((submitted.length / assignments.length) * 100)}%`
+                      : "-"}
+                  </div>
+                </div>
               </li>
               <li className="assignment-count-inreview">
                 <label className="assignment-count-label" htmlFor="In review">
-                  In review
+                  In review assignment
                 </label>
-                : {inReview.length > 1 ? inReview.length : "-"}
+                <div className="assignment-count-group">
+                  <div className="assignment-count">
+                    {inReview.length > 1 ? inReview.length : "-"}
+                  </div>
+                  <div className="assignment-count-percentage">
+                    {inReview.length > 1
+                      ? `${Math.round((inReview.length / assignments.length) * 100)}%`
+                      : "-"}
+                  </div>
+                </div>
               </li>
               <li className="assignment-count-needswork">
                 <label className="assignment-count-label" htmlFor="Needs work">
-                  Needs work
+                  Needs work assignment
                 </label>
-                : {needsWwork.length > 1 ? needsWwork.length : "-"}
+                <div className="assignment-count-group">
+                  <div className="assignment-count">
+                    {needsWwork.length > 1 ? needsWwork.length : "-"}
+                  </div>
+                  <div className="assignment-count-percentage">
+                    {needsWwork.length > 1
+                      ? `${Math.round((needsWwork.length / assignments.length) * 100)}%`
+                      : "-"}
+                  </div>
+                </div>
               </li>
               <li className="assignment-count-completed">
                 <label className="assignment-count-label" htmlFor="Completed">
-                  Completed
+                  Completed assignment
                 </label>
-                : {completed.length > 1 ? completed.length : "-"}
+                <div className="assignment-count-group">
+                  <div className="assignment-count">
+                    {completed.length > 1 ? completed.length : "-"}
+                  </div>
+                  <div className="assignment-count-percentage">
+                    {completed.length > 1
+                      ? `${Math.round((completed.length / assignments.length) * 100)}%`
+                      : "-"}
+                  </div>
+                </div>
               </li>
             </ul>
           </div>

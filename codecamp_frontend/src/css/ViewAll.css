@@ -6,7 +6,7 @@
 .viewall-section-1 {
   display: grid;
   grid-template-areas: "a b c d";
-  padding: 50px;
+  padding: 50px 0;
 
   .title-container {
     max-width: 500px;
@@ -22,7 +22,6 @@
 
     .title-line {
       border: none;
-      height: 1px;
       height: 2px;
       background: linear-gradient(
         to right,
@@ -59,26 +58,24 @@ tbody {
 }
 
 .viewall-section-3 {
-  display: grid;
-  grid-template-columns: repeat(3);
-  grid-template-areas: "a b b c";
+  display: flex;
+  justify-content: center;
+  /* display: grid;
+  grid-template-columns: repeat(1);
+  grid-template-areas: "b"; */
 
   .assignment-table {
     background: var(--background-color-2);
-    grid-area: b;
-    border-collapse: collapse;
-    height: min-content;
 
     .assignment-table-list {
-      gap: 500px;
       background: #3f3f3f4d;
     }
-
+    
     .viewall-name-desktop {
       font-weight: 600;
-      width: min-content;
+      width: max-content;
     }
-
+    
     .viewall-name-mobile {
       display: none;
     }
@@ -94,6 +91,10 @@ tbody {
     .assignment-link,
     .feedback-link {
       font-weight: 600;
+    }
+
+    .assignment-link-mobile {
+      display: none;
     }
 
     .viewall-button {
@@ -133,7 +134,7 @@ tbody {
   }
 }
 
-@media screen and (max-width: 679px) {
+@media screen and (max-width: 785px) {
   .assignment-table {
     grid-area: b;
 
@@ -146,13 +147,34 @@ tbody {
   }
 }
 
-@media screen and (max-width: 619px) {
-  .title {
-    text-align: center;
-  }
+@media screen and (max-width: 679px) {
+  .viewall-section-3 {
+    padding: 0 15px;
+    padding: 0 15px;
 
-  .viewall-branch {
-    display: none;
+    .viewall-assignment-desktop,
+    .viewall-name-desktop {
+      display: none;
+    }
+
+    .viewall-assignment-mobile,
+    .viewall-name-mobile {
+      display: flex !important;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .assignment-link-desktop {
+      display: none !important;
+    }
+
+    .assignment-link-mobile {
+      display: flex !important;
+    }
+
+    .title {
+      text-align: center;
+    }
   }
 }
 

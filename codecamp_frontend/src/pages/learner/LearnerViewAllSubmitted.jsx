@@ -2,8 +2,11 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import ModalEdit from "../../components/learner/modal/ModalEdit";
 import "../../css/ViewAll.css";
+import Validate from "../../components/Validate";
 
 function LearnerViewAllSubmitted() {
+  Validate();
+
   const [submittedAssignments, setSubmittedAssignments] = useState([]);
   const token = localStorage.getItem("lmsusertoken");
 
@@ -45,12 +48,14 @@ function LearnerViewAllSubmitted() {
           <table className="assignment-table">
             <thead className="assignment-table-list assignment-table-list-submitted">
               <tr>
-                <th className="viewall-name">Assignment name</th>
-                <th className="viewall-description">Description</th>
-                <th className="viewall-reviewer">Reviewer</th>
-                <th className="viewall-feedback">Feedback</th>
-                <th className="viewall-assignment">Assignment URL</th>
-                <th className="viewall-branch">Branch</th>
+                <th className="viewall viewall-name-desktop">Assignment name</th>
+                <th className="viewall viewall-name-mobile">Name</th>
+                <th className="viewall viewall-description">Description</th>
+                <th className="viewall viewall-reviewer">Reviewer</th>
+                <th className="viewall viewall-feedback">Feedback</th>
+                <th className="viewall viewall-assignment-desktop">Assignment URL</th>
+                <th className="viewall viewall-assignment-mobile">URL</th>
+                <th className="viewall viewall-branch">Branch</th>
                 <th></th>
               </tr>
             </thead>
@@ -80,7 +85,8 @@ function LearnerViewAllSubmitted() {
                       href={assignment.assignmentUrl}
                       target="blank"
                     >
-                      <u>Assignment link</u>
+                      <u className="assignment-link-desktop">Assignment link</u>
+                      <u className="assignment-link-mobile">Link</u>
                     </a>
                   </td>
                   <td className="viewall-branch">{assignment.branch}</td>

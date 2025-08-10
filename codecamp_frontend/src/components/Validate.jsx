@@ -8,6 +8,7 @@ function Validate() {
   const userAuthority = localStorage.getItem("lmsuserauthorities");
   const navigate = useNavigate();
   const [status, setStatus] = useState();
+  const [errorCode, setErrorCode] = useState([]);
 
   useEffect(() => {
     if (!token || !userAuthority) {
@@ -33,13 +34,15 @@ function Validate() {
             console.error("No Server Response");
           } else {
             console.error(err);
-            navigate(RedirectUrl.Login);
+            setErrorCode(err.response.status);
           }
         }
       };
       fetchData();
     }
   }, []);
+
+  if (errorCode === 401) navigate(RedirectUrl.Login);
 
   return status;
 }

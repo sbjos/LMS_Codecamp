@@ -53,17 +53,24 @@
 }
 
 .dashboard-section-2 {
-  background-color: rgb(245, 245, 245);
+  margin: 20px 0;
 
   .assignment-count-list {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 2.5%;
-    padding: 20px;
+    gap: 6%;
+    padding: 15px;
     margin: auto;
-    font-size: 1.01em;
+    font-size: 1.15em;
     font-weight: 500;
+
+    .assignment-count-group {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 15px;
+    }
   }
 }
 
@@ -71,7 +78,7 @@
   display: grid;
   grid-template-rows: repeat(4);
   grid-gap: 54px;
-  margin: 10px 0;
+  margin: 20px 0 10px 0;
 
   .card-container {
     display: grid;
@@ -105,17 +112,17 @@
 
     .no-card-list {
       display: grid;
-      grid-template: auto / repeat(5, minmax(181px, 210px));
+      grid-template: auto / repeat(4, minmax(181px, 250px));
       grid-template-areas: "a b b c";
       padding: 20px;
       margin: 0;
-      grid-gap: 1.5rem;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
+      grid-gap: 1.8rem;
       border-top: 0.5px solid rgb(228, 227, 227);
       border-bottom: 0.5px solid rgb(228, 227, 227);
       font-family: Optimist, Helvetica Neue, Helvetica, Arial, sans-serif;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
 
       .no-assignment {
         grid-area: b;
@@ -126,10 +133,10 @@
 
     .card-list {
       display: grid;
-      grid-template: auto / repeat(4, minmax(181px, 270px));
+      grid-template: auto / repeat(4, minmax(181px, 250px));
       padding: 20px;
       margin: 0;
-      grid-gap: 1.5rem;
+      grid-gap: 1.8rem;
       border-top: 0.5px solid rgb(228, 227, 227);
       border-bottom: 0.5px solid rgb(228, 227, 227);
       font-family: Optimist, Helvetica Neue, Helvetica, Arial, sans-serif;

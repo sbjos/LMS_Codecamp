@@ -2,9 +2,12 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import FetchUserDetails from "../../components/FetchUserDetails";
 import StateComponent from "../../components/select/StateComponent";
+import Validate from "../../components/Validate";
 import "../../css/Profile.css";
 
 function PersonalInfo() {
+  Validate()
+
   const userDetails = FetchUserDetails();
   const [isDirty, setDirty] = useState(false);
   const [firstname, setFirstname] = useState("");
