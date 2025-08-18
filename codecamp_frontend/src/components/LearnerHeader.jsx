@@ -44,7 +44,7 @@ function LearnerHeader() {
                   className="nav-link active mx-3 text-light-emphasis fw-medium"
                   href="#"
                 >
-                  Search Inbox
+                  Inbox
                 </a>
               </li>
               <li className="nav-item nav-item-custom">

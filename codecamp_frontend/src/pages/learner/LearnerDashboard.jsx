@@ -77,12 +77,12 @@ function LearnerDashboard() {
           {/* <div className="empty-section"></div> */}
           <div className="assignment-count-container">
             <ul className="assignment-count-list">
-              <li className="assignment-count-totalassignments">
+              <li className="assignment-count-totalassignments assignment-count-li">
                 <label
-                  className="assignment-count-label"
+                  className="assignment-counlabel"
                   htmlFor="Total assignemnts"
                 >
-                  Total assignemnts
+                  Total assignemnts: &nbsp;
                 </label>
                 <div className="assignment-count-group">
                   <div className="assignment-count">
@@ -90,64 +90,64 @@ function LearnerDashboard() {
                   </div>
                 </div>
               </li>
-              <li className="assignment-count-submitted">
+              <li className="assignment-count-submitted assignment-count-li">
                 <label className="assignment-count-label" htmlFor="Submitted">
-                  Submitted assignment
+                  Submitted assignments
                 </label>
                 <div className="assignment-count-group">
-                  <div className="assignment-count">
+                  <div className="assignment-count">: &nbsp;
                     {submitted.length > 1 ? submitted.length : "-"}
                   </div>
-                  <div className="assignment-count-percentage">
+                  {/* <div className="assignment-count-percentage">
                     {submitted.length > 1
                       ? `${Math.round((submitted.length / assignments.length) * 100)}%`
                       : "-"}
-                  </div>
+                  </div> */}
                 </div>
               </li>
-              <li className="assignment-count-inreview">
+              <li className="assignment-count-inreview assignment-count-li">
                 <label className="assignment-count-label" htmlFor="In review">
-                  In review assignment
+                  In review assignments
                 </label>
                 <div className="assignment-count-group">
-                  <div className="assignment-count">
+                  <div className="assignment-count">: &nbsp;
                     {inReview.length > 1 ? inReview.length : "-"}
                   </div>
-                  <div className="assignment-count-percentage">
+                  {/* <div className="assignment-count-percentage">
                     {inReview.length > 1
                       ? `${Math.round((inReview.length / assignments.length) * 100)}%`
                       : "-"}
-                  </div>
+                  </div> */}
                 </div>
               </li>
-              <li className="assignment-count-needswork">
+              <li className="assignment-count-needswork assignment-count-li">
                 <label className="assignment-count-label" htmlFor="Needs work">
-                  Needs work assignment
+                  Needs work assignments
                 </label>
                 <div className="assignment-count-group">
-                  <div className="assignment-count">
+                  <div className="assignment-count">: &nbsp;
                     {needsWwork.length > 1 ? needsWwork.length : "-"}
                   </div>
-                  <div className="assignment-count-percentage">
+                  {/* <div className="assignment-count-percentage">
                     {needsWwork.length > 1
                       ? `${Math.round((needsWwork.length / assignments.length) * 100)}%`
                       : "-"}
-                  </div>
+                  </div> */}
                 </div>
               </li>
-              <li className="assignment-count-completed">
+              <li className="assignment-count-completed assignment-count-li">
                 <label className="assignment-count-label" htmlFor="Completed">
-                  Completed assignment
+                  Completed assignments
                 </label>
                 <div className="assignment-count-group">
-                  <div className="assignment-count">
+                  <div className="assignment-count">: &nbsp;
                     {completed.length > 1 ? completed.length : "-"}
                   </div>
-                  <div className="assignment-count-percentage">
+                  {/* <div className="assignment-count-percentage">
                     {completed.length > 1
                       ? `${Math.round((completed.length / assignments.length) * 100)}%`
                       : "-"}
-                  </div>
+                  </div> */}
                 </div>
               </li>
             </ul>

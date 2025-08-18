@@ -19,6 +19,10 @@
             max-width: fit-content;
           }
         }
+
+        a {
+          color: black !important;
+        }
       }
 
       .dropdown-center-custom {

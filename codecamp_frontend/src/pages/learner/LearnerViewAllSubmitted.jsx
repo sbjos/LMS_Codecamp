@@ -48,38 +48,32 @@ function LearnerViewAllSubmitted() {
           <table className="assignment-table">
             <thead className="assignment-table-list assignment-table-list-submitted">
               <tr>
-                <th className="viewall viewall-name-desktop">Assignment name</th>
-                <th className="viewall viewall-name-mobile">Name</th>
-                <th className="viewall viewall-description">Description</th>
-                <th className="viewall viewall-reviewer">Reviewer</th>
-                <th className="viewall viewall-feedback">Feedback</th>
-                <th className="viewall viewall-assignment-desktop">Assignment URL</th>
-                <th className="viewall viewall-assignment-mobile">URL</th>
-                <th className="viewall viewall-branch">Branch</th>
-                <th></th>
+                <th className="viewall-th viewall-name-desktop">
+                  Assignment name
+                </th>
+                <th className="viewall-th viewall-name-mobile">Name</th>
+                <th className="viewall-th viewall-description">Description</th>
+                <th className="viewall-th viewall-reviewer">Reviewer</th>
+                <th className="viewall-th viewall-feedback">Feedback</th>
+                <th className="viewall-th viewall-assignment-desktop">
+                  Assignment URL
+                </th>
+                <th className="viewall-th viewall-assignment-mobile">URL</th>
+                <th className="viewall-th viewall-branch">Branch</th>
+                <th> </th>
               </tr>
             </thead>
 
-            <tbody>
+            <tbody className="assignment-table-list-body assignment-table-list-submitted--body">
               {submittedAssignments.map((assignment) => (
                 <tr key={assignment.id}>
-                  <td className="viewall-name-desktop">{assignment.name}</td>
-
-                  {/* mobile */}
-                  <td className="viewall-name-mobile">
-                    {
-                      <a href={assignment.assignment} target="blank">
-                        {assignment.name}
-                      </a>
-                    }
-                  </td>
-
-                  <td className="viewall-description">
+                  <td className="viewall-td viewall-name">{assignment.name}</td>
+                  <td className="viewall-td viewall-description">
                     {assignment.description}
                   </td>
-                  <td className="viewall-reviewer">Unassigned</td>
-                  <td className="viewall-feedback">No feedback</td>
-                  <td className="viewall-assignment">
+                  <td className="viewall-td viewall-reviewer">Unassigned</td>
+                  <td className="viewall-td viewall-feedback">No feedback</td>
+                  <td className="viewall-td viewall-assignment">
                     <a
                       className="assignment-link"
                       href={assignment.assignmentUrl}
@@ -89,8 +83,10 @@ function LearnerViewAllSubmitted() {
                       <u className="assignment-link-mobile">Link</u>
                     </a>
                   </td>
-                  <td className="viewall-branch">{assignment.branch}</td>
-                  <td className="viewall-button">
+                  <td className="viewall-td viewall-branch">
+                    {assignment.branch}
+                  </td>
+                  <td className="viewall-td viewall-button">
                     {ModalEdit(assignment, "btn-card-link", "Edit")}
                   </td>
                 </tr>

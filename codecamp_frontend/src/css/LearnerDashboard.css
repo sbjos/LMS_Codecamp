@@ -59,11 +59,15 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 6%;
+    gap: 4%;
     padding: 15px;
     margin: auto;
     font-size: 1.15em;
     font-weight: 500;
+
+    .assignment-count-li {
+      display: flex;
+    }
 
     .assignment-count-group {
       display: flex;

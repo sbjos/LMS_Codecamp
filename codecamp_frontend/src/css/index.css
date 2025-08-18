@@ -1,6 +1,6 @@
 /* for troubleshooting */
 * {
-  /* border: 1px solid blueviolet; */
+  /* border: 1px solid red; */
 }
 
 .learner-page-root {
@@ -8,6 +8,7 @@
 }
 
 :root {
+  min-width: max-content;
   position: relative;
   line-height: 2;
   font-family: Optimist, Helvetica Neue, Helvetica, Arial, sans-serif !important;
